@@ -46,7 +46,11 @@ Comosí is pragmatically sufficient when the semantic clustering of the two cove
 **3c.4** Generative Reconstruction produces two outputs:
 
 - **3c.4i** A *candidate reconstruction* — the receiver's best attempt at building the transmitted concept.
-- **3c.4ii** A *divergence report* — an explicit account of where the reconstruction required assumptions, where it was blocked, which divergence type (Anchor-Only Subgraph, Edge Divergence, Temporal Drift) appears to be operative, and — where the Edge Taxonomy is applicable — which edge-type misattribution, if any, may be in play.
+- **3c.4ii** A *divergence report* — an explicit account of where the reconstruction required assumptions, where it was blocked, which divergence type (Anchor-Only Subgraph, Edge Divergence, Temporal Drift) appears to be operative, and — where the Edge Taxonomy is applicable — which edge-type misattribution, if any, may be in play. 
+  - **Provisional Divergence Report Template:** To make the Mirror-to-Generative transition explicitly operational, the receiver is encouraged to complete this minimal checklist:
+    1. **Structural Gaps Detected:** [List gaps]
+    2. **Primary Divergence Type:** [Anchor-Only / Edge Divergence / Temporal Drift]
+    3. **Edge-Type Guesses (JIT-OM):** [e.g., Sender treats as Causal, Receiver sees as Inferential]
 
 **3d — Stage 3: Divergence Localization** `[STABLE]`
 

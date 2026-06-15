@@ -2,15 +2,17 @@
 
 **0.1 Purpose of This Document**
 
-This ninth formal articulation of the General Method for Refinement and Transmission of Ideas (GMRTI) takes v0.7 as its base while executing seven structural repairs to resolve identified logical dissonances. These include: aligning Redundancy-Masking with the metaagnostic epistemic limits, splitting Generative Reconstruction into a two-phase Mirror/Generative process, redefining Anchor-Only Subgraph to avoid Node Substantialism, introducing Operational Parking, and restricting Syntactic Edge-Forcing to structural layers. identified through adversarial audit of that iteration.
+This tenth formal articulation of the General Method for Refinement and Transmission of Ideas (GMRTI) takes the v0.8 Candidate as its base while executing structural repairs identified through an adversarial audit. The changes aim to reduce overhead without sacrificing diagnostic precision, continuing the framework's evolution toward operational viability.
 
-First, the **metaagnosticism definition** is restored to its v0.5 formulation. The v0.6 revision softened the definition's second clause — the meta-level claim that distinguishes metaagnosticism from ordinary fallibilism — replacing it with a milder pragmatist restatement. This is the most consequential repair in this iteration: the philosophical core of the framework's foundational concept must not be diluted for readability.
+The following new repairs are incorporated into the v0.9 Candidate:
 
-Second, the **Refinery entries** are restored to full depth. The v0.6 revision compressed R2 through R4 to skeleton summaries, stripping the elaborated open questions that constitute their actual intellectual content. This is a confirmed instance of Compression as Covenant Intrusion (6b.4): the sections *appeared* intact because their headers survived, while the substantive material beneath them was evacuated. The Refinery depth is load-bearing and must pass the length-and-redundancy audit explicitly from this iteration forward.
+1. **Strengthening Edge Taxonomy Economy:** Introducing a lightweight tiered approach (coarse cut for Covenant Declaration vs. finer cut via JIT-OM for misattribution repair) to prevent classification overhead from blocking transmission.
+2. **Enhancing Mirror-to-Generative Transition:** Formalizing the Divergence Report with an explicit artifact template to make the transition more operational.
+3. **Prototyping Syntactic Edge-Forcing (R2):** Adding a minimal prototype requiring explicit primary relational operators.
+4. **Empirical Validation of Semantic Entropy (R4):** Establishing an empirical protocol for the Semantic Entropy Metric by counting Polyphonic Encoding paths to reach Operational Parking.
+5. **Meta-DRC Alignment (R7):** Introducing a new refinery item to handle divergence over Domain Risk Coefficient classification itself.
 
-Third, the **Edge Taxonomy** introduced in v0.6 is retained but properly grounded. It is reframed as provisional rather than closed, connected explicitly to the Divergence Taxonomy's new subtype of edge-type misattribution, and marked with appropriate epistemic humility consistent with the framework's own metaagnostic commitments. The colophon's second line is also restored to its v0.5 formulation, which carried structural meaning that v0.6's replacement dissolved.
-
-All genuine additions from v0.6 — Cost-Bounded Termination, the Stopping Principle, the Edge Taxonomy itself, R5 — are preserved.
+The critical restorations made in v0.7 (metaagnosticism definition, Refinery depth, Edge Taxonomy grounding) and maintained through v0.8 remain fully intact in this iteration.
 
 **0.2 Alphanumerical Convention**
 

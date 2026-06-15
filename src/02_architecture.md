@@ -22,7 +22,15 @@ Not all edges are alike. The GMRTI therefore introduces a working partition of r
 
 This taxonomy is itself a conceptual carving subject to the framework's own metaagnostic commitments. The boundaries between types are contested — the line between inferential and causal edges, for instance, is a live dispute in philosophy of science — and the partition's completeness is not guaranteed. It is offered as a diagnostic instrument, not a closed ontological inventory. Future iterations may collapse, subdivide, or reorder these types as the framework's operational experience accumulates.
 
-The current working partition:
+The current working partition introduces a **lightweight tiered approach** to manage the classification overhead:
+
+**Tier 1: The Primary Coarse Cut (For Covenant Declaration)**
+Used upfront in Stage 1 to establish basic orientation without excessive cognitive load:
+- **Inferential / Causal** — distinguishing logical consequence from worldly production.
+- **Other** — deferred until required.
+
+**Tier 2: The Finer Cut via JIT-OM (For Misattribution Repair)**
+Deployed locally and retroactively only when an Edge-Type Misattribution is detected in Stage 3:
 
 - **Inferential edges** — what follows from what, and under which rules of consequence.
 - **Causal edges** — what produces, enables, or constrains what in the world, independently of any reasoner's rules.
