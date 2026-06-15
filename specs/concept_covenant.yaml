@@ -1,0 +1,10 @@
+concept_id: GMRTI-COVENANT
+name: "Semantic Covenant"
+intent: "To define the bounded, unique configuration of experience, reflection, and linguistic inheritance within which any idea is originally formed."
+dependencies:
+  - GMRTI-TOPOLOGY
+  - GMRTI-EDGE
+invariants:
+  - "No two semantic covenants are identical. (Metaagnostic condition)"
+  - "Transmission between covenants is reconstruction, not transfer."
+status: STABLE

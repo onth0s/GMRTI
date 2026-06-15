@@ -23,6 +23,9 @@ def create_monolithic_document():
     files_to_include = [
         "src/00_preamble.md",
         "glossary.md",
+        "ARCHITECTURE.md",
+        "METHODOLOGY.md",
+        "REFINEMENT.md",
         "src/01_problem.md",
         "src/02_architecture.md",
         "src/03_algorithm.md",
