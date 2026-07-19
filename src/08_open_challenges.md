@@ -36,6 +36,16 @@
 
 **8a.17** *The Edge-Type Balance Problem* (v0.9): Resolved via the **two-tiered Edge Taxonomy** switching rules (2a.5) that optimize cognitive overhead vs. diagnostic precision. `[NEW]`
 
+**8a.18** *The Holism Implosion* (v0.9): Resolved via **Boundary-Tracing Encapsulation** (2h, 3e.1ii), which wraps localized repairs in a boundary-covenant to block propagation of meaning shifts. `[NEW]`
+
+**8a.19** *The Pathological Mirror* (v0.9): Resolved via **Minimal Intelligibility Bootstrap** (2e.5) which guarantees decoding capacity by anchoring agnosticism in a Primitive Covenant. `[NEW]`
+
+**8a.20** *The Metadata Regress* (v0.9): Resolved via **Relational Operator Vocab Terminus** (3e.1vi) which defines the eight primitive operators as axiomatic primitives that are non-markable, stopping regress. `[NEW]`
+
+**8a.21** *Polyphonic Complexity Drift* (v0.9): Resolved via **Core Path Minimization** (2f.6) which limits redundant paths to direct translations of a single canonical path. `[NEW]`
+
+**8a.22** *The Centerless Trap* (v0.9): Addressed via the **Dynamic Re-Anchoring Cycle** (2d.2) which models textual drift as a managed trajectory with continuous Maintenance Covenant updates. `[NEW]`
+
 **8b — Addressed, Pending Validation** `[PROVISIONAL]`
 
 *[There are currently no items pending validation. All prior provisional challenges have been formalized and resolved in this iteration.]*

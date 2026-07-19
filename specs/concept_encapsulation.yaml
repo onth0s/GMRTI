@@ -1,0 +1,10 @@
+concept_id: GMRTI-ENCAPSULATION
+name: "Boundary-Tracing Encapsulation"
+intent: "To prevent local semantic modifications from propagating holistically across the entire network by drawing formal boundaries around subgraphs."
+dependencies:
+  - GMRTI-TOPOLOGY
+invariants:
+  - "Local repairs must be enclosed in a boundary-covenant wrapper."
+  - "Treats encapsulated subgraphs as black-box nodes with declared interfaces."
+  - "Stops edge-change propagation beyond the immediate concept region."
+status: STABLE
