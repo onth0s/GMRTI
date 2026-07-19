@@ -1,0 +1,11 @@
+concept_id: GMRTI-FORCING
+name: "Syntactic Edge-Forcing"
+intent: "To constrain receiving-covenant reconstructions by mandating explicit primary relational operators directly within surface syntax."
+dependencies:
+  - GMRTI-EDGE
+  - GMRTI-TOPOLOGY
+invariants:
+  - "Requires explicit primary relational operators (e.g., ->inferential, ->causal) in key structural claims."
+  - "Reduces semantic entropy by grammatical compulsion."
+  - "Relies on a shared primitive operator vocabulary to prevent metadata entropy regress."
+status: STABLE

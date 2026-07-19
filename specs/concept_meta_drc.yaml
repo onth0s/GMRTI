@@ -1,0 +1,10 @@
+concept_id: GMRTI-META-DRC
+name: "Meta-DRC Alignment"
+intent: "To resolve divergences regarding the Domain Risk Coefficient (DRC) classification itself between communicating covenants."
+dependencies:
+  - GMRTI-COVENANT
+invariants:
+  - "Disagreement on DRC is treated as a Meta-DRC Divergence."
+  - "Triggers immediate Stage 3 Localization and pauses standard transmission."
+  - "Defaults to the highest demanded DRC of any participating party until consensus is negotiated."
+status: STABLE

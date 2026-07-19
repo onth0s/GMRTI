@@ -16,9 +16,14 @@
 
 The fundamental transmission problem can be restated precisely using the concept of Semantic Entropy. A transmission event begins with the transmitter encoding a semantic configuration — a specific topological region of their covenant — into a surface signal. That signal reaches the receiver carrying high semantic entropy: many non-identical edge-configurations in the receiving covenant remain compatible with what was transmitted. The receiver selects one of these configurations — typically without awareness that selection is occurring — and treats it as the transmitted content.
 
+We formalize Semantic Entropy \(H_s(S)\) of a surface signal \(S\) relative to a receiving covenant as the log of the number of non-isomorphic topological edge-configurations \(G_R\) that can represent \(S\) without contradiction:
+\[H_s(S) = \log_2 |\{G_R : G_R \text{ is compatible with } S\}|\]
+Because direct measurement of \(H_s(S)\) is constrained by metaagnosticism, we operationalize it via the **Behavioral Convergence Proxy (Path-Count Metric)**: the number of independent Polyphonic Encoding paths that must be successfully reconstructed and verified by the receiver before they reach the Operational Action Threshold. Thus, a high path count indicates high initial semantic entropy.
+
 The GMRTI's central purpose is the controlled reduction of semantic entropy: progressively constraining the space of consistent receiving-covenant configurations until the residual divergence is either negligible for the transmission's purposes, or explicitly locatable and typeable when it is not. This is not entropy elimination — metaagnosticism establishes that as unachievable — but entropy management: bringing the receiving covenant's configuration into a neighborhood of the transmitting covenant's configuration that is close enough for the work at hand.
 
 This framing clarifies why natural language's high-entropy character is not merely a stylistic inconvenience. Natural language is expressive precisely because it is high-entropy: a word can mean many things to many covenants. This is generative for poetry, metaphor, and creative connotation. It is structurally dangerous for transmission of concepts whose downstream operational consequences diverge sharply depending on which configuration the receiver selects. The GMRTI does not propose to replace natural language's expressive entropy with formal poverty. It proposes to selectively reduce entropy for the nodes and edges that matter most in a given transmission context, leaving expressive richness intact elsewhere. `[STABLE]`
+
 
 **1b — Why This Problem Is Not Merely Academic**
 
@@ -37,10 +42,14 @@ This framing clarifies why natural language's high-entropy character is not mere
 The GMRTI must address transmission across three structurally distinct modes with a single unified algorithmic skeleton:
 
 **1c.1 — Self-to-Future-Self Transmission**
-A thinker at time *t₁* attempts to transmit an idea to their own future state at time *t₂*. The primary failure mode is Temporal Drift Divergence: the author's covenant has changed between encoding and decoding such that the originally intended edge-structure is no longer recoverable from the encoded signal. The Temporal Stranger operationalization (Section 6c) directly addresses this mode.
+A thinker at time *t₁* attempts to transmit an idea to their own future state at time *t₂*. The primary failure mode is Temporal Drift Divergence: the author's covenant has changed between encoding and decoding such that the originally intended edge-structure is no longer recoverable from the encoded signal. The Temporal Stranger operationalization (Section 6c) directly addresses this mode. This mode is established as the canonical baseline sandbox for the first implementation (v0.9) under the practice of **Self-Annotation**.
 
 **1c.2 — Self-to-Other Transmission**
 A thinker attempts to transmit an idea to a contemporaneous other. This is the classical communication problem, understood metaagnostically: as reconstruction across covenant difference rather than transfer of identical content.
 
 **1c.3 — Community-to-Community Transmission**
 A community's accumulated knowledge, values, or frameworks is transmitted to another community with a different collective covenant. This is the problem of ontological translation — the target community may lack not just the words but the conceptual infrastructure to receive the transmission. The Federated Graph model (Section 2d) addresses this mode's structural complexity.
+
+**1c.4 — Developmental Ordering**
+To prevent over-generalization and manage cognitive overhead, the GMRTI mandates a strict developmental ordering: Self-Annotation (Self-to-Future-Self) serves as the initial sandbox to generate and test conceptual primitives; Community-to-Community (Constitutional Drafting) then formalizes these primitives; which are subsequently simplified for real-time Self-to-Other dialogue (GMRTI-Mediated Dialogue). `[NEW]`
+

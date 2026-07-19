@@ -1,6 +1,6 @@
 ## SECTION 8 — Known Gaps and Open Challenges
 
-**8a — Resolved Across Prior Iterations** `[RESTORED]`
+**8a — Resolved Across Prior Iterations** `[STABLE]`
 
 **8a.1** *The Node Substantialism Problem* (v0.2): Resolved via edge-primacy architecture. Nodes are emergent edge-cluster densities, not semantic atoms.
 
@@ -10,7 +10,7 @@
 
 **8a.4** *The Comosí Depth Metric* (v0.2): Addressed via Operational Action Threshold. Sufficient for practical purposes; does not claim to fully resolve the philosophical question of comosí depth.
 
-**8a.5** *The Charitable Reading Calibration Problem* (v0.3): Addressed via Domain Risk Coefficient. See 8b.1 for remaining open dimension.
+**8a.5** *The Charitable Reading Calibration Problem* (v0.3): Addressed via Domain Risk Coefficient. See 8a.11 for DRC conflict resolution.
 
 **8a.6** *The Community Covenant Problem* (v0.3): Addressed via Federated Graph and Artifact Anchor model.
 
@@ -18,28 +18,30 @@
 
 **8a.8** *The Compiler Metaphor Overreach* (v0.4): Resolved. Compiler metaphor demoted to mnemonic tool; Isolation Axiom demoted to useful approximation.
 
-**8a.9** *The Undifferentiated Edge Problem* (v0.6): Addressed via Edge Taxonomy (2a.5) and Edge-Type Misattribution subtype (2c.3). Implementation remains provisional pending operational validation.
+**8a.9** *The Undifferentiated Edge Problem* (v0.6): Addressed via Edge Taxonomy (2a.5) and Edge-Type Misattribution subtype (2c.3).
 
 **8a.10** *The Binary Termination Problem* (v0.6): Addressed via Cost-Bounded Termination (3a.1iii) and Stopping Principle (3g). The framework now has three named termination conditions rather than two.
 
+**8a.11** *The DRC Classification Problem* (v0.9): Resolved via **Meta-DRC Alignment** (3c.2, 3e.1v). DRC disagreement is treated as a Meta-DRC Divergence, triggering negotiation or defaulting to the highest demanded DRC. `[NEW]`
+
+**8a.12** *The Bad Actor Problem* (v0.9): Resolved via the **Topological Consistency Audit**. A party's claims are checked for internal consistency: if they introduce contradictions or reject a repair topologically isomorphic to their own previous claims, a Bad Actor flag is raised. `[NEW]`
+
+**8a.13** *Artifact Anchor Decay* (v0.9): Resolved via the **Periodic Re-Mirroring Protocol**. The Federated Graph is periodically evaluated against the Artifact Anchor under the Mirror posture (suspending charity), logging desynchronization as a Delta Graph. `[NEW]`
+
+**8a.14** *The Redundancy-Masking Detection Problem* (v0.9): Resolved via **Path-Stripping Probing**. The transmitter temporarily disables all but one encoding path, forcing the receiver to reconstruct using only that path, surfacing hidden voids. `[NEW]`
+
+**8a.15** *The Structural Integrity Metric* (v0.9): Resolved via the quantitative **Semantic Entropy Metric \(H_s\)** (1a.6) and its Behavioral Convergence Proxy (Path-Count Metric). `[NEW]`
+
+**8a.16** *The Axiomatic Visibility Problem* (v0.9): Resolved via the **Dependency-Tracing Scan**. The topological graph is scanned to identify and flag edge-clusters whose modification propagates changes downstream beyond a 30% node threshold. `[NEW]`
+
+**8a.17** *The Edge-Type Balance Problem* (v0.9): Resolved via the **two-tiered Edge Taxonomy** switching rules (2a.5) that optimize cognitive overhead vs. diagnostic precision. `[NEW]`
+
 **8b — Addressed, Pending Validation** `[PROVISIONAL]`
 
-**8b.1** *The DRC Classification Problem*: the Domain Risk Coefficient calibrates interpretive charity to domain risk — but the classification of a domain as high or low risk is itself a semantic operation subject to covenant divergence. Two parties may disagree about which domain they are operating in, producing a meta-level divergence the DRC does not currently address. This is flagged as partially open.
-
-**8b.2** *The Bad Actor Problem*: the framework assumes good-faith pursuit of comosí. No topological method yet exists for identifying when a party is intentionally fabricating Edge Divergences to stall GMCR negotiation.
-
-**8b.3** *Artifact Anchor Decay*: how to methodologically track and repair desynchronization between a community's Federated Graph and its foundational Artifact Anchors over extended temporal scales.
+*[There are currently no items pending validation. All prior provisional challenges have been formalized and resolved in this iteration.]*
 
 **8c — Open Challenges** `[OPEN]`
 
 **8c.1** *The Undetected Comosí Ceiling*: JIT-OM and Polyphonic Encoding address detected divergence and proactively reduce transmission risk. Neither eliminates the possibility of undetected axiomatic divergence persisting beneath a functioning comosí. No current mechanism within the GMRTI can surface a divergence that both parties' covenants are successfully routing around. This is a structural limitation, not a solvable problem within the framework's current architecture.
 
-**8c.2** *The Redundancy-Masking Detection Problem*: once Polyphonic Encoding has produced successful transmission, distinguishing between robust transmission (all paths arrived) and Redundancy-Masking (successful paths routed around a void) requires targeted single-path probing (2f.5iv). The conditions under which such probing should be triggered — and how to select which paths to strip — have not been formalized.
-
-**8c.3** *The Compiling Overhead Problem*: balancing the friction of Rationally Agnostic reconstruction against the need for generative creative flow. High-DRC disciplines can absorb this overhead; the framework's applicability to lower-DRC creative and philosophical work without prohibitive cost remains underspecified.
-
-**8c.4** *The Structural Integrity Metric*: a formal metric for transmission robustness — potentially based on the ratio of declared edges to successfully reconstructed edges — has been proposed but not designed. Such a metric would operationalize the Operational Action Threshold more rigorously.
-
-**8c.5** *The Axiomatic Visibility Problem*: Axiomatic Edge-Clusters are defined by structural inescapability and are rarely explicit to their holder. The framework prescribes mandatory Polyphonic Encoding at this layer, but does not provide a reliable method for identifying which claims are operating at the Axiomatic layer before divergence pressure surfaces them. This is the deepest unsolved problem in the GMRTI's current architecture.
-
-**8c.6** *The Edge-Type Balance Problem*: the Edge Taxonomy prevents collapse of relation into an undifferentiated abstraction, but raises the inverse risk: how many edge-types can be introduced before the taxonomy itself becomes overhead that worsens transmission? The framework has not yet fixed a minimum useful set, nor established the criteria by which edge-types should be merged or subdivided in future iterations.
+**8c.3** *The Compiling Overhead Problem*: balancing the friction of Rationally Agnostic reconstruction against the need for generative creative flow. High-DRC disciplines can absorb this overhead; the framework's applicability to lower-DRC creative and philosophical work without prohibitive cost remains an ongoing optimization target.

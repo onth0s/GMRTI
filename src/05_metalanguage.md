@@ -15,11 +15,19 @@
 
 **5a.2** The GMRTI's claim is that natural language's concealment of these ontological distinctions is not merely a stylistic inconvenience but a structural source of transmission failure. A framework that did not mark these distinctions at the site of divergence would systematically mis-locate the source of failures. `[STABLE]`
 
-**5a.3 — Concept-Type and Syntactic Edge-Forcing Compatibility** `[PROVISIONAL]`
+**5a.3 — Concept-Type and Syntactic Edge-Forcing Compatibility** `[STABLE]`
 
 The concept-type taxonomy of 5a.1 has a direct prescriptive implication for the deployment of Syntactic Edge-Forcing (Section 2g). Edge-forcing is most effective for types 5a.1i through 5a.1v — material entities, abstract universals, formal relations, and process distinctions — where the primary relational structure is logical or structural and can be captured in compositional form. It is least effective for types 5a.1iv and 5a.1vi — qualia and normative concepts — where the most consequential edges are experiential associations or axiomatic commitments that syntactic compulsion cannot transmit. For these high-entropy concept types, Polyphonic Encoding and JIT-OM remain the primary tools; Syntactic Edge-Forcing, if applied at all, should be understood as partial entropy reduction rather than entropy solution.
 
+**5a.4 — Carved, Constructed, and Boundary Concepts** `[STABLE]`
+
+For the purpose of JIT-OM markers, we partition the concept-type taxonomy of 5a.1 into three operational classes that govern their targeted repair strategies:
+- **Carved Concepts**: Includes material entities (5a.1i), abstract universals (5a.1ii), relational concepts (5a.1v), and process distinctions (5a.1vii). These concepts reflect structures independent of human covenants. Repair is accomplished by pointing to the world, logical proofs, or empirical reference.
+- **Constructed Concepts**: Includes social constructs (5a.1iii), normative concepts (5a.1vi), and gradient-to-binary mappings (5a.1viii). These concepts exist solely by virtue of cooperative agreement or axiomatic commitment. Repair requires explicit renegotiation or adjustment of the semantic covenant itself.
+- **Boundary Concepts**: Concepts that straddle classes (e.g., mathematical concepts, which are formally constructed via axioms but operationally carved within trained communities). These are treated as constructed-but-operationally-carved, utilizing formal syntactic constraints to establish apodictic comosí. `[NEW]`
+
 **5b — Just-In-Time Ontological Marking** `[STABLE]`
+
 
 **5b.1** An upfront metalanguage — requiring parties to agree on ontological categories before communication begins — creates an infinite regress: the metalanguage used to classify concepts is itself subject to the same transmission failures it was designed to prevent. It also prematurely triggers a calculus of liability, importing philosophical overhead into transmissions that do not require it.
 

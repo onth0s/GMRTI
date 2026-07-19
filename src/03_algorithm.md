@@ -39,6 +39,9 @@ The required precision of reconstruction scales inversely with interpretive char
 - **High-DRC Domains** (aviation, surgery, law, formal logic): interpretive charity approaches zero. Any minor Edge Divergence triggers immediate localization and repair before transmission proceeds. The Mirror posture is sustained throughout.
 - **Low-DRC Domains** (casual dialogue, early-stage creative brainstorming, arts): interpretive charity is maximized. Minor divergences are treated as noise, provided the Operational Action Threshold is met. The Mirror posture is adopted only when a divergence becomes operationally significant.
 
+**Meta-DRC Divergence**: A meta-divergence arises when the communicating parties disagree on the DRC classification itself (e.g., Party A demands High-DRC precision while Party B operates under Low-DRC charity). This is flagged as a Meta-DRC Divergence during Stage 2. When detected, the standard transmission is paused, and the algorithm redirects to Stage 3 Localization and Stage 4 Repair of the Meta-DRC. Until a consensus DRC is negotiated, the protocol default is to enforce the highest demanded DRC of any participating party to prevent catastrophic coordination failures under asymmetric risk. `[NEW]`
+
+
 **3c.3 — The Operational Action Threshold**
 
 Comosí is pragmatically sufficient when the semantic clustering of the two covenants produces identical downstream actions or operational definitions within the specific bounded domain of the transmission. Perfect philosophical alignment is unnecessary if the structural subgraphs route to the same behavioral or logical outputs. `[PROVISIONAL]`
@@ -72,8 +75,10 @@ Comosí is pragmatically sufficient when the semantic clustering of the two cove
 - **3e.1ii** *Edge Divergence Repair (Local Alignment)*: the parties make explicit the different edge-structures each covenant associates with the shared label, identify which differences are operationally significant for the current transmission, and negotiate a local edge-alignment sufficient for the transmission's purposes. This does not require one party to permanently adopt the other's topology — only to model it accurately for the duration of the exchange.
 - **3e.1iii** *Edge-Type Misattribution Repair (Type Declaration)*: the parties explicitly name the edge-type each is operating with, identify where the types diverge, and negotiate a working type-assignment sufficient for the transmission's purposes. This is a JIT-OM operation applied at the edge-type level rather than the concept-type level.
 - **3e.1iv** *Temporal Drift Repair (Archival Reconstruction)*: the encoding party's earlier state, reconstructed via documentation or the Temporal Stranger protocol (Section 6c), must be consulted to re-establish the original *t₁* edge-structure. The receiver must then distinguish between what has drifted and what was originally transmitted.
+- **3e.1v** *Meta-DRC Divergence Repair (DRC Negotiation & Defaulting)*: The parties pause the primary transmission and explicitly negotiate the DRC for the domain. If consensus cannot be reached, the protocol mandates defaulting to the highest demanded DRC of any participating covenant. This prevents asymmetric risk failure (where one party treats an operation as low-risk while it carries catastrophic failure risk for another). Once the DRC is established, the transmission resumes from Stage 2 under the new joint coefficient. `[NEW]`
 
 **3e.2** Repair operations do not aim at permanent covenant merger. The goal is a locally calibrated comosí — sufficient for the transmission at hand, explicitly acknowledged as bounded, and not assumed to generalize beyond the established domain. `[STABLE]`
+
 
 **3f — Stage 5: Irreducibility Declaration** `[STABLE]`
 

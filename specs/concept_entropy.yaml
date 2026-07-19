@@ -1,0 +1,10 @@
+concept_id: GMRTI-ENTROPY
+name: "Semantic Entropy"
+intent: "To measure structural ambiguity in a transmitted signal as the count of non-isomorphic receiving-covenant configurations compatible with it."
+dependencies:
+  - GMRTI-COVENANT
+invariants:
+  - "Measured quantitatively using the Behavioral Convergence Proxy (Path-Count metric)."
+  - "Perfect entropy elimination (zero entropy) is structurally impossible under metaagnosticism."
+  - "Targeted reduction prioritizes high-DRC structural/axiomatic subgraphs."
+status: STABLE

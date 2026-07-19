@@ -7,4 +7,5 @@ dependencies:
 invariants:
   - "No two semantic covenants are identical. (Metaagnostic condition)"
   - "Transmission between covenants is reconstruction, not transfer."
+  - "Self-Annotation (Self-to-Future-Self transmission) is the foundational sandbox covenant."
 status: STABLE
