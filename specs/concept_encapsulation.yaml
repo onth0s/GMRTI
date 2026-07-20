@@ -1,6 +1,8 @@
 concept_id: GMRTI-ENCAPSULATION
 name: "Boundary-Tracing Encapsulation"
-intent: "To prevent local semantic modifications from propagating holistically across the entire network by drawing formal boundaries around subgraphs."
+intent: >-
+  To prevent local semantic modifications from propagating holistically across
+  the entire network by drawing formal boundaries around subgraphs.
 dependencies:
   - GMRTI-TOPOLOGY
 invariants:

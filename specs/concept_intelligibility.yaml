@@ -1,10 +1,16 @@
 concept_id: GMRTI-INTELLIGIBILITY
 name: "Minimal Intelligibility Bootstrap"
-intent: "To establish a baseline Primitive Covenant that guarantees decoding capacity, preventing pathological mirror failures under low-charity conditions."
+intent: >-
+  To establish a baseline Primitive Covenant that guarantees decoding capacity,
+  preventing pathological mirror failures under low-charity conditions.
 dependencies:
   - GMRTI-COVENANT
 invariants:
-  - "Presupposes a Primitive Covenant consisting of core relational grammar and shared syntax."
-  - "Prevents charity from collapsing to absolute zero by anchoring interpretation in the bootstrap."
+  - >-
+      Presupposes a Primitive Covenant consisting of core relational grammar and
+      shared syntax.
+  - >-
+      Prevents charity from collapsing to absolute zero by anchoring
+      interpretation in the bootstrap.
   - "Ensures decoding capacity is sustained regardless of DRC levels."
 status: STABLE
