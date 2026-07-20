@@ -12,6 +12,14 @@ Covenant Declarations subject to Generative Reconstruction and Divergence
 Localization by adversarial readers, including future versions of the authors
 themselves.
 
+**6a.3** A full demonstration of self-application — performing
+an explicit Covenant Declaration, Generative Reconstruction,
+Divergence Localization, and Targeted Repair cycle on one section of
+this document — is a validation target for the next iteration. The
+current iteration asserts and partially prototypes self-application
+(see 2g.7) but does not execute a complete self-audit cycle.
+`[PROVISIONAL]`
+
 **6b — The LLM-Manifesto Iteration Loop** `[PROVISIONAL]`
 
 **6b.1** One operationalization of the GMRTI's Refinement front is the following

@@ -22,7 +22,7 @@ def create_monolithic_document():
 
     files_to_include = [
         "src/00_preamble.md",
-        "glossary.md",
+        "GLOSSARY.md",
         "ARCHITECTURE.md",
         "METHODOLOGY.md",
         "REFINEMENT.md",
@@ -54,7 +54,7 @@ def create_monolithic_document():
                 content = f.read().strip()
                 
                 # Apply fixes for structural alignment
-                if rel_path == "glossary.md":
+                if rel_path == "GLOSSARY.md":
                     content = content.replace("# Glossary", "**0.4 Vocabulary**")
                     # Append directly to preamble without '---' separator
                     if body_parts:

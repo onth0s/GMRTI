@@ -229,14 +229,38 @@ pathological one. The GMRTI's goal is to make dependency on shared context
 
 **2e.5 — Minimal Intelligibility Bootstrap** `[STABLE]`
 
-To resolve the pathological mirror failure where low charity prevents any signal
-decoding, we introduce the **Minimal Intelligibility Bootstrap**. Rational
-Agnosticism does not assume absolute zero knowledge. Every receiver presupposes
-a **Primitive Covenant** — consisting of basic relational grammar and shared
-syntactic rules — that enables the decoding process to boot. Calibrating the DRC
-to zero reduces interpretive charity to this primitive baseline, guaranteeing
-decoding capacity while still preventing the projection of unstated contextual
-assumptions. `[NEW]`
+To address the pathological mirror failure where low charity
+prevents any signal decoding, we introduce the **Minimal
+Intelligibility Bootstrap (MIB)**. Rational Agnosticism does not
+assume absolute zero knowledge. Every receiver presupposes a
+baseline decoding substrate. The MIB stratifies this substrate
+into two layers:
+
+- **2e.5i — The Minimal Substrate** (framework-independent):
+The weakest shared assumption required for *any* structured
+communication to begin. It requires only that both agents can:
+(a) distinguish signals from non-signals; (b) detect structural
+similarity between relational configurations; (c) distinguish
+their own conceptual regions from one another (internal
+individuability). This substrate carries no GMRTI-specific
+content and makes no claim about edge-types, taxonomies,
+or relational grammar. `[STABLE]`
+
+- **2e.5ii — The Primitive Covenant** (GMRTI-specific): The
+additional shared assumptions required for GMRTI-mediated
+communication specifically. This includes the eight primitive
+relational operators (2g.4), the edge-primacy structural
+commitment (2a.2), and the Tier 1 coarse taxonomy
+(inferential/causal/other). The Primitive Covenant is itself
+a semantic framework subject to transmission error — its
+establishment between agents is a transmission problem that
+the MIB does not solve but JIT-OM addresses. `[NEW]`
+
+Calibrating the DRC to zero reduces interpretive charity to the
+Minimal Substrate baseline. GMRTI-mediated repair additionally
+requires the Primitive Covenant, whose sharing between agents is
+a precondition acknowledged as non-trivial, not a background
+assumption that can be silently presupposed. `[NEW]`
 
 
 **2f — Polyphonic Encoding** `[STABLE]`
@@ -309,16 +333,30 @@ present. The GMRTI must account for this: Polyphonic Encoding should be paired
 with explicit divergence-checking to ensure that successful transmission has not
 merely routed around a void rather than filled it. `[STABLE]`
 
-**2f.5iv — The Detection of Redundancy-Masking via Path-Stripping Probing**
-`[STABLE]`
+**2f.5iv — The Detection of Redundancy-Masking via
+Path-Stripping Probing** `[STABLE]`
 
-To resolve the threat of a false comosí sustained by redundancy-masking, the
-GMRTI introduces the **Path-Stripping Probing** protocol (see 8a.14). The
-receiver temporarily disables all but one polyphonic path, forcing the system to
-reconstruct using only that single path. If reconstruction fails or drops below
-the Operational Action Threshold, a hidden void is localized. This bounds the
-risk of redundancy-masking, transforming it from a structural limit into a
-testable boundary. `[NEW]`
+To resolve the threat of a false comosí sustained by
+redundancy-masking, the GMRTI introduces the **Path-Stripping
+Probing** protocol (see 8a.14). The receiver temporarily disables
+all but one polyphonic path, forcing the system to reconstruct
+using only that single path. If reconstruction fails or drops
+below the Operational Action Threshold, a hidden void is
+localized. This bounds the risk of redundancy-masking,
+transforming it from a structural limit into a testable boundary.
+
+**Polyphonic Node Detection**: PSP produces false positives on
+legitimately polyphonic nodes — nodes carrying multiple
+simultaneous meanings via structurally independent paths. To
+break the diagnostic circularity (PSP needs to know which nodes
+are polyphonic, but detecting polyphony requires the analysis PSP
+provides), the GMRTI defines an automatic pre-screening
+criterion: any node with two or more incoming edges of distinct
+types *and* two or more outgoing edges of distinct types is
+flagged as a *candidate polyphonic node*. PSP applied to
+candidate polyphonic nodes uses a strengthened threshold:
+*all* paths must fail before a void is declared, rather than
+any single path. `[NEW]`
 
 **2f.6 — Core Path Minimization** `[STABLE]`
 
@@ -360,7 +398,7 @@ declaration. The receiver, in order to decode `A + B`, must traverse the
 relational edge between A and B. This traversal is enforced by the expression's
 syntax; it cannot be bypassed.
 
-We proscribe a formal set of primitive relational operators:
+We prescribe a formal set of primitive relational operators:
 - `[->inferential]` (logical consequence)
 - `[->causal]` (physical/worldly production)
 - `[->procedural]` (methodological sequence)
@@ -387,14 +425,19 @@ directionality, the metric structure of absolute value. One cannot read the
 expression without traversing these edges; they are constitutive of the
 expression's decodability.
 
-The result is what the GMRTI terms an *apodictic comosí*: a functional overlap
-between covenants so tightly constrained by syntactic structure that the
-residual semantic entropy — while not literally zero — is negligible for all
-practical purposes within the domain defined by shared mathematical training.
-The definition of a limit can be stated in a single formal sentence and received
-univocally by any reader who shares that training, without iterative repair,
-without Polyphonic Encoding, without JIT-OM. The syntax has done the
-entropy-reduction work in advance.
+The result is what the GMRTI terms an *apodictic comosí*: a
+functional overlap between covenants so tightly constrained by
+syntactic structure that the residual semantic entropy — while not
+literally zero — is negligible *relative to natural language*
+within the domain defined by shared mathematical training. (It is
+not negligible absolutely: convention disputes — open vs. closed
+intervals, ring-with-unity vs. ring-without — demonstrate that
+even formal notation retains residual entropy.) The definition of
+a limit can be stated in a single formal sentence and received
+with near-univocal fidelity by any reader who shares that
+training, without iterative repair, without Polyphonic Encoding,
+without JIT-OM. The syntax has done the entropy-reduction work
+in advance.
 
 **2g.6 — Scope and Limits of Syntactic Edge-Forcing** `[STABLE]`
 
@@ -433,14 +476,30 @@ rather than atom. `[NEW]`
 
 **2h — Boundary-Tracing Encapsulation** `[STABLE]`
 
-**2h.1** Under semantic holism, modifying an edge during localized repair
-propagates changes throughout the entire network, threatening the stability of
-unrelated concepts. To block this propagation, the GMRTI introduces
+**2h.1** Under semantic holism, modifying an edge during
+localized repair propagates changes throughout the entire
+network, threatening the stability of unrelated concepts. To
+*attenuate* this propagation, the GMRTI introduces
 **Boundary-Tracing Encapsulation**. `[NEW]`
 
-**2h.2** Localized repairs must be enclosed in a boundary-covenant wrapper. This
-treats the modified subgraph as a single black-box node with a strictly declared
-interface (input/output edges). The wrapper blocks edge propagation, ensuring
-that meaning-shifts remain localized within the encapsulated region and do not
-destabilize the surrounding covenant graph. `[NEW]`
+**2h.2** Localized repairs must be enclosed in a
+boundary-covenant wrapper. This treats the modified subgraph as
+a single black-box node with a strictly declared interface
+(input/output edges). The wrapper attenuates edge propagation,
+confining the *direct* effects of meaning-shifts to the
+encapsulated region and reducing — though not eliminating —
+their destabilizing impact on the surrounding covenant graph.
+
+**2h.3** BTE provides *practical* isolation, not *theoretical*
+isolation. Under edge-primacy (2a.2), the meaning of interface
+edges is itself a function of the surrounding graph. Changes
+outside the boundary that alter the interpretive context of
+interface edges can therefore propagate *indirectly* into the
+wrapped subgraph. BTE's guarantee is that no *new edges* cross
+the boundary except through declared interfaces — it does not
+guarantee that the *meaning* of those interfaces is immune to
+external context change. This residual holistic leakage is a
+known structural limitation, bounded in practice by keeping
+interface edge sets small and explicitly typed.
+`[NEW][STABLE]`
 

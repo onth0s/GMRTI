@@ -121,13 +121,14 @@ reconstruction required assumptions, where it was blocked, which divergence type
 (Anchor-Only Subgraph, Edge Divergence, Temporal Drift) appears to be operative,
 and — where the Edge Taxonomy is applicable — which edge-type misattribution, if
 any, may be in play.
-  - ovisional Divergence Report Template:** To make the Mirror-to-Generative
-transition explicitly operational, the receiver is encouraged to complete this
-minimal checklist:
-    1. ural Gaps Detected:** [List gaps]
-    2. y Divergence Type:** [Anchor-Only / Edge Divergence / Temporal Drift]
-    3. ype Guesses (JIT-OM):** [e.g., Sender treats as Causal, Receiver sees
-as Inferential]
+  - **Provisional Divergence Report Template:** To make the
+    Mirror-to-Generative transition explicitly operational, the
+    receiver is encouraged to complete this minimal checklist:
+    1. **Structural Gaps Detected:** [List gaps]
+    2. **Primary Divergence Type:** [Anchor-Only / Edge
+       Divergence / Temporal Drift]
+    3. **Edge-Type Guesses (JIT-OM):** [e.g., Sender treats
+       as Causal, Receiver sees as Inferential]
 
 **3d — Stage 3: Divergence Localization** `[STABLE]`
 
@@ -164,13 +165,16 @@ is filled and functional. This is the most demanding repair operation and the
 one that most requires Polyphonic Encoding: a single scaffold path is likely to
 fail; multiple independent scaffold paths increase the probability that at least
 one takes hold in the receiving covenant.
-- **3e.1ii** *Edge Divergence Repair (Local Alignment & Encapsulation)*: the
-parties make explicit the different edge-structures each covenant associates
-with the shared label, identify which differences are operationally significant
-for the current transmission, negotiate a local edge-alignment, and
-**mandatorily apply Boundary-Tracing Encapsulation** (2h) around the repaired
-subgraph. This wrapper prevents the localized meaning-shift from propagating
-holistically and destabilizing the rest of the network. `[NEW]`
+- **3e.1ii** *Edge Divergence Repair (Local Alignment &
+  Encapsulation)*: the parties make explicit the different
+  edge-structures each covenant associates with the shared label,
+  identify which differences are operationally significant for the
+  current transmission, negotiate a local edge-alignment, and
+  **mandatorily apply Boundary-Tracing Encapsulation** (2h) around
+  the repaired subgraph. This wrapper attenuates the localized
+  meaning-shift's propagation, reducing (though not eliminating)
+  its destabilizing impact on the rest of the network (see 2h.3
+  for holistic leakage bounds). `[NEW]`
 - **3e.1iii** *Edge-Type Misattribution Repair (Type Declaration)*: the parties
 explicitly name the edge-type each is operating with, identify where the types
 diverge, and negotiate a working type-assignment sufficient for the
@@ -188,13 +192,31 @@ highest demanded DRC of any participating covenant. This prevents asymmetric
 risk failure (where one party treats an operation as low-risk while it carries
 catastrophic failure risk for another). Once the DRC is established, the
 transmission resumes from Stage 2 under the new joint coefficient. `[NEW]`
-- **3e.1vi** *Relational Operator Vocab Terminus*: To prevent the infinite
-regress of tagging metadata, the eight primitive relational operators defined in
-2g.4 are declared as *Axiomatic Primitives* whose meanings are fixed by default
-consensus within the Primitive Covenant and are structurally non-markable. Any
-divergence over the meaning of a relational operator cannot be repaired via
-JIT-OM, but triggers immediate Cost-Bounded Termination (3a.1iii) or defaults to
-classical natural language interpretation. `[NEW]`
+- **3e.1vi** *Relational Operator Vocab Terminus*: To prevent
+  the infinite regress of tagging metadata, the eight primitive
+  relational operators defined in 2g.4 are declared as *Axiomatic
+  Primitives* whose meanings are fixed by default consensus within
+  the Primitive Covenant (2e.5ii) and are structurally
+  non-markable at the content level. Any divergence over the
+  meaning of a relational operator cannot be repaired via JIT-OM,
+  but triggers immediate Cost-Bounded Termination (3a.1iii) or
+  defaults to classical natural language interpretation.
+
+  **Content–Protocol Stratification**: The eight operators
+  govern *content-level* semantic relations within
+  concept-graphs. The GMRTI algorithm additionally requires
+  *protocol-level* operations — proposing candidate repairs,
+  accepting or rejecting re-typings, pausing and resuming
+  transmission, defaulting to the highest DRC — that are
+  meta-pragmatic speech acts *about* the concept-graph rather
+  than edges *within* it. These protocol operations are
+  explicitly declared as a finite, closed meta-vocabulary
+  (propose, accept, reject, pause, resume, default) operating
+  at a single declared meta-level above the content layer.
+  This introduces one controlled stratification rather than
+  an unbounded regress: content uses the 8 operators;
+  protocol uses the 6 meta-operations; no further meta-level
+  is required or permitted. `[NEW][STABLE]`
 
 
 **3e.2** Repair operations do not aim at permanent covenant merger. The goal is

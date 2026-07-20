@@ -124,5 +124,11 @@ cognitive overhead, the GMRTI mandates a strict developmental ordering:
 Self-Annotation (Self-to-Future-Self) serves as the initial sandbox to generate
 and test conceptual primitives; Community-to-Community (Constitutional Drafting)
 then formalizes these primitives; which are subsequently simplified for
-real-time Self-to-Other dialogue (GMRTI-Mediated Dialogue). `[NEW]`
+real-time Self-to-Other dialogue (GMRTI-Mediated Dialogue). The
+framework's operational complexity is scoped accordingly: v0.9
+targets Self-Annotation only, where the cognitive overhead is
+borne by a single practitioner with full access to their own
+covenant. Scaling to real-time dialogue requires a simplified
+subset whose specification is deferred until the Self-Annotation
+validation is complete (see 8c). `[NEW]`
 

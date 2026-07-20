@@ -23,8 +23,8 @@ than external transmission failure.
 
 - **4b.1i** *Date-stamping of covenant states*: major documents and framework
 articulations should be explicitly dated and treated as expressions of the
-author's covenant at that moment, not as timeless declarations. This document's
-version history (Section 9) is an instance of this practice.
+author's covenant at that moment, not as timeless declarations. This
+document's version history is an instance of this practice.
 - **4b.1ii** *Drift logging*: where a thinker is aware that their understanding
 of a key concept has changed, that change should be explicitly documented,
 linking the old edge-structure to the new one and identifying the experience or
