@@ -348,7 +348,7 @@ Path-Stripping Probing** `[STABLE]`
 
 To resolve the threat of a false comosí sustained by
 redundancy-masking, the GMRTI introduces the **Path-Stripping
-Probing** protocol (see 8a.14). The receiver temporarily disables
+Probing** protocol. The receiver temporarily disables
 all but one polyphonic path, forcing the system to reconstruct
 using only that single path. If reconstruction fails or drops
 below the Operational Action Threshold, a hidden void is

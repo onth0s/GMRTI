@@ -33,7 +33,6 @@ def create_monolithic_document():
         "src/05_metalanguage.md",
         "src/06_refinement_vectors.md",
         "src/07_downstream.md",
-        "src/08_open_challenges.md",
     ]
 
     body_parts = []

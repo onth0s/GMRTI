@@ -130,5 +130,5 @@ targets Self-Annotation only, where the cognitive overhead is
 borne by a single practitioner with full access to their own
 covenant. Scaling to real-time dialogue requires a simplified
 subset whose specification is deferred until the Self-Annotation
-validation is complete (see 8c).
+validation is complete.
 
