@@ -28,8 +28,9 @@ another.
 *Example*: Two people in a house agree on which objects are "paintings" and
 which are "sculptures." Their personal dictionaries seem identical. Later, they
 visit a modern art gallery. Faced with avant-garde art, their agreement breaks.
-Their personal dictionaries were never the same; the new context simply exposed
-the hidden differences.
+Why? Because a painting with sufficient embossing can step into the sculpture
+category. Their dictionaries never assigned a hard boundary to the distinction;
+the new context simply exposed the hidden differences.
 
 ### The Moving Target (Temporal Drift)
 You are not a static observer. Your mind is a collection of experiences that
