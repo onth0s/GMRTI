@@ -40,3 +40,18 @@ likely to drift significantly and most critical to the transmission's long-term
 integrity. Axiomatic-layer clusters warrant anchoring before Surface clusters,
 precisely because their drift is least visible and most consequential.
 `[PROVISIONAL]`
+
+**4b.3 — Dynamic Re-Anchoring and Damping Factor Axiom** `[STABLE]`
+
+To stabilize Artifact Anchors against continuous Temporal Drift, GMRTI defines
+**Dynamic Re-Anchoring**: treating the anchor not as a static coordinate,
+but as a moving average updated via continuous correction vectors.
+- **The Damping Factor Axiom**: To prevent anchor oscillation and guarantee
+mathematical convergence to a stable anchor, all correction vector updates
+$v_t$ are scaled by a damping factor $\lambda < 1.0$ (typically $\lambda =
+0.15$). The updated anchor $A_{t+1}$ is defined as:
+  $$A_{t+1} = A_t + \lambda (A_{decl} - A_t)$$
+- **Convergence Theorem**: Under any bounded correction stream, the anchor
+trajectory converges to a stable equilibrium state if the sum of update
+magnitudes is finite:
+  $$\sum_{t=1}^{\infty} |v_t| < \infty$$

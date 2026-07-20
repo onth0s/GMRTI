@@ -29,14 +29,27 @@ premature Irreducibility Declaration foreclosing available repair, or
 misidentifying a Cost-Bounded case as one of the other two — is trivially
 avoidable. `[STABLE]`
 
-**3a.3** The compiler metaphor introduced in earlier versions remains a mnemonic
-tool for the algorithm's stages, not a description of the algorithm's nature.
-The GMRTI is not a compiler. A compiler operates on formally specified inputs
+**3a.3** The GMRTI is not a compiler. A compiler operates on formally specified inputs
 with deterministic rules; the GMRTI's entire raison d'être is that such formal
 specification is unavailable. The compiler metaphor is useful precisely where it
 highlights the iterative, error-surfacing character of the process — and must be
 abandoned where it implies deterministic precision the framework structurally
 cannot provide. `[STABLE]`
+
+**3a.4 — Tiered DRC and Opportunistic Agnosticism** `[STABLE]`
+
+To balance the cognitive overhead of Rationally Agnostic reconstruction
+against the necessity of creative generation, GMRTI defines three operational
+modes governed by the Domain Risk Coefficient (DRC):
+- **Generative Mode (Drafting)**: DRC is calibrated to infinity, enabling
+maximum interpretive charity. The receiver reads the transmission with full
+natural language assumptions. Cognitive overhead is zero.
+- **Refinement Mode**: DRC is set to moderate levels (DRC = 0.5). Basic path
+redundancy is checked, and core conceptual definitions are marked with Tier 1
+coarse taxonomy.
+- **Audit Mode**: DRC is calibrated to absolute zero. Interpretive charity is
+suspended. The receiver uses only the Minimal Substrate to perform Generative
+Reconstruction, forcing latent differences to surface for repair.
 
 **3b — Stage 1: Covenant Declaration** `[STABLE]`
 

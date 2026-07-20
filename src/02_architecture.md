@@ -256,6 +256,16 @@ a semantic framework subject to transmission error — its
 establishment between agents is a transmission problem that
 the MIB does not solve but JIT-OM addresses.
 
+- **2e.5iii — The Covenant Zero Protocol (CZP)**: The procedure
+for bootstrapping the GMRTI-specific Primitive Covenant from the
+Minimal Substrate. CZP operates via ostensive reference and structural
+association games: (a) agents map causal relations by pairing physical
+signals with temporal co-occurrence (defining `[->causal]`); (b) agents
+map inferential relations by verifying pattern co-occurrence and logical
+consistency checks (defining `[->inferential]`); (c) agents map identity by
+establishing signal substitution (defining `[->identity]`). Once these
+primitives are established, the coarse taxonomy is complete.
+
 Calibrating the DRC to zero reduces interpretive charity to the
 Minimal Substrate baseline. GMRTI-mediated repair additionally
 requires the Primitive Covenant, whose sharing between agents is
@@ -355,8 +365,19 @@ criterion: any node with two or more incoming edges of distinct
 types *and* two or more outgoing edges of distinct types is
 flagged as a *candidate polyphonic node*. PSP applied to
 candidate polyphonic nodes uses a strengthened threshold:
-*all* paths must fail before a void is declared, rather than
-any single path.
+*all* paths must fail before a void is declared, rather than any single path.
+
+**2f.5v — The Latent Comosí Ceiling Resolution** `[STABLE]`
+
+- **Null-Effect Equivalence Axiom**: If a latent topological divergence
+between two covenants has no behavioral consequence across the entire space
+of operational paths, it is semantically null under comosí. It carries zero
+operational risk and is excluded from transmission error metrics.
+- **Proactive Chaotic Probing (PCP)**: To detect latent divergences that
+*would* produce future failures, the GMRTI defines the PCP protocol. PCP
+proactively runs Path-Stripping Probing on random samples of candidate
+polyphonic nodes during generative states (low DRC), simulating path failure
+to force latent differences to surface before they trigger real-time faults.
 
 **2f.6 — Core Path Minimization** `[STABLE]`
 
