@@ -35,9 +35,11 @@ the new context simply exposed the hidden differences.
 ### The Moving Target (Temporal Drift)
 You are not a static observer. Your mind is a collection of experiences that
 constantly changes. A note you write to yourself today is written by one
-"semantic entity." The person reading it in five years is a "temporal
-stranger." Without active anchoring, you will misread your own past thoughts
-because your internal dictionary has drifted.
+"semantic entity" — the particular you that exists at this moment, with this
+vocabulary and these concerns. The person reading it in five years is a
+"temporal stranger" — someone who shares your name and memories but not your
+current understanding. Without active anchoring, you will misread your own past
+thoughts because your internal dictionary has drifted.
 
 ---
 
@@ -57,8 +59,10 @@ the opposite:
 
 ## 4. Bootstrapping: How to Start from Zero
 
-If we start with zero shared assumptions, how can we begin to cooperate? We divide
-our shared understanding into two layers:
+If we start with as few shared assumptions as possible, how can we begin to
+cooperate? (The substrate below is the minimum non-negotiable floor — not a void,
+but the smallest set of capacities any communicating agent must already possess.)
+We divide our shared understanding into two layers:
 
 ### The Minimal Substrate
 This is the framework-independent toolkit that any conscious agent shares. It is the
@@ -69,7 +73,9 @@ ability to:
 
 ### The Primitive Covenant
 This is the GMRTI-specific agreement to use the **8 Basic Connections** and the
-**Tier 1 Coarse Taxonomy** (sorting links into inferential, causal, or other).
+**Tier 1 Coarse Taxonomy** — a first-pass sorting of links into three broad
+kinds (inferential, causal, or other) that gets you orienting quickly before
+finer distinctions are needed.
 
 ### The Covenant Zero Protocol (CZP)
 How do we build the Primitive Covenant out of the Minimal Substrate? We play simple
@@ -102,8 +108,13 @@ eight relationship types:
     *Example*: *Water* `[->identity]` *H2O*.
 6.  **Referential** (`[->referential]`): Concept A points to a real-world object or instance B.
     *Example*: *The Word "Chair"* `[->referential]` *The physical chair in the corner*.
-7.  **Affective** (`[->affective]`): Concept A drives or motivates Concept B.
+7.  **Affective** (`[->affective]`): Concept A drives or motivates Concept B — the
+    subjective pull, experienced from the inside.
     *Example*: *Fear* `[->affective]` *Flight*.
+    (Causal links describe mechanism from the outside — the physical chain,
+    independent of anyone's experience of it. Fear can also be Causal when the
+    neurological pathway is the link being asserted. Use Affective when the
+    claim is about motivation; use Causal when the claim is about mechanism.)
 8.  **Structural** (`[->structural]`): Concept A is part of the physical or logical makeup of Concept B.
     *Example*: *Wheel* `[->structural]` *Bicycle*.
 
@@ -121,9 +132,11 @@ reach the correct conclusion by taking a backup route.
 *   **The Diagnostic**: To catch these hidden voids, temporarily disable all but one
     path. If the receiver can still reconstruct the meaning, the path is sound.
 *   **Polyphonic Node Pre-screening**: PSP can cause false alarms on complex nodes that
-    legitimately carry multiple independent meanings. We pre-screen our map: any node
-    with two or more different incoming link types and two or more different outgoing
-    link types is flagged. On these nodes, PSP only declares a void if *all* paths fail.
+    legitimately carry multiple independent meanings. A node is "polyphonic" when
+    several genuinely different kinds of connections come in and go out — think of a
+    word like "bank," linking to money, rivers, and airplane maneuvers all at once.
+    Pre-screen your map and flag these busy nodes. On them, PSP only declares a void
+    if *every single* path through the node fails, not just one.
 
 ### Proactive Chaotic Probing (PCP)
 Do not wait for communication to fail during a crisis. During quiet times, run PSP on
@@ -183,14 +196,20 @@ written documentation as an **Artifact Anchor** that we must actively maintain.
 ### The Damping Factor Axiom
 When updating a written guide based on a new experience, do not rewrite the entire guide
 to fit the new context. Make small, controlled adjustments. All updates are scaled by a
-damping factor ($\lambda < 1.0$, typically set to $\lambda = 0.15$). The new guide is calculated as:
-$$\text{Updated Guide} = \text{Current Guide} + \lambda (\text{New Proposal} - \text{Current Guide})$$
+damping factor λ, a number less than 1 (typically 0.15). Nudge the guide a little toward
+the new proposal — don't overwrite it.[^1]
+
+[^1]: The precise formula is: Updated Guide = Current Guide + λ (New Proposal − Current Guide). This is the only formal notation in the document; the prose description above captures the same idea without requiring algebraic fluency.
+
 This prevents the guide from oscillating wildly between different viewpoints.
 
 ### The Convergence Theorem
 If the sum of all changes you propose to a guide over time is finite, the guide is
 mathematically guaranteed to converge to a stable, permanent coordinate. It will not
-drift indefinitely.
+drift indefinitely. (The damping factor reduces the size of each update, but the
+theorem requires the additional condition that successive proposals themselves
+diminish or stabilize — the damping rule alone does not by itself guarantee a
+finite sum.)
 
 ---
 
