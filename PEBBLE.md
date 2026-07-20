@@ -1,62 +1,55 @@
-# PEBBLE: Minimal GMRTI Substrate
+# PEBBLE: The Minimal GMRTI Alignment Guide
 
-`PEBBLE.md` is a minimal, pruned, and highly transmissible single-file version of the General Method for Refinement and Transmission of Ideas (GMRTI). It distilled the core diagnostic rigor of v0.9 into a low-overhead operational format suitable for direct Self-Annotation and light dialogue.
-
----
-
-## 1. Foundational Axioms
-
-1. **Edge-Primacy**: Meaning resides entirely in the relations (edges) between concepts, not in the concepts (nodes) themselves. Nodes are emergent density labels in the edge-field.
-2. **Rational Agnosticism**: A receiver must reconstruct transmissions using strictly declared edges, suspending all unstated context and authorial charity.
-3. **Comosí**: Understanding is not a perfect replication of minds, but a functional overlap of semantic subgraphs sufficient to produce identical behavioral or logical outputs.
+`PEBBLE.md` is a low-overhead, highly transmissible checklist designed to ensure
+you and your future self (or another person) share the same mental connections.
+It strips away GMRTI's academic jargon to focus purely on practical alignment.
 
 ---
 
-## 2. The Stratified Substrate
+## 1. The Core Invariants
 
-The decoding substrate is stratified into two layers:
-- **Minimal Substrate** (Framework-Independent): The baseline ability to distinguish signals from noise, detect topological similarity, and individuate conceptual regions.
-- **Primitive Covenant** (GMRTI-Specific): The baseline agreement to use the eight primitive relational operators and the Tier 1 coarse taxonomy.
-  - *Covenant Zero Protocol (CZP)*: Bootstraps the Primitive Covenant from the Minimal Substrate using ostensive pattern-matching games to map causal, inferential, and identity relations.
-
----
-
-## 3. Relational Operators & Edge-Forcing
-
-Syntactic Edge-Forcing compiles meaning into the expression's syntax by mandating the use of eight primitive relational operators:
-- `[->inferential]` (logical consequence)
-- `[->causal]` (physical/worldly production)
-- `[->procedural]` (methodological sequence)
-- `[->normative]` (justification/obligation)
-- `[->identity]` (semantic equivalence)
-- `[->referential]` (object designation)
-- `[->affective]` (salience/motivation)
-- `[->structural]` (topological link)
+1. **Words Aren't Atoms**: A word has no meaning on its own. Its meaning is the
+   sum of its connections to other words. Focus on the connections, not labels.
+2. **The "Stranger" Posture**: Read past documentation or messages with zero
+   charity. Assume the author was a stranger who used words differently.
+3. **Good-Enough Overlap**: You don't need identical minds. You only need
+   enough isomorphism in your maps to produce the same actions.
 
 ---
 
-## 4. Diagnostics & Repairs
+## 2. The 8 Basic Connections
 
-- **Path-Stripping Probing (PSP)**: The receiver disables all but one polyphonic path to verify if the reconstruction still satisfies the Operational Action Threshold. Polyphonic node pre-screening restricts PSP checks to nodes with incoming and outgoing edges of multiple distinct types.
-- **Boundary-Tracing Encapsulation (BTE)**: Local repairs are wrapped in a black-box node to attenuate downstream propagation of meaning-shifts. BTE provides practical isolation; contextual shifts outside the boundary can still leak through interface-edge meanings.
-- **Just-In-Time Ontological Marking (JIT-OM)**: Type distinctions are marked retroactively and locally only at the precise site of a detected divergence, utilizing a Tier 1 coarse cut (Inferential / Causal / Other).
+When mapping a concept, explicitly define how it connects to others using these
+eight simple relation types:
+- **Causal** (`[->causal]`): "A physically makes B happen."
+- **Inferential** (`[->inferential]`): "If A is true, B must be true."
+- **Procedural** (`[->procedural]`): "Do A, then do B."
+- **Normative** (`[->normative]`): "A justifies/obligates B."
+- **Identity** (`[->identity]`): "A is semantically the same as B."
+- **Referential** (`[->referential]`): "A points to real-world object B."
+- **Affective** (`[->affective]`): "A drives/motivates B."
+- **Structural** (`[->structural]`): "A is topologically linked to B."
 
 ---
 
-## 5. Content-Protocol Stratification
+## 3. The 3-Step Alignment Cycle
 
-To prevent metadata regress, the communication system is stratified:
-- **Content Layer**: Uses the 8 relational operators to map concept graphs.
-- **Protocol Layer**: Uses a closed meta-vocabulary of 6 operations to govern algorithm states: `propose`, `accept`, `reject`, `pause`, `resume`, and `default`.
+To align and verify your understanding of a key concept, follow this cycle:
 
----
+### Step 1: Declare the Map
+Write down the key terms and draw the connections between them using the 8
+basic connection types. Keep it simple and focused on the immediate task.
 
-## 6. The Streamlined Algorithm
+### Step 2: Test with Low Charity (The Mirror)
+Have the receiver (or read it yourself as a temporal stranger) attempt to
+reconstruct the logic using *only* the declared connections. Do not fill in
+gaps with memory, intuition, or cultural context. If the reconstruction fails
+to yield the correct conclusion, you have a gap.
 
-1. **Stage 1: Declaration**: The sender maps the key concept-graphs and
-   their coarse edge relations.
-2. **Stage 2: Reconstruction**: The receiver performs a low-charity mirroring
-   based on the declared edges.
-3. **Stage 3: Localization & Repair**: If divergence occurs, both parties
-   isolate the mismatch, apply JIT-OM labels, negotiate type-alignments, and
-   apply BTE wrapping to the repaired subgraph.
+### Step 3: Localize and Repair
+If a connection is misunderstood (e.g., you meant a causal relation but the
+receiver read it as inferential):
+1. **Clarify the type**: Explicitly agree on the correct relation type.
+2. **Encapsulate**: Draw a boundary around the corrected subgroup. Treat it as
+   a single block with a declared input/output so the change doesn't cause a
+   cascade of shifts elsewhere.
