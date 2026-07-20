@@ -55,4 +55,3 @@ address that uniquely identifies it.
 - `[RECURSIVE]` — The claim applies to itself and should be checked for
 self-consistency
 - `[RESTORED]` — Content recovered after compression loss in prior iterations
-- `[NEW]` — Introduced for the first time in this iteration

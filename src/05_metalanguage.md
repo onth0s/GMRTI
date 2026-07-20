@@ -68,7 +68,7 @@ requires explicit renegotiation or adjustment of the semantic covenant itself.
 concepts, which are formally constructed via axioms but operationally carved
 within trained communities). These are treated as
 constructed-but-operationally-carved, utilizing formal syntactic constraints to
-establish apodictic comosí. `[NEW]`
+establish apodictic comosí.
 
 **5b — Just-In-Time Ontological Marking** `[STABLE]`
 

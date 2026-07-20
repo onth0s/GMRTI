@@ -85,7 +85,7 @@ default during initial Covenant Declaration. If a divergence is detected in
 Stage 2 and localized in Stage 3 as an Edge-Type Misattribution, the JIT-OM
 protocol triggers the activation of the Tier 2 full taxonomy locally for that
 subgraph, transitioning the classification from 'Other' or correcting the
-initial coarse cut to resolve the mismatch. `[NEW]`
+initial coarse cut to resolve the mismatch.
 
 
 **2a.6** The illusion of understanding occurs when two covenants share a surface
@@ -147,7 +147,7 @@ single continuous covenant.
 transmission failures often involve combinations. The taxonomy's value is
 diagnostic, not exhaustive. `[PROVISIONAL]`
 
-**2c.3 — Edge-Type Misattribution: A Subtype of Edge Divergence** `[NEW]`
+**2c.3 — Edge-Type Misattribution: A Subtype of Edge Divergence**
 
 The introduction of the Edge Taxonomy (2a.5) reveals a subtype of Edge
 Divergence that was previously unnamed and therefore systematically
@@ -175,7 +175,7 @@ of incompatibility is invisible without explicit edge-type declaration.
 The repair strategy for Edge-Type Misattribution is therefore distinct from
 standard Edge Divergence repair: rather than Local Alignment of topological
 structure, it requires explicit declaration and negotiation of edge-type — which
-is precisely the kind of JIT-OM operation the framework prescribes. `[NEW]`
+is precisely the kind of JIT-OM operation the framework prescribes.
 
 **2d — Institutional Meta-Covenants: Federated Graphs** `[PROVISIONAL]`
 
@@ -254,13 +254,13 @@ commitment (2a.2), and the Tier 1 coarse taxonomy
 (inferential/causal/other). The Primitive Covenant is itself
 a semantic framework subject to transmission error — its
 establishment between agents is a transmission problem that
-the MIB does not solve but JIT-OM addresses. `[NEW]`
+the MIB does not solve but JIT-OM addresses.
 
 Calibrating the DRC to zero reduces interpretive charity to the
 Minimal Substrate baseline. GMRTI-mediated repair additionally
 requires the Primitive Covenant, whose sharing between agents is
 a precondition acknowledged as non-trivial, not a background
-assumption that can be silently presupposed. `[NEW]`
+assumption that can be silently presupposed.
 
 
 **2f — Polyphonic Encoding** `[STABLE]`
@@ -356,7 +356,7 @@ types *and* two or more outgoing edges of distinct types is
 flagged as a *candidate polyphonic node*. PSP applied to
 candidate polyphonic nodes uses a strengthened threshold:
 *all* paths must fail before a void is declared, rather than
-any single path. `[NEW]`
+any single path.
 
 **2f.6 — Core Path Minimization** `[STABLE]`
 
@@ -364,7 +364,7 @@ To prevent polyphonic complexity from expanding the graph's surface area and
 introducing semantic drift, the GMRTI mandates **Core Path Minimization**: all
 redundant encoding paths must be direct structural translations (isomorphisms)
 of a single declared canonical path, rather than introducing new concepts or
-unrelated semantic domains. `[NEW]`
+unrelated semantic domains.
 
 
 **2g — Syntactic Edge-Forcing** `[STABLE]`
@@ -413,7 +413,7 @@ A compositional expression that specifies not only *that* A connects to B but
 [->inferential] B` — achieves a stronger entropy reduction by preemptively
 preventing Edge-Type Misattribution (2c.3). To prototype this in the v0.9
 Candidate, we mandate that key stable claims in this treatise be annotated with
-these operators (see 2g.7). `[NEW]`
+these operators (see 2g.7).
 
 **2g.5 — The Apodictic Comosí: Mathematical Language as Model** `[STABLE]`
 
@@ -466,13 +466,12 @@ should be calibrated to the concept-type taxonomy of Section 5a. As a working
 prototype, key stable claims in this treatise are formally edge-forced as
 follows:
 - **1a.1 (Prototype):** Every idea [->structural] exists as a configuration of
-relations [->identity] within a semantic covenant. `[NEW]`
+relations [->identity] within a semantic covenant.
 - **1a.2 (Prototype):** No two semantic covenants [->identity] are identical.
-`[NEW]`
 - **1a.3 (Prototype):** Transmission [->causal] requires reconstruction
-[->procedural] by the receiving covenant. `[NEW]`
+[->procedural] by the receiving covenant.
 - **2a.2 (Prototype):** Meaning [->structural] resides in relation [->identity]
-rather than atom. `[NEW]`
+rather than atom.
 
 **2h — Boundary-Tracing Encapsulation** `[STABLE]`
 
@@ -480,7 +479,7 @@ rather than atom. `[NEW]`
 localized repair propagates changes throughout the entire
 network, threatening the stability of unrelated concepts. To
 *attenuate* this propagation, the GMRTI introduces
-**Boundary-Tracing Encapsulation**. `[NEW]`
+**Boundary-Tracing Encapsulation**.
 
 **2h.2** Localized repairs must be enclosed in a
 boundary-covenant wrapper. This treats the modified subgraph as
@@ -501,5 +500,5 @@ guarantee that the *meaning* of those interfaces is immune to
 external context change. This residual holistic leakage is a
 known structural limitation, bounded in practice by keeping
 interface edge sets small and explicitly typed.
-`[NEW][STABLE]`
+`[STABLE]`
 

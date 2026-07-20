@@ -34,16 +34,7 @@ def create_monolithic_document():
         "src/06_refinement_vectors.md",
         "src/07_downstream.md",
         "src/08_open_challenges.md",
-        "refinery/README.md",
     ]
-    
-    # Dynamically find refinery R*.md files and sort them
-    refinery_dir = os.path.join(base_dir, "refinery")
-    if os.path.exists(refinery_dir):
-        r_files = [f for f in os.listdir(refinery_dir) if re.match(r"^R\d+\.md$", f)]
-        r_files.sort()
-        for rf in r_files:
-            files_to_include.append(f"refinery/{rf}")
 
     body_parts = []
 
@@ -62,10 +53,6 @@ def create_monolithic_document():
                     else:
                         body_parts.append(content)
                 else:
-                    if rel_path == "refinery/README.md":
-                        content = content.replace("# The Refinery", "## SECTION 10 — Refinery")
-                        content = content.replace("unjustified compression is a confirmed failure mode.*", "unjustified compression is a confirmed failure mode (see 6b.4).*")
-
                     body_parts.append(content)
         else:
             print(f"Warning: {filepath} not found, skipping.")

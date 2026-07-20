@@ -21,7 +21,6 @@ deliberately invoking the Refinement Cycle to downgrade it is an error.
 checked for self-consistency (e.g., the claim that all language is high-entropy
 applies to the language of GMRTI).
 - `[RESTORED]`: Content recovered after compression loss in prior iterations.
-- `[NEW]`: Introduced for the first time in the current iteration.
 
 ### Graduation Criteria
 A claim graduates from `[PROVISIONAL]` to `[STABLE]` only when it satisfies the

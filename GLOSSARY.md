@@ -96,31 +96,31 @@ eliminating) localized meaning-shifts from propagating
 holistically across the network. Provides practical isolation
 bounded by interface edge count; residual holistic leakage
 through interface-edge context change is a known structural
-limitation (see 2h.3). `[NEW][STABLE]`
+limitation (see 2h.3). `[STABLE]`
 - **PRIMITIVE COVENANT** — The GMRTI-specific shared substrate
 consisting of the eight primitive relational operators, the
 edge-primacy structural commitment, and the Tier 1 coarse
 taxonomy. Required for GMRTI-mediated communication
 specifically; sits above the framework-independent Minimal
 Substrate (2e.5i). Its establishment between agents is itself
-a transmission problem. `[NEW][STABLE]`
+a transmission problem. `[STABLE]`
 - **MINIMAL SUBSTRATE** — The weakest framework-independent
 assumption for structured communication: agents can distinguish
 signals from non-signals, detect structural similarity, and
 individuate their own conceptual regions. Carries no
-GMRTI-specific content. `[NEW][STABLE]`
+GMRTI-specific content. `[STABLE]`
 - **MINIMAL INTELLIGIBILITY BOOTSTRAP** — The stratified
 decoding substrate: the Minimal Substrate (framework-
 independent) guarantees basic signal decoding; the Primitive
 Covenant (GMRTI-specific) enables GMRTI-mediated repair.
 Calibrating DRC to zero reduces charity to the Minimal
-Substrate baseline. `[NEW][STABLE]`
+Substrate baseline. `[STABLE]`
 - **CORE PATH MINIMIZATION** — The constraint requiring all redundant paths in
 polyphonic encoding to be isomorphic translations of a single canonical path,
-limiting complexity growth. `[NEW][STABLE]`
+limiting complexity growth. `[STABLE]`
 - **DYNAMIC RE-ANCHORING** — The process of treating Artifact Anchors as a
 moving average, updated via continuous correction vectors to manage textual
-drift. `[NEW][STABLE]`
+drift. `[STABLE]`
 - **THE MIRROR** — Any Rationally Agnostic receiver (human, LLM, or future-self)
 operationalized to reconstruct a transmission using strictly declared edges,
 with interpretive charity calibrated to the Domain Risk Coefficient. A tool

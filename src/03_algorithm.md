@@ -101,7 +101,7 @@ Meta-DRC Divergence during Stage 2. When detected, the standard transmission is
 paused, and the algorithm redirects to Stage 3 Localization and Stage 4 Repair
 of the Meta-DRC. Until a consensus DRC is negotiated, the protocol default is to
 enforce the highest demanded DRC of any participating party to prevent
-catastrophic coordination failures under asymmetric risk. `[NEW]`
+catastrophic coordination failures under asymmetric risk.
 
 
 **3c.3 — The Operational Action Threshold**
@@ -174,7 +174,7 @@ one takes hold in the receiving covenant.
   the repaired subgraph. This wrapper attenuates the localized
   meaning-shift's propagation, reducing (though not eliminating)
   its destabilizing impact on the rest of the network (see 2h.3
-  for holistic leakage bounds). `[NEW]`
+  for holistic leakage bounds).
 - **3e.1iii** *Edge-Type Misattribution Repair (Type Declaration)*: the parties
 explicitly name the edge-type each is operating with, identify where the types
 diverge, and negotiate a working type-assignment sufficient for the
@@ -191,7 +191,7 @@ domain. If consensus cannot be reached, the protocol mandates defaulting to the
 highest demanded DRC of any participating covenant. This prevents asymmetric
 risk failure (where one party treats an operation as low-risk while it carries
 catastrophic failure risk for another). Once the DRC is established, the
-transmission resumes from Stage 2 under the new joint coefficient. `[NEW]`
+transmission resumes from Stage 2 under the new joint coefficient.
 - **3e.1vi** *Relational Operator Vocab Terminus*: To prevent
   the infinite regress of tagging metadata, the eight primitive
   relational operators defined in 2g.4 are declared as *Axiomatic
@@ -216,7 +216,7 @@ transmission resumes from Stage 2 under the new joint coefficient. `[NEW]`
   This introduces one controlled stratification rather than
   an unbounded regress: content uses the 8 operators;
   protocol uses the 6 meta-operations; no further meta-level
-  is required or permitted. `[NEW][STABLE]`
+  is required or permitted. `[STABLE]`
 
 
 **3e.2** Repair operations do not aim at permanent covenant merger. The goal is
