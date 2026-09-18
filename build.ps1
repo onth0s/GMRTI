@@ -126,6 +126,17 @@ Write-Host " Build succeeded! All artifacts up to date and verified." -Foregroun
 Write-Host "==================================================" -ForegroundColor Green
 
 if (-not $NoPause) {
-    [void](Read-Host "`nPress Enter to exit")
+    Write-Host "`nPress [Enter] to exit..." -NoNewline
+    try {
+        while ($true) {
+            $key = [System.Console]::ReadKey($true)
+            if ($key.Key -eq [System.ConsoleKey]::Enter) {
+                break
+            }
+        }
+        Write-Host ""
+    } catch {
+        [void](Read-Host)
+    }
 }
 exit 0
