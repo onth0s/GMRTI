@@ -18,7 +18,12 @@ def test_markdown_links():
         if f.endswith(".md") and not re.match(r"^GMRTI_\d+\.md$", f):
             md_files.append(os.path.join(base_dir, f))
 
-    # Subdirectories
+    # Subdirectories to scan for markdown links.
+    # Excluded directories:
+    #   - specs/: Contains machine-readable YAML concept specifications, which are
+    #     validated for structural integrity and cross-references by test_specs.py.
+    #   - archive/: Contains frozen historical monolithic snapshots that are preserved
+    #     as immutable audit artifacts and deliberately not updated.
     for subdir in ["src", "refinery"]:
         sub_path = os.path.join(base_dir, subdir)
         if os.path.exists(sub_path):

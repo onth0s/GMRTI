@@ -19,3 +19,4 @@ invariants:
       destination-isomorphism (licensing identical operational inferences) while
       preserving route-independence (traversing disjoint intermediate topology).
 status: STABLE
+last_modified: "2026-09-18"

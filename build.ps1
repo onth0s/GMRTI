@@ -30,13 +30,27 @@ param(
 
 $ErrorActionPreference = "Stop"
 
+if ($CheckOnly -and $SkipFormat) {
+    Write-Warning "Both -CheckOnly and -SkipFormat were specified: -CheckOnly already skips formatting. Verification may fail if files are unformatted."
+}
+
+# Calculate dynamic step count based on active flags
+$totalSteps = 0
+if (-not $CheckOnly -and -not $SkipFormat) { $totalSteps++ }
+if (-not $CheckOnly) { $totalSteps++ }
+$totalSteps += 2  # sync check and format check always run
+if (-not $SkipTests) { $totalSteps++ }
+
+$step = 0
+
 Write-Host "==================================================" -ForegroundColor Cyan
 Write-Host " GMRTI Build Pipeline" -ForegroundColor Cyan
 Write-Host "==================================================" -ForegroundColor Cyan
 
 # 1. Format
 if (-not $CheckOnly -and -not $SkipFormat) {
-    Write-Host "`n[1/5] Formatting files (wrap.py)..." -ForegroundColor Yellow
+    $step++
+    Write-Host "`n[$step/$totalSteps] Formatting files (wrap.py)..." -ForegroundColor Yellow
     python wrap.py
     if ($LASTEXITCODE -ne 0) {
         Write-Error "wrap.py formatting failed."
@@ -46,7 +60,8 @@ if (-not $CheckOnly -and -not $SkipFormat) {
 
 # 2. Compile monolithic treatise
 if (-not $CheckOnly) {
-    Write-Host "`n[2/5] Compiling monolithic treatise (rewrite.py)..." -ForegroundColor Yellow
+    $step++
+    Write-Host "`n[$step/$totalSteps] Compiling monolithic treatise (rewrite.py)..." -ForegroundColor Yellow
     python rewrite.py
     if ($LASTEXITCODE -ne 0) {
         Write-Error "rewrite.py compilation failed."
@@ -55,7 +70,8 @@ if (-not $CheckOnly) {
 }
 
 # 3. Verify monolithic sync
-Write-Host "`n[3/5] Verifying monolithic document sync (rewrite.py --check)..." -ForegroundColor Yellow
+$step++
+Write-Host "`n[$step/$totalSteps] Verifying monolithic document sync (rewrite.py --check)..." -ForegroundColor Yellow
 python rewrite.py --check
 if ($LASTEXITCODE -ne 0) {
     Write-Error "rewrite.py --check failed: monolithic document is out of sync."
@@ -63,7 +79,8 @@ if ($LASTEXITCODE -ne 0) {
 }
 
 # 4. Verify formatting
-Write-Host "`n[4/5] Verifying formatting (wrap.py --check)..." -ForegroundColor Yellow
+$step++
+Write-Host "`n[$step/$totalSteps] Verifying formatting (wrap.py --check)..." -ForegroundColor Yellow
 python wrap.py --check
 if ($LASTEXITCODE -ne 0) {
     Write-Error "wrap.py --check failed: unformatted files detected."
@@ -72,7 +89,8 @@ if ($LASTEXITCODE -ne 0) {
 
 # 5. Run test suite
 if (-not $SkipTests) {
-    Write-Host "`n[5/5] Running test suite (pytest)..." -ForegroundColor Yellow
+    $step++
+    Write-Host "`n[$step/$totalSteps] Running test suite (pytest)..." -ForegroundColor Yellow
     python -m pytest tests/ -v
     if ($LASTEXITCODE -ne 0) {
         Write-Error "pytest test suite failed."
@@ -83,3 +101,4 @@ if (-not $SkipTests) {
 Write-Host "`n==================================================" -ForegroundColor Green
 Write-Host " Build succeeded! All artifacts up to date and verified." -ForegroundColor Green
 Write-Host "==================================================" -ForegroundColor Green
+exit 0

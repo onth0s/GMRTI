@@ -1,9 +1,10 @@
+import re
 import os
 import glob
 import yaml
 import pytest
 
-REQUIRED_FIELDS = ["concept_id", "name", "intent", "dependencies", "invariants", "status"]
+REQUIRED_FIELDS = ["concept_id", "name", "intent", "dependencies", "invariants", "status", "last_modified"]
 VALID_STATUSES = {"STABLE", "PROVISIONAL", "OPEN", "RECURSIVE", "RESTORED"}
 
 
@@ -65,6 +66,7 @@ def test_spec_empty_dependencies_valid():
         "dependencies": [],
         "invariants": ["At least one invariant."],
         "status": "PROVISIONAL",
+        "last_modified": "2026-09-18",
     }
     assert isinstance(spec["dependencies"], list)
     assert len(spec["dependencies"]) == 0
@@ -74,3 +76,42 @@ def test_spec_open_and_restored_statuses_valid():
     """OPEN and RESTORED are valid statuses per the schema."""
     for status in ("OPEN", "RESTORED"):
         assert status in VALID_STATUSES, f"{status} missing from VALID_STATUSES"
+
+
+def test_spec_concept_id_naming_convention():
+    """All concept_ids must follow the GMRTI-* naming convention."""
+    specs = get_specs()
+    for filename, spec in specs.items():
+        concept_id = spec.get("concept_id", "")
+        assert concept_id.startswith("GMRTI-"), (
+            f"{filename}: concept_id '{concept_id}' does not start with 'GMRTI-'"
+        )
+        assert concept_id == concept_id.upper(), (
+            f"{filename}: concept_id '{concept_id}' must be uppercase"
+        )
+
+
+def test_spec_filename_slug_matches_concept_id():
+    """Each spec's filename (concept_<slug>.yaml) must match GMRTI-<SLUG>."""
+    specs = get_specs()
+    for filename, spec in specs.items():
+        base = filename
+        for ext in (".yaml", ".yml"):
+            if base.endswith(ext):
+                base = base[:-len(ext)]
+        assert base.startswith("concept_"), f"Spec file '{filename}' does not start with 'concept_'"
+        slug = base[len("concept_"):].replace("_", "-").upper()
+        expected_id = f"GMRTI-{slug}"
+        assert spec.get("concept_id") == expected_id, (
+            f"{filename}: expected concept_id '{expected_id}', got '{spec.get('concept_id')}'"
+        )
+
+
+def test_spec_last_modified_date_format():
+    """All specs must declare last_modified in YYYY-MM-DD ISO format."""
+    specs = get_specs()
+    for filename, spec in specs.items():
+        last_modified = str(spec.get("last_modified", ""))
+        assert re.match(r"^\d{4}-\d{2}-\d{2}$", last_modified), (
+            f"{filename}: invalid last_modified date format '{last_modified}', expected YYYY-MM-DD"
+        )

@@ -15,5 +15,26 @@
   GitHub Actions workflows, pre-commit hooks, cloud build configurations, or
   any other external automation infrastructure to this repository. This
   prohibition is absolute and unconditional. Verification is performed
-  locally via the Python scripts (`wrap.py --check`, `rewrite.py --check`)
-  and the `pytest` test suite only.
+  locally via the Python scripts (`wrap.py --check`, `rewrite.py --check`),
+  the `pytest` test suite, and `cd math && lake build` only.
+
+- **Formal Model Boundary** (`math/`): The Lean 4 package in `math/` is a
+  satellite verification artifact. It must never be imported by, referenced
+  from, or compiled into the GMRTI treatise sources (`src/`, `GLOSSARY.md`,
+  monolith). The treatise acknowledges its existence in exactly one sentence
+  in `src/00_preamble.md` and nowhere else. No LaTeX, no theorem statements,
+  no Lean 4 syntax of any kind may appear in any treatise source file.
+
+- **`wrap.py` Scope Exclusion**: The `.lean` source files in `math/` are
+  formatted by `lake fmt`, not by `wrap.py`. Never add `math/` to the
+  `collect_targets` scan in `wrap.py`.
+
+- **Polyphony Strong Proof (DEFERRED — action required when weak proof is
+  complete)**: `math/GMRTI/Polyphony.lean` currently proves only the **weak**
+  monotonicity form (adding a polyphonic path does not *increase* semantic
+  entropy). The **strong** form — that a destination-isomorphic, topologically
+  disjoint path *strictly reduces* entropy — requires a partition-structure
+  axiom pending resolution of §8b.1 (`src/08_gaps.md`). When the weak proof
+  is sorry-free and §8b.1 is resolved, begin the strong proof immediately.
+  The strong theorem stub is already present in `Polyphony.lean` as a
+  `-- TODO (strong)` comment.

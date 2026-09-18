@@ -14,3 +14,4 @@ invariants:
       to guarantee basic signal decoding.
   - "Requires the Primitive Covenant for GMRTI-mediated targeted repair."
 status: STABLE
+last_modified: "2026-09-18"

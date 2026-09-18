@@ -63,12 +63,12 @@ def test_check_monolithic_sync_out_of_sync(tmp_path):
     shutil.copytree(BASE_DIR, str(base_dir), dirs_exist_ok=True)
     # Corrupt the monolithic file
     mono_files = [f for f in os.listdir(str(base_dir)) if f.startswith("GMRTI_") and f.endswith(".md")]
-    if mono_files:
-        mono_path = base_dir / mono_files[0]
-        mono_path.write_text("CORRUPTED CONTENT", encoding="utf-8")
-        result = check_monolithic_sync(str(base_dir))
-        assert isinstance(result, dict)
-        assert result["in_sync"] is False
+    assert mono_files, "Fixture copy produced no monolithic file — test cannot proceed."
+    mono_path = base_dir / mono_files[0]
+    mono_path.write_text("CORRUPTED CONTENT", encoding="utf-8")
+    result = check_monolithic_sync(str(base_dir))
+    assert isinstance(result, dict)
+    assert result["in_sync"] is False
 
 
 

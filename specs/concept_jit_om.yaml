@@ -20,3 +20,4 @@ invariants:
       Bounded by the JIT-OM ceiling: cannot address undetected divergence where
       redundancy-masking sustains a false comosí.
 status: STABLE
+last_modified: "2026-09-18"

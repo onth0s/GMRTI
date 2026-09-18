@@ -1,3 +1,12 @@
+"""rewrite.py — Monolithic treatise compilation and synchronization engine for GMRTI.
+
+Assembles modular Markdown sources from ``src/``, root governance documents
+(``ARCHITECTURE.md``, ``METHODOLOGY.md``, ``REFINEMENT.md``), and ``GLOSSARY.md``
+into the unified monolithic treatise ``GMRTI_<timestamp>.md``.
+
+Manages monolithic revision archival in ``archive/`` per AGENTS.md rules
+and verifies synchronization between modular sources and root monolithic document.
+"""
 import os
 import re
 import sys
@@ -5,12 +14,11 @@ import time
 import shutil
 import argparse
 
-# -- Assembly manifest
-# Each entry: {path, merge_mode}
-# merge_mode 'separator': join body parts with '\n\n---\n\n'
-# merge_mode 'append': stitch onto previous part without separator
-
-ASSEMBLY_MANIFEST = [
+# ── Assembly Manifest Constant ──────────────────────────────────────────────
+# Canonical immutable assembly sequence. Each entry specifies:
+#   - path: relative path from repository root
+#   - merge_mode: 'separator' (join with '\n\n---\n\n') or 'append' (stitch directly)
+ASSEMBLY_MANIFEST = (
     {"path": "src/00_preamble.md",           "merge_mode": "separator"},
     {"path": "GLOSSARY.md",                  "merge_mode": "append"},
     {"path": "src/01_problem.md",            "merge_mode": "separator"},
@@ -24,7 +32,7 @@ ASSEMBLY_MANIFEST = [
     {"path": "ARCHITECTURE.md",              "merge_mode": "separator"},
     {"path": "METHODOLOGY.md",               "merge_mode": "separator"},
     {"path": "REFINEMENT.md",                "merge_mode": "separator"},
-]
+)
 
 
 
@@ -55,28 +63,48 @@ def assemble_monolithic_document(base_dir):
             content = f.read().strip()
 
         if rel_path == 'GLOSSARY.md':
-            content = re.sub(
+            content, n = re.subn(
                 r'^#\s+Glossary\b', '**0.4 Vocabulary**',
                 content, flags=re.MULTILINE
             )
+            if n != 1:
+                raise ValueError(
+                    f'Heading transform failed for {rel_path}: '
+                    f'expected 1 match, got {n}.'
+                )
         elif rel_path == 'ARCHITECTURE.md':
-            content = re.sub(
+            content, n = re.subn(
                 r'^#\s+GMRTI Architectural Model\b',
                 '## APPENDIX A — Architectural Model',
                 content, flags=re.MULTILINE
             )
+            if n != 1:
+                raise ValueError(
+                    f'Heading transform failed for {rel_path}: '
+                    f'expected 1 match, got {n}.'
+                )
         elif rel_path == 'METHODOLOGY.md':
-            content = re.sub(
+            content, n = re.subn(
                 r'^#\s+GMRTI Methodology & Status Markers\b',
                 '## APPENDIX M — Methodology & Status Markers',
                 content, flags=re.MULTILINE
             )
+            if n != 1:
+                raise ValueError(
+                    f'Heading transform failed for {rel_path}: '
+                    f'expected 1 match, got {n}.'
+                )
         elif rel_path == 'REFINEMENT.md':
-            content = re.sub(
+            content, n = re.subn(
                 r'^#\s+The Refinement Cycle\b',
                 '## APPENDIX R — The Refinement Cycle',
                 content, flags=re.MULTILINE
             )
+            if n != 1:
+                raise ValueError(
+                    f'Heading transform failed for {rel_path}: '
+                    f'expected 1 match, got {n}.'
+                )
 
         if mode == 'append':
             if body_parts:
@@ -224,7 +252,7 @@ def main():
             base_dir=base_dir, output_path=args.output,
             dry_run=args.dry_run
         )
-    except Exception as e:
+    except (FileNotFoundError, OSError, ValueError) as e:
         print(f'Error during compilation: {e}')
         sys.exit(1)
 

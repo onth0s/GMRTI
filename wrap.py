@@ -1,9 +1,36 @@
+"""wrap.py — Markdown and YAML line-width formatter for GMRTI.
+
+Reformats source files in ``src/``, ``specs/``, and ``refinery/`` (plus root
+markdown files) to a canonical line width (default 80 characters).
+
+Block-type taxonomy handled by the Markdown wrapper
+----------------------------------------------------
+- ``table``       — pipe-delimited table rows; passed through verbatim.
+- ``quote``       — blockquote paragraphs (``> …``); joined and reflowed.
+- ``footnote``    — footnote definitions (``[^n]: …``); reflowed with hanging
+                    indent.
+- ``list_item``   — ordered/unordered list items; reflowed with continuation
+                    indent matching the list marker width.
+- ``indented_line`` — indented continuation lines; reflowed preserving indent.
+- ``prose``       — plain paragraph text; reflowed freely.
+
+Code blocks (``` or ````) and display-math blocks (``$$`` fence or single-line
+``$$...$$``) are always passed through verbatim.
+
+Invocation
+----------
+    python wrap.py                    # format all tracked files in-place
+    python wrap.py --check            # check without writing; exit 1 if any
+                                      # file needs reformatting
+    python wrap.py --dry-run          # report which files would change
+    python wrap.py --path <file|dir>  # target a specific file or directory
+    python wrap.py --width N          # use a custom line width (default 80)
+"""
 import os
 import sys
 import re
 import argparse
 import textwrap
-
 
 # ── Block-type constants ────────────────────────────────────────────────────
 
@@ -190,19 +217,47 @@ def _flush_block(block_type, para, prefix, indent, width):
         out.extend(wrapped)
 
     else:
-        out.extend(para)
+        # This branch is unreachable given the known block-type constants.
+        # If a new block_type is added without a handler, fail immediately.
+        raise AssertionError(
+            f"_flush_block: unhandled block_type {block_type!r}"
+        )
 
     return out
 
 
 # ── Line classifier ─────────────────────────────────────────────────────────
 
-def _is_code_fence(stripped):
-    return stripped.startswith("```") or stripped.startswith("````")
+def _code_fence_backtick_count(stripped):
+    """Return the backtick count (3 or 4) if the line is a code fence marker,
+    else 0.  Checks 4-backtick prefix first to avoid misidentifying ```` as ```.
+    """
+    for count in (4, 3):
+        prefix = "`" * count
+        if stripped.startswith(prefix):
+            return count
+    return 0
 
 
 def _is_math_fence(stripped):
-    return stripped.startswith("$$")
+    """Return True only for a *standalone* display-math fence toggle: exactly '$$'.
+
+    A line like '$$x = 1$$' is a single-line display equation and must NOT
+    toggle the in_math state machine — use _is_single_line_display_math for
+    those.
+    """
+    return stripped == "$$"
+
+
+def _is_single_line_display_math(stripped):
+    """Return True for a self-contained single-line display equation: '$$...$$'
+    where content exists between the opening and closing markers.
+    """
+    return (
+        stripped.startswith("$$")
+        and stripped.endswith("$$")
+        and len(stripped) > 4
+    )
 
 
 def _is_heading_or_break(stripped):
@@ -245,6 +300,7 @@ def wrap_markdown(text, width=80):
     out = []
 
     in_code = False
+    _open_fence_count = 0   # backtick count of the fence that opened in_code
     in_math = False
 
     current_para   = []
@@ -264,22 +320,38 @@ def wrap_markdown(text, width=80):
     for line in lines:
         stripped = line.strip()
 
-        # 1. Code block fence
-        if _is_code_fence(stripped):
-            flush()
-            in_code = not in_code
-            out.append(line)
-            continue
+        # 1. Code block fence — track opening backtick count (W-08) so only a
+        #    matching (same or greater) closing fence ends the block.
+        fence_count = _code_fence_backtick_count(stripped)
+        if fence_count:
+            if not in_code:
+                flush()
+                in_code = True
+                _open_fence_count = fence_count
+                out.append(line)
+                continue
+            # inside a code block: only close on a *pure* fence line (no
+            # info-string) whose backtick count >= the opening count.
+            is_pure_fence = all(c == "`" for c in stripped)
+            if is_pure_fence and fence_count >= _open_fence_count:
+                in_code = False
+                _open_fence_count = 0
+                out.append(line)
+                continue
         if in_code:
             out.append(line)
             continue
 
-        # 2. Math display block ($$)
+        # 2a. Single-line display equation: '$$...$$' on one line — flush and
+        #     pass through verbatim; does NOT toggle in_math state.
+        if _is_single_line_display_math(stripped):
+            flush()
+            out.append(line)
+            continue
+
+        # 2b. Math display block fence (bare '$$') — toggles in_math state.
         if _is_math_fence(stripped):
             flush()
-            if stripped.endswith("$$") and len(stripped) > 2:
-                out.append(line)
-                continue
             in_math = not in_math
             out.append(line)
             continue
@@ -369,6 +441,23 @@ def _collect_targets_from_dir(directory, extensions):
 
 
 def collect_targets(base_dir):
+    """Return an ordered list of files to format in base_dir.
+
+    Scans the following locations with a **shallow** (non-recursive) listing:
+
+    - ``src/``      — ``.md`` files only
+    - ``specs/``    — ``.yaml`` / ``.yml`` files only
+    - ``refinery/`` — ``.md`` files only
+    - Root of base_dir — all ``.md`` files except ``README.md`` and files
+      matching the monolithic-archive pattern ``GMRTI_<digits>.md``
+    - ``README.md`` (always last)
+
+    .. important::
+        This function does **not** recurse into subdirectories.  If a nested
+        subdirectory is added inside ``src/``, ``specs/``, or ``refinery/``,
+        its files will be silently skipped.  Update ``_collect_targets_from_dir``
+        calls here when the directory structure changes.
+    """
     targets = []
 
     # 1. Walk src/  — markdown only

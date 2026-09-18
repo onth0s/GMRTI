@@ -12,3 +12,4 @@ invariants:
       Defaults to the highest demanded DRC of any participating party until
       consensus is negotiated.
 status: STABLE
+last_modified: "2026-09-18"

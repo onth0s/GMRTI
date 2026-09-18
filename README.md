@@ -35,6 +35,7 @@
 - [Methodology & Invariant Graduation](METHODOLOGY.md)
 - [The Refinement Cycle & Execution Protocol](REFINEMENT.md)
 - [Concept Specifications (CLDS)](specs/)
+- [Formal Model (Lean 4)](math/)
 
 ## Development
 
@@ -74,4 +75,15 @@ python rewrite.py
 .\build.ps1               # Builds everything: format, compile, sync check, and run tests
 .\build.ps1 -CheckOnly    # Optional bypass: run checks and tests only (no write)
 .\build.ps1 -SkipTests    # Optional bypass: format, compile, and sync check without pytest
+```
+
+## Formal Verification (Lean 4)
+
+A standalone satellite verification package in `math/` provides machine-checked
+proofs of the quantitative properties latent in GMRTI (hypothesis-space
+contraction, steady-state tracking bounds, multipath monotonicity).
+
+```bash
+cd math
+lake build
 ```

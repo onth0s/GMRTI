@@ -16,10 +16,12 @@ invariants:
       covenants rather than single centralized authorities.
   - >-
       Dynamic re-anchoring treats the anchor coordinate as an exponential
-      smoothing moving average (A_{t+1} = (1 - lambda)A_t + lambda A_{decl,t})
+      smoothing moving average (A[t+1] = (1 - lambda) * A[t] + lambda *
+      A_decl[t])
       damped by lambda < 1.0 (typically 0.15).
   - >-
       Under continuous linear drift rate delta, the anchor tracking lag is
       strictly bounded by delta * (1 - lambda) / lambda (Lag-Bounded Tracking
       Principle).
 status: PROVISIONAL
+last_modified: "2026-09-18"

@@ -151,3 +151,32 @@ def test_wrap_yaml_long_comment_reflowed():
     for line in wrapped.splitlines():
         assert line.startswith("# "), f"Missing '# ' prefix: {line!r}"
         assert len(line) <= 50, f"Exceeds width: {line!r}"
+
+
+def test_wrap_markdown_empty_blockquote():
+    """Empty blockquote line '>' preserves '>' marker."""
+    sample = ">"
+    wrapped = wrap_markdown(sample, width=50)
+    assert wrapped == ">"
+
+
+def test_wrap_markdown_bold_prefixed_clause():
+    """Bold clause identifier without leading dash is recognized as a list/item prefix."""
+    sample = "**1a.1** This is a bold prefixed clause that exceeds the wrap limit and must flow cleanly."
+    wrapped = wrap_markdown(sample, width=40)
+    lines = wrapped.splitlines()
+    assert lines[0].startswith("**1a.1**")
+    assert len(lines) > 1
+    # For prefixes longer than 8 chars (e.g. "**1a.1** " = 9), sub_indent caps at 4 spaces
+    assert lines[1].startswith("    ")
+
+
+def test_process_file_dry_run(tmp_path):
+    """process_file with dry_run=True reports changes needed without modifying file."""
+    sample = "# Heading\n\nThis is a very long paragraph that will definitely need to be wrapped to eighty columns.\n"
+    target = tmp_path / "dry_run_test.md"
+    target.write_text(sample, encoding="utf-8")
+
+    needs_change = process_file(str(target), width=40, dry_run=True)
+    assert needs_change is True
+    assert target.read_text(encoding="utf-8") == sample, "File should remain unmodified during dry_run"

@@ -35,6 +35,10 @@ The critical restorations made in v0.7 (metaagnosticism definition, exploratory
 depth, Edge Taxonomy grounding) and maintained through v0.8 remain fully intact
 in this iteration.
 
+A standalone Lean 4 formal verification package for the mathematical claims
+latent in this framework is maintained in `math/` and is explicitly outside the
+scope of this treatise.
+
 **0.2 Alphanumerical Convention**
 
 Sections follow the pattern `N`, `Na`, `Na.1`, `Na.1i` for four levels of depth:

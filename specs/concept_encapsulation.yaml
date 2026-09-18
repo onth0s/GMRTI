@@ -12,3 +12,4 @@ invariants:
 open_issues:
   - "Holistic leakage: outer context shifts propagate via interface edges."
 status: STABLE
+last_modified: "2026-09-18"

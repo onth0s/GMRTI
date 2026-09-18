@@ -15,3 +15,4 @@ invariants:
       Relies on a shared primitive operator vocabulary to prevent metadata
       entropy regress.
 status: STABLE
+last_modified: "2026-09-18"
