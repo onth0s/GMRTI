@@ -7,6 +7,24 @@ redefinition:
 - **GMRTI** — General Method for Refinement and Transmission of Ideas
 - **GMCR** — General Method for Conflict Resolution (downstream application of
     GMRTI)
+- **CONSTRUCTO-PRAGMATIST DEFINITION (CPD)** — The downstream architectural
+  specification framework that converts a refined semantic abstraction into a
+  bounded, executable operational protocol within a declared domain, evaluated
+  by its capacity to produce operational congruence among participating
+  covenants. `[PROVISIONAL]`
+- **CPD 7-TUPLE** — The formal anatomy of a Constructo-Pragmatist Definition:
+  preconditions P, state space Σ, transition function T, invariants I,
+  enforcement architecture E, yield Y, and terminal condition Ω.
+  `[PROVISIONAL]`
+- **SELF-CONSUMING CLAUSE** — An architectural constraint within a CPD
+  specifying that the concentrated power or authority required to instantiate an
+  abstraction is exhausted or transferred upon execution, preventing the
+  initiating apparatus from becoming a permanent independent object.
+  `[PROVISIONAL]`
+- **INSTITUTIONAL DISSOLUTION** — The anti-perpetuation constraint within a CPD
+  mandating that when the context justifying an operational apparatus expires,
+  the apparatus itself is dissolved rather than persisting indefinitely.
+  `[PROVISIONAL]`
 - **SEMANTIC COVENANT** (*convenio semántico*) — The totality of
   meaning-relations held by a rational entity at a given moment; a personal,
   circumstantial, and mutable directed graph. Not a fixed dictionary but a

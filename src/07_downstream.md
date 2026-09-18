@@ -64,3 +64,78 @@
     GMCR. This is the civilization-level intervention. Not universal
     understanding, but the consistent ability to know *what we are actually
     disagreeing about*. `[STABLE]`
+
+**7d — GMRTI to Constructo-Pragmatist Definition (CPD)** `[PROVISIONAL]`
+
+**7d.1 — Transmission versus Operational Architecture** GMRTI governs the
+refinement, reconstruction, and transmission of semantic objects across covenant
+difference. The Constructo-Pragmatist Definition (CPD) is the specialized
+downstream methodology governing their subsequent transformation into bounded
+operational protocols. Where GMRTI establishes a functional comosí, CPD
+specifies what that comosí permits, prohibits, executes, and terminates within a
+declared operational domain:
+    $$\text{Covenant} \rightarrow \text{Transmission} \rightarrow \text{Reconstruction} \rightarrow \text{Specification (CPD)} \rightarrow \text{Runtime / Yield} \rightarrow \text{Termination}$$
+CPD does not equate operational consequences with metaphysical truth. Rather, it
+evaluates an abstraction's specification by its capacity to produce semantic
+covenant convergence and operational congruence ($\operatorname{Action}_{C_1}(A)
+\cong \operatorname{Action}_{C_2}(A)$) among participating covenants.
+`[PROVISIONAL]`
+
+**7d.2 — The 7-Tuple Specification Architecture** A complete CPD operationalizes
+an abstraction through seven irreducible structural components:
+    $$\operatorname{CPD} = \langle P, \Sigma, T, I, E, Y, \Omega \rangle$$
+- **Preconditions ($P$)**: The irreducible environmental, institutional, and
+  semantic substrate required before instantiation can occur.
+- **State Space ($\Sigma$)**: The differentiated set of operational states
+  through which the instantiated abstraction passes.
+- **Transition Function ($T$)**: The permitted input-driven state transitions
+  ($T : \Sigma \times \text{Inputs} \rightarrow \Sigma$), constitutive of
+  operational chronology.
+- **Invariants ($I$)**: Conditions that mechanically hold throughout execution,
+  not dependent on agent goodwill.
+- **Enforcement Architecture ($E$)**: The domain mechanism that gives the
+  abstraction operational force independently of momentary authorial preference.
+- **Yield ($Y$)**: The concrete material or institutional consequences
+  produced by successful execution.
+- **Terminal Condition ($\Omega$)**: The explicit boundary condition under which
+  the *instantiated abstraction* terminates, without requiring dissolution of
+  its surrounding domain. `[PROVISIONAL]`
+
+**7d.3 — Anti-Perpetuation Mechanisms** Where an operational abstraction
+involves the exercise of concentrated authority or creates an executing
+apparatus, CPD requires explicit boundaries to prevent self-perpetuation:
+- **Self-Consuming Clause**: Mandates that the power used to instantiate the
+  abstraction is exhausted or transferred upon execution, ensuring
+  $\text{Power}_{\text{instantiate}}(A) \rightarrow
+  \text{Cost}_{\text{initiator}}$
+  rather than $\text{Power}_{\text{permanent}}$.
+- **Institutional Dissolution**: Specifies that when the justifying context
+  expires ($\text{ContextExpired}(A)$), the executing apparatus itself dissolves
+  rather than remaining indefinitely available. Recursive specification of
+  enforcement stops at declared primitive boundaries to prevent infinite
+  regress.
+  `[PROVISIONAL]`
+
+**7d.4 — Worked Didactic Instantiation: Valid Chess Resignation** The
+distinction between nominal definition and operational specification is
+illustrated by a valid chess resignation:
+- Rather than an informal utterance ("I resign"), CPD specifies: preconditions
+  $P$ (active, legally constituted game between identified players), states
+  $\Sigma$ ($\{\text{GameActive}, \text{ResignationDeclared},
+  \text{ResignationRecorded}, \text{GameTerminated}\}$),
+  transitions $T$ ($\text{GameActive} \rightarrow \text{ResignationDeclared}
+  \rightarrow \dots$),
+  invariants $I$ (only a player can resign; non-reversible), enforcement $E$
+  (tournament arbiter/ruleset), yield $Y$ (prescribed loss/win recorded), and
+  terminal condition $\Omega$ ($\text{GameTerminated}$).
+- Players do not require identical philosophies of surrender; they converge on
+  the protocol so that when the event occurs, they know what happens next.
+  `[PROVISIONAL]`
+
+**7d.5 — The Operational Replacement Protocol** Disagreements over a CPD are
+governed by a strict replacement rule: an objection to an operational definition
+is valid, but to displace an existing CPD, a challenger must supply a complete
+alternative state-transition architecture $\langle P, \Sigma, T, I, E, Y, \Omega
+\rangle$, demonstrate non-exemption, provide anti-perpetuation constraints, and
+prove greater operational convergence within the declared domain.
+`[PROVISIONAL]`

@@ -1,0 +1,35 @@
+concept_id: GMRTI-CPD
+name: "Constructo-Pragmatist Definition"
+intent: >-
+  To convert a refined semantic abstraction into a bounded, executable
+  operational architecture evaluated by its capacity to produce operational
+  congruence among participating covenants.
+dependencies:
+  - GMRTI-COVENANT
+  - GMRTI-COMOSI
+  - GMRTI-FORCING
+  - GMRTI-OPERATIONAL-ACTION-THRESHOLD
+invariants:
+  - >-
+      Operational abstractions are formally specified as an irreducible 7-tuple:
+      preconditions P, state space Sigma, transition function T, invariants I,
+      enforcement architecture E, yield Y, and terminal condition Omega.
+  - >-
+      Adequacy is evaluated by operational congruence across declared boundary
+      conditions, inheriting GMRTI's Comosí principle without claiming
+      metaphysical truth.
+  - >-
+      Non-exemption: >-
+        operational constraints must be mechanically embedded in the
+      architecture and apply to the initiator as well as other participating
+      agents.
+  - >-
+      Anti-perpetuation: abstractions exercising concentrated authority require
+      a Self-Consuming Clause and an Institutional Dissolution mechanism upon
+      context expiration.
+  - >-
+      Replacement Protocol: replacing a CPD requires supplying an alternative
+      7-tuple state-transition architecture proving superior operational
+      convergence.
+status: PROVISIONAL
+last_modified: "2026-09-18"

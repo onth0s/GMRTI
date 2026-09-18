@@ -48,3 +48,8 @@ edge-types deployed specifically when Edge-Type Misattribution is detected.
 **Aa.11 The Refinement Cycle (The Algorithm)**: The recursive
 diagnostic-and-reconstruction sequence (Covenant Declaration -> Generative
 Reconstruction -> Divergence Localization -> Targeted Repair -> Irreducibility).
+
+**Aa.12 Constructo-Pragmatist Definition (CPD)**: The 7-tuple operational
+specification framework <P, Σ, T, I, E, Y, Ω> transforming refined semantic
+concepts into bounded, executable operational architectures within declared
+domains.
