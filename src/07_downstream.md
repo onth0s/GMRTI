@@ -43,7 +43,22 @@
     the capacity to build other factories of coordination, rather than itself
     being a solution to any specific coordination problem. `[PROVISIONAL]`
 
+- **7b.3i — The Factory that Makes Factories Allegory**
+    `[ALLEGORY: CIVILIZATIONAL-COORDINATION][PROVISIONAL]`
+    Ordinary factories make specific everyday goods: one factory makes shoes,
+    another bakes bread, and another assembles cars. But before any of those
+    ordinary factories can exist, you first need a special kind of factory:
+    **the factory that makes the machine-tools for other factories**. In
+    human society, specific laws, trade treaties, and peace agreements are
+    ordinary factories producing particular coordination results. When deep
+    communication breaks down across different groups, those ordinary
+    factories cannot be built or repaired. The GMRTI is the toolmaking factory
+    that makes factories: it does not settle specific disputes about land,
+    taxes, or politics; it manufactures the basic tools of clear communication
+    so that people can build their own working institutions and agreements.
+
 **7c — The GMRTI's Ambition, Precisely Stated** `[STABLE]`
+
 
 **7c.1** A persistent risk in framing the GMRTI's civilizational stakes is the
     slide toward an impossible goal: the elimination of semantic divergence and

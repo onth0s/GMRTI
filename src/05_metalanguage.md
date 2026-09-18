@@ -95,6 +95,14 @@ strategies:
 - **5b.2iii** JIT-OM treats ontological mapping as emergency repair rather than
     global requirement, sidestepping the metalanguage trap while retaining the
     diagnostic value of ontological classification.
+- **5b.2iv — The Emergency Wall Extinguisher Allegory** `[ALLEGORY: JIT-OM]`
+    You do not walk around your house all day wearing a heavy fire suit and
+    carrying a pressurized hose just in case a spark appears (the heavy
+    burden of an upfront metalanguage). Instead, you go about your everyday
+    life in normal clothes, and only reach for the fire extinguisher mounted
+    on the wall at the exact moment and location where smoke actually breaks
+    out.
+
 
 **5b.3 — The JIT-OM Ceiling** `[STABLE]`
 

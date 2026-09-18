@@ -38,3 +38,11 @@
   is sorry-free and §8b.1 is resolved, begin the strong proof immediately.
   The strong theorem stub is already present in `Polyphony.lean` as a
   `-- TODO (strong)` comment.
+
+- **Simple Everyday Language for Allegories**: All allegories (`[ALLEGORY]`)
+  must be written in plain, grounded, everyday language. They must avoid
+  unnecessary jargon, overly academic vocabulary, or convoluted syntax (e.g.,
+  write "forces" instead of "vectors", "the factory that makes factories"
+  instead of "industrial manufacturing facilities"). An allegory's entire
+  purpose is to provide a low-entropy, accessible bridge to an abstract concept.
+

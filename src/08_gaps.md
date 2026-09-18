@@ -50,6 +50,18 @@ non-isomorphic edge-configurations without engaging the metaagnostic boundary.
   Convergence Proxy (Path-Count Metric) directly in the topology, bounding
   Hartley entropy to finite, operationally distinguishable classes without
   demanding impossible metaphysical access to unobservable private nodes.
+- **8b.1i — The Sealed Light Switch Box Allegory**
+  `[ALLEGORY: GRAPH-PARTITIONING]`
+  Two electricians build two black boxes with a switch on the front and a light
+  bulb on top. Inside Box A, there are gears, springs, and clockwork levers;
+  inside Box B, there are copper wires and a dry battery. We cannot open the
+  sealed boxes to inspect what is hidden inside (just as we cannot see into
+  another person's private thoughts). But whenever anyone flips the switch on
+  either box, the bulb turns on with the exact same brightness and timing. For
+  all practical work in the world, both boxes belong to the exact same
+  functional
+  class.
+
 
 **8b.2 — Contention 2: Mirror-Prior Synchronization in Adversarial Loops**
 `[PROVISIONAL]`

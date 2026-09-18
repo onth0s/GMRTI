@@ -61,3 +61,13 @@ $A_{decl,t}$.
 This frames the choice of $\lambda$ as a formal tradeoff: smaller $\lambda$
 suppresses local variance and prevents oscillation, while larger $\lambda$
 minimizes steady-state tracking lag behind authentic covenant evolution.
+
+- **4b.3i — The Floating Sea-Anchor Allegory**
+    `[ALLEGORY: DYNAMIC-REANCHORING]`
+    In deep, stormy waters, a ship cannot drop a heavy iron anchor down to the
+    ocean floor: the seabed is too deep and rigid, and the chain will snap. But
+    if the captain drops no anchor at all, every passing wave spins the ship out
+    of control ($\lambda = 1.0$). Instead, the crew deploys a submerged cloth
+    sea-anchor (a drogue with $\lambda = 0.15$): it allows the vessel to glide
+    smoothly with the deep ocean current while dampening out the violent surface
+    chop, keeping the bow pointed in a steady, safe direction.

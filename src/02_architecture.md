@@ -36,6 +36,15 @@ reintroduce the node under a different name. This is resolved as follows:
     regions where edges have become sufficiently dense and stable to warrant
     naming. The naming is a convenience for transmission — it becomes a source
     of transmission failure when the label is mistaken for the thing itself.
+- **2a.4iv — The Whirlpool in the River Allegory** `[ALLEGORY: EDGE-PRIMACY]`
+    A whirlpool in a river is not an object that someone dropped into the water
+    which then causes the water to rotate. It is simply what happens when
+    rushing water forces meet, push against each other, and spin. The swirl (the
+    noun, or node) is created entirely by the moving currents (the relations,
+    or edges). Naming the whirlpool gives us a convenient word to point at, but
+    treating it as a solid object independent of the river's moving forces is a
+    mistake.
+
 
 **2a.5 — Edge Taxonomy** `[STABLE][RESTORED]`
 
@@ -157,6 +166,15 @@ metaphysical assumption into a measurable topological dependency.
   covenant at *t₁* and the receiving state at *t₂* have drifted, producing
   mismatch between encoded and decoded edge-structure within what appears to be
   a single continuous covenant.
+- **2c.1iv — The Empty Wrapper vs. Mismatched Currencies Allegory**
+  `[ALLEGORY: DIVERGENCE-TYPES]`
+  An *Anchor-Only Subgraph* is like an empty golden chocolate wrapper with no
+  chocolate inside: a person can repeat the word "sovereignty", but has zero
+  working operational connections attached to it. An *Edge Divergence* is like
+  two people both using the word "dollar", where one person means US Dollars and
+  the other means Australian Dollars: both hold real value and real rules, but
+  their expectations clash the instant they try to make a trade.
+
 
 **2c.2** These three types are not always cleanly separable in practice; real
     transmission failures often involve combinations. The taxonomy's value is
@@ -208,6 +226,15 @@ is precisely the kind of JIT-OM operation the framework prescribes.
     drift using GMRTI principles. The anchor slows drift; the Maintenance
     Covenant manages the residual. `[STABLE]`
 
+- **2d.2i — The Vault Kilogram and Metrologists Allegory**
+    `[ALLEGORY: ARTIFACT-ANCHORS]`
+    A country agrees on what a "kilogram" means by keeping a polished cylinder
+    of platinum in a sealed vault (the Artifact Anchor). But over the decades,
+    dust gathers and tiny flecks of metal wear away. Without a dedicated team of
+    scientists regularly cleaning, checking, and re-calibrating it (the
+    Maintenance Covenant), every scale across the nation will slowly drift
+    apart without anyone realizing it.
+
 **2d.3** The Federated Graph model has a critical implication: institutional
     transmission failures are not the same as individual transmission failures.
     An institution can transmit successfully even when no two members fully
@@ -234,6 +261,17 @@ coordination fractures.
     who possesses only the edge-structures explicitly declared in the current
     transmission session, and who makes no appeal to unstated contextual grease,
     shared cultural assumptions, or inferred authorial intent.
+
+- **2e.1i — The Literal Robot Stress-Test Allegory**
+    `[ALLEGORY: RATIONAL-AGNOSTICISM]`
+    When a friend says *"Hand me that thing by the door"*, you guess correctly
+    because you know your friend and notice their eyes glance at the umbrella.
+    That is natural human charity. Rational Agnosticism is testing your sentence
+    with a literal-minded robot that knows only the words actually spoken: the
+    robot halts and asks *"Which object? What door?"* Deliberately refusing to
+    fill in the blanks with friendly guesses is how you find the gaps in your
+    instructions before sending them to a stranger.
+
 
 **2e.2** This is an operational posture, not a metaphysical claim. Real
     receivers are never truly rationally agnostic — they always bring existing
@@ -415,6 +453,15 @@ paths must fail before a void is declared, rather than any single path.
   simulating path failure to force latent differences to surface before they
   trigger real-time faults.
 
+- **2f.5vi — The Four-Engine Airplane Ground Test Allegory**
+  `[ALLEGORY: PATH-STRIPPING]`
+  A four-engine airplane can fly smoothly even if Engine #3 has a broken fuel
+  pipe, because the other three engines supply enough lift to hide the problem
+  during cruising flight. Path-Stripping Probing is the ground stress test
+  where mechanics shut off Engines 1, 2, and 4 one by one. When Engine #3 is
+  tested all by itself, it immediately sputters and stalls, revealing the
+  broken pipe before the plane takes off into a storm.
+
 **2f.6 — Core Path Minimization** `[STABLE]`
 
 To prevent polyphonic complexity from expanding the graph's surface area and
@@ -475,6 +522,13 @@ A compositional expression that specifies not only *that* A connects to B but
 preventing Edge-Type Misattribution (2c.3). To prototype this in the v0.9
 Candidate, we mandate that key stable claims in this treatise be annotated with
 these operators (see 2g.7).
+
+- **2g.4i — The Jigsaw Puzzle Joint Allegory** `[ALLEGORY: EDGE-FORCING]`
+  If you lay two flat, square wooden blocks side-by-side, someone could stack
+  them, push them apart, or glue them backwards. Syntactic Edge-Forcing is
+  cutting a specific tongue-and-groove puzzle joint into the wood: the blocks
+  can only slide together in one exact alignment. The shape of the joint itself
+  forces the connection.
 
 **2g.5 — The Apodictic Comosí: Mathematical Language as Model** `[STABLE]`
 
@@ -546,6 +600,15 @@ bounded by two structural conditions:
     propagation, confining the *direct* effects of meaning-shifts to the
     encapsulated region and reducing — though not eliminating — their
     destabilizing impact on the surrounding covenant graph.
+
+- **2h.2i — The Submarine Watertight Bulkhead Allegory**
+    `[ALLEGORY: ENCAPSULATION]`
+    If a pipe bursts in one compartment of a submarine, the crew does not let
+    seawater flood the entire vessel. They immediately dog down the heavy
+    watertight doors on that specific room (the boundary wrapper). They repair
+    the broken valve inside the sealed room, ensuring only safe, controlled
+    cables pass through the bulkhead to the rest of the ship.
+
 
 **2h.3** BTE provides *practical* isolation, not *theoretical* isolation. Under
     edge-primacy (2a.2), the meaning of interface edges is itself a function of
