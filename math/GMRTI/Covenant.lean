@@ -11,16 +11,16 @@ held by a rational entity at a given moment (§0.4, §2a).
 
 namespace GMRTI
 
-/-- The GMRTI Edge Taxonomy classification types (§2a, §2f). -/
+/-- The GMRTI Edge Taxonomy classification types (§2a, §2f, concept_edge.yaml). -/
 inductive EdgeType where
   | Causal
   | Inferential
   | Procedural
+  | Affective
   | Normative
-  | Structural
   | Identity
-  | Analogical
-  | NormativeSecondary
+  | Referential
+  | Structural
   deriving DecidableEq, Repr
 
 /-- A directed labeled edge between two semantic nodes. -/
@@ -63,6 +63,11 @@ theorem Covenant.le_trans {V : Type} {C₁ C₂ C₃ : Covenant V}
     (h₁ : C₁ ≤ C₂) (h₂ : C₂ ≤ C₃) : C₁ ≤ C₃ := by
   intro u v
   exact _root_.le_trans (h₁ u v) (h₂ u v)
+
+instance {V : Type} : Preorder (Covenant V) where
+  le := Covenant.le
+  le_refl := Covenant.le_refl
+  le_trans := fun _ _ _ ↦ Covenant.le_trans
 
 /-- Add a typed edge constraint to an existing covenant. -/
 def Covenant.addEdge {V : Type} [DecidableEq V] (C : Covenant V) (e : DirectedEdge V) : Covenant V where

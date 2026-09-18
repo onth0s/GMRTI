@@ -1,3 +1,4 @@
+import os
 import yaml
 import pytest
 from wrap import wrap_yaml, wrap_markdown, process_file
@@ -180,3 +181,35 @@ def test_process_file_dry_run(tmp_path):
     needs_change = process_file(str(target), width=40, dry_run=True)
     assert needs_change is True
     assert target.read_text(encoding="utf-8") == sample, "File should remain unmodified during dry_run"
+
+
+def test_wrap_yaml_flow_sequence_mapping_not_converted_to_block_scalar():
+    """Flow sequences like deps: [A, B] should not be converted to 'deps: >-'."""
+    sample = "dependencies: [GMRTI-COVENANT, GMRTI-ENTROPY, GMRTI-TOPOLOGY, GMRTI-DEPTH]"
+    wrapped = wrap_yaml(sample, width=30)
+    assert "dependencies: >-" not in wrapped
+    assert "dependencies: [" in wrapped or "dependencies:" in wrapped
+
+
+def test_wrap_markdown_single_line_display_math():
+    """Single-line display math $$...$$ passes through verbatim without toggling state."""
+    sample = "Intro paragraph.\n\n$$H_s(S) = \\log_2 |\\{G_R : G_R \\text{ is compatible with } S\\}|$$\n\nOutro paragraph."
+    wrapped = wrap_markdown(sample, width=40)
+    assert "$$H_s(S) = \\log_2 |\\{G_R : G_R \\text{ is compatible with } S\\}|$$" in wrapped
+
+
+def test_wrap_markdown_nested_fences():
+    """3-backtick code block inside 4-backtick fence is preserved."""
+    sample = "````markdown\n```python\nprint('hello')\n```\n````"
+    wrapped = wrap_markdown(sample, width=40)
+    assert "```python" in wrapped
+    assert "print('hello')" in wrapped
+
+
+def test_collect_targets_excludes_agents_md(base_dir):
+    """collect_targets must never include AGENTS.md in targets."""
+    from wrap import collect_targets
+    targets = collect_targets(base_dir)
+    target_basenames = [os.path.basename(t) for t in targets]
+    assert "AGENTS.md" not in target_basenames
+    assert "README.md" in target_basenames

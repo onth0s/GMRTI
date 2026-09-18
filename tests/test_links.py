@@ -1,7 +1,6 @@
 import os
 import re
-import glob
-import pytest
+from tests.conftest import MONOLITHIC_PATTERN
 
 def find_markdown_links(content):
     # Regex to match markdown links: [text](target)
@@ -9,13 +8,11 @@ def find_markdown_links(content):
     matches = re.findall(r"(?<!!)\[([^\]]+)\]\(([^)]+)\)", content)
     return matches
 
-def test_markdown_links():
-    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
+def test_markdown_links(base_dir):
     md_files = []
     # Root markdown files
     for f in os.listdir(base_dir):
-        if f.endswith(".md") and not re.match(r"^GMRTI_\d+\.md$", f):
+        if f.endswith(".md") and not MONOLITHIC_PATTERN.match(f):
             md_files.append(os.path.join(base_dir, f))
 
     # Subdirectories to scan for markdown links.

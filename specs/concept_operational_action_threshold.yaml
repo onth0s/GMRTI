@@ -1,0 +1,20 @@
+concept_id: GMRTI-OPERATIONAL-ACTION-THRESHOLD
+name: "Operational Action Threshold"
+intent: >-
+  To define the domain-specific fidelity threshold where a receiver's
+  reconstructed topology produces downstream actions or operational outputs
+  that are functionally congruent with the transmission.
+dependencies:
+  - GMRTI-COVENANT
+  - GMRTI-COMOSI
+invariants:
+  - >-
+      Domain-specific threshold of reconstruction fidelity at which a receiver's
+      reconstructed semantic clustering produces downstream operational choices,
+      inferences, or behaviors that are functionally congruent across all
+      declared boundary conditions.
+  - >-
+      Serves as the explicit termination criterion for Operational Parking
+      (§3a.1i) and Path-Stripping Probing (§2f.5iv).
+status: PROVISIONAL
+last_modified: "2026-09-18"

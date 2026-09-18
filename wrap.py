@@ -32,6 +32,9 @@ import re
 import argparse
 import textwrap
 
+# ── Pattern constants ───────────────────────────────────────────────────────
+MONOLITHIC_PATTERN = re.compile(r"^GMRTI_\d+\.md$")
+
 # ── Block-type constants ────────────────────────────────────────────────────
 
 _TABLE        = "table"
@@ -64,7 +67,8 @@ def wrap_yaml(text, width=80):
             continue
 
         # 2. Key-value unquoted long string: key: value...
-        key_unquoted = re.match(r"^(\s*)([\w-]+):\s+([^\">|#\s].*)$", line)
+        # Exclude flow mappings/sequences ({...}, [...]) from being converted to block scalars
+        key_unquoted = re.match(r"^(\s*)([\w-]+):\s+([^\">|#{\[\s].*)$", line)
         if key_unquoted and not line.strip().startswith("-"):
             indent = key_unquoted.group(1)
             key = key_unquoted.group(2)
@@ -475,10 +479,12 @@ def collect_targets(base_dir):
         os.path.join(base_dir, "refinery"), (".md",)
     ))
 
-    # 4. Root markdown files (except monolithic archives/outputs)
+    # 4. Root markdown files (except monolithic archives/outputs and governance files)
+    # AGENTS.md is a strict behavioral constraints file; exclude to prevent prose reflow.
+    excluded_root_files = {"README.md", "AGENTS.md"}
     for f in sorted(os.listdir(base_dir)):
-        if f.endswith(".md") and f != "README.md":
-            if not re.match(r"^GMRTI_\d+\.md$", f):
+        if f.endswith(".md") and f not in excluded_root_files:
+            if not MONOLITHIC_PATTERN.match(f):
                 targets.append(os.path.join(base_dir, f))
 
     readme_path = os.path.join(base_dir, "README.md")

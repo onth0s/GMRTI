@@ -6,6 +6,7 @@ intent: >-
 dependencies:
   - GMRTI-COVENANT
   - GMRTI-ENTROPY
+  - GMRTI-OPERATIONAL-ACTION-THRESHOLD
 invariants:
   - >-
       Comosí represents functional overlap sufficient for bounded coordination,

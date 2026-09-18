@@ -35,7 +35,7 @@ theorem ema_error_bound_step (lambda : ℝ) (hlambda_nonneg : 0 ≤ 1 - lambda) 
 
 /-- Invariant bound: If the tracking error satisfies |A - D| ≤ δ / lambda,
 then the updated error satisfies |A_{t+1} - D_{t+1}| ≤ δ / lambda. -/
-theorem ema_steady_state_invariant (lambda δ : ℝ) (hlambda_pos : 0 < lambda) (hlambda_le : lambda ≤ 1) (_hδ : 0 ≤ δ)
+theorem ema_steady_state_invariant (lambda δ : ℝ) (hlambda_pos : 0 < lambda) (hlambda_le : lambda ≤ 1)
     (A D D_next : ℝ) (h_drift : |D_next - D| ≤ δ)
     (h_bound : |A - D| ≤ δ / lambda) :
     |(emaUpdate lambda A D) - D_next| ≤ δ / lambda := by
