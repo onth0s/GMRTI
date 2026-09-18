@@ -17,6 +17,10 @@ non-negotiable behavioral contracts for authoring and refactoring the treatise.
 - `[STABLE]`: A formal invariant. It is considered load-bearing, and changes
   here propagate broadly. Any refactor that breaks a `[STABLE]` claim without
   deliberately invoking the Refinement Cycle to downgrade it is an error.
+  *Epistemic boundary*: `[STABLE]` marks authorial closure — a claim not
+  currently undergoing revision in order to prevent infinite regress and
+  self-consuming refinement (see §3g.2) — not an assertion of metaphysical
+  truth or objective proof.
 - `[RECURSIVE]`: A claim that applies to the framework itself and must be
   checked for self-consistency (e.g., the claim that all language is
   high-entropy applies to the language of GMRTI).

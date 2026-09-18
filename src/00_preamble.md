@@ -77,7 +77,9 @@ address that uniquely identifies it.
 
 **0.3 Status Markers**
 
-- `[STABLE]` — Considered load-bearing; changes here propagate broadly
+- `[STABLE]` — Considered load-bearing; changes here propagate broadly. Marks
+  authorial closure (claims not currently being revised to avoid infinite
+  regress per §3g.2), not an assertion of metaphysical truth or final proof
 - `[PROVISIONAL]` — Held with confidence but open to revision
 - `[OPEN]` — Known gap; active work needed
 - `[RECURSIVE]` — Applies to the framework itself; check for reflexivity

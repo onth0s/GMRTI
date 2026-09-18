@@ -65,7 +65,8 @@ document over time.
     particularly where the LLM's priors share the author's axiomatic mistake.
     The Irreducibility Check in step 5 is the primary mitigation. `[STABLE]`
 
-**6b.4 — Compression as Covenant Intrusion** `[STABLE]`
+**6b.4 — Compression as Covenant Intrusion and the Burden-of-Proof Rule**
+`[STABLE]`
 
 A specific failure mode of the LLM-Manifesto loop, observed empirically across
 this document's iteration history: LLM adversarial readers with trained priors
@@ -73,6 +74,36 @@ favoring brevity will systematically read Polyphonic Encoding as
 redundancy-in-the-pejorative-sense and compress it out. This is not editorial
 improvement — it is the LLM's aesthetic axiomatic cluster silently replacing the
 author's epistemological one.
+
+**The Compression Asymmetry Justification**: The epistemic asymmetry favoring
+preservation over compression is directly derived from the foundational purpose
+of Polyphonic Encoding (§2a, §2f). Ex ante, a transmitting covenant cannot know
+which specific topological route will successfully achieve comosí with an
+unknown receiver's existing edge-structure. The cost of retaining an extra
+independent path is minimal (marginal document length), whereas the cost of
+erroneously cutting a path is catastrophic (total transmission failure for all
+receivers whose topology required that specific route). Therefore, under
+epistemic uncertainty, the default presumption strictly favors path
+preservation.
+
+**The Compression Burden-of-Proof Rule**: To distinguish legitimate editorial
+tightening from destructive compression, GMRTI establishes a strict
+burden-of-proof standard. A proposed cut or compression is legitimate *if and
+only if* the removed path is demonstrated under Core Path Minimization (§2f.6)
+to be both *destination-isomorphic* and *non-route-independent* with a path that
+survives the edit — proving it to be true duplicate redundancy rather than an
+alternative entry ramp. Any editorial pruning that cannot make this explicit
+showing is classified as presumptive covenant intrusion and rejected.
+
+- **6b.4i — The Art Tutorials Allegory** `[ALLEGORY: COMPRESSION-ASYMMETRY]`
+  Consider online art tutorials for drawing hands or perspective. Nobody looks
+  at the thousands of drawing tutorials and says "we already have one good
+  explanation, delete the rest." One instructor explains perspective using
+  railroad tracks, another using cardboard boxes, and another using horizon
+  lines and camera lenses. Because every beginner starts with a different
+  background, no single tutorial works for everyone. Trimming away alternative
+  explanations to save space just ensures that learners whose minds worked like
+  the deleted tutorial will fail to learn.
 
 The symptom is: successive iterations become shorter while appearing more
 coherent. The diagnosis: Redundancy-Masking at the meta-level — the document's

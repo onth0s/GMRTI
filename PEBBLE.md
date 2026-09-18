@@ -127,6 +127,10 @@ Don't try to define and label every single concept ahead of time. Only pull out 
 
 A method for clear thinking must be able to test itself. Everything the GMRTI recommends for other ideas is also used to test and refine this document over time.
 
+> **Allegory: The Art Tutorials**
+>
+> Consider online art tutorials for drawing hands or perspective. Nobody looks at the thousands of drawing tutorials and says "we already have one good explanation, delete the rest." One instructor explains perspective using railroad tracks, another using cardboard boxes, and another using horizon lines and camera lenses. Because every beginner starts with a different background, no single tutorial works for everyone. Trimming away alternative explanations to save space just ensures that learners whose minds worked like the deleted tutorial will fail to learn. The symptom is: successive iterations become shorter while appearing more coherent. The diagnosis: Redundancy-Masking at the meta-level — the document's transmission fidelity appears to improve (tighter, cleaner) while its actual structural content degrades (fewer independent routes, invisible voids). The mitigation: the Irreducibility Check must explicitly include a length-and-redundancy audit, verifying that compression has not stripped Polyphonic Encoding rather than eliminated genuine repetition. This failure mode was confirmed empirically in v0.6: the Refinery entries R2 through R4 lost their elaborated open questions, and the metaagnosticism definition lost its second clause. Both losses made the document read more cleanly while reducing its precision and depth. The v0.7 repairs restore both. Future iterations should treat any reduction in Refinery entry length as a flag requiring explicit justification.
+
 ---
 
 ## SECTION 7 — Relation to Downstream Applications
@@ -239,7 +243,9 @@ redefinition:
   reconstruction; inversely proportional to interpretive charity. Calibrating
   DRC toward 0.0 maximizes interpretive charity (Generative Mode); calibrating
   DRC toward 1.0 drives charity toward zero and enforces strict verification
-  (Audit Mode). `[STABLE]`
+  (Audit Mode). The assignment of numerical DRC values to specific domains is
+  deliberately un-prescribed by GMRTI, as risk ranking requires normative value
+  judgments that belong exclusively to the participating covenants. `[STABLE]`
 - **META-DRC DIVERGENCE** — A disagreement between communicating covenants
   regarding the DRC classification of a domain, which pauses primary
   transmission and defaults to the highest demanded DRC of any participating

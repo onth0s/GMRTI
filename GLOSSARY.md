@@ -76,7 +76,9 @@ redefinition:
   reconstruction; inversely proportional to interpretive charity. Calibrating
   DRC toward 0.0 maximizes interpretive charity (Generative Mode); calibrating
   DRC toward 1.0 drives charity toward zero and enforces strict verification
-  (Audit Mode). `[STABLE]`
+  (Audit Mode). The assignment of numerical DRC values to specific domains is
+  deliberately un-prescribed by GMRTI, as risk ranking requires normative value
+  judgments that belong exclusively to the participating covenants. `[STABLE]`
 - **META-DRC DIVERGENCE** — A disagreement between communicating covenants
   regarding the DRC classification of a domain, which pauses primary
   transmission and defaults to the highest demanded DRC of any participating

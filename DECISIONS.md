@@ -109,3 +109,34 @@ addressed.
 ### [DEC-18] Formalize `[EXCISED]` Status Marker (D-19)
 - Define `[EXCISED]` marker in `METHODOLOGY.md` and `src/00_preamble.md`.
 - Mark §3b.1v with `[EXCISED]`.
+
+### [DEC-19] Ground Compression Asymmetry & Presumptive Intrusion Rule (D-01.1, D-01.2)
+- Ground the asymmetry of §6b.4 in Polyphonic Encoding's core justification: ex
+  ante, the transmitter cannot know which independent path matches the receiving
+  covenant's existing topology. The cost of an extra path is marginal length;
+  the
+  cost of an erroneously pruned path is total transmission failure for receivers
+  reachable only via that path.
+- Frame compression not as a flat prohibition, but as a formal burden-of-proof
+  rule: a cut is legitimate only when demonstrated under Core Path Minimization
+  (§2f.6) to be destination-isomorphic *and* non-route-independent with a
+  surviving path (true duplicate redundancy). Cuts failing this demonstration
+  are
+  presumptively covenant intrusion.
+- Add the plain-language **Art Tutorials Allegory** (`[ALLEGORY:
+  COMPRESSION-ASYMMETRY]`) to §6b.4.
+- Update `specs/concept_polyphony.yaml` with the corresponding invariant.
+
+### [DEC-20] Clarify Epistemic Non-Truth-Claiming Status of [STABLE] (D-01.3)
+- Explicitly define `[STABLE]` in `src/00_preamble.md` (§0.3) and
+  `METHODOLOGY.md` (§Ma.1) as marking *authorial closure*—a claim not currently
+  undergoing revision to prevent infinite regress and self-consuming refinement
+  (§3g.2)—NOT a metaphysical truth-claim or assertion of objective proof.
+
+### [DEC-21] Make Deliberate Normative Ambiguity of Domain Risk Coefficient (DRC) Explicit (D-01.3)
+- Explicitly declare at the site of DRC definition in §3a.4 and in `GLOSSARY.md`
+  that the lack of fixed universal normative values for what counts as "high
+  risk" is deliberate: GMRTI is a structural diagnostic instrument for locating
+  divergence, not an arbiter of moral or political value, so risk ranking is
+  properly calibrated by the participating covenants rather than hardcoded by
+  the framework.

@@ -59,6 +59,13 @@ governed by the Domain Risk Coefficient (DRC), defined on the bounded scale
   only the Minimal Substrate to perform Generative Reconstruction, forcing
   latent differences to surface for repair.
 
+The framework deliberately leaves the assignment of numerical DRC values to
+specific domains un-prescribed. GMRTI is a structural diagnostic instrument for
+detecting and repairing semantic divergence, not an arbiter of moral or
+political stakes. Deciding whether a domain carries "high" or "low" risk
+requires normative value judgments that belong exclusively to the participating
+covenants, not to the framework itself.
+
 
 **3b — Stage 1: Covenant Declaration** `[STABLE]`
 
