@@ -2,6 +2,10 @@
 
 **7a — GMRTI to GMCR** `[STABLE]`
 
+`[PLAIN]` Before two groups can resolve a conflict, they must know whether they
+truly disagree on values or if they are simply misunderstanding each other's
+words. The GMRTI gives you the tools to tell the difference.
+
 **7a.1** The GMCR (General Method for Conflict Resolution) is the primary
     downstream application of the GMRTI. Its logical dependency:
 
@@ -24,6 +28,10 @@
     information about the covenants in contact. `[PROVISIONAL]`
 
 **7b — GMCR to Civilizational Coordination** `[PROVISIONAL]`
+
+`[PLAIN]` Think of the GMRTI as a factory that makes tools for other factories.
+It doesn't solve one single disagreement — it gives humanity the basic
+coordination tools needed to solve big problems together and survive.
 
 **7b.1** The civilizational stakes of the GMRTI/GMCR project rest on the
     hypothesis that civilizations self-destruct before achieving the

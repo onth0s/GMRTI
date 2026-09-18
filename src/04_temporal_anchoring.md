@@ -2,6 +2,10 @@
 
 **4a — The Drift Problem** `[STABLE][RESTORED]`
 
+`[PLAIN]` The "you" who writes a note today and the "you" who reads it in five
+years are not the same person. As you learn and change, your inner dictionary
+drifts, which means you can easily misread your own past notes.
+
 **4a.1** Every semantic covenant is in constant motion. Experience, reflection,
     encounter with new ideas, and the passage of time all alter the
     edge-structure of a covenant continuously.
@@ -19,6 +23,10 @@
     dangerous than external transmission failure.
 
 **4b — Temporal Anchoring Operations** `[PROVISIONAL]`
+
+`[PLAIN]` To stop your guides and notes from drifting away, update them with
+small, careful nudges over time rather than throwing everything out and starting
+over every time something changes.
 
 **4b.1** The GMRTI prescribes the following temporal anchoring practices:
 

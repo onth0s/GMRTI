@@ -37,6 +37,7 @@ ASSEMBLY_MANIFEST = (
     {"path": "src/06_refinement_vectors.md", "merge_mode": "separator"},
     {"path": "src/07_downstream.md",         "merge_mode": "separator"},
     {"path": "src/08_gaps.md",               "merge_mode": "separator"},
+    {"path": "src/09_coda.md",               "merge_mode": "separator"},
     {
         "path": "ARCHITECTURE.md",
         "merge_mode": "separator",

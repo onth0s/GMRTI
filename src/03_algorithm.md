@@ -2,6 +2,11 @@
 
 **3a — Overview and Termination Conditions** `[STABLE][RESTORED]`
 
+`[PLAIN]` The GMRTI works as a clear diagnostic cycle: map out the starting
+concepts, test if the receiver can rebuild the map without guessing, locate any
+broken links, and repair them. You stop when understanding is solid enough for
+practical work.
+
 **3a.1** The GMRTI algorithm is a recursive diagnostic-and-reconstruction cycle.
     It terminates when one of three conditions is met:
 
@@ -56,6 +61,10 @@ governed by the Domain Risk Coefficient (DRC), defined on the bounded scale
 
 
 **3b — Stage 1: Covenant Declaration** `[STABLE]`
+
+`[PLAIN]` Stage 1 is laying your cards on the table. You list the main ideas you
+are using and clearly show how they connect to one another, so the other person
+can see what you are building on.
 
 **3b.1** The transmitting party makes explicit the semantic starting conditions
     of their communication. This involves:

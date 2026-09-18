@@ -2,6 +2,10 @@
 
 **8a — The Horizon Problem and Structural Boundaries** `[STABLE]`
 
+`[PLAIN]` No framework can solve every misunderstanding forever. There will
+always be edge cases, cultural shifts, and surprising new contexts. Naming what
+we haven't solved yet is how we make progress.
+
 **8a.1** A complete epistemic treatise cannot consistently assert its own
     closure without violating the Principle of Rational Agnosticism (Section
     2e). The GMRTI explicitly recognizes its own horizon: it is a methodology

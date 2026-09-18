@@ -2,6 +2,11 @@
 
 **5a — Natural Language's Ontological Concealment** `[STABLE]`
 
+`[PLAIN]` Everyday language treats very different kinds of things as if they
+were the same. "Water," "Tuesday," and "Justice" are all simple nouns, but you
+can touch water, while Tuesday and Justice exist only because people agreed on
+them.
+
 **5a.1** Natural language systematically conflates concepts of radically
     different ontological types under identical syntactic forms. "Justice,"
     "water," "Tuesday," "redness," "promise," and "I" are all nouns, but they
@@ -74,6 +79,9 @@ strategies:
 
 **5b — Just-In-Time Ontological Marking** `[STABLE]`
 
+`[PLAIN]` Don't try to define and label every single concept ahead of time. Only
+pull out technical labels and precise definitions when an actual
+misunderstanding pops up.
 
 **5b.1** An upfront metalanguage — requiring parties to agree on ontological
     categories before communication begins — creates an infinite regress: the

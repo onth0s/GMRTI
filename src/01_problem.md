@@ -2,6 +2,11 @@
 
 **1a — The Fundamental Transmission Problem**
 
+`[PLAIN]` Every idea lives inside the person who had it. Moving it to someone
+else is not copying — it is reconstruction. The receiver has to rebuild your
+idea from the signals you send, using their own inner dictionary, which is never
+quite the same as yours.
+
 **1a.1** Every idea `[->structural]` exists, in its original working form, as a
     configuration of relations `[->identity]` within a semantic covenant.
     `[STABLE]`
@@ -49,6 +54,9 @@
 
 **1a.6 — Semantic Entropy as the Adversarial Target** `[STABLE]`
 
+`[PLAIN]` The more ways a message can be misread, the higher its "confusion
+score." The GMRTI's main job is to lower that score — not to zero, which is
+impossible, but low enough for the task at hand.
 
 The fundamental transmission problem can be restated precisely using the concept
 of Semantic Entropy. A transmission event begins with the transmitter encoding a
@@ -92,6 +100,10 @@ elsewhere. `[STABLE]`
 
 
 **1b — Why This Problem Is Not Merely Academic**
+
+`[PLAIN]` Misunderstanding is not just uncomfortable — it is dangerous at scale.
+When people think they agree but actually don't, no amount of good intentions
+will stop the plan from falling apart at the worst possible moment.
 
 **1b.1** If transmission is always approximate and the degree of approximation
     is in principle unknowable without deliberate investigation, then:

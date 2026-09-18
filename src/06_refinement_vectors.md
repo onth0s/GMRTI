@@ -2,6 +2,10 @@
 
 **6a — The Self-Application Principle** `[STABLE][RECURSIVE]`
 
+`[PLAIN]` A method for clear thinking must be able to test itself. Everything
+the GMRTI recommends for other ideas is also used to test and refine this
+document over time.
+
 **6a.1** The GMRTI is not exempt from its own prescriptions. As a framework
     transmitted through language, it is subject to the same divergence risks it
     describes. This is not a weakness but a feature: the GMRTI's own development

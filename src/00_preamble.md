@@ -1,6 +1,26 @@
 ## SECTION 0 — Preamble and Document Conventions
 
-**0.1 Purpose of This Document**
+**0.0 — Why This Exists** `[PLAIN]`
+
+Man is a creature of Science. Homo Sapiens, right? Epistemology didn't begin
+with Newton describing the motion of rolling balls down slopes nor the orbital
+trajectories of celestial objects that have been shaping human myth for as long
+as we were capable of looking at the sky. No. Science began with burning meat
+and learning it tasted better that way. Crushing rock and dirt and learning that
+it could be heated and combined into better things. Planting seeds on the ground
+and learning that that place now belonged to you and your peers.
+
+And passing it along. And teaching it to your kids.
+
+Man is a creature of Science. And there must be a Science of Understanding. It
+has been long enough. It's time to pass it on to future generations.
+
+**0.1 Purpose of This Document** `[PLAIN]`
+
+When you try to explain an idea to someone, you can never be completely sure
+they understood exactly what you meant — and they can't be sure either. The
+GMRTI is a step-by-step method for finding where that gap is, naming it, and
+closing it as tightly as the situation requires.
 
 This tenth formal articulation of the General Method for Refinement and
 Transmission of Ideas (GMRTI) takes the v0.8 Candidate as its base while
@@ -39,7 +59,11 @@ A standalone Lean 4 formal verification package for the mathematical claims
 latent in this framework is maintained in `math/` and is explicitly outside the
 scope of this treatise.
 
-**0.2 Alphanumerical Convention**
+**0.2 Alphanumerical Convention** `[PLAIN]`
+
+The sections in this document are numbered so that any specific claim can be
+pointed to precisely — like a street address for ideas. If you want to
+challenge, quote, or repair something, you cite its address.
 
 Sections follow the pattern `N`, `Na`, `Na.1`, `Na.1i` for four levels of depth:
 
@@ -62,3 +86,5 @@ address that uniquely identifies it.
   stability
 - `[ALLEGORY]` — Concrete domain-specific instantiation serving as an
   independent polyphonic-encoding path to an abstract target
+- `[PLAIN]` — Plain-language entry ramp compiled into `PEBBLE.md`; written
+  at a high-school reading level; not an epistemic invariant

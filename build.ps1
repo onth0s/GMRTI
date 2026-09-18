@@ -6,9 +6,11 @@
     When run bare (without flags), builds everything:
     1. Formats all markdown and YAML files (wrap.py)
     2. Recompiles the monolithic document and archives prior revisions (rewrite.py)
-    3. Verifies monolithic sync (rewrite.py --check)
-    4. Verifies formatting (wrap.py --check)
-    5. Runs the full pytest test suite
+    3. Compiles the plain-language companion PEBBLE.md (pebble.py)
+    4. Verifies monolithic sync (rewrite.py --check)
+    5. Verifies PEBBLE.md sync (pebble.py --check)
+    6. Verifies formatting (wrap.py --check)
+    7. Runs the full pytest test suite
 
     Flags are optional bypasses.
 
@@ -37,8 +39,8 @@ if ($CheckOnly -and $SkipFormat) {
 # Calculate dynamic step count based on active flags
 $totalSteps = 0
 if (-not $CheckOnly -and -not $SkipFormat) { $totalSteps++ }
-if (-not $CheckOnly) { $totalSteps++ }
-$totalSteps += 2  # sync check and format check always run
+if (-not $CheckOnly) { $totalSteps += 2 } # rewrite.py and pebble.py compilation
+$totalSteps += 3  # rewrite sync check, pebble sync check, and format check always run
 if (-not $SkipTests) { $totalSteps++ }
 
 $step = 0
@@ -69,7 +71,18 @@ if (-not $CheckOnly) {
     }
 }
 
-# 3. Verify monolithic sync
+# 3. Compile PEBBLE companion
+if (-not $CheckOnly) {
+    $step++
+    Write-Host "`n[$step/$totalSteps] Compiling plain-language companion (pebble.py)..." -ForegroundColor Yellow
+    python pebble.py
+    if ($LASTEXITCODE -ne 0) {
+        Write-Error "pebble.py compilation failed."
+        exit 1
+    }
+}
+
+# 4. Verify monolithic sync
 $step++
 Write-Host "`n[$step/$totalSteps] Verifying monolithic document sync (rewrite.py --check)..." -ForegroundColor Yellow
 python rewrite.py --check
@@ -78,7 +91,16 @@ if ($LASTEXITCODE -ne 0) {
     exit 1
 }
 
-# 4. Verify formatting
+# 5. Verify PEBBLE sync
+$step++
+Write-Host "`n[$step/$totalSteps] Verifying PEBBLE.md sync (pebble.py --check)..." -ForegroundColor Yellow
+python pebble.py --check
+if ($LASTEXITCODE -ne 0) {
+    Write-Error "pebble.py --check failed: PEBBLE.md is out of sync."
+    exit 1
+}
+
+# 6. Verify formatting
 $step++
 Write-Host "`n[$step/$totalSteps] Verifying formatting (wrap.py --check)..." -ForegroundColor Yellow
 python wrap.py --check
@@ -87,7 +109,7 @@ if ($LASTEXITCODE -ne 0) {
     exit 1
 }
 
-# 5. Run test suite
+# 7. Run test suite
 if (-not $SkipTests) {
     $step++
     Write-Host "`n[$step/$totalSteps] Running test suite (pytest)..." -ForegroundColor Yellow

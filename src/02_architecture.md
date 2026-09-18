@@ -2,6 +2,10 @@
 
 **2a — The Edge-Primacy Structure of Meaning** `[STABLE]`
 
+`[PLAIN]` A word has no meaning on its own — meaning comes entirely from how it
+connects to other words and ideas. Change the connections, and you change what
+the word means, even if the word itself stays the same.
+
 **2a.1** A semantic covenant can be modeled as a directed graph in which edges
     represent the meaning-carrying relations between conceptual regions.
 
@@ -107,6 +111,10 @@ initial coarse cut to resolve the mismatch.
 
 **2b — Topological Depth Layers** `[STABLE]`
 
+`[PLAIN]` Some concepts are deeply buried — many steps away from anything you
+can point at in the real world. The deeper a concept, the easier it is for two
+people to think they share it when they actually don't.
+
 Because concept-labels do not possess inherent substance, epistemic depth is
 determined by topological dependency: how much of the rest of the network
 depends on a given edge-cluster remaining stable.
@@ -146,6 +154,10 @@ metaphysical assumption into a measurable topological dependency.
 
 
 **2c — Divergence Taxonomy** `[STABLE]`
+
+`[PLAIN]` There are two very different ways a map can be wrong: it can be
+completely empty where it should have something, or it can have the wrong thing.
+Knowing which kind of error you are dealing with tells you how to fix it.
 
 **2c.1** The GMRTI identifies three primary divergence types:
 
@@ -212,6 +224,11 @@ is precisely the kind of JIT-OM operation the framework prescribes.
 
 **2d — Institutional Meta-Covenants: Federated Graphs** `[PROVISIONAL]`
 
+`[PLAIN]` A group or an organization doesn't have a single shared brain.
+Instead, they share written rules, guidebooks, and definitions. To keep everyone
+on the same page, those shared documents must be actively maintained and
+updated.
+
 **2d.1** Institutions and communities lack singular consciousness. They cannot
     hold a semantic covenant in the way an individual does. Their collective
     semantic structure is a *Federated Graph*: a distributed, externalized
@@ -255,6 +272,11 @@ coordination fractures.
 
 
 **2e — Rational Agnosticism as Operational Posture** `[STABLE]`
+
+`[PLAIN]` When testing how well you explained something, pretend you are a
+robot: use only the exact words on the page, and add nothing from your own
+memory or friendly guesses. If the meaning still gets through, your explanation
+is solid.
 
 **2e.1** The GMRTI requires that any receiver engaged in deliberate
     transmission-testing treat themselves as a *Rationally Agnostic* entity: one
@@ -338,6 +360,10 @@ non-trivial, not a background assumption that can be silently presupposed.
 
 
 **2f — Polyphonic Encoding** `[STABLE]`
+
+`[PLAIN]` When something is really important, give more than one way to reach
+the idea — like offering a definition, a picture, and a real-world example. If
+one route is blocked, the others still carry the meaning.
 
 **2f.1** *Polyphonic Encoding* is the deliberate provision of multiple
     structurally independent edge-paths to the same semantic destination within
@@ -477,6 +503,10 @@ what is strictly necessary to construct the alternative route.
 
 **2g — Syntactic Edge-Forcing** `[STABLE]`
 
+`[PLAIN]` If you force yourself to name the exact *kind* of relationship between
+two ideas (like "A causes B" versus "A is just another word for B"), you avoid
+misunderstandings before they can even start.
+
 **2g.1** Polyphonic Encoding and JIT-OM address semantic entropy by respectively
     multiplying paths and marking ontological types at sites of detected
     failure. Both operate *around* the surface expression: one adds routes, the
@@ -588,6 +618,10 @@ bounded by two structural conditions:
 
 
 **2h — Boundary-Tracing Encapsulation** `[STABLE]`
+
+`[PLAIN]` In an interconnected web of ideas, fixing one broken piece can
+accidentally shake other parts of the map. Encapsulation means drawing a clear
+boundary around your fix so the ripples don't spread.
 
 **2h.1** Under semantic holism, modifying an edge during localized repair
     propagates changes throughout the entire network, threatening the stability

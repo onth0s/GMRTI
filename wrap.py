@@ -481,7 +481,8 @@ def collect_targets(base_dir):
 
     # 4. Root markdown files (except monolithic archives/outputs and governance files)
     # AGENTS.md is a strict behavioral constraints file; exclude to prevent prose reflow.
-    excluded_root_files = {"README.md", "AGENTS.md"}
+    # PEBBLE.md is a compiled artifact; exclude to prevent prose reflow.
+    excluded_root_files = {"README.md", "AGENTS.md", "PEBBLE.md"}
     for f in sorted(os.listdir(base_dir)):
         if f.endswith(".md") and f not in excluded_root_files:
             if not MONOLITHIC_PATTERN.match(f):

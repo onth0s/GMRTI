@@ -29,6 +29,11 @@ non-negotiable behavioral contracts for authoring and refactoring the treatise.
 - `[ALLEGORY]` (or `[ALLEGORY: <TargetConcept>]`): A concrete domain-specific
   worked instantiation serving as an independent, destination-isomorphic
   polyphonic-encoding path to an abstract target concept.
+- `[PLAIN]`: A plain-language seed sentence for a section or concept, written
+  at a high-school reading level. Extracted by `pebble.py` to compile
+  `PEBBLE.md`. Must appear as the first sub-paragraph of a section, before any
+  formal notation or jargon is introduced. Never carries an epistemic claim —
+  it is a transmission layer, not an invariant.
 
 **Ma.2 — Compound Status Markers**
 
@@ -45,6 +50,8 @@ Claims may carry compound markers (e.g., `[STABLE][RECURSIVE]`,
 - `[EXCISED]`: Indicates historical retirement — preserved at its original
     address for citation integrity, but excluded from operational inference.
 - `[ALLEGORY]`: Indicates a concrete polyphonic worked instantiation.
+- `[PLAIN]`: Indicates a high-school-level entry ramp compiled into
+    `PEBBLE.md`.
 
 
 In compound forms, the primary epistemic status dictates the claim's invariant
