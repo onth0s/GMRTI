@@ -16,4 +16,4 @@ ehthumbs.db
 Thumbs.db
 
 *.html
-./index.html
+!index.html
