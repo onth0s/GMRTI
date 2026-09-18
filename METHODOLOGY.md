@@ -59,10 +59,20 @@ depend on validated invariants.
 
 **Ma.4 — Graduation Criteria** `[STABLE]`
 
-A claim graduates from `[PROVISIONAL]` to `[STABLE]` only when it satisfies the
-following condition: **Survival of Adversarial Audit**: The claim has been
-subjected to a formal `DISSONANCE.md` critique by an external or context-free
-agent and has survived without requiring fundamental structural alteration
-(i.e., it required at most Surface or minor Structural repair).
+A claim graduates from `[PROVISIONAL]` to `[STABLE]` only when it satisfies both
+of the following non-negotiable conditions:
 
-When a claim achieves `[STABLE]` status, it becomes an architectural invariant.
+1. **Survival of Adversarial Audit**: The claim's content has been subjected to
+   a
+   formal `DISSONANCE.md` critique by an external or context-free agent and has
+   survived without requiring fundamental structural alteration (i.e., it
+   required at most Surface or minor Structural repair).
+2. **Satisfaction of Invariant Dependency (Ma.3)**: All concepts, mechanisms,
+   and
+   definitions upon which the claim rests must themselves be established
+   `[STABLE]` invariants, or carry an explicit provisional dependency boundary
+   declaration. A claim whose load-bearing dependencies remain un-graduated is
+   structurally blocked from `[STABLE]` graduation.
+
+When a claim satisfies both conditions, it graduates to `[STABLE]` and becomes
+an architectural invariant.

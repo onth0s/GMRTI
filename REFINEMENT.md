@@ -40,8 +40,10 @@ maintained. It must be strictly followed for all changes dictated by
   procedural execution: if something breaks on Sequence Phase 3, DO NOT PROCEED
   with Sequence Phase 4.
 - **Rb.5 Phase 5 (Alignment Audit)**: A context-free review ensures the new
-  content aligns with both the ratified plan and the established `[STABLE]`
-  invariants.
+  content aligns with the ratified plan, verifies that no invariant was broken,
+  and strictly validates the Invariant Dependency Constraint (Ma.3) and
+  Graduation Criteria (Ma.4) before any `[PROVISIONAL]` → `[STABLE]` graduation
+  is ratified.
 
 **Rc — Tooling Verification & Execution Boundaries**
 
