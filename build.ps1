@@ -27,7 +27,8 @@
 param(
     [switch]$CheckOnly,
     [switch]$SkipTests,
-    [switch]$SkipFormat
+    [switch]$SkipFormat,
+    [switch]$NoPause
 )
 
 $ErrorActionPreference = "Stop"
@@ -123,4 +124,8 @@ if (-not $SkipTests) {
 Write-Host "`n==================================================" -ForegroundColor Green
 Write-Host " Build succeeded! All artifacts up to date and verified." -ForegroundColor Green
 Write-Host "==================================================" -ForegroundColor Green
+
+if (-not $NoPause) {
+    [void](Read-Host "`nPress Enter to exit")
+}
 exit 0
