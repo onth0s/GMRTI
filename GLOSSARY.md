@@ -88,9 +88,16 @@ redefinition:
 - **POLYPHONIC ENCODING** — The deliberate provision of multiple structurally
   independent edge-paths to the same semantic destination within a single
   transmission act. The primary proactive transmission fidelity strategy.
+- **ALLEGORY (WORKED INSTANTIATION)** — A concrete, domain-bounded
+  polyphonic-encoding path whose intermediate nodes and edges reside in an
+  accessible operational domain, preserving destination-isomorphism with an
+  abstract target concept ($\operatorname{Action}_C(A) \cong
+  \operatorname{Action}_C(\operatorname{Allegory}(A))$) under Core Path
+  Minimization (§2f.6) to reduce transmission entropy. `[STABLE]`
 - **REDUNDANCY-MASKING** — The failure mode in which successful Polyphonic
-  Encoding conceals a local topological void that would produce transmission
-  failure under single-path conditions.
+
+Encoding conceals a local topological void that would produce transmission
+failure under single-path conditions.
 - **PATH-STRIPPING PROBING** — The diagnostic protocol for detecting
   Redundancy-Masking by temporarily disabling all but one encoding path to check
   if the receiver's reconstruction still satisfies the Operational Action

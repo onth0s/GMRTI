@@ -321,16 +321,17 @@ non-trivial, not a background assumption that can be silently presupposed.
     multiple physical paths simultaneously; if one fails, another carries the
     payload to its destination.
 - **2f.3ii** *Pedagogy*: a teacher states the definition, provides a concrete
-    example, offers an analogy, then asks a question that forces the student to
-    produce the concept themselves. Each is a structurally independent route to
-    the same conceptual destination.
+    example (`[ALLEGORY]`), offers an analogy, then asks a question that forces
+    the student to produce the concept themselves. Each is a structurally
+    independent route to the same conceptual destination.
 - **2f.3iii** *Legal drafting*: a law defines a term, then provides an
     exhaustive list of cases it covers, then specifies cases it explicitly
     excludes — three independent routes to the same operational boundary.
 - **2f.3iv** *This document*: key concepts are stated abstractly in Section 0.4,
-    instantiated concretely in their relevant sections, and contextualized
-    within examples where applicable. The length of this document relative to a
-    compressed summary is itself an instance of Polyphonic Encoding.
+    instantiated concretely via allegories where applicable (e.g., §1a.5i,
+    §1a.5ii, §7d.4), and contextualized within examples. The length of this
+    document relative to a compressed summary is itself an instance of
+    Polyphonic Encoding.
 
 **2f.4** The relationship between Polyphonic Encoding and transmission depth
     layers is asymmetric and critical: `[STABLE]`
@@ -368,10 +369,12 @@ non-trivial, not a background assumption that can be silently presupposed.
 
 **2f.5iii** Redundancy-Masking is therefore a source of *false comosí* —
     apparent semantic sufficiency sustained by backup routes that will not
-    always be present. The GMRTI must account for this: Polyphonic Encoding
-    should be paired with explicit divergence-checking to ensure that successful
-    transmission has not merely routed around a void rather than filled it.
-    `[STABLE]`
+    always be present (demonstrated allegorically by the shift from the domestic
+    living room to the contemporary art gallery in §1a.5ii). The GMRTI must
+    account for this: Polyphonic Encoding should be paired with explicit
+    divergence-checking to ensure that successful transmission has not merely
+    routed around a void rather than filled it. `[STABLE]`
+
 
 **2f.5iv — The Detection of Redundancy-Masking via Path-Stripping Probing**
 `[STABLE]`

@@ -53,3 +53,8 @@ Reconstruction -> Divergence Localization -> Targeted Repair -> Irreducibility).
 specification framework <P, Σ, T, I, E, Y, Ω> transforming refined semantic
 concepts into bounded, executable operational architectures within declared
 domains.
+
+**Aa.13 Allegorical Polyphony (Allegory)**: A concrete, domain-bounded
+polyphonic-encoding path whose intermediate nodes and edges reside in an
+accessible operational domain, preserving destination-isomorphism with an
+abstract target concept to reduce transmission entropy.

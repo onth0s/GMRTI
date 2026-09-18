@@ -28,7 +28,27 @@
     its established domain and collapse entirely when conditions change.
     `[STABLE]`
 
+- **1a.5i — The Commercial Purchase Allegory** `[ALLEGORY: COMOSÍ]` A customer
+    purchases a product from a shopkeeper. Without friction, the customer hands
+    over the requested sum of money and receives the merchandise. Both parties
+    coordinate their actions seamlessly. This successful transaction does not
+    imply that their underlying semantic dictionaries or conceptual topologies
+    coincide; rather, they deploy linguistic noises deemed appropriate to the
+    circumstance (*hacer ruidos convenientemente*), producing outputs whose
+    practical repercussions are sufficiently congruent that it is *as if*
+    (comosí) they possessed identical understanding.
+- **1a.5ii — The Living Room vs. Art Gallery Allegory**
+    `[ALLEGORY: COMOSÍ-BOUNDARY]` Two people in a home agree without hesitation
+    that items hanging on the walls are "paintings" and items in a display case
+    are "sculptures"; within this familiar domestic domain, their circumstantial
+    covenants are functionally equivalent and they effortlessly como-understand.
+    Later that day, visiting a contemporary art exhibition, the boundary
+    conditions shift: confronted with unconventional installations, their
+    shared comosí collapses, revealing that their underlying definitions were
+    never identical, but merely co-extensional within the domestic baseline.
+
 **1a.6 — Semantic Entropy as the Adversarial Target** `[STABLE]`
+
 
 The fundamental transmission problem can be restated precisely using the concept
 of Semantic Entropy. A transmission event begins with the transmitter encoding a

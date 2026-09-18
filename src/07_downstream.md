@@ -116,21 +116,49 @@ apparatus, CPD requires explicit boundaries to prevent self-perpetuation:
   regress.
   `[PROVISIONAL]`
 
-**7d.4 — Worked Didactic Instantiation: Valid Chess Resignation** The
-distinction between nominal definition and operational specification is
-illustrated by a valid chess resignation:
-- Rather than an informal utterance ("I resign"), CPD specifies: preconditions
-  $P$ (active, legally constituted game between identified players), states
-  $\Sigma$ ($\{\text{GameActive}, \text{ResignationDeclared},
-  \text{ResignationRecorded}, \text{GameTerminated}\}$),
-  transitions $T$ ($\text{GameActive} \rightarrow \text{ResignationDeclared}
-  \rightarrow \dots$),
-  invariants $I$ (only a player can resign; non-reversible), enforcement $E$
-  (tournament arbiter/ruleset), yield $Y$ (prescribed loss/win recorded), and
-  terminal condition $\Omega$ ($\text{GameTerminated}$).
-- Players do not require identical philosophies of surrender; they converge on
-  the protocol so that when the event occurs, they know what happens next.
-  `[PROVISIONAL]`
+**7d.4 — Worked Didactic Instantiation: Valid Chess Resignation** `[ALLEGORY:
+CPD][PROVISIONAL]`
+
+The distinction between nominal definition and operational specification is
+demonstrated by the abstraction: "A valid chess resignation." Rather than
+reducing the abstraction to the utterance "I resign", CPD constructs the
+complete 7-tuple protocol $\langle P, \Sigma, T, I, E, Y, \Omega \rangle$
+governing its instantiation within the operational domain of chess:
+- **Preconditions ($P$)**: A legally constituted chess game, identifiable
+  players, an active game state, a governing ruleset, and a recognized
+  recording mechanism. (Without an active game, resignation cannot instantiate
+  the abstraction).
+- **State Space ($\Sigma$)**: $\Sigma = \{\text{GameActive},
+  \text{ResignationDeclared}, \text{ResignationRecorded},
+  \text{GameTerminated}\}$.
+- **Transition Function ($T$)**: The irreversible chronological sequence
+  $\text{GameActive} \rightarrow \text{ResignationDeclared} \rightarrow
+  \text{ResignationRecorded} \rightarrow \text{GameTerminated}$. No transition
+  permits $\text{GameTerminated} \rightarrow \text{GameActive}$ within the same
+  instance.
+- **Invariants ($I$)**: Only an active participant in the game can resign
+  (spectators cannot resign on behalf of a player); resignation is attributable
+  to the player; once validly recorded, it produces the prescribed game result
+  and cannot be converted into an ordinary continuation.
+- **Enforcement Architecture ($E$)**: Tournament arbiters and the governing
+  FIDE/match ruleset supply operational force. CPD does not assert that the
+  rules of chess are metaphysically true, but that given the domain's governing
+  architecture, this is the mechanism through which resignation becomes binding.
+- **Yield ($Y$)**: Prescribed game termination and result recorded
+  ($\text{ValidResignation} \Rightarrow \text{GameTermination}$). Board position
+  (winning or losing) does not alter resignation validity.
+- **Terminal Condition ($\Omega$)**: $\Omega = \text{GameTerminated}$. The
+  instantiated abstraction terminates upon recording the result; this dissolves
+  the specific game instance without requiring the dissolution of the
+  institution of chess.
+
+**Allegorical Significance**: Players do not require identical philosophies of
+surrender, agency, or victory. They converge on the 7-tuple architecture such
+that when the event occurs, they know what happens next. This is the
+Constructo-Pragmatist criterion in miniature: a definition gives distinct
+covenants sufficient structural scaffolding to reconstruct the same operational
+object and coordinate around it.
+
 
 **7d.5 — The Operational Replacement Protocol** Disagreements over a CPD are
 governed by a strict replacement rule: an objection to an operational definition

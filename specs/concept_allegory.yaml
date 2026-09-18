@@ -1,0 +1,28 @@
+﻿concept_id: GMRTI-ALLEGORY
+name: "Allegorical Polyphonic Path"
+intent: >-
+  To reduce transmission entropy toward an abstract target concept by
+  providing a concrete, domain-bounded polyphonic-encoding path whose
+  intermediate nodes and edges reside in an accessible operational domain,
+  licensing functionally identical downstream inferences.
+dependencies:
+  - GMRTI-POLYPHONY
+  - GMRTI-COVENANT
+  - GMRTI-COMOSI
+invariants:
+  - >-
+      Must maintain destination-isomorphism: the allegorical path must
+      terminate at the identical abstract conceptual destination and license
+      congruent downstream operational inferences.
+  - >-
+      Must preserve route-independence: the allegorical path must traverse
+      disjoint intermediate topological structures drawn from an accessible,
+      lower-entropy operational substrate.
+  - >-
+      Subject to Core Path Minimization (§2f.6): the allegorical path must not
+      introduce extraneous unanchored ontologies or irrelevant semantic domain
+      baggage beyond what is strictly necessary to construct the route.
+  - >-
+      Marked in source syntax via [ALLEGORY] or [ALLEGORY: <TargetConcept>].
+status: STABLE
+last_modified: "2026-09-18"

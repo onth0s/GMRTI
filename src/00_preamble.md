@@ -60,3 +60,5 @@ address that uniquely identifies it.
 - `[RESTORED]` — Content recovered after compression loss in prior iterations
 - `[EXCISED]` — Retired from operational inference; preserved for address
   stability
+- `[ALLEGORY]` — Concrete domain-specific instantiation serving as an
+  independent polyphonic-encoding path to an abstract target

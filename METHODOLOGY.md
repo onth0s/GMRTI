@@ -26,21 +26,26 @@ non-negotiable behavioral contracts for authoring and refactoring the treatise.
   (such as deferring typing under JIT-OM). Retained in situ with an explicit
   provenance note to preserve address stability and auditability while marking
   the content as operationally inert.
+- `[ALLEGORY]` (or `[ALLEGORY: <TargetConcept>]`): A concrete domain-specific
+  worked instantiation serving as an independent, destination-isomorphic
+  polyphonic-encoding path to an abstract target concept.
 
 **Ma.2 — Compound Status Markers**
 
 Claims may carry compound markers (e.g., `[STABLE][RECURSIVE]`,
-`[STABLE][RESTORED]`) when multiple orthogonal status dimensions intersect:
+`[PROVISIONAL][ALLEGORY]`) when multiple orthogonal status dimensions intersect:
 
 - **Primary Epistemic Dimension**: `[OPEN]`, `[PROVISIONAL]`, or `[STABLE]`,
   defining the claim's verification stage and invariant authority.
-- **Secondary Reflexive / Provenance Dimension**:
+- **Secondary Reflexive / Provenance / Structural Dimension**:
 - `[RECURSIVE]`: Indicates that the claim reflexively binds the GMRTI's own
     authoring, representation, and transmission processes.
 - `[RESTORED]`: Indicates historical provenance — recovered after
     compression loss in prior iterations.
 - `[EXCISED]`: Indicates historical retirement — preserved at its original
     address for citation integrity, but excluded from operational inference.
+- `[ALLEGORY]`: Indicates a concrete polyphonic worked instantiation.
+
 
 In compound forms, the primary epistemic status dictates the claim's invariant
 rigidity; the secondary tag specifies its reflexive scope or historical
