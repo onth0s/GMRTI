@@ -1,0 +1,19 @@
+concept_id: GMRTI-COMOSI
+name: "Comosí and Apodictic Comosí"
+intent: >-
+  To define the functional, bounded semantic overlap sufficient for practical
+  coordination without requiring complete identity of underlying graphs.
+dependencies:
+  - GMRTI-COVENANT
+  - GMRTI-ENTROPY
+invariants:
+  - >-
+      Comosí represents functional overlap sufficient for bounded coordination,
+      not a metaphysical guarantee of semantic identity.
+  - >-
+      Operational Action Threshold: comosí is sufficient when downstream actions
+      or operational outputs match within the bounded domain.
+  - >-
+      Apodictic Comosí: overlap constrained by formal or syntactic structures
+      rendering residual semantic entropy practically negligible.
+status: STABLE

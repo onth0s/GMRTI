@@ -1,0 +1,23 @@
+concept_id: GMRTI-DEPTH
+name: "Topological Depth"
+intent: >-
+  To stratify semantic networks into dependency layers based on the downstream
+  impact of edge-cluster alterations.
+dependencies:
+  - GMRTI-TOPOLOGY
+  - GMRTI-EDGE
+invariants:
+  - >-
+      Epistemic depth is determined strictly by topological dependency: how much
+      of the network relies on a given cluster remaining stable.
+  - >-
+      Surface Subgraphs are context-dependent, easily renegotiated, and
+      minimally
+      load-bearing.
+  - >-
+      Structural Subgraphs route meaning between major regions of the network;
+      revising them alters dependent subgraphs.
+  - >-
+      Axiomatic Edge-Clusters exhibit dependency approaching infinity; their
+      alteration forces covenant rebuilding.
+status: STABLE

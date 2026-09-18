@@ -1,0 +1,21 @@
+concept_id: GMRTI-POLYPHONY
+name: "Polyphonic Encoding"
+intent: >-
+  To proactively combat semantic entropy by providing multiple structurally
+  independent edge-paths to the same semantic destination.
+dependencies:
+  - GMRTI-COVENANT
+  - GMRTI-ENTROPY
+invariants:
+  - >-
+      Deliberate provision of multiple independent edge-paths to the same
+      semantic destination within a single transmission.
+  - "Mandatory for all Axiomatic Edge-Cluster claims."
+  - >-
+      Redundancy-Masking (where backup routes conceal a local void) is diagnosed
+      via Path-Stripping Probing (PSP).
+  - >-
+      Core Path Minimization: all redundant paths must be isomorphic
+      translations
+      of a single canonical path to prevent graph bloat.
+status: STABLE

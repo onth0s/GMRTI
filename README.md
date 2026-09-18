@@ -14,16 +14,23 @@
 
 ## Table of Contents
 
-- [Glossary](glossary.md)
+- [Glossary](GLOSSARY.md)
 - [0. Preamble and Document Conventions](src/00_preamble.md)
 - [1. The Problem the GMRTI Addresses](src/01_problem.md)
 - [2. Foundational Architecture: The Topological Network
-Model](src/02_architecture.md)
+  Model](src/02_architecture.md)
 - [3. The GMRTI Algorithm](src/03_algorithm.md)
 - [4. Temporal Anchoring](src/04_temporal_anchoring.md)
 - [5. The Metalanguage Problem and Just-In-Time Ontological
-Marking](src/05_metalanguage.md)
+  Marking](src/05_metalanguage.md)
 - [6. The GMRTI in Operation: Refinement Vectors](src/06_refinement_vectors.md)
 - [7. Relation to Downstream Applications](src/07_downstream.md)
-- [8. Known Gaps and Open Challenges](src/08_open_challenges.md)
+- 8. Known Gaps and Open Challenges (In Progress)
 - [Refinery](refinery/)
+
+## Companion & Governance Artifacts
+
+- [PEBBLE: The Plain-English Alignment Guide](PEBBLE.md)
+- [Architectural Authority & Entities](ARCHITECTURE.md)
+- [Methodology & Invariant Graduation](METHODOLOGY.md)
+- [The Refinement Cycle & Execution Protocol](REFINEMENT.md)

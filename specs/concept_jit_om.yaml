@@ -1,0 +1,22 @@
+concept_id: GMRTI-JIT-OM
+name: "Just-In-Time Ontological Marking"
+intent: >-
+  To deploy ontological distinctions retroactively and locally at the precise
+  site of detected divergence, avoiding upfront metalanguage regress.
+dependencies:
+  - GMRTI-EDGE
+  - GMRTI-DIVERGENCE
+invariants:
+  - >-
+      Ontological type distinctions are deployed retroactively and locally, only
+      upon detected Edge Divergence or Edge-Type Misattribution.
+  - >-
+      Rejects upfront global metalanguage to prevent infinite regress and
+      philosophical overhead.
+  - >-
+      Partitions concept space into Carved (empirical/logical), Constructed
+      (normative/social), and Boundary concepts.
+  - >-
+      Bounded by the JIT-OM ceiling: cannot address undetected divergence where
+      redundancy-masking sustains a false comosí.
+status: STABLE

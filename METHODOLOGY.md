@@ -11,15 +11,15 @@ dictate the claim's load-bearing authority and serve as invariants in the CLDS
 workflow.
 
 - `[OPEN]`: A known unresolved design challenge. High semantic entropy is
-expected.
+  expected.
 - `[PROVISIONAL]`: A claim held with operational confidence but still open to
-fundamental revision. It has not yet survived a full adversarial audit.
+  fundamental revision. It has not yet survived a full adversarial audit.
 - `[STABLE]`: A formal invariant. It is considered load-bearing, and changes
-here propagate broadly. Any refactor that breaks a `[STABLE]` claim without
-deliberately invoking the Refinement Cycle to downgrade it is an error.
+  here propagate broadly. Any refactor that breaks a `[STABLE]` claim without
+  deliberately invoking the Refinement Cycle to downgrade it is an error.
 - `[RECURSIVE]`: A claim that applies to the framework itself and must be
-checked for self-consistency (e.g., the claim that all language is high-entropy
-applies to the language of GMRTI).
+  checked for self-consistency (e.g., the claim that all language is
+  high-entropy applies to the language of GMRTI).
 - `[RESTORED]`: Content recovered after compression loss in prior iterations.
 
 ### Graduation Criteria

@@ -1,0 +1,23 @@
+concept_id: GMRTI-DIVERGENCE
+name: "Divergence Taxonomy"
+intent: >-
+  To classify structural mismatches between communicating covenants or across
+  temporal states of a single covenant.
+dependencies:
+  - GMRTI-COVENANT
+  - GMRTI-EDGE
+invariants:
+  - >-
+      Anchor-Only Subgraph: receiver possesses a surface label with zero
+      internal relational depth behind it.
+  - >-
+      Edge Divergence: covenants share a surface label but internal edge
+      topologies conflict.
+  - >-
+      Temporal Drift Divergence: mismatch arising between encoding state at t1
+      and decoding state at t2 within a continuous covenant.
+  - >-
+      Edge-Type Misattribution: a subtype of Edge Divergence where an edge
+      exists
+      in both covenants but is assigned different relation-types.
+status: STABLE

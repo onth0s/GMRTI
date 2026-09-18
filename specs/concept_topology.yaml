@@ -1,0 +1,16 @@
+concept_id: GMRTI-TOPOLOGY
+name: "Topological Network"
+intent: >-
+  To model a semantic covenant as a field-like relational network where concepts
+  emerge as localized relational densities rather than isolated particles.
+dependencies: []
+invariants:
+  - "Meaning resides in relation rather than atom."
+  - >-
+      Concepts are emergent stabilities within an edge-field, not
+      self-subsistent
+      semantic particles.
+  - >-
+      Topological structure avoids substantialist Platonic assumptions through
+      edge-primacy.
+status: STABLE

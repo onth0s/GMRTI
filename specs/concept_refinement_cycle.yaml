@@ -1,0 +1,25 @@
+concept_id: GMRTI-REFINEMENT-CYCLE
+name: "The Refinement Cycle"
+intent: >-
+  To define the recursive 5-stage diagnostic and reconstruction algorithm for
+  systematic divergence localization and targeted repair.
+dependencies:
+  - GMRTI-COVENANT
+  - GMRTI-DIVERGENCE
+  - GMRTI-DEPTH
+invariants:
+  - >-
+      Executes sequentially across five distinct stages: Covenant Declaration,
+      Generative Reconstruction, Divergence Localization, Targeted Repair, and
+      Irreducibility Declaration.
+  - >-
+      Terminates upon reaching Operational Parking (pragmatic comosí), Epistemic
+      Termination (Axiomatic Irreducibility), or Cost-Bounded Termination.
+  - >-
+      Stratifies Content Layer (8 relational operators) from Protocol Layer (6
+      meta-commands: propose, accept, reject, pause, resume, default) to prevent
+      infinite meta-loops.
+  - >-
+      Governed by the Domain Risk Coefficient (DRC): high DRC minimizes
+      charity; low DRC permits operational tolerance.
+status: STABLE

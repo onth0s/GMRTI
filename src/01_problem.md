@@ -3,27 +3,28 @@
 **1a — The Fundamental Transmission Problem**
 
 **1a.1** Every idea exists, in its original working form, as a configuration of
-relations within a semantic covenant. `[STABLE]`
+    relations within a semantic covenant. `[STABLE]`
 
 **1a.2** No two semantic covenants are identical, because each is the product of
-a unique sequence of experience, reflection, and linguistic inheritance
-accumulated over time. `[STABLE]`
+    a unique sequence of experience, reflection, and linguistic inheritance
+    accumulated over time. `[STABLE]`
 
 **1a.3** Transmission of an idea from one covenant to another cannot be a simple
-transfer of content. It is necessarily a *reconstruction*: the receiving
-covenant must build an approximation of the original configuration using only
-the signals available at the boundary between covenants: language, gesture,
-symbol, artifact. `[STABLE]`
+    transfer of content. It is necessarily a *reconstruction*: the receiving
+    covenant must build an approximation of the original configuration using
+    only the signals available at the boundary between covenants: language,
+    gesture, symbol, artifact. `[STABLE]`
 
 **1a.4** The signals available at that boundary are themselves ambiguous,
-because the symbols used to encode an idea within one covenant carry no
-guarantee of identical decoding within another. This is the metaagnostic
-condition applied to communication. `[STABLE]`
+    because the symbols used to encode an idea within one covenant carry no
+    guarantee of identical decoding within another. This is the metaagnostic
+    condition applied to communication. `[STABLE]`
 
 **1a.5** All apparent understanding is therefore a *comosí*: a functional
-overlap sufficient for practical coordination within a bounded domain, but not a
-guarantee of semantic identity. The comosí may hold perfectly within its
-established domain and collapse entirely when conditions change. `[STABLE]`
+    overlap sufficient for practical coordination within a bounded domain, but
+    not a guarantee of semantic identity. The comosí may hold perfectly within
+    its established domain and collapse entirely when conditions change.
+    `[STABLE]`
 
 **1a.6 — Semantic Entropy as the Adversarial Target** `[STABLE]`
 
@@ -70,28 +71,30 @@ elsewhere. `[STABLE]`
 **1b — Why This Problem Is Not Merely Academic**
 
 **1b.1** If transmission is always approximate and the degree of approximation
-is in principle unknowable without deliberate investigation, then: `[STABLE]`
+    is in principle unknowable without deliberate investigation, then:
+    `[STABLE]`
 
 - **1b.1i** Arguments that appear to be about substantive disagreements may in
-fact be about undetected transmission failures — the parties disagree about
-words, not things, without knowing it.
+    fact be about undetected transmission failures — the parties disagree about
+    words, not things, without knowing it.
 - **1b.1ii** Agreements that appear genuine may rest on comosí overlaps that
-will collapse under novel conditions, producing unexpected conflict precisely
-when coordination is most needed.
+    will collapse under novel conditions, producing unexpected conflict
+    precisely when coordination is most needed.
 - **1b.1iii** Knowledge accumulated within one community may be effectively
-inaccessible to another not because it is hidden, but because the transmission
-medium — shared language, shared conceptual scaffolding — is insufficient to
-carry it.
+    inaccessible to another not because it is hidden, but because the
+    transmission medium — shared language, shared conceptual scaffolding — is
+    insufficient to carry it.
 
 **1b.2** These failure modes scale. At the individual level they produce
-miscommunication. At the community level they produce ideological fragmentation.
-At the civilizational level they produce the coordination failures that
-constitute the GMRTI's ultimate target domain. `[PROVISIONAL]`
+    miscommunication. At the community level they produce ideological
+    fragmentation. At the civilizational level they produce the coordination
+    failures that constitute the GMRTI's ultimate target domain. `[PROVISIONAL]`
 
 **1b.3** The GMRTI's foundational thesis: a systematic method for locating and
-repairing transmission failures is a prerequisite for any General Method for
-Conflict Resolution, because without it, conflict resolution cannot distinguish
-genuine value disagreements from resolvable miscommunication. `[STABLE]`
+    repairing transmission failures is a prerequisite for any General Method for
+    Conflict Resolution, because without it, conflict resolution cannot
+    distinguish genuine value disagreements from resolvable miscommunication.
+    `[STABLE]`
 
 **1c — The Three Transmission Modes** `[STABLE][RESTORED]`
 
@@ -124,11 +127,9 @@ cognitive overhead, the GMRTI mandates a strict developmental ordering:
 Self-Annotation (Self-to-Future-Self) serves as the initial sandbox to generate
 and test conceptual primitives; Community-to-Community (Constitutional Drafting)
 then formalizes these primitives; which are subsequently simplified for
-real-time Self-to-Other dialogue (GMRTI-Mediated Dialogue). The
-framework's operational complexity is scoped accordingly: v0.9
-targets Self-Annotation only, where the cognitive overhead is
-borne by a single practitioner with full access to their own
-covenant. Scaling to real-time dialogue requires a simplified
-subset whose specification is deferred until the Self-Annotation
-validation is complete.
-
+real-time Self-to-Other dialogue (GMRTI-Mediated Dialogue). The framework's
+operational complexity is scoped accordingly: v0.9 targets Self-Annotation only,
+where the cognitive overhead is borne by a single practitioner with full access
+to their own covenant. Scaling to real-time dialogue requires a simplified
+subset whose specification is deferred until the Self-Annotation validation is
+complete.

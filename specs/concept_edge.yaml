@@ -1,0 +1,21 @@
+concept_id: GMRTI-EDGE
+name: "Edge and Edge Taxonomy"
+intent: >-
+  To define the primitive relational events from which semantic structure is
+  built, partitioned into a two-tiered taxonomy to minimize cognitive overhead.
+dependencies:
+  - GMRTI-TOPOLOGY
+invariants:
+  - >-
+      Edges are primitive relational events, not merely connectors between
+      nodes.
+  - >-
+      Operates as a two-tiered taxonomy: Tier 1 coarse cut for declaration,
+      and Tier 2 (8-type) for localized repair.
+  - >-
+      Tier 1 distinguishes Inferential, Causal, and Other during initial Stage 1
+      Covenant Declaration.
+  - >-
+      Tier 2 deploys Inferential, Causal, Procedural, Affective, Normative,
+      Identity, Referential, and Structural edges locally via JIT-OM in Stage 3.
+status: STABLE
