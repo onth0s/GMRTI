@@ -46,8 +46,9 @@ edge-configurations \(G_R\) that can represent \(S\) without contradiction:
 measurement of \(H_s(S)\) is constrained by metaagnosticism, we operationalize
 it via the **Behavioral Convergence Proxy (Path-Count Metric)**: the number of
 independent Polyphonic Encoding paths that must be successfully reconstructed
-and verified by the receiver before they reach the Operational Action Threshold.
-Thus, a high path count indicates high initial semantic entropy.
+and verified by the receiver before they reach the Operational Action Threshold
+[provisional dependency boundary: §3c.3]. Thus, a high path count indicates high
+initial semantic entropy.
 
 The GMRTI's central purpose is the controlled reduction of semantic entropy:
 progressively constraining the space of consistent receiving-covenant

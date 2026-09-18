@@ -380,9 +380,9 @@ To resolve the threat of a false comosí sustained by redundancy-masking, the
 GMRTI introduces the **Path-Stripping Probing** protocol. The receiver
 temporarily disables all but one polyphonic path, forcing the system to
 reconstruct using only that single path. If reconstruction fails or drops below
-the Operational Action Threshold, a hidden void is localized. This bounds the
-risk of redundancy-masking, transforming it from a structural limit into a
-testable boundary.
+the Operational Action Threshold [provisional dependency boundary: §3c.3], a
+hidden void is localized. This bounds the risk of redundancy-masking,
+transforming it from a structural limit into a testable boundary.
 
 **Polyphonic Node Detection**: PSP produces false positives on legitimately
 polyphonic nodes — nodes carrying multiple simultaneous meanings via

@@ -23,13 +23,19 @@ explicit boundary verification.
 - **Scope**: Two-tier PSP pre-screening (§2f.5iv); integrate 4 orphan terms
   (§2b.2, §2d.4, §3g.4); deploy syntactic edge-forcing prototype in situ (§1a,
   §2a); ground Content-Protocol Stratification in FSM semantics (§3e.1vi);
-  graduate §3c.3 to `[STABLE]`; add `OPERATIONAL ACTION THRESHOLD` to glossary.
+  refine
+  §3c.3 as `[PROVISIONAL]` with functional congruence definition; add
+  `[provisional dependency boundary: §3c.3]` to §1a.6, §2f.5iv, §3a.1i, §3c.2;
+  add `OPERATIONAL ACTION THRESHOLD` to glossary as `[PROVISIONAL]`.
 - **Verification**: `python wrap.py --check`
 
 ### Phase 3: Empirical Self-Application & Scope Clarification (DEC-08, DEC-11)
 - **Targets**: `src/06_refinement_vectors.md`
-- **Scope**: Update §6a.3 to designate `refinery/DISSONANCE.md` as the completed
-  self-application cycle; clarify §6b.1 step 5(b) inspection of `refinery/`.
+- **Scope**: Update §6a.3 to `[PROVISIONAL][RECURSIVE]` documenting partial
+  execution of Stages 2–3 via adversarial audit and REP repairs, establishing
+  algorithmic Stage 4/5 execution as a validation target; clarify §6b.1 step
+  5(b)
+  inspection of `refinery/`.
 - **Verification**: `python wrap.py --check`
 
 ### Phase 4: Structural Governance & Address Hierarchy (DEC-12, DEC-14 to DEC-18)

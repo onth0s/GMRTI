@@ -116,19 +116,19 @@ redefinition:
   Calibrating DRC to maximum (1.0) reduces charity to the Minimal Substrate
   baseline. `[STABLE]`
 - **OPERATIONAL ACTION THRESHOLD** — The domain-specific threshold of
-  reconstruction fidelity at which a receiver can take reliable downstream
-  action without catastrophic coordination failure. Serves as the termination
-  criterion for Operational Parking (§3a.1i) and Path-Stripping Probing
-  (§2f.5iv). `[STABLE]`
+  reconstruction fidelity at which a receiver's reconstructed semantic
+  clustering produces downstream operational choices, inferences, or behaviors
+  that are functionally congruent with the transmission across all declared
+  boundary conditions. Serves as the termination criterion for Operational
+  Parking (§3a.1i) and Path-Stripping Probing (§2f.5iv). `[PROVISIONAL]`
 - **CORE PATH MINIMIZATION** — The complexity governor requiring that redundant
   paths in Polyphonic Encoding maintain destination-isomorphism (terminating at
   the identical semantic destination and licensing the same downstream
   inferences) while preserving route-independence across disjoint intermediate
   topological structures. `[STABLE]`
-- **DYNAMIC RE-ANCHORING** — The process of treating Artifact Anchors as a
-
-moving average, updated via continuous correction vectors to manage textual
-drift. `[STABLE]`
+- **DYNAMIC RE-ANCHORING** — The process of treating Artifact Anchors as an
+  exponentially smoothed moving average, updated via continuous correction
+  vectors to bound tracking lag against textual drift (§4b.3). `[STABLE]`
 - **THE MIRROR** — Any Rationally Agnostic receiver (human, LLM, or future-self)
   operationalized to reconstruct a transmission using strictly declared edges,
   with interpretive charity calibrated to the Domain Risk Coefficient. A tool

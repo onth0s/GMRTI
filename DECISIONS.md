@@ -68,14 +68,24 @@ addressed.
   a finite state machine rather than declarative truth claims, preventing
   infinite regress without arbitrary fiat.
 
-### [DEC-11] Document Completed Self-Application Cycle (D-12)
-- Update §6a.3 to designate the executed adversarial audit
-  (`refinery/DISSONANCE.md`) as the completed self-application cycle.
+### [DEC-11] Partially Executed Self-Application and Validation Target (D-12)
+- Update §6a.3 to `[PROVISIONAL][RECURSIVE]`: honestly document that the current
+  iteration executed Mirror-mode reconstruction and Divergence Localization
+  (Stages 2–3) via adversarial audit (`refinery/DISSONANCE.md`) with repairs
+  carried out under authorial oversight via REP (`DECISIONS.md`, `PLAN.md`),
+  while a complete cycle executing Stage 4 Targeted Repair and Stage 5
+  Irreducibility Declaration as algorithmically specified remains a future
+  validation target.
 
-### [DEC-12] Invariant Dependency Constraint and Graduation of §3c.3 (D-13)
-- Add Invariant Dependency Constraint to `METHODOLOGY.md`: invariants may only
-  depend on validated invariants.
-- Graduate §3c.3 (Operational Action Threshold) to `[STABLE]`.
+### [DEC-12] Invariant Dependency Constraint and Provisional Scoping of §3c.3 (D-13)
+- Add Invariant Dependency Constraint to `METHODOLOGY.md` (§Ma.3): no `[STABLE]`
+  claim may rest on a `[PROVISIONAL]` claim without an explicit provisional
+  dependency boundary declaration.
+- Maintain §3c.3 (`Operational Action Threshold`) as `[PROVISIONAL]`; refine its
+  content to replace rigid ontological identity with DRC-bounded functional
+  congruence across declared boundary conditions.
+- Explicitly annotate the four `[STABLE]` dependent sites (§1a.6, §2f.5iv,
+  §3a.1i, §3c.2) with `[provisional dependency boundary: §3c.3]`.
 
 ### [DEC-13] Add Operational Action Threshold to Glossary (D-14)
 - Add formal definition of `OPERATIONAL ACTION THRESHOLD` to `GLOSSARY.md`.

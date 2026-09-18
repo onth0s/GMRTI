@@ -12,12 +12,17 @@
     Localization by adversarial readers, including future versions of the
     authors themselves.
 
-**6a.3** The framework's commitment to self-application is actively executed
-    in the current iteration through formal adversarial audit
-    (`refinery/DISSONANCE.md`) and the Ratified Execution Protocol
-    (`DECISIONS.md`, `PLAN.md`), systematically surfacing and repairing
-    internal edge divergences, invariant contradictions, and orphan
-    definitions across the treatise. `[STABLE][RECURSIVE]`
+**6a.3** The framework's commitment to self-application is partially executed in
+    the current iteration: adversarial audit (`refinery/DISSONANCE.md`)
+    performed
+    Mirror-mode reconstruction and Divergence Localization against declared
+    claims (Stages 2–3), with resulting repairs carried out via the Ratified
+    Execution Protocol (`DECISIONS.md`, `PLAN.md`) under direct authorial
+    oversight rather than the algorithm's own Stage 4 operations. A complete
+    self-audit cycle — running Stage 4 Targeted Repair and, where applicable,
+    Stage 5 Irreducibility Declaration as the algorithm itself specifies them,
+    on a single section — remains a validation target.
+    `[PROVISIONAL][RECURSIVE]`
 
 **6b — The LLM-Manifesto Iteration Loop** `[PROVISIONAL]`
 

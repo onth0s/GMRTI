@@ -7,9 +7,9 @@
 
 - **3a.1i** *Operational Parking*: the transmission has achieved a comosí of
     sufficient depth for the practical purposes at hand — operationally defined
-    by the Operational Action Threshold (Section 3c) as producing identical
-    downstream actions or operational definitions within the specific bounded
-    domain.
+    by the Operational Action Threshold [provisional dependency boundary: §3c.3]
+    as producing functionally congruent downstream actions or operational
+    definitions within the specific bounded domain.
 - **3a.1ii** *Epistemic Termination*: the divergence has been localized to the
     Axiomatic layer and confirmed as irreducible — meaning the parties genuinely
     differ in foundational commitments rather than in their understanding of
@@ -109,8 +109,9 @@ charity, governed by the DRC:
   sustained throughout.
 - **Low-DRC Domains** (casual dialogue, early-stage creative brainstorming,
   arts): interpretive charity is maximized. Minor divergences are treated as
-  noise, provided the Operational Action Threshold is met. The Mirror posture is
-  adopted only when a divergence becomes operationally significant.
+  noise, provided the Operational Action Threshold [provisional dependency
+  boundary: §3c.3] is met. The Mirror posture is adopted only when a divergence
+  becomes operationally significant.
 
 **Meta-DRC Divergence**: A meta-divergence arises when the communicating parties
 disagree on the DRC classification itself (e.g., Party A demands High-DRC
@@ -122,13 +123,19 @@ enforce the highest demanded DRC of any participating party to prevent
 catastrophic coordination failures under asymmetric risk.
 
 
-**3c.3 — The Operational Action Threshold**
+**3c.3 — The Operational Action Threshold** `[PROVISIONAL]`
 
-Comosí is pragmatically sufficient when the semantic clustering of the two
-covenants produces identical downstream actions or operational definitions
-within the specific bounded domain of the transmission. Perfect philosophical
-alignment is unnecessary if the structural subgraphs route to the same
-behavioral or logical outputs. `[STABLE]`
+Comosí is pragmatically sufficient when the reconstructed semantic clustering
+within the receiving covenant produces downstream operational choices,
+inferences, or behaviors that are indistinguishable in practical consequence
+from those of the transmitting covenant across all declared boundary conditions
+of the transmission domain. Under metaagnosticism, "identity of action" does not
+assert ontological equivalence; rather, it denotes functional congruence bounded
+by the Domain Risk Coefficient (DRC): High-DRC domains demand zero observable
+variance in downstream branching logic, while Low-DRC domains tolerate
+behavioral divergence that remains within an agreed coordination tolerance.
+Alignment of deep axiomatic subgraphs is strictly unnecessary if the operational
+interfaces yield compatible outcomes.
 
 
 **3c.4** Generative Reconstruction produces two outputs:
