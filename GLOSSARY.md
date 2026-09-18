@@ -25,11 +25,20 @@ redefinition:
     ordinary fallibilism. `[RECURSIVE][RESTORED]`
 - **SEMANTIC ENTROPY** — The log-measure of structural ambiguity in a
   transmitted signal, denoted as \(H_s(S)\). Represents the number of
-  non-isomorphic receiving-covenant edge-configurations compatible with the
-  signal. In practice, it is operationalized via the **Behavioral Convergence
-  Proxy (Path-Count Metric)**: the number of independent Polyphonic Encoding
-  paths that must be successfully traversed and verified by the receiver before
-  they reach the Operational Action Threshold. `[STABLE]`
+  distinct functional equivalence classes of receiving-covenant
+  edge-configurations compatible with the signal under the Graph-Space
+  Partitioning Axiom. In practice, it is operationalized via the **Behavioral
+  Convergence Proxy (Path-Count Metric)**: the number of independent Polyphonic
+  Encoding paths that must be successfully traversed and verified by the
+  receiver
+  before they reach the Operational Action Threshold. `[STABLE]`
+- **GRAPH-SPACE PARTITIONING AXIOM** — The formal individuation criterion
+  resolving §8b.1: candidate receiving-covenant graph space is discretized into
+  a
+  quotient space under functional congruence across the Operational Action
+  Threshold. Two topologies belong to the same equivalence class if and only if
+  they license indistinguishable downstream operational inferences across all
+  declared boundary conditions. `[STABLE]`
 - **TRANSMISSION** — The attempted transfer of semantic content from one
     covenant to another, or from one temporal state of a covenant to a later
     state of the same covenant.

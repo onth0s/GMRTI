@@ -34,16 +34,22 @@ Entropy** `[PROVISIONAL]`
 
 The mathematical formulation of Semantic Entropy in Section 1a ($H_s(S) = \log_2
 |\{G_R : G_R \text{ compatible with } S\}|$) defines entropy as a Hartley-style
-log-count over compatible reconstructed graph topologies. The open contention is
-that this formulation presupposes a rigorous individuation criterion for
-distinct, non-isomorphic edge-configurations. Partitioning graph configuration-space
-is inherently covenant-relative: determining what constitutes an operationally
-distinct reconstructed graph requires an external partition, directly engaging
-the metaagnostic boundary.
-- *Status*: Open. Currently operationalized heuristically via the Behavioral
-  Convergence Proxy (Path-Count Metric) terminating at the Operational Action
-  Threshold (§0.4, §1a.6). Formalizing invariant graph-space discretization
-  remains targeted for downstream verification.
+log-count over compatible reconstructed graph topologies. The open contention
+was that this formulation presupposed an individuation criterion for distinct,
+non-isomorphic edge-configurations without engaging the metaagnostic boundary.
+- *Resolution (The Partition-Structure Axiom)*: The graph configuration space of
+  candidate receiving covenants is formally discretized by taking the quotient
+  under functional congruence across the Operational Action Threshold (§3c.3).
+  Two candidate graph topologies $G_1, G_2$ belong to the same equivalence class
+  ($[G_1] = [G_2]$) if and only if they license functionally indistinguishable
+  downstream operational inferences and behavioral actions across all declared
+  boundary conditions of the transmission domain. The set $\{G_R\}$ is thus
+  strictly defined as the set of distinct functional equivalence classes
+  compatible with the signal constraints.
+- *Operational Alignment*: This quotient partition grounds the Behavioral
+  Convergence Proxy (Path-Count Metric) directly in the topology, bounding
+  Hartley entropy to finite, operationally distinguishable classes without
+  demanding impossible metaphysical access to unobservable private nodes.
 
 **8b.2 — Contention 2: Mirror-Prior Synchronization in Adversarial Loops**
 `[PROVISIONAL]`

@@ -5,10 +5,15 @@ intent: >-
   isomorphic receiving-covenant configurations compatible with it.
 dependencies:
   - GMRTI-COVENANT
+  - GMRTI-OPERATIONAL-ACTION-THRESHOLD
 invariants:
   - >-
       Measured quantitatively using the Behavioral Convergence Proxy (Path-Count
       metric).
+  - >-
+      Graph-Space Partitioning Axiom: candidate topologies are individuated as
+      quotient equivalence classes under functional congruence across the
+      Operational Action Threshold (§8b.1).
   - >-
       Perfect entropy elimination (zero entropy) is structurally impossible
       under metaagnosticism.
