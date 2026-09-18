@@ -25,7 +25,7 @@
   Marking](src/05_metalanguage.md)
 - [6. The GMRTI in Operation: Refinement Vectors](src/06_refinement_vectors.md)
 - [7. Relation to Downstream Applications](src/07_downstream.md)
-- 8. Known Gaps and Open Challenges (In Progress)
+- [8. Known Gaps and Open Challenges](src/08_gaps.md) `[OPEN]`
 - [Refinery](refinery/)
 
 ## Companion & Governance Artifacts
@@ -34,3 +34,43 @@
 - [Architectural Authority & Entities](ARCHITECTURE.md)
 - [Methodology & Invariant Graduation](METHODOLOGY.md)
 - [The Refinement Cycle & Execution Protocol](REFINEMENT.md)
+
+## Development
+
+**Install dependencies:**
+
+```
+pip install -r requirements.txt
+```
+
+**Run tests:**
+
+```
+python -m pytest tests/ -v
+```
+
+**Check formatting:**
+
+```
+python wrap.py --check
+```
+
+**Check monolithic document sync:**
+
+```
+python rewrite.py --check
+```
+
+**Recompile monolithic document:**
+
+```
+python rewrite.py
+```
+
+**Full local build & verification (PowerShell):**
+
+```powershell
+.\build.ps1               # Builds everything: format, compile, sync check, and run tests
+.\build.ps1 -CheckOnly    # Optional bypass: run checks and tests only (no write)
+.\build.ps1 -SkipTests    # Optional bypass: format, compile, and sync check without pytest
+```

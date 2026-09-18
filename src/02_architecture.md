@@ -327,7 +327,7 @@ non-trivial, not a background assumption that can be silently presupposed.
     transmission conceals a local topological void that would produce failure
     under single-path conditions.
 
-**2f.5ii** When a Anchor-Only Subgraph exists in a receiving covenant, a
+**2f.5ii** When an Anchor-Only Subgraph exists in a receiving covenant, a
     sufficiently rich Polyphonic Encoding may route around it entirely —
     arriving at the correct semantic destination via intact paths while leaving
     the void undetected. The transmission feels successful. The comosí holds.

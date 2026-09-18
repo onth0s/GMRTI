@@ -10,3 +10,10 @@
   revision (`GMRTI_<timestamp>.md`) in the workspace root / current working
   directory. All other monolithic revisions must be stored in the
   [archive](file:///c:/Users/Leonardo/001/TXT/GMRTI/archive) directory.
+
+- **No CI/CD or External Automation Infrastructure**: Never add CI pipelines,
+  GitHub Actions workflows, pre-commit hooks, cloud build configurations, or
+  any other external automation infrastructure to this repository. This
+  prohibition is absolute and unconditional. Verification is performed
+  locally via the Python scripts (`wrap.py --check`, `rewrite.py --check`)
+  and the `pytest` test suite only.

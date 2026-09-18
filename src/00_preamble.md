@@ -17,19 +17,20 @@ The following new repairs are incorporated into the v0.9 Candidate:
 2. **Enhancing Mirror-to-Generative Transition:** Formalizing the Divergence
    Report with an explicit artifact template to make the transition more
    operational.
-3. **Prototyping Syntactic Edge-Forcing (R2):** Adding a minimal prototype
+3. **Prototyping Syntactic Edge-Forcing (§2g):** Adding a minimal prototype
    requiring explicit primary relational operators.
-4. **Empirical Validation of Semantic Entropy (R4):** Establishing an empirical
-   protocol for the Semantic Entropy Metric by counting Polyphonic Encoding
-   paths to reach Operational Parking.
-5. **Meta-DRC Alignment (R7):** Codifying the protocol to handle divergence over
-   Domain Risk Coefficient classification itself.
+4. **Empirical Validation of Semantic Entropy (§1a, §2f):** Establishing an
+   empirical protocol for the Semantic Entropy Metric by counting Polyphonic
+   Encoding paths to reach Operational Parking.
+5. **Meta-DRC Alignment (§3b.4, §3c.2):** Codifying the protocol to handle
+   divergence over Domain Risk Coefficient classification itself.
 6. **Integration of the Cognitive Load Distribution System (CLDS):** Adopting
-   CLDS as the meta-framework governing GMRTI's theoretical authoring. This
-   incorporates strict YAML concept specifications (`specs/`), the formalization
-   of Status Markers as non-negotiable invariants (`METHODOLOGY.md`), and the
-   Ratified Execution Protocol (`REFINEMENT.md`) to explicitly manage and
-   prevent structural debt.
+
+CLDS as the meta-framework governing GMRTI's theoretical authoring. This
+incorporates strict YAML concept specifications (`specs/`), the formalization of
+Status Markers as non-negotiable invariants (`METHODOLOGY.md`), and the Ratified
+Execution Protocol (`REFINEMENT.md`) to explicitly manage and prevent structural
+debt.
 
 The critical restorations made in v0.7 (metaagnosticism definition, exploratory
 depth, Edge Taxonomy grounding) and maintained through v0.8 remain fully intact

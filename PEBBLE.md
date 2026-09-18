@@ -100,33 +100,34 @@ active.
 To build a map, you must explicitly declare how your concepts connect using
 these eight relationship types:
 
-1.  **Causal** (`[->causal]`): Concept A physically makes Concept B happen.
-    *Example*: *Fire* `[->causal]` *Smoke*.
-2.  **Inferential** (`[->inferential]`): If Concept A is true, Concept B must
+1.  **Inferential** (`[->inferential]`): If Concept A is true, Concept B must
     also be true.
     *Example*: *Socrates is human* `[->inferential]` *Socrates is mortal*.
+2.  **Causal** (`[->causal]`): Concept A physically makes Concept B happen.
+    *Example*: *Fire* `[->causal]` *Smoke*.
 3.  **Procedural** (`[->procedural]`): You must do Concept A before doing
     Concept B.
     *Example*: *Pour batter* `[->procedural]` *Bake cake*.
-4.  **Normative** (`[->normative]`): Concept A justifies or obligates Concept B.
-    *Example*: *Promise made* `[->normative]` *Keep promise*.
-5.  **Identity** (`[->identity]`): Concept A is semantically equivalent to
-    Concept B.
-    *Example*: *Water* `[->identity]` *H2O*.
-6.  **Referential** (`[->referential]`): Concept A points to a real-world object
-    or instance B.
-    *Example*: *The Word "Chair"* `[->referential]` *The physical chair in the
-    corner*.
-7.  **Affective** (`[->affective]`): Concept A drives or motivates Concept B —
+4.  **Affective** (`[->affective]`): Concept A drives or motivates Concept B —
     the subjective pull, experienced from the inside.
     *Example*: *Fear* `[->affective]` *Flight*.
     (Causal links describe mechanism from the outside — the physical chain,
     independent of anyone's experience of it. Fear can also be Causal when the
     neurological pathway is the link being asserted. Use Affective when the
     claim is about motivation; use Causal when the claim is about mechanism.)
+5.  **Normative** (`[->normative]`): Concept A justifies or obligates Concept B.
+    *Example*: *Promise made* `[->normative]` *Keep promise*.
+6.  **Identity** (`[->identity]`): Concept A is semantically equivalent to
+    Concept B.
+    *Example*: *Water* `[->identity]` *H2O*.
+7.  **Referential** (`[->referential]`): Concept A points to a real-world object
+    or instance B.
+    *Example*: *The Word "Chair"* `[->referential]` *The physical chair in the
+    corner*.
 8.  **Structural** (`[->structural]`): Concept A is part of the physical or
     logical makeup of Concept B.
     *Example*: *Wheel* `[->structural]` *Bicycle*.
+
 
 ---
 
@@ -209,7 +210,8 @@ communication into two separate layers:
         agreement fails.
 
 No protocol command may be used as a content concept, and no content concept may
-alter the protocol rules. This single boundary prevents infinite regress.
+alter the protocol rules. This single boundary prevents infinite regress
+(governed by the Relational Operator Vocab Terminus rule, Section 3e.1vi).
 
 ---
 

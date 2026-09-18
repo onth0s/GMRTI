@@ -22,6 +22,23 @@ workflow.
   high-entropy applies to the language of GMRTI).
 - `[RESTORED]`: Content recovered after compression loss in prior iterations.
 
+### Compound Status Markers
+
+Claims may carry compound markers (e.g., `[STABLE][RECURSIVE]`,
+`[STABLE][RESTORED]`) when multiple orthogonal status dimensions intersect:
+
+- **Primary Epistemic Dimension**: `[OPEN]`, `[PROVISIONAL]`, or `[STABLE]`,
+  defining the claim's verification stage and invariant authority.
+- **Secondary Reflexive / Provenance Dimension**:
+- `[RECURSIVE]`: Indicates that the claim reflexively binds the GMRTI's own
+    authoring, representation, and transmission processes.
+- `[RESTORED]`: Indicates historical provenance — recovered after
+    compression loss in prior iterations.
+
+In compound forms, the primary epistemic status dictates the claim's invariant
+rigidity; the secondary tag specifies its reflexive scope or historical
+preservation requirement.
+
 ### Graduation Criteria
 A claim graduates from `[PROVISIONAL]` to `[STABLE]` only when it satisfies the
 following condition: **Survival of Adversarial Audit**: The claim has been

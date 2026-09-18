@@ -1,0 +1,24 @@
+concept_id: GMRTI-ARTIFACT-ANCHOR
+name: "Artifact Anchor and Federated Graph"
+intent: >-
+  To provide persistent external reference structures that stabilize semantic
+  covenants against temporal drift and individual cognitive variance.
+dependencies:
+  - GMRTI-TOPOLOGY
+  - GMRTI-COVENANT
+invariants:
+  - >-
+      An Artifact Anchor is an externalized, persistent representation of a
+      semantic covenant (such as documentation, codebase, or formal
+      specification).
+  - >-
+      Artifact Anchors operate as nodes in a Federated Graph across disparate
+      covenants rather than single centralized authorities.
+  - >-
+      Dynamic re-anchoring treats the anchor coordinate as a moving average
+      updated via correction vectors damped by lambda < 1.0 (The Damping Factor
+      Axiom).
+  - >-
+      Under any bounded correction stream, the anchor trajectory converges to
+      a stable equilibrium state under the Convergence Theorem.
+status: PROVISIONAL

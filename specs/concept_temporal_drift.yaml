@@ -1,0 +1,22 @@
+concept_id: GMRTI-TEMPORAL-DRIFT
+name: "Temporal Drift and Temporal Stranger Protocol"
+intent: >-
+  To diagnose, log, and correct semantic drift across time within
+  self-to-future-self transmissions.
+dependencies:
+  - GMRTI-COVENANT
+  - GMRTI-DIVERGENCE
+invariants:
+  - >-
+      Every semantic covenant is in continuous motion; the entity encoding at
+      t1 is not semantically identical to the entity decoding at t2.
+  - >-
+      Documentation without temporal anchoring suffers silent distortion where
+      past text is re-read through a drifted covenant.
+  - >-
+      The Temporal Stranger Protocol operationalizes self-to-future-self
+      transmission by treating past notes as the output of a foreign mind.
+  - >-
+      Temporal anchoring prioritizes axiomatic-layer clusters before surface
+      clusters due to their high consequence and low visibility.
+status: PROVISIONAL

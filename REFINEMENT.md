@@ -40,3 +40,19 @@ maintained. It must be strictly followed for all changes dictated by
   with Sequence Phase 4.
 - **Phase 5 (Alignment Audit)**: A context-free review ensures the new content
   aligns with both the ratified plan and the established `[STABLE]` invariants.
+
+## 3. Tooling Verification & Execution Boundaries
+
+All REP execution boundaries must be verified locally before transition to the
+next phase:
+
+- **Formatting Check**: `python wrap.py --check` ensures all markdown and YAML
+  sources adhere to the canonical line width without untracked drift.
+- **Monolithic Synchronization**: `python rewrite.py --check` guarantees the
+  root
+  monolithic document is in strict byte-level sync with modular sources.
+- **Specification & Unit Tests**: `python -m pytest tests/ -v` validates spec
+  schemas, link integrity, and parser contracts.
+
+Per `AGENTS.md`, verification is performed exclusively locally via these Python
+scripts and `pytest`.

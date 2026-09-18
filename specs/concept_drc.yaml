@@ -1,0 +1,24 @@
+concept_id: GMRTI-DRC
+name: "Domain Risk Coefficient"
+intent: >-
+  To calibrate transmission verification stringency to the catastrophic
+  failure risk of the operational domain, dynamically tuning the required
+  Generative Reconstruction depth.
+dependencies:
+  - GMRTI-COVENANT
+  - GMRTI-ENTROPY
+invariants:
+  - >-
+      DRC values range continuously from 0.0 (conversational, low consequence)
+      to 1.0 (existential, life-critical operational risk).
+  - >-
+      DRC sets the operational threshold of tolerated semantic entropy before
+      transmission failure is formally declared.
+  - >-
+      Higher DRC mandates deeper Generative Reconstruction (structural and
+      axiomatic layers) and explicit Divergence Localization before proceeding.
+  - >-
+      Asymmetry in participants' DRC assessments triggers Meta-DRC Divergence
+      and mandates defaulting to the higher demanded coefficient until
+      negotiated.
+status: PROVISIONAL
