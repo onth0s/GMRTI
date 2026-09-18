@@ -2,18 +2,20 @@
 
 **1a — The Fundamental Transmission Problem**
 
-**1a.1** Every idea exists, in its original working form, as a configuration of
-    relations within a semantic covenant. `[STABLE]`
+**1a.1** Every idea `[->structural]` exists, in its original working form, as a
+    configuration of relations `[->identity]` within a semantic covenant.
+    `[STABLE]`
 
-**1a.2** No two semantic covenants are identical, because each is the product of
-    a unique sequence of experience, reflection, and linguistic inheritance
-    accumulated over time. `[STABLE]`
+**1a.2** No two semantic covenants `[->identity]` are identical, because each is
+    the product of a unique sequence of experience, reflection, and linguistic
+    inheritance accumulated over time. `[STABLE]`
 
-**1a.3** Transmission of an idea from one covenant to another cannot be a simple
-    transfer of content. It is necessarily a *reconstruction*: the receiving
-    covenant must build an approximation of the original configuration using
-    only the signals available at the boundary between covenants: language,
-    gesture, symbol, artifact. `[STABLE]`
+**1a.3** Transmission of an idea from one covenant to another `[->causal]`
+    requires *reconstruction* `[->procedural]` by the receiving covenant:
+    building an approximation of the original configuration using only the
+    signals available at the boundary between covenants: language, gesture,
+    symbol, artifact. `[STABLE]`
+
 
 **1a.4** The signals available at that boundary are themselves ambiguous,
     because the symbols used to encode an idea within one covenant carry no

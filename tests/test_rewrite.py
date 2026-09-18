@@ -18,6 +18,9 @@ def test_assemble_monolithic_document_success():
     assert "SECTION 1 \u2014 The Problem the GMRTI Addresses" in doc
     assert "SECTION 7 \u2014 Relation to Downstream Applications" in doc
     assert "SECTION 8 \u2014 Known Gaps and Open Challenges" in doc
+    assert "## APPENDIX A \u2014 Architectural Model" in doc
+    assert "## APPENDIX M \u2014 Methodology & Status Markers" in doc
+    assert "## APPENDIX R \u2014 The Refinement Cycle" in doc
 
 
 

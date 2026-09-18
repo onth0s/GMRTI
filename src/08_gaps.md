@@ -29,16 +29,20 @@
 
 **8b — Active Theoretical Contentions** `[PROVISIONAL]`
 
-**8b.1 — Contention 1: Formal Discretization of Semantic Entropy**
-`[PROVISIONAL]`
+**8b.1 — Contention 1: Graph-Space Partitioning and Individuation in Semantic
+Entropy** `[PROVISIONAL]`
 
-The mathematical formulation of Semantic Entropy in Section 1a ($H_s = -\sum p_i
-\log_2 p_i$) defines entropy over the distribution of reconstructed meanings.
-The open contention is whether the probability distribution $p_i$ can be
-rigorously metricized in natural language transmissions without introducing
-arbitrary subjective partitioning.
-- *Status*: Open. Currently operationalized heuristically via Polyphonic
-  Encoding path counts to Operational Parking (Section 2f.4). Full formalization
+The mathematical formulation of Semantic Entropy in Section 1a ($H_s(S) = \log_2
+|\{G_R : G_R \text{ compatible with } S\}|$) defines entropy as a Hartley-style
+log-count over compatible reconstructed graph topologies. The open contention is
+that this formulation presupposes a rigorous individuation criterion for
+distinct, non-isomorphic edge-configurations. Partitioning graph configuration-space
+is inherently covenant-relative: determining what constitutes an operationally
+distinct reconstructed graph requires an external partition, directly engaging
+the metaagnostic boundary.
+- *Status*: Open. Currently operationalized heuristically via the Behavioral
+  Convergence Proxy (Path-Count Metric) terminating at the Operational Action
+  Threshold (§0.4, §1a.6). Formalizing invariant graph-space discretization
   remains targeted for downstream verification.
 
 **8b.2 — Contention 2: Mirror-Prior Synchronization in Adversarial Loops**

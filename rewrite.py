@@ -13,9 +13,6 @@ import argparse
 ASSEMBLY_MANIFEST = [
     {"path": "src/00_preamble.md",           "merge_mode": "separator"},
     {"path": "GLOSSARY.md",                  "merge_mode": "append"},
-    {"path": "ARCHITECTURE.md",              "merge_mode": "separator"},
-    {"path": "METHODOLOGY.md",               "merge_mode": "separator"},
-    {"path": "REFINEMENT.md",                "merge_mode": "separator"},
     {"path": "src/01_problem.md",            "merge_mode": "separator"},
     {"path": "src/02_architecture.md",       "merge_mode": "separator"},
     {"path": "src/03_algorithm.md",          "merge_mode": "separator"},
@@ -24,6 +21,9 @@ ASSEMBLY_MANIFEST = [
     {"path": "src/06_refinement_vectors.md", "merge_mode": "separator"},
     {"path": "src/07_downstream.md",         "merge_mode": "separator"},
     {"path": "src/08_gaps.md",               "merge_mode": "separator"},
+    {"path": "ARCHITECTURE.md",              "merge_mode": "separator"},
+    {"path": "METHODOLOGY.md",               "merge_mode": "separator"},
+    {"path": "REFINEMENT.md",                "merge_mode": "separator"},
 ]
 
 
@@ -57,6 +57,24 @@ def assemble_monolithic_document(base_dir):
         if rel_path == 'GLOSSARY.md':
             content = re.sub(
                 r'^#\s+Glossary\b', '**0.4 Vocabulary**',
+                content, flags=re.MULTILINE
+            )
+        elif rel_path == 'ARCHITECTURE.md':
+            content = re.sub(
+                r'^#\s+GMRTI Architectural Model\b',
+                '## APPENDIX A — Architectural Model',
+                content, flags=re.MULTILINE
+            )
+        elif rel_path == 'METHODOLOGY.md':
+            content = re.sub(
+                r'^#\s+GMRTI Methodology & Status Markers\b',
+                '## APPENDIX M — Methodology & Status Markers',
+                content, flags=re.MULTILINE
+            )
+        elif rel_path == 'REFINEMENT.md':
+            content = re.sub(
+                r'^#\s+The Refinement Cycle\b',
+                '## APPENDIX R — The Refinement Cycle',
                 content, flags=re.MULTILINE
             )
 

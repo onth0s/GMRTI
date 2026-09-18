@@ -4,11 +4,11 @@ This document defines the lifecycle, validation requirements, and epistemic
 authority of theoretical claims within the GMRTI framework. It establishes the
 non-negotiable behavioral contracts for authoring and refactoring the treatise.
 
-## Status Markers and Invariant Graduation
+**Ma — Status Markers and Invariant Graduation**
 
-Theoretical claims within GMRTI are tagged with Status Markers. These markers
-dictate the claim's load-bearing authority and serve as invariants in the CLDS
-workflow.
+**Ma.1** Theoretical claims within GMRTI are tagged with Status Markers. These
+    markers dictate the claim's load-bearing authority and serve as invariants
+    in the CLDS workflow:
 
 - `[OPEN]`: A known unresolved design challenge. High semantic entropy is
   expected.
@@ -21,8 +21,13 @@ workflow.
   checked for self-consistency (e.g., the claim that all language is
   high-entropy applies to the language of GMRTI).
 - `[RESTORED]`: Content recovered after compression loss in prior iterations.
+- `[EXCISED]`: Content formally retired from the operational framework to
+  eliminate ambiguity, avoid regress, or adhere to architectural separation
+  (such as deferring typing under JIT-OM). Retained in situ with an explicit
+  provenance note to preserve address stability and auditability while marking
+  the content as operationally inert.
 
-### Compound Status Markers
+**Ma.2 — Compound Status Markers**
 
 Claims may carry compound markers (e.g., `[STABLE][RECURSIVE]`,
 `[STABLE][RESTORED]`) when multiple orthogonal status dimensions intersect:
@@ -34,12 +39,26 @@ Claims may carry compound markers (e.g., `[STABLE][RECURSIVE]`,
     authoring, representation, and transmission processes.
 - `[RESTORED]`: Indicates historical provenance — recovered after
     compression loss in prior iterations.
+- `[EXCISED]`: Indicates historical retirement — preserved at its original
+    address for citation integrity, but excluded from operational inference.
 
 In compound forms, the primary epistemic status dictates the claim's invariant
 rigidity; the secondary tag specifies its reflexive scope or historical
 preservation requirement.
 
-### Graduation Criteria
+**Ma.3 — Invariant Dependency Constraint** `[STABLE]`
+
+No `[STABLE]` claim or architectural invariant may rest upon, cite as
+foundational, or require the truth of a `[PROVISIONAL]` or `[OPEN]` claim
+without an explicit provisional dependency boundary declaration. When a
+`[STABLE]` claim requires support from an evolving concept, the dependent
+concept must either be audited and graduated to `[STABLE]` via the Refinement
+Cycle, or the upstream claim must be constrained to a bounded heuristic scope.
+Graduation is a structural, dependency-ordered operation: invariants may only
+depend on validated invariants.
+
+**Ma.4 — Graduation Criteria** `[STABLE]`
+
 A claim graduates from `[PROVISIONAL]` to `[STABLE]` only when it satisfies the
 following condition: **Survival of Adversarial Audit**: The claim has been
 subjected to a formal `DISSONANCE.md` critique by an external or context-free

@@ -42,17 +42,22 @@
     Surface clusters, precisely because their drift is least visible and most
     consequential. `[PROVISIONAL]`
 
-**4b.3 — Dynamic Re-Anchoring and Damping Factor Axiom** `[STABLE]`
+**4b.3 — Dynamic Re-Anchoring and Exponential Smoothing Heuristic**
+`[PROVISIONAL]`
 
 To stabilize Artifact Anchors against continuous Temporal Drift, GMRTI defines
-**Dynamic Re-Anchoring**: treating the anchor not as a static coordinate, but as
-a moving average updated via continuous correction vectors.
-- **The Damping Factor Axiom**: To prevent anchor oscillation and guarantee
-  mathematical convergence to a stable anchor, all correction vector updates
-  $v_t$ are scaled by a damping factor $\lambda < 1.0$ (typically $\lambda =
-  0.15$). The updated anchor $A_{t+1}$ is defined as:
-  $$A_{t+1} = A_t + \lambda (A_{decl} - A_t)$$
-- **Convergence Theorem**: Under any bounded correction stream, the anchor
-  trajectory converges to a stable equilibrium state if the sum of update
-  magnitudes is finite:
-  $$\sum_{t=1}^{\infty} |v_t| < \infty$$
+**Dynamic Re-Anchoring**: treating the anchor not as an immutable coordinate,
+but as a damped moving average updated via successive declaration states
+$A_{decl,t}$.
+- **The Damping Factor Axiom**: To prevent anchor oscillation and maintain
+  stability under noisy or local fluctuations, updates are scaled by a damping
+  factor $\lambda \in (0, 1)$ (with $\lambda = 0.15$ as an operational
+  default, subject to empirical calibration):
+  $$A_{t+1} = (1 - \lambda)A_t + \lambda A_{decl,t} = A_t + \lambda (A_{decl,t} - A_t)$$
+- **Lag-Bounded Tracking Principle**: Under an incoming sequence of declarations
+  with bounded drift rate $\delta = \sup_t \|A_{decl,t+1} - A_{decl,t}\|$, the
+  steady-state tracking lag of the smoothed anchor is bounded by:
+  $$\limsup_{t \to \infty} \|A_t - A_{decl,t}\| \le \delta \frac{1 - \lambda}{\lambda}$$
+This frames the choice of $\lambda$ as a formal tradeoff: smaller $\lambda$
+suppresses local variance and prevents oscillation, while larger $\lambda$
+minimizes steady-state tracking lag behind authentic covenant evolution.

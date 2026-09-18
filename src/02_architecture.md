@@ -5,10 +5,12 @@
 **2a.1** A semantic covenant can be modeled as a directed graph in which edges
     represent the meaning-carrying relations between conceptual regions.
 
-**2a.2** **Meaning resides in relation rather than atom.** A concept is not a
-    self-subsistent semantic particle; it is a localized stability in a
-    relational field. The label attached to that region is a handle, not a
-    container of meaning in itself. `[STABLE][RECURSIVE]`
+**2a.2** **Meaning `[->structural]` resides in relation `[->identity]` rather
+    than
+    atom.** A concept is not a self-subsistent semantic particle; it is a
+    localized stability in a relational field. The label attached to that region
+    is a handle, not a container of meaning in itself. `[STABLE][RECURSIVE]`
+
 
 **2a.3** This avoids the substantialist temptation: we are not positing a realm
     of Platonic concepts that language imperfectly points at. We are positing a
@@ -122,6 +124,18 @@ depends on a given edge-cluster remaining stable.
     efficiently from detected surface divergence inward to the layer where
     divergence actually originates. `[STABLE]`
 
+**2b.2 — Detection via Dependency-Tracing Scan** `[STABLE]`
+
+To locate Axiomatic Edge-Clusters without relying on subjective introspection,
+the GMRTI prescribes the **Dependency-Tracing Scan**: an algorithmic traversal
+calculating the downstream propagation impact of hypothetical edge revisions.
+Any edge-cluster whose alteration forces structural reconfiguration in more than
+a declared threshold of dependent nodes (heuristically set to a 30% node
+threshold, subject to domain-specific calibration) is formally classified as
+*Axiomatically Active*. This converts axiomaticity from an invisible
+metaphysical assumption into a measurable topological dependency.
+
+
 **2c — Divergence Taxonomy** `[STABLE]`
 
 **2c.1** The GMRTI identifies three primary divergence types:
@@ -202,6 +216,17 @@ is precisely the kind of JIT-OM operation the framework prescribes.
     believe they understand each other, if the Artifact Anchors have decayed
     faster than individual covenants have noticed. `[PROVISIONAL]`
 
+**2d.4 — Countering Anchor Decay via Periodic Re-Mirroring Protocol** `[STABLE]`
+
+To combat Artifact Anchor decay before institutional failure occurs, the
+Maintenance Covenant executes the **Periodic Re-Mirroring Protocol**: at
+regularly scheduled epochs, the community's operating Federated Graph is audited
+against the Artifact Anchor under the zero-charity Mirror posture (DRC → 1.0).
+This produces a formal desynchronization *Delta Graph* that maps cumulative
+semantic drift, triggering targeted maintenance repair before operational
+coordination fractures.
+
+
 **2e — Rational Agnosticism as Operational Posture** `[STABLE]`
 
 **2e.1** The GMRTI requires that any receiver engaged in deliberate
@@ -247,11 +272,14 @@ layers:
 
 - **2e.5ii — The Primitive Covenant** (GMRTI-specific): The additional shared
   assumptions required for GMRTI-mediated communication specifically. This
-  includes the eight primitive relational operators (2g.4), the edge-primacy
+  includes the core primitive relational operators (`[->causal]`,
+  `[->inferential]`, `[->identity]`) bootstrapped via CZP, the edge-primacy
   structural commitment (2a.2), and the Tier 1 coarse taxonomy
-  (inferential/causal/other). The Primitive Covenant is itself a semantic
-  framework subject to transmission error — its establishment between agents is
-  a transmission problem that the MIB does not solve but JIT-OM addresses.
+  (inferential/causal/other). The remaining relational operators are derived
+  compositionally or negotiated via JIT-OM. The Primitive Covenant is itself a
+  semantic framework subject to transmission error — its establishment between
+  agents is a transmission problem that the MIB does not solve but JIT-OM
+  addresses. `[STABLE]`
 
 - **2e.5iii — The Covenant Zero Protocol (CZP)**: The procedure for
   bootstrapping the GMRTI-specific Primitive Covenant from the Minimal
@@ -260,13 +288,15 @@ layers:
   temporal co-occurrence (defining `[->causal]`); (b) agents map inferential
   relations by verifying pattern co-occurrence and logical consistency checks
   (defining `[->inferential]`); (c) agents map identity by establishing signal
-  substitution (defining `[->identity]`). Once these primitives are established,
-  the coarse taxonomy is complete.
+  substitution (defining `[->identity]`). Once these core primitives are
+  established, the coarse taxonomy is active and derived operators can be
+  composed.
 
-Calibrating the DRC to zero reduces interpretive charity to the Minimal
+Calibrating the DRC to maximum (1.0) reduces interpretive charity to the Minimal
 Substrate baseline. GMRTI-mediated repair additionally requires the Primitive
 Covenant, whose sharing between agents is a precondition acknowledged as
 non-trivial, not a background assumption that can be silently presupposed.
+
 
 
 **2f — Polyphonic Encoding** `[STABLE]`
@@ -356,11 +386,16 @@ testable boundary.
 
 **Polyphonic Node Detection**: PSP produces false positives on legitimately
 polyphonic nodes — nodes carrying multiple simultaneous meanings via
-structurally independent paths. To break the diagnostic circularity (PSP needs
-to know which nodes are polyphonic, but detecting polyphony requires the
-analysis PSP provides), the GMRTI defines an automatic pre-screening criterion:
-any node with two or more incoming edges of distinct types *and* two or more
-outgoing edges of distinct types is flagged as a *candidate polyphonic node*.
+structurally independent paths. To break the diagnostic circularity without
+prematurely requiring Tier 2 edge-typing, the GMRTI defines a two-tiered
+pre-screening criterion:
+- **Tier 1 Structural Pre-screen**: In the default state, any node with
+  in-degree ≥ 2 and out-degree ≥ 2 (regardless of edge-types) is flagged as a
+  candidate polyphonic node.
+- **Tier 2 Refined Pre-screen**: Where Tier 2 JIT-OM is already active,
+  flagging requires two or more incoming edges of distinct types and two or more
+  outgoing edges of distinct types.
+
 PSP applied to candidate polyphonic nodes uses a strengthened threshold: *all*
 paths must fail before a void is declared, rather than any single path.
 
@@ -373,16 +408,21 @@ paths must fail before a void is declared, rather than any single path.
 - **Proactive Chaotic Probing (PCP)**: To detect latent divergences that *would*
   produce future failures, the GMRTI defines the PCP protocol. PCP proactively
   runs Path-Stripping Probing on random samples of candidate polyphonic nodes
-  during generative states (low DRC), simulating path failure to force latent
-  differences to surface before they trigger real-time faults.
+  during scheduled maintenance intervals or dedicated audit states (high DRC),
+  simulating path failure to force latent differences to surface before they
+  trigger real-time faults.
 
 **2f.6 — Core Path Minimization** `[STABLE]`
 
 To prevent polyphonic complexity from expanding the graph's surface area and
-introducing semantic drift, the GMRTI mandates **Core Path Minimization**: all
-redundant encoding paths must be direct structural translations (isomorphisms)
-of a single declared canonical path, rather than introducing new concepts or
-unrelated semantic domains.
+introducing semantic drift, the GMRTI mandates **Core Path Minimization**:
+redundant encoding paths must maintain *destination-isomorphism* — terminating
+at the identical semantic destination and licensing the same downstream
+operational inferences — while preserving *route-independence* across disjoint
+intermediate topological structures. Redundant paths must refrain from
+introducing extraneous unanchored concepts or unrelated semantic domains beyond
+what is strictly necessary to construct the alternative route.
+
 
 
 **2g — Syntactic Edge-Forcing** `[STABLE]`
@@ -479,15 +519,16 @@ bounded by two structural conditions:
     where concept-type and shared primitive vocabulary permit it, as a
     complement to Polyphonic Encoding and JIT-OM — not as a replacement for
     either. Its deployment should be calibrated to the concept-type taxonomy of
-    Section 5a. As a working prototype, key stable claims in this treatise are
-    formally edge-forced as follows:
-- **1a.1 (Prototype):** Every idea [->structural] exists as a configuration of
-  relations [->identity] within a semantic covenant.
-- **1a.2 (Prototype):** No two semantic covenants [->identity] are identical.
-- **1a.3 (Prototype):** Transmission [->causal] requires reconstruction
-  [->procedural] by the receiving covenant.
-- **2a.2 (Prototype):** Meaning [->structural] resides in relation [->identity]
-  rather than atom.
+    Section 5a. As an operational prototype, key stable claims in this treatise
+    are formally edge-forced in situ:
+- **§1a.1 (In Situ):** `Every idea [->structural] exists... [->identity] within
+  a semantic covenant.`
+- **§1a.2 (In Situ):** `No two semantic covenants [->identity] are identical...`
+- **§1a.3 (In Situ):** `Transmission of an idea [->causal] requires
+  reconstruction [->procedural]...`
+- **§2a.2 (In Situ):** `Meaning [->structural] resides in relation [->identity]
+  rather than atom.`
+
 
 **2h — Boundary-Tracing Encapsulation** `[STABLE]`
 

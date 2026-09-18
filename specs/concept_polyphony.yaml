@@ -15,7 +15,7 @@ invariants:
       Redundancy-Masking (where backup routes conceal a local void) is diagnosed
       via Path-Stripping Probing (PSP).
   - >-
-      Core Path Minimization: all redundant paths must be isomorphic
-      translations
-      of a single canonical path to prevent graph bloat.
+      Core Path Minimization: all redundant paths must maintain
+      destination-isomorphism (licensing identical operational inferences) while
+      preserving route-independence (traversing disjoint intermediate topology).
 status: STABLE

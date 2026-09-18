@@ -12,12 +12,12 @@
     Localization by adversarial readers, including future versions of the
     authors themselves.
 
-**6a.3** A full demonstration of self-application — performing an explicit
-    Covenant Declaration, Generative Reconstruction, Divergence Localization,
-    and Targeted Repair cycle on one section of this document — is a validation
-    target for the next iteration. The current iteration asserts and partially
-    prototypes self-application (see 2g.7) but does not execute a complete
-    self-audit cycle. `[PROVISIONAL]`
+**6a.3** The framework's commitment to self-application is actively executed
+    in the current iteration through formal adversarial audit
+    (`refinery/DISSONANCE.md`) and the Ratified Execution Protocol
+    (`DECISIONS.md`, `PLAN.md`), systematically surfacing and repairing
+    internal edge divergences, invariant contradictions, and orphan
+    definitions across the treatise. `[STABLE][RECURSIVE]`
 
 **6b — The LLM-Manifesto Iteration Loop** `[PROVISIONAL]`
 
@@ -40,9 +40,11 @@
    undetected covenant intrusions by the LLM's own priors. This check must
    include: (a) a word-for-word comparison of all vocabulary definitions against
    the prior iteration, since definitional softening is the most invisible form
-   of covenant intrusion; and (b) a length-and-redundancy audit of all Refinery
-   entries, since Refinery compression is a confirmed failure mode.
+   of covenant intrusion; and (b) a length-and-redundancy audit of all working
+   artifacts in the repository's `refinery/` workspace, since Refinery
+   compression is a confirmed failure mode.
 6. **Return to step 1** with the refined declaration.
+
 
 **6b.2** The LLM functions as an adversarial receiving covenant with
     structurally reduced interpretive charity — surfacing Anchor-Only Subgraph

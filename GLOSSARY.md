@@ -44,13 +44,17 @@ redefinition:
   canonical text, standardized protocol) that forces constituent individual
   covenants to continuously realign their Structural Subgraphs to a shared
   artificial topology.
-- **DOMAIN RISK COEFFICIENT (DRC)** — A context-sensitive parameter governing
-  the required precision of reconstruction; inversely proportional to
-  interpretive charity.
+- **DOMAIN RISK COEFFICIENT (DRC)** — A context-sensitive parameter defined on
+  the bounded interval [0.0, 1.0] governing the required precision of
+  reconstruction; inversely proportional to interpretive charity. Calibrating
+  DRC toward 0.0 maximizes interpretive charity (Generative Mode); calibrating
+  DRC toward 1.0 drives charity toward zero and enforces strict verification
+  (Audit Mode). `[STABLE]`
 - **META-DRC DIVERGENCE** — A disagreement between communicating covenants
   regarding the DRC classification of a domain, which pauses primary
   transmission and defaults to the highest demanded DRC of any participating
   party until resolved. `[STABLE]`
+
 - **JUST-IN-TIME ONTOLOGICAL MARKING (JIT-OM)** — The practice of deploying
   ontological type distinctions retroactively and locally, only at the precise
   site of a detected Edge Divergence, rather than as upfront metalanguage.
@@ -107,16 +111,24 @@ redefinition:
   detect structural similarity, and individuate their own conceptual regions.
   Carries no GMRTI-specific content. `[STABLE]`
 - **MINIMAL INTELLIGIBILITY BOOTSTRAP** — The stratified decoding substrate: the
-  Minimal Substrate (framework- independent) guarantees basic signal decoding;
+  Minimal Substrate (framework-independent) guarantees basic signal decoding;
   the Primitive Covenant (GMRTI-specific) enables GMRTI-mediated repair.
-  Calibrating DRC to zero reduces charity to the Minimal Substrate baseline.
-  `[STABLE]`
-- **CORE PATH MINIMIZATION** — The constraint requiring all redundant paths in
-  polyphonic encoding to be isomorphic translations of a single canonical path,
-  limiting complexity growth. `[STABLE]`
+  Calibrating DRC to maximum (1.0) reduces charity to the Minimal Substrate
+  baseline. `[STABLE]`
+- **OPERATIONAL ACTION THRESHOLD** — The domain-specific threshold of
+  reconstruction fidelity at which a receiver can take reliable downstream
+  action without catastrophic coordination failure. Serves as the termination
+  criterion for Operational Parking (§3a.1i) and Path-Stripping Probing
+  (§2f.5iv). `[STABLE]`
+- **CORE PATH MINIMIZATION** — The complexity governor requiring that redundant
+  paths in Polyphonic Encoding maintain destination-isomorphism (terminating at
+  the identical semantic destination and licensing the same downstream
+  inferences) while preserving route-independence across disjoint intermediate
+  topological structures. `[STABLE]`
 - **DYNAMIC RE-ANCHORING** — The process of treating Artifact Anchors as a
-  moving average, updated via continuous correction vectors to manage textual
-  drift. `[STABLE]`
+
+moving average, updated via continuous correction vectors to manage textual
+drift. `[STABLE]`
 - **THE MIRROR** — Any Rationally Agnostic receiver (human, LLM, or future-self)
   operationalized to reconstruct a transmission using strictly declared edges,
   with interpretive charity calibrated to the Domain Risk Coefficient. A tool

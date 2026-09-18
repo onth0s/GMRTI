@@ -41,16 +41,19 @@
 
 To balance the cognitive overhead of Rationally Agnostic reconstruction against
 the necessity of creative generation, GMRTI defines three operational modes
-governed by the Domain Risk Coefficient (DRC):
-- **Generative Mode (Drafting)**: DRC is calibrated to infinity, enabling
-  maximum interpretive charity. The receiver reads the transmission with full
-  natural language assumptions. Cognitive overhead is zero.
-- **Refinement Mode**: DRC is set to moderate levels (DRC = 0.5). Basic path
+governed by the Domain Risk Coefficient (DRC), defined on the bounded scale
+[0.0, 1.0]:
+- **Generative Mode (Drafting)**: DRC is calibrated to minimum (DRC → 0.0),
+  enabling maximum interpretive charity. The receiver reads the transmission
+  with full natural language assumptions. Verification overhead is zero.
+- **Refinement Mode**: DRC is set to moderate levels (DRC ≈ 0.5). Basic path
   redundancy is checked, and core conceptual definitions are marked with Tier 1
   coarse taxonomy.
-- **Audit Mode**: DRC is calibrated to absolute zero. Interpretive charity is
-  suspended. The receiver uses only the Minimal Substrate to perform Generative
-  Reconstruction, forcing latent differences to surface for repair.
+- **Audit Mode**: DRC is calibrated to maximum (DRC → 1.0). Interpretive
+  charity is suspended. The receiver operates under the Mirror posture, using
+  only the Minimal Substrate to perform Generative Reconstruction, forcing
+  latent differences to surface for repair.
+
 
 **3b — Stage 1: Covenant Declaration** `[STABLE]`
 
@@ -67,9 +70,10 @@ governed by the Domain Risk Coefficient (DRC):
 - **3b.1iv** Applying Polyphonic Encoding to any claim suspected of operating at
     the Structural or Axiomatic layer — providing multiple independent routes to
     the same semantic destination.
-- **3b.1v** *[Excised in v0.8 to align with JIT-OM principle. Edge-typing is
-    strictly deferred to Stage 3 divergence resolution, maintaining Stage 1 as
-    purely topological.]*
+- **3b.1v** `[EXCISED]` Edge-typing excised in v0.8 to align with JIT-OM
+  principle; strictly deferred to Stage 3 divergence resolution, maintaining
+  Stage 1 as purely topological.
+
 
 **3b.2** Covenant Declaration is not a demand for agreement. It is a demand for
     *visibility* — bringing the transmitting covenant's architecture to a level
@@ -124,7 +128,8 @@ Comosí is pragmatically sufficient when the semantic clustering of the two
 covenants produces identical downstream actions or operational definitions
 within the specific bounded domain of the transmission. Perfect philosophical
 alignment is unnecessary if the structural subgraphs route to the same
-behavioral or logical outputs. `[PROVISIONAL]`
+behavioral or logical outputs. `[STABLE]`
+
 
 **3c.4** Generative Reconstruction produces two outputs:
 
@@ -209,27 +214,36 @@ behavioral or logical outputs. `[PROVISIONAL]`
     while it carries catastrophic failure risk for another). Once the DRC is
     established, the transmission resumes from Stage 2 under the new joint
     coefficient.
-- **3e.1vi** *Relational Operator Vocab Terminus*: To prevent
-  the infinite regress of tagging metadata, the eight primitive
-  relational operators defined in 2g.4 are declared as *Axiomatic
-  Primitives* whose meanings are fixed by default consensus within
-  the Primitive Covenant (2e.5ii) and are structurally
-  non-markable at the content level. Any divergence over the
-  meaning of a relational operator cannot be repaired via JIT-OM,
-  but triggers immediate Cost-Bounded Termination (3a.1iii) or
-  defaults to classical natural language interpretation.
+- **3e.1vi** *Relational Operator Regress Terminus*: To prevent the infinite
+  regress of tagging metadata, the relational operators defined in 2g.4 are
+  structurally non-markable at the content level (preventing meta-tagging of
+  tags). Divergence over primitive relational operators cannot be repaired via
+  local JIT-OM, but triggers execution of the Covenant Zero Protocol (§2e.5iii)
+  to re-establish operator grounding from the Minimal Substrate. Cost-Bounded
+  Termination (§3a.1iii) is invoked only if CZP itself fails to converge.
 
 **Content–Protocol Stratification**: The eight operators govern *content-level*
-semantic relations within concept-graphs. The GMRTI algorithm additionally
-requires *protocol-level* operations — proposing candidate repairs, accepting or
-rejecting re-typings, pausing and resuming transmission, defaulting to the
-highest DRC — that are meta-pragmatic speech acts *about* the concept-graph
-rather than edges *within* it. These protocol operations are explicitly declared
-as a finite, closed meta-vocabulary (propose, accept, reject, pause, resume,
-default) operating at a single declared meta-level above the content layer. This
-introduces one controlled stratification rather than an unbounded regress:
-content uses the 8 operators; protocol uses the 6 meta-operations; no further
-meta-level is required or permitted. `[STABLE]`
+semantic relations within concept-graphs. To coordinate transmission repair
+without triggering an infinite metalanguage regress, the GMRTI algorithm
+stratifies protocol actions into a closed set of six *performative protocol
+acts* (propose, accept, reject, pause, resume, default). Unlike content
+concepts, these operations are non-descriptive: their semantic value is strictly
+operational and exhausted by their state transitions within a finite state
+machine:
+- `propose(target, edge_type)`: Transitions transmission from Active to
+  Under-Review.
+- `accept(proposal)`: Ratifies candidate edge typing; returns to Active
+  transmission.
+- `reject(proposal)`: Declines candidate repair; triggers alternative routing.
+- `pause(scope)`: Halts primary traversal; initiates localized diagnostic probe.
+- `resume()`: Restores traversal following diagnostic or repair ratification.
+- `default(drc_level)`: Enforces highest demanded DRC upon unresolved
+  meta-dispute.
+
+Because protocol commands perform state-transitions rather than asserting
+truth-claims about semantic edges, they admit no meta-level edge divergence,
+halting the regress without resort to dogmatic fiat. `[STABLE]`
+
 
 
 **3e.2** Repair operations do not aim at permanent covenant merger. The goal is
@@ -279,3 +293,21 @@ meta-level is required or permitted. `[STABLE]`
     where over-explication can destroy the very coordination it aims to improve.
     In those domains, the goal is not maximal reconstruction depth; it is
     sufficient reconstruction with minimal friction. `[PROVISIONAL]`
+
+**3g.4 — Adversarial Threat Model: Bad Actors and Topological Consistency
+Audit** `[STABLE]`
+
+The stopping principle assumes cooperative participants. In adversarial or
+asymmetric settings, the protocol encounters **Bad Actors**: participants who
+exploit interpretive charity by declaring internally contradictory edge
+subgraphs, manufacturing spurious irreducibility to block coordination, or
+persistently rejecting valid isomorphic repairs. To bound adversarial
+exploitation, the GMRTI deploys the **Topological Consistency Audit (TCA)**:
+- **TCA Verification**: An automated check testing declared subgraphs for
+  internal logical contradictions and verifying whether candidate repairs
+  satisfy declared interface invariants.
+- **Enforcement**: If a participant maintains contradictory edge declarations or
+  repeatedly rejects isomorphic repairs verified by TCA, they are classified as
+  a Bad Actor. The protocol terminates cooperative exchange immediately under
+  Cost-Bounded Termination (§3a.1iii), preventing bad-faith epistemic
+  exhaustion.

@@ -6,47 +6,52 @@ explicit boundary verification.
 
 ---
 
-## Active Plan
+## Active Plan (v0.9 Candidate Adversarial Audit Resolutions)
 
-### Sequence 1: Theoretical & Guide Alignment (DEC-003, DEC-004, DEC-005, DEC-006)
-- **Target Files**:
-- `METHODOLOGY.md`
-- `src/02_architecture.md`
-- `src/00_preamble.md`
-- `PEBBLE.md`
-- `REFINEMENT.md`
-- **Execution Boundary**: All target text files wrapped and formatted; `python
-  wrap.py --check` passes; all existing unit tests pass.
-- **Verification Command**: `python wrap.py --check && python -m pytest tests/
-  -v`
+### Phase 1: Invariant Harmonization & Mathematical Precision (DEC-01 to DEC-05)
+- **Targets**: `GLOSSARY.md`, `src/02_architecture.md`, `src/03_algorithm.md`,
+  `src/04_temporal_anchoring.md`, `src/08_gaps.md`
+- **Scope**: Standardize DRC to $[0.0, 1.0]$; destination-isomorphism for Core
+  Path Minimization; CZP bootstrap scope; Hartley log-count formula for
+  Semantic Entropy in §8b.1; exponential smoothing and lag-bounded tracking in
+  §4b.3.
+- **Verification**: `python wrap.py --check`
 
-### Sequence 2: Machine-Readable Concept Specifications (DEC-001)
-- **Target Files**:
-- `specs/concept_drc.yaml`
-- `specs/concept_artifact_anchor.yaml`
-- `specs/concept_temporal_drift.yaml`
-- **Execution Boundary**: All new YAML specifications conform to schema and
-  resolve all dependencies without cycles or missing references.
-- **Verification Command**: `python -m pytest tests/test_specs.py -v && python
-  wrap.py --check`
+### Phase 2: Algorithmic & Operational Enhancements (DEC-06 to DEC-10, DEC-12, DEC-13)
+- **Targets**: `GLOSSARY.md`, `src/01_problem.md`, `src/02_architecture.md`,
+  `src/03_algorithm.md`
+- **Scope**: Two-tier PSP pre-screening (§2f.5iv); integrate 4 orphan terms
+  (§2b.2, §2d.4, §3g.4); deploy syntactic edge-forcing prototype in situ (§1a,
+  §2a); ground Content-Protocol Stratification in FSM semantics (§3e.1vi);
+  graduate §3c.3 to `[STABLE]`; add `OPERATIONAL ACTION THRESHOLD` to glossary.
+- **Verification**: `python wrap.py --check`
 
-### Sequence 3: Section 8 Formalization & Compilation Pipeline (DEC-002)
-- **Target Files**:
-- `src/08_gaps.md`
-- `rewrite.py`
-- `tests/test_rewrite.py`
-- **Execution Boundary**: `src/08_gaps.md` is authored with complete horizon
-  analysis; added to `ASSEMBLY_MANIFEST` in `rewrite.py`; tests updated to
-  assert Section 8 presence.
-- **Verification Command**: `python wrap.py --check && python -m pytest tests/
-  -v`
+### Phase 3: Empirical Self-Application & Scope Clarification (DEC-08, DEC-11)
+- **Targets**: `src/06_refinement_vectors.md`
+- **Scope**: Update §6a.3 to designate `refinery/DISSONANCE.md` as the completed
+  self-application cycle; clarify §6b.1 step 5(b) inspection of `refinery/`.
+- **Verification**: `python wrap.py --check`
 
-### Sequence 4: Monolithic Recompilation & Final Alignment Audit
-- **Target Files**:
-- Workspace root `GMRTI_<timestamp>.md`
-- `archive/` directory
-- **Execution Boundary**: New monolithic document compiled; prior monolithic
-  archived per `AGENTS.md`; `rewrite.py --check` validates byte-level
-  synchronization; 0 link or schema errors.
-- **Verification Command**: `python rewrite.py && python rewrite.py --check &&
-  python wrap.py --check && python -m pytest tests/ -v`
+### Phase 4: Structural Governance & Address Hierarchy (DEC-12, DEC-14 to DEC-18)
+- **Targets**: `METHODOLOGY.md`, `ARCHITECTURE.md`, `REFINEMENT.md`,
+  `src/00_preamble.md`, `src/08_gaps.md`, `README.md`, `rewrite.py`
+- **Scope**: Invariant Dependency Constraint; `Aa`, `Ma`, `Ra–Rc` addresses;
+  `## APPENDIX A / M / R` compilation transforms; reorder `ASSEMBLY_MANIFEST` to
+  place governance at end; link `specs/` in `README.md`; define `[EXCISED]`; fix
+  citations (§0.1, §8b.1).
+- **Verification**: `python wrap.py --check && python -m pytest
+  tests/test_links.py tests/test_rewrite.py -v`
+
+### Phase 5: Machine-Readable Concept Specifications (DEC-02, DEC-05)
+- **Targets**: `specs/concept_polyphony.yaml`,
+  `specs/concept_artifact_anchor.yaml`
+- **Scope**: Align invariants with destination-isomorphism + route-independence,
+  and exponential smoothing + lag-bounded tracking.
+- **Verification**: `python -m pytest tests/test_specs.py -v && python wrap.py
+  --check`
+
+### Phase 6: Monolithic Recompilation, Archival & Tooling Verification
+- **Targets**: Root `GMRTI_<timestamp>.md`, `archive/`
+- **Scope**: Run bare `.\build.ps1` to format, recompile new monolith, archive
+  prior revisions, check sync, and run all 29 pytest tests.
+- **Verification**: `powershell -ExecutionPolicy Bypass -File .\build.ps1`

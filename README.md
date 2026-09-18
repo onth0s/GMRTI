@@ -1,5 +1,5 @@
 # GMRTI — General Method for Refinement and Transmission of Ideas
-### A Living Framework Document · Tenth Iteration (v0.9Candidate)
+### A Living Framework Document · Tenth Iteration (v0.9 Candidate)
 
 ---
 
@@ -34,6 +34,7 @@
 - [Architectural Authority & Entities](ARCHITECTURE.md)
 - [Methodology & Invariant Graduation](METHODOLOGY.md)
 - [The Refinement Cycle & Execution Protocol](REFINEMENT.md)
+- [Concept Specifications (CLDS)](specs/)
 
 ## Development
 

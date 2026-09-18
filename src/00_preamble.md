@@ -22,15 +22,14 @@ The following new repairs are incorporated into the v0.9 Candidate:
 4. **Empirical Validation of Semantic Entropy (§1a, §2f):** Establishing an
    empirical protocol for the Semantic Entropy Metric by counting Polyphonic
    Encoding paths to reach Operational Parking.
-5. **Meta-DRC Alignment (§3b.4, §3c.2):** Codifying the protocol to handle
+5. **Meta-DRC Alignment (§3c.2, §3e.1v):** Codifying the protocol to handle
    divergence over Domain Risk Coefficient classification itself.
 6. **Integration of the Cognitive Load Distribution System (CLDS):** Adopting
-
-CLDS as the meta-framework governing GMRTI's theoretical authoring. This
-incorporates strict YAML concept specifications (`specs/`), the formalization of
-Status Markers as non-negotiable invariants (`METHODOLOGY.md`), and the Ratified
-Execution Protocol (`REFINEMENT.md`) to explicitly manage and prevent structural
-debt.
+   CLDS as the meta-framework governing GMRTI's theoretical authoring. This
+   incorporates strict YAML concept specifications (`specs/`), the
+   formalization of Status Markers as non-negotiable invariants
+   (`METHODOLOGY.md`), and the Ratified Execution Protocol (`REFINEMENT.md`) to
+   explicitly manage and prevent structural debt.
 
 The critical restorations made in v0.7 (metaagnosticism definition, exploratory
 depth, Edge Taxonomy grounding) and maintained through v0.8 remain fully intact
@@ -40,10 +39,10 @@ in this iteration.
 
 Sections follow the pattern `N`, `Na`, `Na.1`, `Na.1i` for four levels of depth:
 
-- `N` — Major division (e.g. `3`)
-- `Na` — Named subsection (e.g. `3a`)
-- `Na.1` — Numbered clause within subsection (e.g. `3a.1`)
-- `Na.1i` — Lettered sub-clause (e.g. `3a.1i`, `3a.1ii`)
+- `N` — Major division (e.g. `3`, or Appendices `A`, `M`, `R`)
+- `Na` — Named subsection (e.g. `3a`, `Ma`)
+- `Na.1` — Numbered clause within subsection (e.g. `3a.1`, `Ma.1`)
+- `Na.1i` — Lettered sub-clause (e.g. `3a.1i`, `Ma.1i`)
 
 When pointing to a specific dissonance or claim for critique, cite the shortest
 address that uniquely identifies it.
@@ -52,7 +51,8 @@ address that uniquely identifies it.
 
 - `[STABLE]` — Considered load-bearing; changes here propagate broadly
 - `[PROVISIONAL]` — Held with confidence but open to revision
-- `[OPEN]` — Known unresolved design challenge; revision expected
-- `[RECURSIVE]` — The claim applies to itself and should be checked for
-  self-consistency
+- `[OPEN]` — Known gap; active work needed
+- `[RECURSIVE]` — Applies to the framework itself; check for reflexivity
 - `[RESTORED]` — Content recovered after compression loss in prior iterations
+- `[EXCISED]` — Retired from operational inference; preserved for address
+  stability
