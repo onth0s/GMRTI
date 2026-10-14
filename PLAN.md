@@ -76,3 +76,34 @@ generating a subsequent `DISSONANCE.md` report targeting:
 1. Empirical validation of the Behavioral Convergence Proxy (Path-Count Metric).
 2. Cross-model adversarial probing under opposed prompt-covenants (§8b.2).
 3. Formal specification of the Self-Annotation validation dataset.
+
+---
+
+## Ratified Execution (v0.9 High-DRC Mirror Audit Repairs) `[RATIFIED 2026-10-14]`
+
+Adversarial audit of the v0.9 Candidate (5 architectural/mathematical defects,
+Ma.3/Ma.2 status collisions, mechanical/parser defects) executed per
+`misc/v0.9_audit_repair_plan.md` with five cross-phase trap resolutions, and
+ratified under REP Rb.5 (no `[PROVISIONAL]` → `[STABLE]` graduations; only
+downgrades, holds, and assignments to previously unmarked claims).
+
+- **Treatise**: §2f.5iv disjunctive-hub relabel + single-path PSP rule (§2f.5v
+  aligned); §4b.3 post-update lag bound + embedding note (matches
+  `math/GMRTI/Temporal.lean`, no Lean change); §3b.1v `[RESTORED]` Tier 1
+  Stage 1 cut; §1a.6 pairwise-divergence clarification; §1a.1–1a.3/§2a.2/§2g.7
+  edge-forcing operand fixes; §5b.3 `[OPEN]` → `(see §8a.3)`.
+- **Markers**: §2c.3/§3c.2 → `[STABLE]`; §2d.2/§2d.4 → `[PROVISIONAL]`;
+  GLOSSARY GRAPH-SPACE/DYNAMIC RE-ANCHORING/PERIODIC
+  RE-MIRRORING/FEDERATED/ANCHOR → `[PROVISIONAL]` with `[provisional dependency
+  boundary: §3c.3]` (plus `§8b.1` on SEMANTIC ENTROPY); full unmarked-entry
+  assignment table applied; `a Anchor-Only` → `an Anchor-Only`;
+  REDUNDANCY-MASKING bullet rejoined; `[PLAIN]` moved to body paragraphs
+  (§0.0/§0.1/§0.2/§9a); LaTeX delimiters standardized (`$...$`/`$$...$$`,
+  Aa.12).
+- **Tooling**: `pebble.py` heading scan-back fix (zero-content-loss §0.0
+  3-paragraph capture).
+- **Specs**: `concept_polyphony.yaml` (+disjunctive-hub PSP invariant),
+  `concept_artifact_anchor.yaml` (+post-update lag precision),
+  `concept_entropy.yaml` (+pairwise-divergence invariant); dates `2026-10-14`.
+- **Verification**: `wrap.py --check` clean, `rewrite.py --check` in sync,
+  `pytest` 87 passed, `pebble.py --check` in sync, `lake build` success.

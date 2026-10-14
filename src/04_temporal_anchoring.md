@@ -64,11 +64,16 @@ $A_{decl,t}$.
   $$A_{t+1} = (1 - \lambda)A_t + \lambda A_{decl,t} = A_t + \lambda (A_{decl,t} - A_t)$$
 - **Lag-Bounded Tracking Principle**: Under an incoming sequence of declarations
   with bounded drift rate $\delta = \sup_t \|A_{decl,t+1} - A_{decl,t}\|$, the
-  steady-state tracking lag of the smoothed anchor is bounded by:
-  $$\limsup_{t \to \infty} \|A_t - A_{decl,t}\| \le \delta \frac{1 - \lambda}{\lambda}$$
-This frames the choice of $\lambda$ as a formal tradeoff: smaller $\lambda$
-suppresses local variance and prevents oscillation, while larger $\lambda$
-minimizes steady-state tracking lag behind authentic covenant evolution.
+  steady-state tracking lag of the smoothed anchor, measured post-update
+  relative to the current reference declaration, is bounded by:
+  $$\limsup_{t \to \infty} \|A_{t+1} - A_{decl,t}\| \le \delta \frac{1 - \lambda}{\lambda}$$
+The update acts on a continuous vector embedding of the anchor graph
+(equivalently, a fractional geodesic step under Graph Edit Distance); $A_t$ as a
+discrete directed graph is not directly averaged. At $\lambda = 1.0$ the lag is
+$0$ (no anchor, full tracking), consistent with §4b.3i. This frames the choice
+of $\lambda$ as a formal tradeoff: smaller $\lambda$ suppresses local variance
+and prevents oscillation, while larger $\lambda$ minimizes steady-state tracking
+lag behind authentic covenant evolution.
 
 - **4b.3i — The Floating Sea-Anchor Allegory**
     `[ALLEGORY: DYNAMIC-REANCHORING]`

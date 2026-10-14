@@ -27,9 +27,15 @@ The sections in this document are numbered so that any specific claim can be poi
 
 ## SECTION 1 — The Problem the GMRTI Addresses
 
+### 1a — The Fundamental Transmission Problem
+
 Every idea lives inside the person who had it. Moving it to someone else is not copying — it is reconstruction. The receiver has to rebuild your idea from the signals you send, using their own inner dictionary, which is never quite the same as yours.
 
+### 1a.6 — Semantic Entropy as the Adversarial Target
+
 The more ways a message can be misread, the higher its "confusion score." The GMRTI's main job is to lower that score — not to zero, which is impossible, but low enough for the task at hand.
+
+### 1b — Why This Problem Is Not Merely Academic
 
 Misunderstanding is not just uncomfortable — it is dangerous at scale. When people think they agree but actually don't, no amount of good intentions will stop the plan from falling apart at the worst possible moment.
 
@@ -45,19 +51,35 @@ Misunderstanding is not just uncomfortable — it is dangerous at scale. When pe
 
 ## SECTION 2 — Foundational Architecture: The Topological Network Model
 
+### 2a — The Edge-Primacy Structure of Meaning
+
 A word has no meaning on its own — meaning comes entirely from how it connects to other words and ideas. Change the connections, and you change what the word means, even if the word itself stays the same.
+
+### 2b — Topological Depth Layers
 
 Some concepts are deeply buried — many steps away from anything you can point at in the real world. The deeper a concept, the easier it is for two people to think they share it when they actually don't.
 
+### 2c — Divergence Taxonomy
+
 There are two very different ways a map can be wrong: it can be completely empty where it should have something, or it can have the wrong thing. Knowing which kind of error you are dealing with tells you how to fix it.
+
+### 2d — Institutional Meta-Covenants: Federated Graphs
 
 A group or an organization doesn't have a single shared brain. Instead, they share written rules, guidebooks, and definitions. To keep everyone on the same page, those shared documents must be actively maintained and updated.
 
+### 2e — Rational Agnosticism as Operational Posture
+
 When testing how well you explained something, pretend you are a robot: use only the exact words on the page, and add nothing from your own memory or friendly guesses. If the meaning still gets through, your explanation is solid.
+
+### 2f — Polyphonic Encoding
 
 When something is really important, give more than one way to reach the idea — like offering a definition, a picture, and a real-world example. If one route is blocked, the others still carry the meaning.
 
+### 2g — Syntactic Edge-Forcing
+
 If you force yourself to name the exact *kind* of relationship between two ideas (like "A causes B" versus "A is just another word for B"), you avoid misunderstandings before they can even start.
+
+### 2h — Boundary-Tracing Encapsulation
 
 In an interconnected web of ideas, fixing one broken piece can accidentally shake other parts of the map. Encapsulation means drawing a clear boundary around your fix so the ripples don't spread.
 
@@ -93,7 +115,11 @@ In an interconnected web of ideas, fixing one broken piece can accidentally shak
 
 ## SECTION 3 — The GMRTI Algorithm
 
+### 3a — Overview and Termination Conditions
+
 The GMRTI works as a clear diagnostic cycle: map out the starting concepts, test if the receiver can rebuild the map without guessing, locate any broken links, and repair them. You stop when understanding is solid enough for practical work.
+
+### 3b — Stage 1: Covenant Declaration
 
 Stage 1 is laying your cards on the table. You list the main ideas you are using and clearly show how they connect to one another, so the other person can see what you are building on.
 
@@ -101,7 +127,11 @@ Stage 1 is laying your cards on the table. You list the main ideas you are using
 
 ## SECTION 4 — Temporal Anchoring
 
+### 4a — The Drift Problem
+
 The "you" who writes a note today and the "you" who reads it in five years are not the same person. As you learn and change, your inner dictionary drifts, which means you can easily misread your own past notes.
+
+### 4b — Temporal Anchoring Operations
 
 To stop your guides and notes from drifting away, update them with small, careful nudges over time rather than throwing everything out and starting over every time something changes.
 
@@ -113,7 +143,11 @@ To stop your guides and notes from drifting away, update them with small, carefu
 
 ## SECTION 5 — The Metalanguage Problem and Just-In-Time Ontological Marking
 
+### 5a — Natural Language's Ontological Concealment
+
 Everyday language treats very different kinds of things as if they were the same. "Water," "Tuesday," and "Justice" are all simple nouns, but you can touch water, while Tuesday and Justice exist only because people agreed on them.
+
+### 5b — Just-In-Time Ontological Marking
 
 Don't try to define and label every single concept ahead of time. Only pull out technical labels and precise definitions when an actual misunderstanding pops up.
 
@@ -125,6 +159,8 @@ Don't try to define and label every single concept ahead of time. Only pull out 
 
 ## SECTION 6 — The GMRTI in Operation: Refinement Vectors
 
+### 6a — The Self-Application Principle
+
 A method for clear thinking must be able to test itself. Everything the GMRTI recommends for other ideas is also used to test and refine this document over time.
 
 > **Allegory: The Art Tutorials**
@@ -135,7 +171,11 @@ A method for clear thinking must be able to test itself. Everything the GMRTI re
 
 ## SECTION 7 — Relation to Downstream Applications
 
+### 7a — GMRTI to GMCR
+
 Before two groups can resolve a conflict, they must know whether they truly disagree on values or if they are simply misunderstanding each other's words. The GMRTI gives you the tools to tell the difference.
+
+### 7b — GMCR to Civilizational Coordination
 
 Think of the GMRTI as a factory that makes tools for other factories. It doesn't solve one single disagreement — it gives humanity the basic coordination tools needed to solve big problems together and survive.
 
@@ -150,6 +190,8 @@ Think of the GMRTI as a factory that makes tools for other factories. It doesn't
 ---
 
 ## SECTION 8 — Known Gaps and Open Challenges
+
+### 8a — The Horizon Problem and Structural Boundaries
 
 No framework can solve every misunderstanding forever. There will always be edge cases, cultural shifts, and surprising new contexts. Naming what we haven't solved yet is how we make progress.
 
@@ -171,9 +213,9 @@ The following terms carry precise technical meaning throughout this document and
 must not be substituted with natural-language synonyms without explicit
 redefinition:
 
-- **GMRTI** — General Method for Refinement and Transmission of Ideas
+- **GMRTI** — General Method for Refinement and Transmission of Ideas `[STABLE]`
 - **GMCR** — General Method for Conflict Resolution (downstream application of
-    GMRTI)
+    GMRTI) `[STABLE]`
 - **CONSTRUCTO-PRAGMATIST DEFINITION (CPD)** — The downstream architectural
   specification framework that converts a refined semantic abstraction into a
   bounded, executable operational protocol within a declared domain, evaluated
@@ -195,10 +237,10 @@ redefinition:
 - **SEMANTIC COVENANT** (*convenio semántico*) — The totality of
   meaning-relations held by a rational entity at a given moment; a personal,
   circumstantial, and mutable directed graph. Not a fixed dictionary but a
-  living topology.
+  living topology. `[STABLE]`
 - **COMOSÍ** — The functional overlap between two semantic covenants sufficient
   to produce apparent understanding within a bounded domain, without
-  guaranteeing identity of underlying edge-structure.
+  guaranteeing identity of underlying edge-structure. `[STABLE]`
 - **METAAGNOSTICISM** — The epistemological position that: (a) precise
     definitions are structurally unavailable due to the circular,
     self-referential nature of language-as-symbol-system; and (b) the
@@ -209,7 +251,7 @@ redefinition:
     is also unavailable — making the epistemic limit operate at one level above
     ordinary fallibilism. `[RECURSIVE][RESTORED]`
 - **SEMANTIC ENTROPY** — The log-measure of structural ambiguity in a
-  transmitted signal, denoted as \(H_s(S)\). Represents the number of
+  transmitted signal, denoted as $H_s(S)$. Represents the number of
   distinct functional equivalence classes of receiving-covenant
   edge-configurations compatible with the signal under the Graph-Space
   Partitioning Axiom. In practice, it is operationalized via the **Behavioral
@@ -217,27 +259,30 @@ redefinition:
   Encoding paths that must be successfully traversed and verified by the
   receiver
   before they reach the Operational Action Threshold. `[STABLE]`
+  [provisional dependency boundary: §3c.3, §8b.1]
 - **GRAPH-SPACE PARTITIONING AXIOM** — The formal individuation criterion
   resolving §8b.1: candidate receiving-covenant graph space is discretized into
   a
   quotient space under functional congruence across the Operational Action
   Threshold. Two topologies belong to the same equivalence class if and only if
   they license indistinguishable downstream operational inferences across all
-  declared boundary conditions. `[STABLE]`
+  declared boundary conditions. `[PROVISIONAL]`
+  [provisional dependency boundary: §3c.3]
 - **TRANSMISSION** — The attempted transfer of semantic content from one
     covenant to another, or from one temporal state of a covenant to a later
-    state of the same covenant.
+    state of the same covenant. `[STABLE]`
 - **REFINEMENT** — The iterative process of improving the internal coherence and
     transmissibility of a framework within and across semantic covenants.
+    `[STABLE]`
 - **DIVERGENCE** — Any detectable mismatch between two covenants' handling of
-    the same conceptual region.
+    the same conceptual region. `[STABLE]`
 - **FEDERATED GRAPH** — The distributed, externalized semantic structure of an
   institution or community, stabilized via Artifact Anchors rather than
-  collective consciousness.
+  collective consciousness. `[PROVISIONAL]`
 - **ARTIFACT ANCHOR** — An external, relatively immutable scaffold (written law,
   canonical text, standardized protocol) that forces constituent individual
   covenants to continuously realign their Structural Subgraphs to a shared
-  artificial topology.
+  artificial topology. `[PROVISIONAL]`
 - **DOMAIN RISK COEFFICIENT (DRC)** — A context-sensitive parameter defined on
   the bounded interval [0.0, 1.0] governing the required precision of
   reconstruction; inversely proportional to interpretive charity. Calibrating
@@ -254,9 +299,11 @@ redefinition:
 - **JUST-IN-TIME ONTOLOGICAL MARKING (JIT-OM)** — The practice of deploying
   ontological type distinctions retroactively and locally, only at the precise
   site of a detected Edge Divergence, rather than as upfront metalanguage.
+  `[STABLE]`
 - **POLYPHONIC ENCODING** — The deliberate provision of multiple structurally
   independent edge-paths to the same semantic destination within a single
   transmission act. The primary proactive transmission fidelity strategy.
+  `[STABLE]`
 - **ALLEGORY (WORKED INSTANTIATION)** — A concrete, domain-bounded
   polyphonic-encoding path whose intermediate nodes and edges reside in an
   accessible operational domain, preserving destination-isomorphism with an
@@ -264,13 +311,13 @@ redefinition:
   \operatorname{Action}_C(\operatorname{Allegory}(A))$) under Core Path
   Minimization (§2f.6) to reduce transmission entropy. `[STABLE]`
 - **REDUNDANCY-MASKING** — The failure mode in which successful Polyphonic
-
-Encoding conceals a local topological void that would produce transmission
-failure under single-path conditions.
+  Encoding conceals a local topological void that would produce transmission
+  failure under single-path conditions. `[STABLE]`
 - **PATH-STRIPPING PROBING** — The diagnostic protocol for detecting
   Redundancy-Masking by temporarily disabling all but one encoding path to check
   if the receiver's reconstruction still satisfies the Operational Action
   Threshold. `[STABLE]`
+  [provisional dependency boundary: §3c.3]
 - **SYNTACTIC EDGE-FORCING** — A transmission fidelity mechanism in which the
   grammatical or compositional structure of an expression compels the receiver
   to traverse a specific relational path through semantic space in order to
@@ -292,7 +339,7 @@ failure under single-path conditions.
 - **PERIODIC RE-MIRRORING PROTOCOL** — A methodological check to combat Artifact
   Anchor decay by periodically evaluating the Federated Graph against the Anchor
   under the Mirror posture to produce a desynchronization Delta Graph.
-  `[STABLE]`
+  `[PROVISIONAL]`
 - **DEPENDENCY-TRACING SCAN** — A scan of the topological network that
   calculates the downstream propagation impact of altering specific
   edge-clusters, flagging those above a configurable node threshold (default
@@ -331,23 +378,21 @@ failure under single-path conditions.
   topological structures. `[STABLE]`
 - **DYNAMIC RE-ANCHORING** — The process of treating Artifact Anchors as an
   exponentially smoothed moving average, updated via continuous correction
-  vectors to bound tracking lag against textual drift (§4b.3). `[STABLE]`
+  vectors to bound tracking lag against textual drift (§4b.3). `[PROVISIONAL]`
 - **THE MIRROR** — Any Rationally Agnostic receiver (human, LLM, or future-self)
   operationalized to reconstruct a transmission using strictly declared edges,
   with interpretive charity calibrated to the Domain Risk Coefficient. A tool
-  within the GMRTI protocol, not the protocol itself.
+  within the GMRTI protocol, not the protocol itself. `[STABLE]`
 - **TEMPORAL STRANGER** — The past self treated as a Foreign Mind: the primary
-  operationalization of Self-to-Future-Self transmission repair.
+  operationalization of Self-to-Future-Self transmission repair. `[STABLE]`
 
 ---
 
 ## SECTION 9 — Coda
 
-9a — The Pebble and the Boulder
-
-Sisyphus got a boulder — heavy, immovable, an eternal punishment. He pushes it
-up the hill, it rolls back down, he pushes it again. The myth is about futility:
-a task that never completes, a surface that never yields.
+9a — The Pebble and the Boulder Sisyphus got a boulder — heavy, immovable, an eternal punishment. He
+pushes it up the hill, it rolls back down, he pushes it again. The myth is about
+futility: a task that never completes, a surface that never yields.
 
 This document gives you a pebble instead.
 

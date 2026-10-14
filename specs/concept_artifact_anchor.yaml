@@ -20,8 +20,9 @@ invariants:
       A_decl[t])
       damped by lambda < 1.0 (typically 0.15).
   - >-
-      Under continuous linear drift rate delta, the anchor tracking lag is
-      strictly bounded by delta * (1 - lambda) / lambda (Lag-Bounded Tracking
-      Principle).
+      Under continuous linear drift rate delta, the post-update anchor tracking
+      lag |A[t+1] - A_decl[t]| is strictly bounded by delta * (1 - lambda) /
+      lambda (Lag-Bounded Tracking Principle); the update acts on a continuous
+      vector embedding of the anchor graph.
 status: PROVISIONAL
-last_modified: "2026-09-18"
+last_modified: "2026-10-14"

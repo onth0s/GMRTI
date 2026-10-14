@@ -4,9 +4,9 @@ The following terms carry precise technical meaning throughout this document and
 must not be substituted with natural-language synonyms without explicit
 redefinition:
 
-- **GMRTI** — General Method for Refinement and Transmission of Ideas
+- **GMRTI** — General Method for Refinement and Transmission of Ideas `[STABLE]`
 - **GMCR** — General Method for Conflict Resolution (downstream application of
-    GMRTI)
+    GMRTI) `[STABLE]`
 - **CONSTRUCTO-PRAGMATIST DEFINITION (CPD)** — The downstream architectural
   specification framework that converts a refined semantic abstraction into a
   bounded, executable operational protocol within a declared domain, evaluated
@@ -28,10 +28,10 @@ redefinition:
 - **SEMANTIC COVENANT** (*convenio semántico*) — The totality of
   meaning-relations held by a rational entity at a given moment; a personal,
   circumstantial, and mutable directed graph. Not a fixed dictionary but a
-  living topology.
+  living topology. `[STABLE]`
 - **COMOSÍ** — The functional overlap between two semantic covenants sufficient
   to produce apparent understanding within a bounded domain, without
-  guaranteeing identity of underlying edge-structure.
+  guaranteeing identity of underlying edge-structure. `[STABLE]`
 - **METAAGNOSTICISM** — The epistemological position that: (a) precise
     definitions are structurally unavailable due to the circular,
     self-referential nature of language-as-symbol-system; and (b) the
@@ -42,7 +42,7 @@ redefinition:
     is also unavailable — making the epistemic limit operate at one level above
     ordinary fallibilism. `[RECURSIVE][RESTORED]`
 - **SEMANTIC ENTROPY** — The log-measure of structural ambiguity in a
-  transmitted signal, denoted as \(H_s(S)\). Represents the number of
+  transmitted signal, denoted as $H_s(S)$. Represents the number of
   distinct functional equivalence classes of receiving-covenant
   edge-configurations compatible with the signal under the Graph-Space
   Partitioning Axiom. In practice, it is operationalized via the **Behavioral
@@ -50,27 +50,30 @@ redefinition:
   Encoding paths that must be successfully traversed and verified by the
   receiver
   before they reach the Operational Action Threshold. `[STABLE]`
+  [provisional dependency boundary: §3c.3, §8b.1]
 - **GRAPH-SPACE PARTITIONING AXIOM** — The formal individuation criterion
   resolving §8b.1: candidate receiving-covenant graph space is discretized into
   a
   quotient space under functional congruence across the Operational Action
   Threshold. Two topologies belong to the same equivalence class if and only if
   they license indistinguishable downstream operational inferences across all
-  declared boundary conditions. `[STABLE]`
+  declared boundary conditions. `[PROVISIONAL]`
+  [provisional dependency boundary: §3c.3]
 - **TRANSMISSION** — The attempted transfer of semantic content from one
     covenant to another, or from one temporal state of a covenant to a later
-    state of the same covenant.
+    state of the same covenant. `[STABLE]`
 - **REFINEMENT** — The iterative process of improving the internal coherence and
     transmissibility of a framework within and across semantic covenants.
+    `[STABLE]`
 - **DIVERGENCE** — Any detectable mismatch between two covenants' handling of
-    the same conceptual region.
+    the same conceptual region. `[STABLE]`
 - **FEDERATED GRAPH** — The distributed, externalized semantic structure of an
   institution or community, stabilized via Artifact Anchors rather than
-  collective consciousness.
+  collective consciousness. `[PROVISIONAL]`
 - **ARTIFACT ANCHOR** — An external, relatively immutable scaffold (written law,
   canonical text, standardized protocol) that forces constituent individual
   covenants to continuously realign their Structural Subgraphs to a shared
-  artificial topology.
+  artificial topology. `[PROVISIONAL]`
 - **DOMAIN RISK COEFFICIENT (DRC)** — A context-sensitive parameter defined on
   the bounded interval [0.0, 1.0] governing the required precision of
   reconstruction; inversely proportional to interpretive charity. Calibrating
@@ -87,9 +90,11 @@ redefinition:
 - **JUST-IN-TIME ONTOLOGICAL MARKING (JIT-OM)** — The practice of deploying
   ontological type distinctions retroactively and locally, only at the precise
   site of a detected Edge Divergence, rather than as upfront metalanguage.
+  `[STABLE]`
 - **POLYPHONIC ENCODING** — The deliberate provision of multiple structurally
   independent edge-paths to the same semantic destination within a single
   transmission act. The primary proactive transmission fidelity strategy.
+  `[STABLE]`
 - **ALLEGORY (WORKED INSTANTIATION)** — A concrete, domain-bounded
   polyphonic-encoding path whose intermediate nodes and edges reside in an
   accessible operational domain, preserving destination-isomorphism with an
@@ -97,13 +102,13 @@ redefinition:
   \operatorname{Action}_C(\operatorname{Allegory}(A))$) under Core Path
   Minimization (§2f.6) to reduce transmission entropy. `[STABLE]`
 - **REDUNDANCY-MASKING** — The failure mode in which successful Polyphonic
-
-Encoding conceals a local topological void that would produce transmission
-failure under single-path conditions.
+  Encoding conceals a local topological void that would produce transmission
+  failure under single-path conditions. `[STABLE]`
 - **PATH-STRIPPING PROBING** — The diagnostic protocol for detecting
   Redundancy-Masking by temporarily disabling all but one encoding path to check
   if the receiver's reconstruction still satisfies the Operational Action
   Threshold. `[STABLE]`
+  [provisional dependency boundary: §3c.3]
 - **SYNTACTIC EDGE-FORCING** — A transmission fidelity mechanism in which the
   grammatical or compositional structure of an expression compels the receiver
   to traverse a specific relational path through semantic space in order to
@@ -125,7 +130,7 @@ failure under single-path conditions.
 - **PERIODIC RE-MIRRORING PROTOCOL** — A methodological check to combat Artifact
   Anchor decay by periodically evaluating the Federated Graph against the Anchor
   under the Mirror posture to produce a desynchronization Delta Graph.
-  `[STABLE]`
+  `[PROVISIONAL]`
 - **DEPENDENCY-TRACING SCAN** — A scan of the topological network that
   calculates the downstream propagation impact of altering specific
   edge-clusters, flagging those above a configurable node threshold (default
@@ -164,10 +169,10 @@ failure under single-path conditions.
   topological structures. `[STABLE]`
 - **DYNAMIC RE-ANCHORING** — The process of treating Artifact Anchors as an
   exponentially smoothed moving average, updated via continuous correction
-  vectors to bound tracking lag against textual drift (§4b.3). `[STABLE]`
+  vectors to bound tracking lag against textual drift (§4b.3). `[PROVISIONAL]`
 - **THE MIRROR** — Any Rationally Agnostic receiver (human, LLM, or future-self)
   operationalized to reconstruct a transmission using strictly declared edges,
   with interpretive charity calibrated to the Domain Risk Coefficient. A tool
-  within the GMRTI protocol, not the protocol itself.
+  within the GMRTI protocol, not the protocol itself. `[STABLE]`
 - **TEMPORAL STRANGER** — The past self treated as a Foreign Mind: the primary
-  operationalization of Self-to-Future-Self transmission repair.
+  operationalization of Self-to-Future-Self transmission repair. `[STABLE]`

@@ -13,7 +13,7 @@ words. The GMRTI gives you the tools to tell the difference.
     between conflicts rooted in genuine value disagreement and conflicts rooted
     in transmission failure masquerading as value disagreement.
 - **7a.1ii** Without this distinction, resolution attempts are systematically
-    mis-targeted: applying negotiation and compromise to what is actually a
+    mis-targeted: applying negotiation and compromise to what is actually an
     Anchor-Only Subgraph, or applying clarification to what is actually an
     Axiomatic divergence.
 - **7a.1iii** The GMRTI provides the diagnostic apparatus for making this

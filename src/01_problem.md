@@ -8,18 +8,19 @@ idea from the signals you send, using their own inner dictionary, which is never
 quite the same as yours.
 
 **1a.1** Every idea `[->structural]` exists, in its original working form, as a
-    configuration of relations `[->identity]` within a semantic covenant.
+    configuration of relations `[->structural]` within a semantic covenant.
     `[STABLE]`
 
-**1a.2** No two semantic covenants `[->identity]` are identical, because each is
+**1a.2** Distinct experiential histories `[->causal]` produce non-identical
+    semantic covenants; no two semantic covenants are identical, because each is
     the product of a unique sequence of experience, reflection, and linguistic
     inheritance accumulated over time. `[STABLE]`
 
-**1a.3** Transmission of an idea from one covenant to another `[->causal]`
-    requires *reconstruction* `[->procedural]` by the receiving covenant:
-    building an approximation of the original configuration using only the
-    signals available at the boundary between covenants: language, gesture,
-    symbol, artifact. `[STABLE]`
+**1a.3** Transmission of an idea from one covenant to another `[->inferential]`
+    requires *reconstruction* (signal decoding `[->procedural]` edge mapping) by
+    the receiving covenant: building an approximation of the original
+    configuration using only the signals available at the boundary between
+    covenants: language, gesture, symbol, artifact. `[STABLE]`
 
 
 **1a.4** The signals available at that boundary are themselves ambiguous,
@@ -67,16 +68,24 @@ compatible with what was transmitted. The receiver selects one of these
 configurations — typically without awareness that selection is occurring — and
 treats it as the transmitted content.
 
-We formalize Semantic Entropy \(H_s(S)\) of a surface signal \(S\) relative to a
+We formalize Semantic Entropy $H_s(S)$ of a surface signal $S$ relative to a
 receiving covenant as the log of the number of non-isomorphic topological
-edge-configurations \(G_R\) that can represent \(S\) without contradiction:
-\[H_s(S) = \log_2 |\{G_R : G_R \text{ is compatible with } S\}|\] Because direct
-measurement of \(H_s(S)\) is constrained by metaagnosticism, we operationalize
-it via the **Behavioral Convergence Proxy (Path-Count Metric)**: the number of
+edge-configurations $G_R$ that can represent $S$ without contradiction: $$H_s(S)
+= \log_2 |\{G_R : G_R \text{ is compatible with } S\}|$$ Because direct
+measurement of $H_s(S)$ is constrained by metaagnosticism, we operationalize it
+via the **Behavioral Convergence Proxy (Path-Count Metric)**: the number of
 independent Polyphonic Encoding paths that must be successfully reconstructed
 and verified by the receiver before they reach the Operational Action Threshold
-[provisional dependency boundary: §3c.3]. Thus, a high path count indicates high
-initial semantic entropy.
+[provisional dependency boundary: §3c.3]. For a single pair of covenants $(C_T,
+C_R)$, this path count measures pairwise reconstruction divergence (analogous to
+cross-entropy), not intrinsic signal entropy directly: each polyphonic path acts
+as a constraint intersection reducing the quotient space multiplicatively, with
+uniform bit-reduction failing when a path hits an Anchor-Only Subgraph and
+yields zero bits, and receiver-specific local voids or lucky comosí confounding
+the count. The metric converges to an estimator of $H_s(S)$ only when evaluated
+under the zero-charity Minimal Substrate posture (DRC → 1.0) along combined
+Path-Stripping Probes (§2f.5iv). Thus, a high path count under those conditions
+indicates high initial semantic entropy.
 
 The GMRTI's central purpose is the controlled reduction of semantic entropy:
 progressively constraining the space of consistent receiving-covenant

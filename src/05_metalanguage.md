@@ -125,4 +125,4 @@ The GMRTI acknowledges this ceiling explicitly: JIT-OM and Polyphonic Encoding
 are complementary responses to transmission risk, but neither eliminates the
 possibility of undetected axiomatic divergence persisting beneath a functioning
 comosí. This is a known structural limitation of the framework, not a solvable
-problem within the framework's current architecture. `[OPEN]`
+problem within the framework's current architecture. (see §8a.3)

@@ -86,9 +86,10 @@ can see what you are building on.
 - **3b.1iv** Applying Polyphonic Encoding to any claim suspected of operating at
     the Structural or Axiomatic layer — providing multiple independent routes to
     the same semantic destination.
-- **3b.1v** `[EXCISED]` Edge-typing excised in v0.8 to align with JIT-OM
-  principle; strictly deferred to Stage 3 divergence resolution, maintaining
-  Stage 1 as purely topological.
+- **3b.1v** `[RESTORED]` Stage 1 applies only the Tier 1 Coarse Cut
+  (Inferential / Causal / Other) when DRC ≥ 0.5 for initial Covenant
+  Declaration orientation; Tier 2 8-type granularity is strictly deferred to
+  Stage 3 JIT-OM divergence resolution.
 
 
 **3b.2** Covenant Declaration is not a demand for agreement. It is a demand for
@@ -114,7 +115,7 @@ can see what you are building on.
   The receiver uses their own covenant's topology to build active bridges and
   scaffolds across the gaps identified during Mirror Mode. `[STABLE]`
 
-**3c.2 — The Domain Risk Coefficient (DRC)**
+**3c.2 — The Domain Risk Coefficient (DRC)** `[STABLE]`
 
 The required precision of reconstruction scales inversely with interpretive
 charity, governed by the DRC:

@@ -11,6 +11,11 @@ invariants:
       Measured quantitatively using the Behavioral Convergence Proxy (Path-Count
       metric).
   - >-
+      For a single covenant pair the path count measures pairwise
+      reconstruction divergence; it estimates intrinsic signal entropy only
+      under the zero-charity Minimal Substrate posture (DRC 1.0) along
+      combined Path-Stripping Probes (§2f.5iv).
+  - >-
       Graph-Space Partitioning Axiom: candidate topologies are individuated as
       quotient equivalence classes under functional congruence across the
       Operational Action Threshold (§8b.1).
@@ -19,4 +24,4 @@ invariants:
       under metaagnosticism.
   - "Targeted reduction prioritizes high-DRC structural/axiomatic subgraphs."
 status: STABLE
-last_modified: "2026-09-18"
+last_modified: "2026-10-14"

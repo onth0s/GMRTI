@@ -9,10 +9,11 @@ the word means, even if the word itself stays the same.
 **2a.1** A semantic covenant can be modeled as a directed graph in which edges
     represent the meaning-carrying relations between conceptual regions.
 
-**2a.2** **Meaning `[->structural]` resides in relation `[->identity]` rather
-    than
-    atom.** A concept is not a self-subsistent semantic particle; it is a
-    localized stability in a relational field. The label attached to that region
+**2a.2** **Meaning `[->structural]` resides in relational edges, where
+    edge-cluster density `[->identity]` constitutes the concept rather than an
+    isolated atom.** A concept is not a self-subsistent semantic particle; it is
+    a localized stability in a relational field. The label attached to that
+    region
     is a handle, not a container of meaning in itself. `[STABLE][RECURSIVE]`
 
 
@@ -192,7 +193,7 @@ Knowing which kind of error you are dealing with tells you how to fix it.
     transmission failures often involve combinations. The taxonomy's value is
     diagnostic, not exhaustive. `[PROVISIONAL]`
 
-**2c.3 — Edge-Type Misattribution: A Subtype of Edge Divergence**
+**2c.3 — Edge-Type Misattribution: A Subtype of Edge Divergence** `[STABLE]`
 
 The introduction of the Edge Taxonomy (2a.5) reveals a subtype of Edge
 Divergence that was previously unnamed and therefore systematically
@@ -241,7 +242,7 @@ updated.
     an active **Maintenance Covenant** (a prescriptive interpretive body) whose
     explicit purpose is to continuously negotiate and counteract the artifact's
     drift using GMRTI principles. The anchor slows drift; the Maintenance
-    Covenant manages the residual. `[STABLE]`
+    Covenant manages the residual. `[PROVISIONAL]`
 
 - **2d.2i — The Vault Kilogram and Metrologists Allegory**
     `[ALLEGORY: ARTIFACT-ANCHORS]`
@@ -260,7 +261,8 @@ updated.
     believe they understand each other, if the Artifact Anchors have decayed
     faster than individual covenants have noticed. `[PROVISIONAL]`
 
-**2d.4 — Countering Anchor Decay via Periodic Re-Mirroring Protocol** `[STABLE]`
+**2d.4 — Countering Anchor Decay via Periodic Re-Mirroring Protocol**
+`[PROVISIONAL]`
 
 To combat Artifact Anchor decay before institutional failure occurs, the
 Maintenance Covenant executes the **Periodic Re-Mirroring Protocol**: at
@@ -452,19 +454,25 @@ hidden void is localized. This bounds the risk of redundancy-masking,
 transforming it from a structural limit into a testable boundary.
 
 **Polyphonic Node Detection**: PSP produces false positives on legitimately
-polyphonic nodes — nodes carrying multiple simultaneous meanings via
-structurally independent paths. To break the diagnostic circularity without
-prematurely requiring Tier 2 edge-typing, the GMRTI defines a two-tiered
-pre-screening criterion:
+polysemous/disjunctive hub nodes — nodes where a single lexical label routes
+structurally independent, context-conditional meanings. To break the diagnostic
+circularity without prematurely requiring Tier 2 edge-typing, the GMRTI defines
+a two-tiered pre-screening criterion:
 - **Tier 1 Structural Pre-screen**: In the default state, any node with
   in-degree ≥ 2 and out-degree ≥ 2 (regardless of edge-types) is flagged as a
-  candidate polyphonic node.
+  candidate disjunctive/polysemous hub node.
 - **Tier 2 Refined Pre-screen**: Where Tier 2 JIT-OM is already active,
   flagging requires two or more incoming edges of distinct types and two or more
   outgoing edges of distinct types.
 
-PSP applied to candidate polyphonic nodes uses a strengthened threshold: *all*
-paths must fail before a void is declared, rather than any single path.
+PSP applied to candidate disjunctive/polysemous hub nodes uses a strengthened
+threshold: *all* paths must fail before a void is declared, rather than any
+single path. On standard polyphonically encoded nodes (convergent,
+destination-isomorphic paths to a single meaning per §2f.6), PSP tests each path
+$p_i$ in isolation with paths $p_{\neq i}$ stripped: if any single path $p_i$
+drops below the Operational Action Threshold [provisional dependency boundary:
+§3c.3] when the others are stripped, a local topological void on $p_i$ is
+confirmed.
 
 **2f.5v — The Latent Comosí Ceiling Resolution** `[STABLE]`
 
@@ -474,7 +482,8 @@ paths must fail before a void is declared, rather than any single path.
   operational risk and is excluded from transmission error metrics.
 - **Proactive Chaotic Probing (PCP)**: To detect latent divergences that *would*
   produce future failures, the GMRTI defines the PCP protocol. PCP proactively
-  runs Path-Stripping Probing on random samples of candidate polyphonic nodes
+  runs Path-Stripping Probing on random samples of polyphonically encoded
+  nodes and candidate disjunctive hubs
   during scheduled maintenance intervals or dedicated audit states (high DRC),
   simulating path failure to force latent differences to surface before they
   trigger real-time faults.
@@ -608,13 +617,16 @@ bounded by two structural conditions:
     either. Its deployment should be calibrated to the concept-type taxonomy of
     Section 5a. As an operational prototype, key stable claims in this treatise
     are formally edge-forced in situ:
-- **§1a.1 (In Situ):** `Every idea [->structural] exists... [->identity] within
-  a semantic covenant.`
-- **§1a.2 (In Situ):** `No two semantic covenants [->identity] are identical...`
-- **§1a.3 (In Situ):** `Transmission of an idea [->causal] requires
-  reconstruction [->procedural]...`
-- **§2a.2 (In Situ):** `Meaning [->structural] resides in relation [->identity]
-  rather than atom.`
+- **§1a.1 (In Situ):** `Every idea [->structural] exists... as a configuration
+  of
+  relations [->structural] within a semantic covenant.`
+- **§1a.2 (In Situ):** `Distinct experiential histories [->causal] produce
+  non-identical semantic covenants...`
+- **§1a.3 (In Situ):** `Transmission of an idea... [->inferential] requires
+  *reconstruction* (signal decoding [->procedural] edge mapping)...`
+- **§2a.2 (In Situ):** `Meaning [->structural] resides in relational edges,
+  where
+  edge-cluster density [->identity] constitutes the concept...`
 
 
 **2h — Boundary-Tracing Encapsulation** `[STABLE]`

@@ -50,9 +50,9 @@ diagnostic-and-reconstruction sequence (Covenant Declaration -> Generative
 Reconstruction -> Divergence Localization -> Targeted Repair -> Irreducibility).
 
 **Aa.12 Constructo-Pragmatist Definition (CPD)**: The 7-tuple operational
-specification framework <P, Σ, T, I, E, Y, Ω> transforming refined semantic
-concepts into bounded, executable operational architectures within declared
-domains.
+specification framework $\langle P, \Sigma, T, I, E, Y, \Omega \rangle$
+transforming refined semantic concepts into bounded, executable operational
+architectures within declared domains.
 
 **Aa.13 Allegorical Polyphony (Allegory)**: A concrete, domain-bounded
 polyphonic-encoding path whose intermediate nodes and edges reside in an

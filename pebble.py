@@ -131,10 +131,18 @@ def parse_src_file(content: str, filename: str = "") -> dict:
                 heading = clean_plain_text(m_h.group(1))
                 remainder = line.split("[PLAIN]", 1)[1].strip(" `*")
             else:
-                if i > 0 and lines[i - 1].startswith("**"):
-                    m_prev = re.search(r"\*\*([^*]+)\*\*", lines[i - 1])
-                    if m_prev:
-                        heading = clean_plain_text(m_prev.group(1))
+                # [PLAIN] now opens the first body paragraph (Ma.1); the section
+                # heading sits on an earlier line, possibly separated by blanks.
+                # Scan back for the nearest preceding bold heading so §0.0 keeps
+                # its 3-paragraph capture rule.
+                for j in range(i - 1, max(i - 6, -1), -1):
+                    if lines[j].strip() == "":
+                        continue
+                    if lines[j].startswith("**"):
+                        m_prev = re.search(r"\*\*([^*]+)\*\*", lines[j])
+                        if m_prev:
+                            heading = clean_plain_text(m_prev.group(1))
+                    break
                 remainder = line.replace("`[PLAIN]`", "").replace("[PLAIN]", "").strip()
 
             paras = []
