@@ -307,3 +307,18 @@ def test_wrap_markdown_nested_blockquotes():
     assert lines[0] == "> Outer quote"
     assert all(ln.startswith(">> ") for ln in lines[1:])
 
+
+def test_wrap_markdown_preserves_frontmatter_and_callouts():
+    """MD++ YAML frontmatter and > [!TAG] callout headers pass through verbatim."""
+    sample = (
+        "---\n"
+        'title: "Very long title that must not be wrapped at forty characters"\n'
+        'kicker: "There must be a Science of Understanding"\n'
+        "---\n\n"
+        "> [!NOTE]\n"
+        "> This callout body is long enough to be wrapped cleanly at width forty."
+    )
+    wrapped = wrap_markdown(sample, width=40)
+    assert 'title: "Very long title that must not be wrapped at forty characters"' in wrapped
+    assert "> [!NOTE]\n> This callout body" in wrapped
+

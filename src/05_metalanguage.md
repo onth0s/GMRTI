@@ -1,7 +1,6 @@
 ## SECTION 5 — The Metalanguage Problem and Just-In-Time Ontological Marking
 
-**5a — Natural Language's Ontological Concealment** `[STABLE]`
-
+### 5a — Natural Language's Ontological Concealment `[STABLE]`
 `[PLAIN]` Everyday language treats very different kinds of things as if they
 were the same. "Water," "Tuesday," and "Justice" are all simple nouns, but you
 can touch water, while Tuesday and Justice exist only because people agreed on
@@ -85,8 +84,17 @@ For the purpose of JIT-OM markers, we partition the concept-type taxonomy of
   empirical pointing or covenant renegotiation and is strictly limited to
   behavioral or functional proxies.
 
-**5b — Just-In-Time Ontological Marking** `[STABLE]`
+```table
+TITLE: Concept-Type & Operational Class Matrix
+| Operational Class | 5a.1 Types | Edge-Forcing Fit | Primary Repair Strategy |
+|---|---|---|---|
+| Carved | Material (i), Universals (ii), Relational (v), Process (vii) | High | Empirical pointing, deductive proof |
+| Constructed | Social (iii), Normative (vi), Gradient/Binary (viii) | Low | Covenant renegotiation, threshold declaration |
+| Boundary | Formal mathematical structures | High (apodictic) | Syntactic constraints within trained community |
+| Experiential | Qualia (iv) | Minimal | Behavioral / functional proxies only |
+```
 
+### 5b — Just-In-Time Ontological Marking `[STABLE]`
 `[PLAIN]` Don't try to define and label every single concept ahead of time. Only
 pull out technical labels and precise definitions when an actual
 misunderstanding pops up.
@@ -116,8 +124,8 @@ misunderstanding pops up.
     carrying a pressurized hose just in case a spark appears (the heavy
     burden of an upfront metalanguage). Instead, you go about your everyday
     life in normal clothes, and only reach for the fire extinguisher
-    ([JIT-OM](../GLOSSARY.md#jit-om)) mounted on the wall at the exact moment
-    and location where smoke actually breaks out.
+    ([[Just-In-Time Ontological Marking (JIT-OM)|JIT-OM]]) mounted on the wall
+    at the exact moment and location where smoke actually breaks out.
 
 
 **5b.3 — The JIT-OM Ceiling** `[STABLE]`
@@ -134,3 +142,15 @@ are complementary responses to transmission risk, but neither eliminates the
 possibility of undetected axiomatic divergence persisting beneath a functioning
 comosí. This is a known structural limitation of the framework, not a solvable
 problem within the framework's current architecture. (see §8a.3)
+
+```mirror probe
+TITLE: Why Just-In-Time Ontological Marking?
+TARGET: [[5b — Just-In-Time Ontological Marking]]
+PROBE: Why does GMRTI reject an upfront global metalanguage in favor of JIT-OM?
+[ ] Ontological categories are useless for diagnosing misunderstandings. --> They are essential at the site of divergence (§5a.2).
+[x] An upfront metalanguage triggers infinite regress (the metalanguage itself needs transmission) and imposes needless overhead where comosí already holds. --> Correct: JIT-OM deploys typing retroactively only where divergence is detected (§5b.1–2).
+[ ] Natural language already separates material entities from social constructs clearly. --> Natural language systematically conceals ontological differences (§5a.1).
+
+AUTHOR: JIT-OM treats ontological classification as localized emergency repair rather than an upfront global prerequisite.
+DIVERGENCE: Assuming upfront definitions solve ambiguity merely moves the transmission problem one level up.
+```

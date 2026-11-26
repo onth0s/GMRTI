@@ -353,6 +353,14 @@ def wrap_markdown(text: str, width: int = 80) -> str:
     lines = text.splitlines()
     out: list[str] = []
 
+    idx = 0
+    if lines and lines[0].strip() == "---":
+        for fm_end in range(1, len(lines)):
+            if lines[fm_end].strip() == "---":
+                out.extend(lines[: fm_end + 1])
+                idx = fm_end + 1
+                break
+
     in_code = False
     _open_fence_char = ""
     _open_fence_count = 0
@@ -374,7 +382,7 @@ def wrap_markdown(text: str, width: int = 80) -> str:
         current_prefix = ""
         current_indent = ""
 
-    for line in lines:
+    for line in lines[idx:]:
         stripped = line.strip()
 
         # 1. Code block fence — track opening fence char and count so only a
@@ -451,10 +459,14 @@ def wrap_markdown(text: str, width: int = 80) -> str:
             current_para.append(line)
             continue
 
-        # 8. Blockquote (grouped by nesting depth; lists inside quotes pass through)
+        # 8. Blockquote (callout headers pass through verbatim; grouped by depth)
         quote_info = _quote_prefix_and_body(stripped)
         if quote_info is not None:
             q_prefix, q_body = quote_info
+            if re.match(r"^\[!(?:[^\]]*)\]\s*$", q_body):
+                flush()
+                out.append(line)
+                continue
             if re.match(r"^\s*(?:[-*+]\s+|\d+\.\s+)", q_body):
                 flush()
                 out.append(line)

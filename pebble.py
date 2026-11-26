@@ -60,7 +60,7 @@ def clean_plain_text(text: str) -> str:
 def _is_next_section_or_clause(line: str) -> bool:
     """Return True if *line* begins a new heading or numbered treatise clause."""
     return bool(
-        line.startswith("## ")
+        line.startswith(("## ", "### ", "```", "~~~"))
         or re.match(r"^\*\*\d+[a-z]?\.\d+", line)
         or re.match(r"^-\s+\*\*\d+[a-z]?\.\d+", line)
         or re.match(r"^\*\*\d+[a-z]?\s*—", line)
@@ -101,9 +101,28 @@ def extract_allegories_from_raw_text(
 
     allegories: list[tuple[str, str]] = []
     lines = content.splitlines()
+    in_fence = False
+    fence_char = ""
+    fence_len = 0
     i = 0
     while i < len(lines):
         line = lines[i]
+        stripped = line.strip()
+        m_fence = re.match(r"^(`{3,}|~{3,})", stripped)
+        if m_fence:
+            seq = m_fence.group(1)
+            if not in_fence:
+                in_fence = True
+                fence_char, fence_len = seq[0], len(seq)
+                i += 1
+                continue
+            if all(c == fence_char for c in stripped) and len(seq) >= fence_len:
+                in_fence = False
+                i += 1
+                continue
+        if in_fence:
+            i += 1
+            continue
         if not _is_allegory_opener(line):
             i += 1
             continue
@@ -157,11 +176,13 @@ def extract_allegories_from_raw_text(
 
 
 def _find_preceding_heading(lines: list[str], idx: int) -> str:
-    """Scan backward from *idx* for the nearest bold section heading."""
+    """Scan backward from *idx* for the nearest bold or ### section heading."""
     for j in range(idx - 1, max(idx - 6, -1), -1):
         stripped = lines[j].strip()
         if stripped == "" or clean_plain_text(stripped) == "":
             continue
+        if stripped.startswith("### "):
+            return clean_plain_text(stripped[4:].strip())
         if lines[j].startswith("**"):
             m_prev = re.search(r"\*\*([^*]+)\*\*", lines[j])
             if m_prev:
@@ -199,7 +220,7 @@ def _extract_plain_block(lines: list[str], start_idx: int) -> tuple[dict[str, st
         cur_line = lines[i]
         stripped = cur_line.strip()
 
-        if cur_line.startswith(("## ", "**", "- **", "1. **", r"\[", "$$")):
+        if cur_line.startswith(("## ", "### ", "**", "- **", "1. **", r"\[", "$$", "```", "~~~")):
             break
 
         if stripped == "":
@@ -232,9 +253,28 @@ def parse_src_file(content: str, filename: str = "") -> dict:
             break
 
     plain_blocks: list[dict[str, str]] = []
+    in_fence = False
+    fence_char = ""
+    fence_len = 0
     i = 0
     while i < len(lines):
-        if _PLAIN_OPENER_RE.match(lines[i].strip()):
+        stripped = lines[i].strip()
+        m_fence = re.match(r"^(`{3,}|~{3,})", stripped)
+        if m_fence:
+            seq = m_fence.group(1)
+            if not in_fence:
+                in_fence = True
+                fence_char, fence_len = seq[0], len(seq)
+                i += 1
+                continue
+            if all(c == fence_char for c in stripped) and len(seq) >= fence_len:
+                in_fence = False
+                i += 1
+                continue
+        if in_fence:
+            i += 1
+            continue
+        if _PLAIN_OPENER_RE.match(stripped):
             block, i = _extract_plain_block(lines, i)
             if block is not None:
                 plain_blocks.append(block)

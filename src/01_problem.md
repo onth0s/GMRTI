@@ -1,7 +1,6 @@
 ## SECTION 1 — The Problem the GMRTI Addresses
 
-**1a — The Fundamental Transmission Problem**
-
+### 1a — The Fundamental Transmission Problem
 `[PLAIN]` Every idea lives inside the person who had it. Moving it to someone
 else is not copying — it is reconstruction. The receiver has to rebuild your
 idea from the signals you send, using their own inner dictionary, which is never
@@ -34,25 +33,47 @@ quite the same as yours.
     its established domain and collapse entirely when conditions change.
     `[STABLE]`
 
+```diagram LR
+TITLE: The Fundamental Transmission Boundary
+CT["Transmitting Covenant C_T — Semantic configuration"]
+SIG["Ambiguous Surface Signal S — Language, gesture, artifact"]
+CR["Receiving Covenant C_R — Reconstruction under metaagnosticism"]
+COM("Comosí — Functional overlap within bounded domain")
+CT -->|encodes| SIG
+SIG -->|reconstructed by| CR
+CR -->|yields| COM
+```
+
+```mirror probe
+TITLE: Comosí vs. Semantic Identity
+TARGET: [[1a — The Fundamental Transmission Problem]]
+PROBE: When two covenants achieve a stable comosí in everyday coordination, what has actually been established?
+[ ] Both covenants now hold identical internal edge-topologies for the shared terms. --> That confuses practical overlap with structural identity (§1a.5).
+[x] Their distinct topologies overlap functionally enough for the current bounded domain, without guaranteeing identity if conditions shift. --> Exact: comosí is bounded functional sufficiency, not topological identity.
+[ ] They have eliminated semantic entropy to zero across all contexts. --> Metaagnosticism rules out zero absolute entropy (§1a.4).
+
+AUTHOR: Comosí is functional sufficiency within a bounded domain, not guaranteed identity of underlying edge-structure.
+DIVERGENCE: Treating comosí as identity leaves both parties blind when novel boundary conditions expose hidden divergence.
+```
+
 - **1a.5i — The Commercial Purchase Allegory** `[ALLEGORY: COMOSÍ]` A customer
     walks into a corner shop and buys a loaf of bread. She hands over the
     asked-for bills and walks out with the bread. Everything goes smoothly,
     even if the two people have completely different ideas about what "money"
     or "fairness" really means. Because their words and actions fit together
     well enough for buying bread, it works *as if*
-    ([comosí](../GLOSSARY.md#comosi))
-    they shared the exact same [inner
-    dictionary](../GLOSSARY.md#semantic-covenant).
+    ([[Comosí|comosí]])
+    they shared the exact same [[Semantic Covenant|inner dictionary]].
 - **1a.5ii — The Living Room vs. Art Gallery Allegory**
     `[ALLEGORY: COMOSÍ-BOUNDARY]` Two friends in a living room easily agree on
     what is a "painting" (hung on the wall) and what is a "sculpture" (placed
     on a shelf). At home, their meanings match well enough for everyday
-    conversation ([comosí](../GLOSSARY.md#comosi)). Later that afternoon, they
+    conversation ([[Comosí|comosí]]). Later that afternoon, they
     visit a modern art museum where paintings sit on the floor and sculptures
     hang from the ceiling. Suddenly they argue over which is which — showing
     that their definitions only seemed identical inside the living room, until
     conditions changed and exposed the hidden
-    [divergence](../GLOSSARY.md#divergence).
+    [[Divergence|divergence]].
 
 **1a.6 — Semantic Entropy as the Adversarial Target** `[STABLE]`
 
@@ -116,9 +137,20 @@ poverty. It proposes to selectively reduce entropy for the nodes and edges that
 matter most in a given transmission context, leaving expressive richness intact
 elsewhere. `[STABLE]`
 
+```mirror probe
+TITLE: Signal Contradiction vs. Zero Entropy
+TARGET: [[1a — The Fundamental Transmission Problem]]
+PROBE: What does |{[G_R]}| = 0 signify in the Semantic Entropy model?
+[ ] Zero semantic entropy (perfect univocal transmission). --> Zero entropy corresponds to |{[G_R]}| = 1, a single compatible class.
+[x] Signal Contradiction / Unsatisfiability — no receiving configuration is consistent with the signal. --> Correct: an empty compatible set is contradiction, not clarity.
+[ ] An Anchor-Only Subgraph with no internal edges. --> Anchor-Only Subgraphs still admit many compatible completions.
 
-**1b — Why This Problem Is Not Merely Academic**
+AUTHOR: H_s(S) = 0 requires |{[G_R]}| = 1; an empty set |{[G_R]}| = 0 denotes Signal Contradiction / Unsatisfiability (§1a.6).
+DIVERGENCE: Conflating 0 compatible topologies with 0 bits of ambiguity mistakes contradiction for precision.
+```
 
+
+### 1b — Why This Problem Is Not Merely Academic
 `[PLAIN]` Misunderstanding is not just uncomfortable — it is dangerous at scale.
 When people think they agree but actually don't, no amount of good intentions
 will stop the plan from falling apart at the worst possible moment.
@@ -149,14 +181,13 @@ will stop the plan from falling apart at the worst possible moment.
     distinguish genuine value disagreements from resolvable miscommunication.
     `[STABLE]`
 
-**1c — The Three Transmission Modes** `[STABLE][RESTORED]`
+### 1c — The Three Transmission Modes `[STABLE][RESTORED]`
 
 `[PLAIN]` Misunderstanding happens across three scales: talking to your own
-future self through old notes ([Temporal
-Stranger](../GLOSSARY.md#temporal-stranger)), talking to another person right
-now, and translating ideas between whole communities ([Federated
-Graph](../GLOSSARY.md#federated-graph)). The GMRTI starts with notes to yourself
-first because it is the safest place to practice before scaling up.
+future self through old notes ([[Temporal Stranger]]), talking to another person
+right now, and translating ideas between whole communities ([[Federated
+Graph]]). The GMRTI starts with notes to yourself first because it is the safest
+place to practice before scaling up.
 
 The GMRTI must address transmission across three structurally distinct modes
 with a single unified algorithmic skeleton:
@@ -194,3 +225,12 @@ targets Self-Annotation only, where the cognitive overhead is borne by a single
 practitioner with full access to their own covenant. Scaling to real-time
 dialogue requires a simplified subset whose specification is deferred until the
 Self-Annotation validation is complete.
+
+```table
+TITLE: Three Transmission Modes & Developmental Ordering
+| Mode | Primary Failure Risk | Operationalization | v0.9 Scope |
+|---|---|---|---|
+| Self-to-Future-Self (§1c.1) | Temporal Drift Divergence | [[Temporal Stranger]] / Self-Annotation | Canonical Sandbox |
+| Community-to-Community (§1c.3) | Ontological / Anchor Deficit | [[Federated Graph]] & [[Artifact Anchor]] | Formalization Target |
+| Self-to-Other (§1c.2) | Reconstruction Divergence | GMRTI-Mediated Dialogue | Deferred Subset |
+```

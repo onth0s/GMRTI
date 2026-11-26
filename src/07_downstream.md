@@ -1,7 +1,6 @@
 ## SECTION 7 — Relation to Downstream Applications
 
-**7a — GMRTI to GMCR** `[STABLE]`
-
+### 7a — GMRTI to GMCR `[STABLE]`
 `[PLAIN]` Before two groups can resolve a conflict, they must know whether they
 truly disagree on values or if they are simply misunderstanding each other's
 words. The GMRTI gives you the tools to tell the difference.
@@ -28,8 +27,7 @@ words. The GMRTI gives you the tools to tell the difference.
     GMRTI continuously re-examines its own outputs as the GMCR generates new
     information about the covenants in contact. `[PROVISIONAL]`
 
-**7b — GMCR to Civilizational Coordination** `[PROVISIONAL]`
-
+### 7b — GMCR to Civilizational Coordination `[PROVISIONAL]`
 `[PLAIN]` Think of the GMRTI as a factory that makes tools for other factories.
 It doesn't solve one single disagreement — it gives humanity the basic
 coordination tools needed to solve big problems together and survive.
@@ -61,14 +59,13 @@ coordination tools needed to solve big problems together and survive.
     human society, specific laws, trade treaties, and peace agreements are
     ordinary factories producing particular coordination results. When deep
     communication breaks down across different groups, those ordinary
-    factories cannot be built or repaired. The [GMRTI](../GLOSSARY.md#gmrti) is
-    the toolmaking factory that makes factories: it does not settle specific
-    disputes about land, taxes, or politics; it manufactures the basic tools of
-    clear communication so that people can build their own working institutions
-    and agreements (and feed into [GMCR](../GLOSSARY.md#gmcr)).
+    factories cannot be built or repaired. The [[GMRTI]] is the toolmaking
+    factory that makes factories: it does not settle specific disputes about
+    land, taxes, or politics; it manufactures the basic tools of clear
+    communication so that people can build their own working institutions and
+    agreements (and feed into [[GMCR]]).
 
-**7c — The GMRTI's Ambition, Precisely Stated** `[STABLE]`
-
+### 7c — The GMRTI's Ambition, Precisely Stated `[STABLE]`
 `[PLAIN]` The goal is not to make everyone think identically. The goal is
 accurate disagreement: knowing for sure whether you are arguing over values or
 just talking past each other.
@@ -94,8 +91,19 @@ just talking past each other.
     understanding, but the consistent ability to know *what we are actually
     disagreeing about*. `[STABLE]`
 
-**7d — GMRTI to Constructo-Pragmatist Definition (CPD)** `[PROVISIONAL]`
+```mirror probe
+TITLE: Accurate Disagreement vs. Consensus
+TARGET: [[7c — The GMRTI's Ambition, Precisely Stated]]
+PROBE: Why does GMRTI reject "universal semantic convergence" as its goal?
+[ ] Because conflict resolution is impossible in principle. --> GMRTI is a prerequisite for GMCR, not a counsel of despair (§7a).
+[x] Because generative friction from edge-divergence drives new ideas; GMRTI aims for accurate disagreement, not identical minds. --> Correct: knowing what you actually disagree about is the achievable target (§7c.2–3).
+[ ] Because only mathematical notation can ever be understood. --> Natural language's high entropy is generative where precision is not required (§1a.6).
 
+AUTHOR: GMRTI's ambition is accurate disagreement — reliably separating fixable miscommunication from genuine value conflict.
+DIVERGENCE: Equating understanding with agreement confuses transmission fidelity with homogenization.
+```
+
+### 7d — GMRTI to Constructo-Pragmatist Definition (CPD) `[PROVISIONAL]`
 `[PLAIN]` Once two people understand an idea clearly, a Constructo-Pragmatist
 Definition turns that shared idea into a concrete set of rules: who can act,
 what steps happen in order, and when the process ends.
@@ -108,6 +116,21 @@ operational protocols. Where GMRTI establishes a functional comosí, CPD
 specifies what that comosí permits, prohibits, executes, and terminates within a
 declared operational domain:
     $$\text{Covenant} \rightarrow \text{Transmission} \rightarrow \text{Reconstruction} \rightarrow \text{Specification (CPD)} \rightarrow \text{Runtime / Yield} \rightarrow \text{Termination}$$
+
+```diagram LR
+TITLE: GMRTI to Constructo-Pragmatist Definition (CPD) Pipeline
+COV["Covenant — Semantic topology"]
+TRANS["Transmission — Surface signal"]
+RECON("Reconstruction — Bounded comosí")
+SPEC["Specification — CPD 7-tuple"]
+RUN["Runtime / Yield — Operational congruence"]
+TERM("Termination — Omega boundary")
+COV --> TRANS
+TRANS --> RECON
+RECON --> SPEC
+SPEC --> RUN
+RUN --> TERM
+```
 CPD does not equate operational consequences with metaphysical truth. Rather, it
 evaluates an abstraction's specification by its capacity to produce semantic
 covenant convergence and DRC-bounded operational congruence per §3c.3
@@ -134,6 +157,19 @@ an abstraction through seven irreducible structural components:
 - **Terminal Condition ($\Omega$)**: The explicit boundary condition under which
   the *instantiated abstraction* terminates, without requiring dissolution of
   its surrounding domain. `[PROVISIONAL]`
+
+```table
+TITLE: CPD 7-Tuple Specification Anatomy
+| Symbol | Component | Operational Role |
+|---|---|---|
+| $P$ | Preconditions | Environmental, institutional, and semantic substrate required |
+| $\Sigma$ | State Space | Differentiated set of operational states |
+| $T$ | Transition Function | Domain-declared input-driven state transitions |
+| $I$ | Invariants | Conditions holding mechanically throughout execution |
+| $E$ | Enforcement | Domain mechanism supplying binding operational force |
+| $Y$ | Yield | Concrete material or institutional consequences |
+| $\Omega$ | Terminal Condition | Boundary condition terminating the instance |
+```
 
 **7d.3 — Anti-Perpetuation Mechanisms** Where an operational abstraction
 involves the exercise of concentrated authority or creates an executing
@@ -186,6 +222,17 @@ governing its instantiation within the operational domain of chess:
   the specific game instance without requiring the dissolution of the
   institution of chess.
 
+```diagram LR
+TITLE: Valid Chess Resignation State Machine
+GA["GameActive — Legally constituted match"]
+RD["ResignationDeclared — Player tips king / declares"]
+RR["ResignationRecorded — Arbiter logs result"]
+GT("GameTerminated — Match ends; chess continues")
+GA --> RD
+RD --> RR
+RR --> GT
+```
+
 **Allegorical Significance**: Players do not require identical philosophies of
 surrender, agency, or victory. They converge on the 7-tuple architecture such
 that when the event occurs, they know what happens next. This is the
@@ -200,8 +247,8 @@ object and coordinate around it.
   setup: a real game is underway, only a player can resign, tipping the king
   stops the clock, the referee records the score, and the match ends cleanly
   without ending the game of chess itself. Giving an idea clear steps, rules,
-  and an ending ([CPD](../GLOSSARY.md#cpd)) is how people coordinate in practice
-  without having to agree on everything in their heads.
+  and an ending ([[Constructo-Pragmatist Definition (CPD)|CPD]]) is how people
+  coordinate in practice without having to agree on everything in their heads.
 
 
 **7d.5 — The Operational Replacement Protocol** Disagreements over a CPD are
@@ -211,3 +258,10 @@ alternative state-transition architecture $\langle P, \Sigma, T, I, E, Y, \Omega
 \rangle$, demonstrate non-exemption, provide anti-perpetuation constraints, and
 demonstrate empirically or structurally greater operational convergence within
 the declared domain. `[PROVISIONAL]`
+
+```mirror qa
+TITLE: CPD Anti-Perpetuation Boundaries
+TARGET: [[7d — GMRTI to Constructo-Pragmatist Definition (CPD)]]
+Q: Why do CPDs require both a Self-Consuming Clause and Institutional Dissolution?
+A: Concentrated authority needed to instantiate an abstraction must be exhausted upon execution, and the executing apparatus must dissolve once its justifying context expires — preventing temporary operational tools from hardening into permanent self-serving institutions (§7d.3).
+```

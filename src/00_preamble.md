@@ -1,7 +1,6 @@
 ## SECTION 0 — Preamble and Document Conventions
 
-**0.0 — Why This Exists**
-
+### 0.0 — Why This Exists
 `[PLAIN]` Man is a creature of Science. Homo Sapiens, right? Epistemology didn't
 begin with Newton describing the motion of rolling balls down slopes nor the
 orbital trajectories of celestial objects that have been shaping human myth for
@@ -15,8 +14,7 @@ And passing it along. And teaching it to your kids.
 Man is a creature of Science. And there must be a Science of Understanding. It
 has been long enough. It's time to pass it on to future generations.
 
-**0.1 Purpose of This Document**
-
+### 0.1 Purpose of This Document
 `[PLAIN]` When you try to explain an idea to someone, you can never be
 completely sure they understood exactly what you meant — and they can't be sure
 either. The GMRTI is a step-by-step method for finding where that gap is, naming
@@ -59,8 +57,7 @@ A standalone Lean 4 formal verification package for the mathematical claims
 latent in this framework is maintained in `math/` and is explicitly outside the
 scope of this treatise.
 
-**0.2 Alphanumerical Convention**
-
+### 0.2 Alphanumerical Convention
 `[PLAIN]` The sections in this document are numbered so that any specific claim
 can be pointed to precisely — like a street address for ideas. If you want to
 challenge, quote, or repair something, you cite its address.
@@ -75,8 +72,7 @@ Sections follow the pattern `N`, `Na`, `Na.1`, `Na.1i` for four levels of depth:
 When pointing to a specific dissonance or claim for critique, cite the shortest
 address that uniquely identifies it.
 
-**0.3 Status Markers**
-
+### 0.3 Status Markers
 `[PLAIN]` Every claim in this document carries a small tag showing how settled
 it is — whether it is load-bearing, still being tested, an open puzzle, or a
 plain-language example. That way you always know which parts are bedrock and
@@ -95,3 +91,17 @@ which parts are still under construction.
   independent polyphonic-encoding path to an abstract target
 - `[PLAIN]` — Plain-language entry ramp compiled into `PEBBLE.md`; written
   at a high-school reading level; not an epistemic invariant
+
+```table
+TITLE: Treatise Status Marker Reference
+| Marker | Dimension | Meaning |
+|---|---|---|
+| `[STABLE]` | Epistemic | Authorial closure — load-bearing invariant not currently under revision (§3g.2) |
+| `[PROVISIONAL]` | Epistemic | Held with operational confidence; open to revision pending audit |
+| `[OPEN]` | Epistemic | Known unresolved gap; active work needed |
+| `[RECURSIVE]` | Reflexive | Applies to the GMRTI framework itself; check for self-consistency |
+| `[RESTORED]` | Provenance | Recovered after compression loss in prior iterations |
+| `[EXCISED]` | Provenance | Retired from operational inference; preserved for address stability |
+| `[ALLEGORY]` | Structural | Concrete domain-bounded polyphonic path to an abstract target |
+| `[PLAIN]` | Structural | High-school-accessible entry ramp compiled into `PEBBLE.md` |
+```

@@ -1,7 +1,6 @@
 ## SECTION 9 — Coda
 
-**9a — The Pebble and the Boulder**
-
+### 9a — The Pebble and the Boulder
 `[PLAIN]` Sisyphus got a boulder — heavy, immovable, an eternal punishment. He
 pushes it up the hill, it rolls back down, he pushes it again. The myth is about
 futility: a task that never completes, a surface that never yields.

@@ -31,11 +31,10 @@ def test_pebble_contains_science_preamble(base_dir):
 
 def test_pebble_contains_glossary(base_dir):
     doc = assemble_pebble_document(base_dir)
-    flat = " ".join(doc.split())
     assert "The Formal Glossary (Academic Reference)" in doc
-    assert "**GMRTI** — General Method for Refinement and Transmission of Ideas" in flat
-    assert "**COMOSÍ**" in doc
-    assert "**METAAGNOSTICISM**" in doc
+    assert "#### * GMRTI" in doc
+    assert "#### * Comosí" in doc
+    assert "#### * Metaagnosticism" in doc
 
 
 def test_pebble_contains_coda(base_dir):
@@ -138,3 +137,21 @@ def test_excluded_allegory_anchor_still_exists(base_dir):
     with open(arch_path, "r", encoding="utf-8") as f:
         content = f.read()
     assert "- **2f.3ii" in content
+
+
+def test_parse_src_file_supports_h3_headings_and_skips_fences():
+    """MD++ ### headings are captured and [PLAIN]/[ALLEGORY] inside fences are ignored."""
+    from pebble import parse_src_file
+
+    sample = (
+        "## SECTION 1 — Test\n\n"
+        "### 1a — First Subsection\n\n"
+        "`[PLAIN]` Plain summary here.\n\n"
+        "```mirror probe\n"
+        "`[PLAIN]` Ignored inside mirror fence.\n"
+        "```\n"
+    )
+    parsed = parse_src_file(sample, filename="src/01_test.md")
+    assert len(parsed["plain_blocks"]) == 1
+    assert parsed["plain_blocks"][0]["heading"] == "1a — First Subsection"
+    assert parsed["plain_blocks"][0]["text"] == "Plain summary here."

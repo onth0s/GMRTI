@@ -1,6 +1,6 @@
 ## SECTION 6 — The GMRTI in Operation: Refinement Vectors
 
-**6a — The Self-Application Principle** `[STABLE][RECURSIVE]`
+### 6a — The Self-Application Principle `[STABLE][RECURSIVE]`
 
 `[PLAIN]` A method for clear thinking must be able to test itself. Everything
 the GMRTI recommends for other ideas is also used to test and refine this
@@ -28,13 +28,11 @@ document over time.
     on a single section — remains a validation target.
     `[PROVISIONAL][RECURSIVE]`
 
-**6b — The LLM-Manifesto Iteration Loop** `[PROVISIONAL]`
-
+### 6b — The LLM-Manifesto Iteration Loop `[PROVISIONAL]`
 `[PLAIN]` One practical way to test a written framework is to hand it to an AI
-acting as a strict, literal reader ([The Mirror](../GLOSSARY.md#the-mirror)) so
-it flags gaps and hidden assumptions. The catch is that AI editors love brevity
-and may quietly delete helpful examples, so you have to check that every cut is
-genuinely redundant.
+acting as a strict, literal reader ([[The Mirror]]) so it flags gaps and hidden
+assumptions. The catch is that AI editors love brevity and may quietly delete
+helpful examples, so you have to check that every cut is genuinely redundant.
 
 **6b.1** One operationalization of the GMRTI's Refinement front is the following
     cycle:
@@ -59,6 +57,20 @@ genuinely redundant.
    artifacts in the repository's `refinery/` workspace, since Refinery
    compression is a confirmed failure mode.
 6. **Return to step 1** with the refined declaration.
+
+```diagram
+TITLE: The LLM-Manifesto Iteration Loop
+DECL["1. Declaration — Explicit framework articulation"]
+CRIT("2. Adversarial Critique — Mirror mode at document DRC")
+RECON["3. Architectural Reconstruction — Fix structural failures"]
+AUDIT("4. Coherence Audit — Map full anatomy of failure modes")
+IRRED{"5. Irreducibility Check — Vocabulary & Refinery length audit"}
+DECL --> CRIT
+CRIT --> RECON
+RECON --> AUDIT
+AUDIT --> IRRED
+IRRED -->|refined declaration| DECL
+```
 
 
 **6b.2** The LLM functions as an adversarial receiving covenant with
@@ -110,8 +122,7 @@ intrusion and rejected.
   at the thousands of drawing tutorials and says "we already have one good
   explanation, delete the rest." One instructor explains perspective using
   railroad tracks, another using cardboard boxes, and another using horizon
-  lines and camera lenses ([Polyphonic
-  Encoding](../GLOSSARY.md#polyphonic-encoding)).
+  lines and camera lenses ([[Polyphonic Encoding]]).
   Because every beginner starts with a different background, no single tutorial
   works for everyone. Trimming away alternative explanations to save space just
   ensures that learners whose minds worked like the deleted tutorial will fail
@@ -132,12 +143,23 @@ document read more cleanly while reducing its precision and depth. The v0.7
 repairs restore both. Future iterations should treat any reduction in Refinery
 entry length as a flag requiring explicit justification. `[STABLE]`
 
-**6c — The Temporal Stranger Protocol** `[STABLE]`
+```mirror probe
+TITLE: Compression Asymmetry & Burden of Proof
+TARGET: [[6b — The LLM-Manifesto Iteration Loop]]
+PROBE: Under §6b.4, when is it legitimate to compress or remove an alternative explanation in the canonical treatise?
+[ ] Whenever an LLM reviewer judges the prose to be repetitive or verbose. --> Aesthetic brevity priors are presumptive covenant intrusion (§6b.4).
+[x] Only when shown to be both destination-isomorphic and non-route-independent with a surviving path, or formally marked [EXCISED], or in a lossy derivative like PEBBLE.md. --> Correct: ex-ante uncertainty favors path preservation.
+[ ] Whenever a path is longer than 80 characters. --> Line wrapping formats layout, not semantic paths.
 
+AUTHOR: Cutting a genuinely independent route causes total transmission failure for receivers who rely on that route; keeping an extra path costs only marginal length.
+DIVERGENCE: Treating polyphonic encoding as mere stylistic repetition strips out redundancy that protects diverse receivers.
+```
+
+### 6c — The Temporal Stranger Protocol `[STABLE]`
 `[PLAIN]` When you re-read your own old notes, pretend a stranger wrote them
-([Temporal Stranger](../GLOSSARY.md#temporal-stranger)). Instead of assuming
-your old words mean what they mean to you today, rebuild what your past self
-meant and map where your thinking has drifted.
+([[Temporal Stranger]]). Instead of assuming your old words mean what they mean
+to you today, rebuild what your past self meant and map where your thinking has
+drifted.
 
 **6c.1** The Self-to-Future-Self transmission mode (1c.1) has a specific
     operationalization: the *Temporal Stranger Protocol*. The practitioner

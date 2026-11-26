@@ -55,7 +55,7 @@ if ($CheckOnly -and $SkipFormat) {
 
 $totalSteps = 0
 if (-not $CheckOnly -and -not $SkipFormat) { $totalSteps++ }
-if (-not $CheckOnly) { $totalSteps += 3 }
+if (-not $CheckOnly) { $totalSteps += 4 } # rewrite.py, pebble.py, mdd -> index.html, patch_index.py
 $totalSteps += 4
 if (-not $SkipTests) { $totalSteps++ }
 if ($WithMath) { $totalSteps++ }
@@ -93,6 +93,14 @@ if (-not $CheckOnly) {
     }
     Invoke-Step "Compiling plain-language companion (pebble.py)..." "pebble.py compilation failed." {
         & $Python pebble.py
+    }
+    Invoke-Step "Compiling MD++ HTML artifact (mdd -> index.html)..." "mdd compilation failed." {
+        $monoliths = @(Get-ChildItem -Path $PSScriptRoot -Filter "GMRTI_*.md" | Where-Object { $_.Name -match '^GMRTI_\d+\.md$' })
+        if ($monoliths.Count -ne 1) {
+            Write-Host "ERROR: Expected exactly 1 root monolith, found $($monoliths.Count)." -ForegroundColor Red
+            exit 1
+        }
+        mdd $monoliths[0].FullName -o (Join-Path $PSScriptRoot "index.html") --single --force
     }
     Invoke-Step "Patching index.html invariants (patch_index.py)..." "patch_index.py failed." {
         & $Python patch_index.py

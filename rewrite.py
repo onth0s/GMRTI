@@ -37,6 +37,22 @@ def _file_sha256(filepath: str) -> str:
     return h.hexdigest()
 
 
+_MONOLITH_FRONTMATTER = """---
+title: "GMRTI — General Method for Refinement and Transmission of Ideas"
+kicker: "There must be a Science of Understanding"
+subtitle: "A Living Framework Document · Tenth Iteration (v0.9 Candidate)"
+pills:
+  - "epistemology"
+  - "semantic-covenants"
+  - "transmission"
+  - "polyphonic-encoding"
+  - "rational-agnosticism"
+  - "v0.9"
+theme: "dark"
+accent: "#3b82f6"
+---"""
+
+
 def assemble_monolithic_document(base_dir: str) -> str:
     readme_path = os.path.join(base_dir, "README.md")
     if not os.path.exists(readme_path):
@@ -82,7 +98,7 @@ def assemble_monolithic_document(base_dir: str) -> str:
             body_parts.append(content)
 
     body_text = "\n\n---\n\n".join(body_parts)
-    output = header + "\n\n" + body_text + "\n"
+    output = _MONOLITH_FRONTMATTER + "\n\n" + header + "\n\n" + body_text + "\n"
     return re.sub(r"\]\(\.\./GLOSSARY\.md(#[^)]+)\)", r"](\1)", output)
 
 

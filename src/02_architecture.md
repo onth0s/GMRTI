@@ -1,7 +1,6 @@
 ## SECTION 2 — Foundational Architecture: The Topological Network Model
 
-**2a — The Edge-Primacy Structure of Meaning** `[STABLE]`
-
+### 2a — The Edge-Primacy Structure of Meaning `[STABLE]`
 `[PLAIN]` A word has no meaning on its own — meaning comes entirely from how it
 connects to other words and ideas. Change the connections, and you change what
 the word means, even if the word itself stays the same.
@@ -46,10 +45,22 @@ reintroduce the node under a different name. This is resolved as follows:
     which then causes the water to rotate. It is simply what happens when
     rushing water forces meet, push against each other, and spin. The swirl (the
     noun, or node) is created entirely by the moving currents (the relations,
-    or [edges](../GLOSSARY.md#edge-taxonomy) inside a
-    [semantic covenant](../GLOSSARY.md#semantic-covenant)). Naming the whirlpool
+    or [[Edge Taxonomy|edges]] inside a
+    [[Semantic Covenant|semantic covenant]]). Naming the whirlpool
     gives us a convenient word to point at, but treating it as a solid object
     independent of the river's moving forces is a mistake.
+
+```mirror probe
+TITLE: Edge-Primacy vs. Substantialist Nodes
+TARGET: [[2a — The Edge-Primacy Structure of Meaning]]
+PROBE: In GMRTI's topological model, what is a "concept" (or node)?
+[ ] An atomic Platonic entity that pre-exists all relations and gets linked later. --> GMRTI explicitly rejects substantialist concept-atoms (§2a.3).
+[x] A post-hoc label for a region where relational edges have achieved sufficient density and stability. --> Correct: edges are primitive; nodes are emergent densities (§2a.4).
+[ ] A fixed dictionary entry shared identically across speakers. --> Covenants are living topologies, not static dictionaries.
+
+AUTHOR: Meaning resides in relational edges; concepts are localized stabilities in the edge-field (§2a.2, §2a.4).
+DIVERGENCE: Treating labels as self-subsistent atoms hides structural divergence behind shared words.
+```
 
 
 **2a.5 — Edge Taxonomy** `[STABLE][RESTORED]`
@@ -105,14 +116,23 @@ protocol triggers the activation of the Tier 2 full taxonomy locally for that
 subgraph, transitioning the classification from 'Other' or correcting the
 initial coarse cut to resolve the mismatch.
 
+```table
+TITLE: Two-Tier Edge Taxonomy
+| Tier | Operator | Primary Function | Activation |
+|---|---|---|---|
+| Tier 1 (Coarse) | Inferential / Causal | Logical consequence vs. worldly production | Stage 1 (Covenant Declaration) |
+| Tier 1 (Coarse) | Other | Deferred non-causal/non-inferential links | Stage 1 (Covenant Declaration) |
+| Tier 2 (Refined) | Procedural / Normative / Affective | Method sequence, obligation, salience | Stage 3 (JIT-OM Repair) |
+| Tier 2 (Refined) | Identity / Referential / Structural | Equivalence, designation, network tissue | Stage 3 (JIT-OM Repair) |
+```
+
 
 **2a.6** The illusion of understanding occurs when two covenants share a surface
     label — the same convenient handle — but have non-isomorphic edge-structures
     in the topological region that label points to. They are pointing at
     different parts of their respective fields with the same finger. `[STABLE]`
 
-**2b — Topological Depth Layers** `[STABLE]`
-
+### 2b — Topological Depth Layers `[STABLE]`
 `[PLAIN]` Some concepts are deeply buried — many steps away from anything you
 can point at in the real world. The deeper a concept, the easier it is for two
 people to think they share it when they actually don't.
@@ -157,8 +177,7 @@ threshold, subject to domain-specific calibration) is formally classified as
 metaphysical assumption into a measurable topological dependency.
 
 
-**2c — Divergence Taxonomy** `[STABLE]`
-
+### 2c — Divergence Taxonomy `[STABLE]`
 `[PLAIN]` A map can go wrong in two main ways right now — it can be empty where
 it should have something, or have the wrong thing — plus a third way when your
 notes go stale over time. Knowing which kind of error you are dealing with tells
@@ -188,8 +207,8 @@ you how to fix it.
   An *Anchor-Only Subgraph* is like an empty golden chocolate wrapper with no
   chocolate inside: a person can repeat the word "sovereignty", but has zero
   working operational connections attached to it. An
-  [*Edge Divergence*](../GLOSSARY.md#divergence) is like two people both using
-  the word "dollar", where one person means US Dollars and the other means
+  *[[Divergence|Edge Divergence]]* is like two people both using the word
+  "dollar", where one person means US Dollars and the other means Australian
   Australian Dollars: both hold real value and real rules, but their
   expectations clash the instant they try to make a trade.
 
@@ -197,6 +216,16 @@ you how to fix it.
 **2c.2** These three types are not always cleanly separable in practice; real
     transmission failures often involve combinations. The taxonomy's value is
     diagnostic, not exhaustive. `[PROVISIONAL]`
+
+```table
+TITLE: Divergence Taxonomy & Diagnostic Signatures
+| Divergence Type | Receiver State | Required Repair |
+|---|---|---|
+| Anchor-Only Subgraph | Shared label with zero internal edges | Generative Scaffolding + [[Polyphonic Encoding]] |
+| Edge Divergence | Shared label with conflicting topology | Local Alignment + [[Boundary-Tracing Encapsulation]] |
+| Edge-Type Misattribution | Shared A-to-B link with mismatched type | Explicit Type Declaration via [[Just-In-Time Ontological Marking (JIT-OM)\|JIT-OM]] |
+| Temporal Drift Divergence | Covenant shift between t_1 and t_2 | Archival Reconstruction ([[Temporal Stranger]]) |
+```
 
 **2c.3 — Edge-Type Misattribution: A Subtype of Edge Divergence** `[STABLE]`
 
@@ -228,8 +257,7 @@ standard Edge Divergence repair: rather than Local Alignment of topological
 structure, it requires explicit declaration and negotiation of edge-type — which
 is precisely the kind of JIT-OM operation the framework prescribes.
 
-**2d — Institutional Meta-Covenants: Federated Graphs** `[PROVISIONAL]`
-
+### 2d — Institutional Meta-Covenants: Federated Graphs `[PROVISIONAL]`
 `[PLAIN]` A group or an organization doesn't have a single shared brain.
 Instead, they share written rules, guidebooks, and definitions. To keep everyone
 on the same page, those shared documents must be actively maintained and
@@ -252,12 +280,12 @@ updated.
 - **2d.2i — The Vault Kilogram and Measurement Scientists Allegory**
     `[ALLEGORY: ARTIFACT-ANCHORS]`
     A country agrees on what a "kilogram" means by keeping a polished cylinder
-    of platinum in a sealed vault (the
-    [Artifact Anchor](../GLOSSARY.md#artifact-anchor)). But over the decades,
-    dust gathers and tiny flecks of metal wear away. Without a dedicated team of
-    scientists regularly cleaning, checking, and re-calibrating it (the
-    Maintenance Covenant running
-    [Periodic Re-Mirroring](../GLOSSARY.md#periodic-re-mirroring)), every scale
+    of platinum in a sealed vault (the [[Artifact Anchor]]). But over the
+    decades, dust gathers and tiny flecks of metal wear away. Without a
+    dedicated team of scientists regularly cleaning, checking, and
+    re-calibrating it (the Maintenance Covenant running
+    [[Periodic Re-Mirroring Protocol|Periodic Re-Mirroring]]), every scale
+    across
     across the nation will slowly drift apart without anyone realizing it.
 
 **2d.3** The Federated Graph model has a critical implication: institutional
@@ -280,8 +308,7 @@ semantic drift, triggering targeted maintenance repair before operational
 coordination fractures.
 
 
-**2e — Rational Agnosticism as Operational Posture** `[STABLE]`
-
+### 2e — Rational Agnosticism as Operational Posture `[STABLE]`
 `[PLAIN]` When testing how well you explained something, pretend you are a
 robot: use only the exact words on the page, and add nothing from your own
 memory or friendly guesses. If the meaning still gets through, your explanation
@@ -298,10 +325,9 @@ is solid.
     When a friend says *"Hand me that thing by the door"*, you guess correctly
     because you know your friend and notice their eyes glance at the umbrella.
     That is natural human charity. Rational Agnosticism (acting as
-    [The Mirror](../GLOSSARY.md#the-mirror)) is testing your sentence with a
-    literal-minded robot that knows only the words actually spoken: the robot
-    halts and asks *"Which object? What door?"* Deliberately refusing to fill in
-    the blanks with friendly guesses is how you find the gaps in your
+    [[The Mirror]]) is testing your sentence with a literal-minded robot that
+    knows only the words actually spoken: the robot halts and asks *"Which
+    object? What door?"* Deliberately refusing to fill in the blanks with
     instructions before sending them to a stranger.
 
 
@@ -370,10 +396,20 @@ Substrate baseline. GMRTI-mediated repair additionally requires the Primitive
 Covenant, whose sharing between agents is a precondition acknowledged as
 non-trivial, not a background assumption that can be silently presupposed.
 
+```diagram LR
+TITLE: Stratified Minimal Intelligibility Bootstrap (MIB)
+SUB["Minimal Substrate — Signal detection & individuation"]
+CZP("Covenant Zero Protocol — Ostensive association games")
+PRIM["Primitive Covenant — causal, inferential, identity"]
+JIT("Tier 2 JIT-OM — procedural, normative, affective, referential, structural")
+SUB -->|bootstraps| CZP
+CZP -->|establishes| PRIM
+PRIM -->|composes or negotiates| JIT
+```
 
 
-**2f — Polyphonic Encoding** `[STABLE]`
 
+### 2f — Polyphonic Encoding `[STABLE]`
 `[PLAIN]` When something is really important, give more than one way to reach
 the idea — like offering a definition, a picture, and a real-world example. If
 one route is blocked, the others still carry the meaning.
@@ -488,6 +524,29 @@ with paths $p_{\neq i}$ stripped: if any single path $p_i$ drops below the
 Operational Action Threshold [provisional dependency boundary: §3c.3] when the
 others are stripped, a local topological void on $p_i$ is confirmed.
 
+```diagram
+TITLE: Path-Stripping Probing & Disjunctive Hub Pre-Screen
+NODE{"Flagged Node — in-degree >= 2 and out-degree >= 2"}
+CHECK{"Inference Check — Same inferences across probes?"}
+CONV["Convergent Polyphonic Node — Test each path p_i in isolation"]
+HUB["Disjunctive / Polysemous Hub — Void only if ALL paths fail"]
+NODE --> CHECK
+CHECK -->|Yes| CONV
+CHECK -->|No| HUB
+```
+
+```mirror probe
+TITLE: Redundancy-Masking & Path-Stripping
+TARGET: [[2f — Polyphonic Encoding]]
+PROBE: Why does GMRTI pair Polyphonic Encoding with Path-Stripping Probing?
+[ ] To delete redundant paths and shorten the document. --> Compression without proof is covenant intrusion (§6b.4).
+[x] To detect local topological voids (Anchor-Only Subgraphs) that backup paths might be routing around. --> Correct: Path-Stripping exposes false comosí masked by redundancy (§2f.5).
+[ ] To prove that all paths use identical intermediate nodes. --> Polyphonic paths must be route-independent (§2f.6).
+
+AUTHOR: Backup paths can route around a local void, creating false comosí; stripping paths one by one surfaces the hidden deficit.
+DIVERGENCE: Assuming multi-path success proves single-path health leaves the transmission fragile under context shift.
+```
+
 **2f.5v — The Latent Comosí Ceiling Resolution** `[STABLE]`
 
 - **Null-Effect Equivalence Axiom**: If a latent topological divergence between
@@ -509,8 +568,8 @@ others are stripped, a local topological void on $p_i$ is confirmed.
   A four-engine airplane can fly smoothly even if Engine #3 has a broken fuel
   pipe, because the other three engines supply enough lift to hide the problem
   during cruising flight
-  ([Redundancy-Masking](../GLOSSARY.md#redundancy-masking)).
-  [Path-Stripping Probing](../GLOSSARY.md#path-stripping-probing) is the ground
+  ([[Redundancy-Masking]]).
+  [[Path-Stripping Probing]] is the ground
   stress test where mechanics shut off all other engines so each engine is
   tested by itself. When Engine #3 is tested all by itself, it immediately
   sputters and stalls, revealing the broken pipe before the plane takes off into
@@ -529,8 +588,7 @@ what is strictly necessary to construct the alternative route.
 
 
 
-**2g — Syntactic Edge-Forcing** `[STABLE]`
-
+### 2g — Syntactic Edge-Forcing `[STABLE]`
 `[PLAIN]` If you force yourself to name the exact *kind* of relationship between
 two ideas (like "A causes B" versus "A is just another word for B"), you avoid
 misunderstandings before they can even start.
@@ -585,11 +643,10 @@ these operators (see 2g.7).
 - **2g.4i — The Jigsaw Puzzle Joint Allegory** `[ALLEGORY: EDGE-FORCING]`
   If you lay two flat, square wooden blocks side-by-side, someone could stack
   them, push them apart, or glue them backwards.
-  [Syntactic Edge-Forcing](../GLOSSARY.md#syntactic-edge-forcing) is cutting a
-  specific tongue-and-groove puzzle joint into the wood: the blocks can only
-  slide together in one exact alignment. The shape of the joint itself forces
-  the connection, preventing
-  [Edge-Type Misattribution](../GLOSSARY.md#edge-type-misattribution).
+  [[Syntactic Edge-Forcing]] is cutting a specific tongue-and-groove puzzle
+  joint into the wood: the blocks can only slide together in one exact
+  alignment. The shape of the joint itself forces the connection, preventing
+  [[Edge-Type Misattribution]].
 
 **2g.5 — The Apodictic Comosí: Mathematical Language as Model** `[STABLE]`
 
@@ -651,8 +708,7 @@ bounded by two structural conditions:
   edge-cluster density [->identity] constitutes the concept...`
 
 
-**2h — Boundary-Tracing Encapsulation** `[STABLE]`
-
+### 2h — Boundary-Tracing Encapsulation `[STABLE]`
 `[PLAIN]` In an interconnected web of ideas, fixing one broken piece can
 accidentally shake other parts of the map. Encapsulation means drawing a clear
 boundary around your fix so the ripples don't spread.
@@ -674,8 +730,7 @@ boundary around your fix so the ripples don't spread.
     If a pipe bursts in one compartment of a submarine, the crew does not let
     seawater flood the entire vessel. They immediately lock shut the heavy
     watertight doors on that specific room (the
-    [Boundary-Tracing
-    Encapsulation](../GLOSSARY.md#boundary-tracing-encapsulation)
+    [[Boundary-Tracing Encapsulation]]
     wrapper). They repair the broken valve inside the sealed room, ensuring only
     safe, controlled cables pass through the bulkhead to the rest of the ship.
 
@@ -690,3 +745,10 @@ boundary around your fix so the ripples don't spread.
     residual holistic leakage is a known structural limitation, bounded in
     practice by keeping interface edge sets small and explicitly typed.
     `[STABLE]`
+
+```mirror clarification
+TITLE: Limits of Syntactic Edge-Forcing
+TARGET: [[2g — Syntactic Edge-Forcing]]
+Q: If Syntactic Edge-Forcing achieves near-univocal fidelity in mathematics, why not use it everywhere?
+A: Edge-forcing only reduces entropy when primitive components are already shared (§2g.6i) and works best for logical/structural relations. For qualia, normative commitments, and social constructs (§2g.6ii), syntax can compel a label but cannot transmit experiential or axiomatic content — so Polyphonic Encoding and JIT-OM remain essential.
+```

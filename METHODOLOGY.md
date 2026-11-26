@@ -4,8 +4,7 @@ This document defines the lifecycle, validation requirements, and epistemic
 authority of theoretical claims within the GMRTI framework. It establishes the
 non-negotiable behavioral contracts for authoring and refactoring the treatise.
 
-**Ma — Status Markers and Invariant Graduation**
-
+### Ma — Status Markers and Invariant Graduation
 **Ma.1** Theoretical claims within GMRTI are tagged with Status Markers. These
     markers dictate the claim's load-bearing authority and serve as invariants
     in the CLDS workflow:
@@ -92,3 +91,14 @@ of the following non-negotiable conditions:
 
 When a claim satisfies both conditions, it graduates to `[STABLE]` and becomes
 an architectural invariant.
+
+```diagram LR
+TITLE: Invariant Graduation Gate (Ma.3 + Ma.4)
+PROV["PROVISIONAL Claim — Held with operational confidence"]
+AUD{"Adversarial Audit — Survived DISSONANCE.md?"}
+DEP{"Invariant Dependency — All dependencies STABLE or bounded?"}
+STAB("STABLE Invariant — Authorial closure (§3g.2)")
+PROV --> AUD
+AUD -->|Yes| DEP
+DEP -->|Yes| STAB
+```

@@ -1,6 +1,6 @@
 ## SECTION 3 — The GMRTI Algorithm
 
-**3a — Overview and Termination Conditions** `[STABLE][RESTORED]`
+### 3a — Overview and Termination Conditions `[STABLE][RESTORED]`
 
 `[PLAIN]` The GMRTI works as a clear diagnostic cycle: map out the starting
 concepts, test if the receiver can rebuild the map without guessing, locate any
@@ -42,6 +42,27 @@ practical work.
     the process — and must be abandoned where it implies deterministic precision
     the framework structurally cannot provide. `[STABLE]`
 
+Calibrating DRC or navigating termination conditions requires balancing risk
+against cost:
+
+```diagram
+TITLE: The 5-Stage GMRTI Refinement Cycle
+S1["1. Covenant Declaration — Expose topology (Tier 1 cut)"]
+S2["2. Generative Reconstruction — Mirror map + Charity bridge"]
+S3["3. Divergence Localization — Surface -> Structural -> Axiomatic"]
+S4["4. Targeted Repair — Scaffold / Encapsulate / Type"]
+PARK("Operational Parking — Action threshold met (§3a.1i)")
+COST("Cost-Bounded Exit — Effort exceeds DRC benefit (§3a.1iii)")
+S5("5. Irreducibility Declaration — Genuine value difference (§3f)")
+S1 --> S2
+S2 -->|divergence found| S3
+S2 -->|congruent| PARK
+S3 -->|repairable| S4
+S3 -->|axiomatic impasse| S5
+S4 -->|re-verify| S2
+S2 -->|cost > benefit| COST
+```
+
 **3a.4 — Tiered DRC and Opportunistic Agnosticism** `[STABLE]`
 
 To balance the cognitive overhead of Rationally Agnostic reconstruction against
@@ -66,9 +87,29 @@ political stakes. Deciding whether a domain carries "high" or "low" risk
 requires normative value judgments that belong exclusively to the participating
 covenants, not to the framework itself.
 
+```table
+TITLE: Domain Risk Coefficient (DRC) Operational Modes
+| Mode | DRC Range | Interpretive Charity | Mirror Posture |
+|---|---|---|---|
+| Generative Mode | DRC -> 0.0 | Maximum | Suspended (drafting) |
+| Refinement Mode | DRC ~ 0.5 | Moderate | Tier 1 coarse cut + redundancy check |
+| Audit Mode | DRC -> 1.0 | Minimal Substrate only | Strict Mirror enforced throughout |
+```
 
-**3b — Stage 1: Covenant Declaration** `[STABLE]`
+```mirror probe
+TITLE: Meta-DRC Defaulting & Stake Guard
+TARGET: [[3a — Overview and Termination Conditions]]
+PROBE: When two parties disagree on the Domain Risk Coefficient (DRC), what prevents a Bad Actor from stalling low-risk work by demanding DRC = 1.0?
+[ ] GMRTI hardcodes numerical DRC values for every domain. --> GMRTI deliberately leaves domain risk ranking to participating covenants (§3a.4).
+[x] Defaulting to the highest DRC requires declaring a commensurate failure-cost or boundary stake, else Cost-Bounded Termination or TCA applies. --> Correct: asymmetric risk is protected without enabling unbounded DoS stalling (§3e.1v).
+[ ] The lower DRC always wins to keep friction minimal. --> That would expose high-risk parties to catastrophic failure.
 
+AUTHOR: Meta-DRC defaults to the highest demanded DRC only when backed by a commensurate stake; unbacked 1.0 demands trigger §3a.1iii or §3g.4.
+DIVERGENCE: Unconditional max-DRC defaulting creates a DoS vector; unconditional min-DRC creates asymmetric risk failure.
+```
+
+
+### 3b — Stage 1: Covenant Declaration `[STABLE]`
 `[PLAIN]` Stage 1 is laying your cards on the table. You list the main ideas you
 are using and clearly show how they connect to one another, so the other person
 can see what you are building on.
@@ -102,8 +143,7 @@ can see what you are building on.
     language, which inherits the metaagnostic condition. The goal is maximum
     achievable explicitness within this constraint. `[STABLE][RECURSIVE]`
 
-**3c — Stage 2: Generative Reconstruction and Interpretive Charity Calibration**
-`[STABLE]`
+### 3c — Stage 2: Generative Reconstruction and Interpretive Charity Calibration `[STABLE]`
 
 `[PLAIN]` Stage 2 has two beats: first, read strictly what is written without
 guessing; second, use what you already know to fill in the gaps and write down
@@ -180,8 +220,7 @@ interfaces yield compatible outcomes.
 3. **Edge-Type Guesses (JIT-OM):** [e.g., Sender treats
        as Causal, Receiver sees as Inferential]
 
-**3d — Stage 3: Divergence Localization** `[STABLE]`
-
+### 3d — Stage 3: Divergence Localization `[STABLE]`
 `[PLAIN]` Stage 3 is finding the root of the misunderstanding. You fix simple
 surface mix-ups first, then deeper structural links, before assuming you
 disagree at the deepest level.
@@ -208,8 +247,7 @@ disagree at the deepest level.
     requiring topological repair from cases requiring edge-type negotiation.
     `[STABLE]`
 
-**3e — Stage 4: Targeted Repair** `[STABLE]`
-
+### 3e — Stage 4: Targeted Repair `[STABLE]`
 `[PLAIN]` Stage 4 matches the fix to the break: build new bridges where an idea
 is missing, draw a boundary around local edits, or agree on what kind of link
 connects two ideas.
@@ -293,6 +331,18 @@ truth-claims about semantic edges, they reduce meta-level ambiguity to
 verifiable state-transition preconditions grounded in the Minimal Substrate,
 halting the regress without resort to dogmatic fiat. `[STABLE]`
 
+```table
+TITLE: Content–Protocol Stratification State Machine
+| Performative Act | Transition | Condition / Guard |
+|---|---|---|
+| `propose(target, edge_type)` | Active -> Under-Review | Submits candidate repair or edge typing |
+| `accept(proposal)` | Under-Review -> Active | Ratifies typing; resets rejection count |
+| `reject(proposal)` | Under-Review -> Active / Terminated | Retries if `reject_count < k_max`; else exits |
+| `pause(scope)` | Active -> Paused | Halts primary traversal for localized probe |
+| `resume()` | Paused -> Active | Restores traversal after repair ratification |
+| `default(drc_level)` | Under-Review / Paused -> Active | Enforces highest staked DRC on meta-dispute |
+```
+
 
 
 **3e.2** Repair operations do not aim at permanent covenant merger. The goal is
@@ -301,8 +351,7 @@ halting the regress without resort to dogmatic fiat. `[STABLE]`
     established domain. `[STABLE]`
 
 
-**3f — Stage 5: Irreducibility Declaration** `[STABLE]`
-
+### 3f — Stage 5: Irreducibility Declaration `[STABLE]`
 `[PLAIN]` Stage 5 is an honest stalemate: if you have tested every repair down
 to bedrock and still disagree, you name it as a real difference in values rather
 than a wording mix-up.
@@ -331,8 +380,19 @@ than a wording mix-up.
     declaration marks a current epistemic limit, not a permanent metaphysical
     fact. `[STABLE][RECURSIVE]`
 
-**3g — Stopping Principle and Cost Control** `[STABLE]`
+```mirror probe
+TITLE: Irreducibility Declaration
+TARGET: [[3f — Stage 5: Irreducibility Declaration]]
+PROBE: What does an Irreducibility Declaration signify at Stage 5?
+[ ] A permanent metaphysical impossibility that can never be revisited. --> Declarations are provisional and revisable if new bridges emerge (§3f.3).
+[x] A formal acknowledgment that the divergence is a genuine difference in axiomatic commitments rather than a wording mix-up, handing off to GMCR. --> Correct: accurate disagreement is the entry point for GMCR (§3f.1–2).
+[ ] That Surface and Structural repairs were skipped to save time. --> Localization must exhaust Surface and Structural layers first (§3d.2).
 
+AUTHOR: Stage 5 distinguishes genuine value divergence from miscommunication, redirecting from semantic repair to negotiation (GMCR).
+DIVERGENCE: Treating irreducibility as permanent dogma or issuing it prematurely blocks discoverable repairs.
+```
+
+### 3g — Stopping Principle and Cost Control `[STABLE]`
 `[PLAIN]` Don't polish forever. Stop refining once the extra effort costs more
 than the remaining risk of misunderstanding.
 

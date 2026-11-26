@@ -1,6 +1,6 @@
 ## SECTION 4 — Temporal Anchoring
 
-**4a — The Drift Problem** `[STABLE][RESTORED]`
+### 4a — The Drift Problem `[STABLE][RESTORED]`
 
 `[PLAIN]` The "you" who writes a note today and the "you" who reads it in five
 years are not the same person. As you learn and change, your inner dictionary
@@ -22,8 +22,7 @@ drifts, which means you can easily misread your own past notes.
     This distortion is typically invisible to the author, which makes it more
     dangerous than external transmission failure.
 
-**4b — Temporal Anchoring Operations** `[PROVISIONAL]`
-
+### 4b — Temporal Anchoring Operations `[PROVISIONAL]`
 `[PLAIN]` To stop your guides and notes from drifting away, update them with
 small, careful nudges over time rather than throwing everything out and starting
 over every time something changes.
@@ -77,14 +76,30 @@ tradeoff: smaller $\lambda$ suppresses local variance and prevents oscillation,
 while larger $\lambda$ minimizes steady-state tracking lag behind authentic
 covenant evolution.
 
+```diagram LR
+TITLE: Dynamic Re-Anchoring Exponential Smoothing Loop
+DECL["New Declaration A_decl,t — Proposed covenant update"]
+DAMP("Damping Update — A_t+1 = (1 - lambda)A_t + lambda A_decl,t")
+ANCHOR["Smoothed Anchor A_t+1 — Lag bounded by delta(1 - lambda)/lambda"]
+DECL -->|weighted by lambda| DAMP
+DAMP --> ANCHOR
+ANCHOR -->|inertia (1 - lambda)| DAMP
+```
+
+```mirror qa
+TITLE: Dynamic Re-Anchoring Tradeoff
+TARGET: [[4b — Temporal Anchoring Operations]]
+Q: Why use a damping factor lambda in (0, 1] instead of locking Artifact Anchors immutably or updating them immediately?
+A: An immutable anchor snaps under authentic covenant evolution, while immediate full tracking (lambda = 1.0) chases transient noise. Exponential smoothing with default lambda = 0.15 suppresses local chop while bounding steady-state tracking lag to delta * (1 - lambda) / lambda (§4b.3).
+```
+
 - **4b.3i — The Floating Sea-Anchor Allegory**
     `[ALLEGORY: DYNAMIC-REANCHORING]`
     In deep, stormy waters, a ship cannot drop a heavy iron anchor down to the
     ocean floor: the seabed is too deep and rigid, and the chain will snap. But
     if the captain drops no anchor at all (full tracking, damping equal to 1),
     every passing wave spins the ship out of control. Instead, the crew deploys
-    a submerged cloth sea-anchor ([Dynamic
-    Re-Anchoring](../GLOSSARY.md#dynamic-re-anchoring)
+    a submerged cloth sea-anchor ([[Dynamic Re-Anchoring]]
     with a gentle drag, such as 0.15): it allows the vessel to glide smoothly
     with the deep ocean current while dampening out the violent surface chop,
     keeping the bow pointed in a steady, safe direction.

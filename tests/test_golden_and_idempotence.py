@@ -68,6 +68,20 @@ def _build_golden_repo(root):
 
 
 _EXPECTED_MONOLITH = (
+    '---\n'
+    'title: "GMRTI — General Method for Refinement and Transmission of Ideas"\n'
+    'kicker: "There must be a Science of Understanding"\n'
+    'subtitle: "A Living Framework Document · Tenth Iteration (v0.9 Candidate)"\n'
+    'pills:\n'
+    '  - "epistemology"\n'
+    '  - "semantic-covenants"\n'
+    '  - "transmission"\n'
+    '  - "polyphonic-encoding"\n'
+    '  - "rational-agnosticism"\n'
+    '  - "v0.9"\n'
+    'theme: "dark"\n'
+    'accent: "#3b82f6"\n'
+    '---\n\n'
     "# GMRTI — Golden Fixture\n\n"
     "Intro line.\n\n"
     "## SECTION 0 — Preamble\n\n"

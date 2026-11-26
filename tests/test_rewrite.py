@@ -17,7 +17,9 @@ _COPY_IGNORE = shutil.ignore_patterns(
 
 def test_assemble_monolithic_document_success(base_dir):
     doc = assemble_monolithic_document(base_dir)
-    assert doc.startswith("# GMRTI \u2014 General Method for Refinement and Transmission of Ideas")
+    assert doc.startswith('---\ntitle: "GMRTI')
+    assert 'kicker: "There must be a Science of Understanding"' in doc
+    assert "# GMRTI \u2014 General Method for Refinement and Transmission of Ideas" in doc
     assert "**0.4 Vocabulary**" in doc
     assert "SECTION 1 \u2014 The Problem the GMRTI Addresses" in doc
     assert "SECTION 7 \u2014 Relation to Downstream Applications" in doc

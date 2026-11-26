@@ -4,8 +4,7 @@ This document outlines the formalized workflow for evolving the framework. It is
 the sanctioned operational pipeline for resolving structural gaps and addressing
 semantic entropy within the GMRTI.
 
-**Ra — The Resolution Pipeline (Dissonance -> Decisions -> REP)**
-
+### Ra — The Resolution Pipeline (Dissonance -> Decisions -> REP)
 The workflow for evolving the framework is a strict sequence:
 
 - **Ra.1 Adversarial Audit (`DISSONANCE.md`)**: An auditor (human or agent)
@@ -20,8 +19,7 @@ The workflow for evolving the framework is a strict sequence:
 - **Ra.4 Execution (The REP Cycle)**: The actual resolution of those decisions
   follows the Ratified Execution Protocol (see below).
 
-**Rb — The Ratified Execution Protocol (REP) for Theoretical Authoring**
-
+### Rb — The Ratified Execution Protocol (REP) for Theoretical Authoring
 The REP cycle guarantees that theoretical and structural integrity is
 maintained. It must be strictly followed for all changes dictated by
 `DECISIONS.md`:
@@ -45,8 +43,7 @@ maintained. It must be strictly followed for all changes dictated by
   Graduation Criteria (Ma.4) before any `[PROVISIONAL]` → `[STABLE]` graduation
   is ratified.
 
-**Rc — Tooling Verification & Execution Boundaries**
-
+### Rc — Tooling Verification & Execution Boundaries
 All REP execution boundaries must be verified locally before transition to the
 next phase:
 
@@ -60,3 +57,16 @@ next phase:
 
 Per `AGENTS.md`, verification is performed exclusively locally via these Python
 scripts and `pytest`.
+
+```diagram LR
+TITLE: Ratified Execution Protocol (REP) Pipeline
+DIS["1. DISSONANCE.md — Adversarial audit"]
+DEC["2. DECISIONS.md — Marching orders"]
+PLAN["3. PLAN.md — Sequenced execution plan"]
+IMPL["4. Sequential Execution — Specs, src/, tooling"]
+VER("5. Alignment Audit — Ma.3/Ma.4 + build.ps1")
+DIS --> DEC
+DEC --> PLAN
+PLAN --> IMPL
+IMPL --> VER
+```

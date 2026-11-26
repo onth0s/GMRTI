@@ -3,6 +3,7 @@
 
 ---
 
+> [!EPISTEMIC POSTURE]
 > *This document is itself a primary test case of the GMRTI. Every claim herein
 > is subject to the same refinement discipline it prescribes. Where the
 > framework is uncertain, it says so. Where it is provisional, it stays
@@ -77,11 +78,18 @@ python pebble.py --check
 python pebble.py
 ```
 
-**Check / patch `index.html` invariants:**
+**Check / patch `index.html` invariants (compiled by `mdd` in `build.ps1`):**
 
 ```
+mdd GMRTI_<timestamp>.md -o index.html --single --force
 python patch_index.py --check
 python patch_index.py
+```
+
+**Purge addressed update-cycle logs:**
+
+```powershell
+.\nuke.ps1                # Prompts for confirmation before clearing resolved logs
 ```
 
 **Full local build & verification (PowerShell):**
