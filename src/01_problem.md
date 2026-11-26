@@ -181,7 +181,7 @@ will stop the plan from falling apart at the worst possible moment.
     distinguish genuine value disagreements from resolvable miscommunication.
     `[STABLE]`
 
-### 1c — The Three Transmission Modes `[STABLE][RESTORED]`
+### 1c — The Three Transmission Modes `[STABLE]`
 
 `[PLAIN]` Misunderstanding happens across three scales: talking to your own
 future self through old notes ([[Temporal Stranger]]), talking to another person

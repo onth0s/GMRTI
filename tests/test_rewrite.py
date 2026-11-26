@@ -2,13 +2,12 @@ import os
 import shutil
 import pytest
 from rewrite import (
-    _list_monolithic_files,
     assemble_monolithic_document,
     archive_prior_monolithic_files,
     check_monolithic_sync,
     create_monolithic_document,
 )
-from _gmrti_common import MONOLITHIC_PATTERN
+from _gmrti_common import MONOLITHIC_PATTERN, list_monolithic_files
 
 _COPY_IGNORE = shutil.ignore_patterns(
     "math", "archive", "index.html", ".git", ".pytest_cache", "__pycache__"
@@ -139,7 +138,7 @@ def test_list_monolithic_files_helper(tmp_path):
     (tmp_path / "GMRTI_1001.md").write_text("rev 1", encoding="utf-8")
     (tmp_path / "README.md").write_text("readme", encoding="utf-8")
     (tmp_path / "GMRTI_notdigits.md").write_text("invalid", encoding="utf-8")
-    found = _list_monolithic_files(str(tmp_path))
+    found = list_monolithic_files(str(tmp_path))
     assert found == ["GMRTI_1001.md", "GMRTI_1002.md"]
 
 
@@ -160,7 +159,7 @@ def test_custom_output_does_not_archive_root_monolith(tmp_path, base_dir):
     """B1: Writing to --output outside root monolith pattern must not archive root monolith."""
     workspace = tmp_path / "workspace"
     shutil.copytree(base_dir, str(workspace), dirs_exist_ok=True, ignore=_COPY_IGNORE)
-    root_monos_before = _list_monolithic_files(str(workspace))
+    root_monos_before = list_monolithic_files(str(workspace))
     assert len(root_monos_before) == 1
 
     custom_out = tmp_path / "custom_build.md"
@@ -168,7 +167,7 @@ def test_custom_output_does_not_archive_root_monolith(tmp_path, base_dir):
         base_dir=str(workspace), output_path=str(custom_out), force=True
     )
     assert custom_out.exists()
-    assert _list_monolithic_files(str(workspace)) == root_monos_before
+    assert list_monolithic_files(str(workspace)) == root_monos_before
     assert check_monolithic_sync(str(workspace))["in_sync"] is True
 
 

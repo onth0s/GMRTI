@@ -61,7 +61,7 @@ certainty has been achieved is itself a first-order epistemic condition, not
 merely a practical limitation. The *meta* in metaagnosticism names precisely
 this second clause: not only is certainty unavailable, but the verification of
 whether one has achieved it is also unavailable — making the epistemic limit
-operate at one level above ordinary fallibilism. `[STABLE][RECURSIVE][RESTORED]`
+operate at one level above ordinary fallibilism. `[STABLE][RECURSIVE]`
 
 #### * Semantic Entropy
 The log-measure of structural ambiguity in a transmitted signal, denoted as
@@ -123,10 +123,9 @@ An edge-cluster with maximal structural centrality within a
 identity (§2b). `[STABLE]`
 
 #### * Anchor-Only Subgraph
-A divergence type (formerly Severe Edge Deficit) in which the receiver holds a
-shared surface label with zero internal relational depth attached to it,
-requiring [[Polyphonic Encoding]] to construct internal topology (§2c.1i).
-`[STABLE]`
+A divergence type in which the receiver holds a shared surface label with zero
+internal relational depth attached to it, requiring [[Polyphonic Encoding]] to
+construct internal topology (§2c.1i). `[STABLE]`
 
 #### * Temporal Drift Divergence
 Divergence arising not from difference between two people, but from a single

@@ -25,7 +25,7 @@ from _gmrti_common import (
 
 # Regex pattern to identify formal status and relational markers to strip
 MARKER_STRIP_PATTERN = re.compile(
-    r"\s*`?\[(STABLE|PROVISIONAL|OPEN|RECURSIVE|RESTORED|EXCISED|PLAIN|ALLEGORY(?::\s*[^\]]+)?)\]`?",
+    r"\s*`?\[(STABLE|PROVISIONAL|OPEN|RECURSIVE|PLAIN|ALLEGORY(?::\s*[^\]]+)?)\]`?",
     re.DOTALL | re.IGNORECASE,
 )
 RELATIONAL_STRIP_PATTERN = re.compile(r"\s*\[->[a-zA-Z0-9_-]+\]")

@@ -1,6 +1,6 @@
 ## SECTION 4 — Temporal Anchoring
 
-### 4a — The Drift Problem `[STABLE][RESTORED]`
+### 4a — The Drift Problem `[STABLE]`
 
 `[PLAIN]` The "you" who writes a note today and the "you" who reads it in five
 years are not the same person. As you learn and change, your inner dictionary
@@ -31,8 +31,9 @@ over every time something changes.
 
 - **4b.1i** *Date-stamping of covenant states*: major documents and framework
     articulations should be explicitly dated and treated as expressions of the
-    author's covenant at that moment, not as timeless declarations. This
-    document's version history is an instance of this practice.
+    author's covenant at that moment, not as timeless declarations. The
+    timestamp on each compiled revision of this document is an instance of this
+    practice.
 - **4b.1ii** *Drift logging*: where a thinker is aware that their understanding
     of a key concept has changed, that change should be explicitly documented,
     linking the old edge-structure to the new one and identifying the experience

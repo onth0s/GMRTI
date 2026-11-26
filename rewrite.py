@@ -22,7 +22,7 @@ from _gmrti_common import (
     build_base_parser,
     exit_for_check,
     get_repo_root,
-    list_monolithic_files as _list_monolithic_files,
+    list_monolithic_files,
     read_utf8,
     write_utf8,
 )
@@ -40,7 +40,7 @@ def _file_sha256(filepath: str) -> str:
 _MONOLITH_FRONTMATTER = """---
 title: "GMRTI — General Method for Refinement and Transmission of Ideas"
 kicker: "_There must be a Science of Understanding_"
-subtitle: "A Living Framework Document · Tenth Iteration (v0.9 Candidate)"
+subtitle: "A Living Framework Document · Tenth Iteration (v0.9)"
 pills:
   - "epistemology"
   - "semantic-covenants"
@@ -115,11 +115,11 @@ def archive_prior_monolithic_files(
 
     archived_hashes = {
         _file_sha256(os.path.join(archive_dir, af))
-        for af in _list_monolithic_files(archive_dir)
+        for af in list_monolithic_files(archive_dir)
     }
 
     archived_files: list[str] = []
-    for f in _list_monolithic_files(base_dir):
+    for f in list_monolithic_files(base_dir):
         full_path = os.path.join(base_dir, f)
         if (
             current_output_path
@@ -151,7 +151,7 @@ def check_monolithic_sync(base_dir: str) -> SyncResult:
     Returns a dict with keys: in_sync (bool), mono_file (str|None),
     error (str|None).
     """
-    mono_files = _list_monolithic_files(base_dir)
+    mono_files = list_monolithic_files(base_dir)
 
     if not mono_files:
         return {
@@ -189,7 +189,7 @@ def create_monolithic_document(
     assembled = assemble_monolithic_document(base_dir)
 
     if output_path is None and not force:
-        mono_files = _list_monolithic_files(base_dir)
+        mono_files = list_monolithic_files(base_dir)
         if len(mono_files) == 1:
             existing_path = os.path.join(base_dir, mono_files[0])
             if read_utf8(existing_path) == assembled:
@@ -215,7 +215,7 @@ def create_monolithic_document(
             f"{output_path} ({len(assembled)} bytes)"
         )
         if archive and is_root_monolith:
-            prior = _list_monolithic_files(base_dir)
+            prior = list_monolithic_files(base_dir)
             if prior:
                 print(f"[DRY RUN] Would archive prior revisions: {prior}")
         return output_path

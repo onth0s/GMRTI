@@ -201,7 +201,7 @@ When you re-read your own old notes, pretend a stranger wrote them ([[Temporal S
 
 > **Allegory: The Art Tutorials**
 >
-> Consider online art tutorials for drawing hands or perspective. Nobody looks at the thousands of drawing tutorials and says "we already have one good explanation, delete the rest." One instructor explains perspective using railroad tracks, another using cardboard boxes, and another using horizon lines and camera lenses ([[Polyphonic Encoding]]). Because every beginner starts with a different background, no single tutorial works for everyone. Trimming away alternative explanations to save space just ensures that learners whose minds worked like the deleted tutorial will fail to learn. The symptom is: successive iterations become shorter while appearing more coherent. The diagnosis: Redundancy-Masking at the meta-level — the document's transmission fidelity appears to improve (tighter, cleaner) while its actual structural content degrades (fewer independent routes, invisible voids). The mitigation: the Irreducibility Check must explicitly include a length-and-redundancy audit, verifying that compression has not stripped Polyphonic Encoding rather than eliminated genuine repetition. This failure mode was confirmed empirically in v0.6: the Refinery entries R2 through R4 (archived from v0.6–v0.7) lost their elaborated open questions, and the metaagnosticism definition lost its second clause. Both losses made the document read more cleanly while reducing its precision and depth. The v0.7 repairs restore both. Future iterations should treat any reduction in Refinery entry length as a flag requiring explicit justification.
+> Consider online art tutorials for drawing hands or perspective. Nobody looks at the thousands of drawing tutorials and says "we already have one good explanation, delete the rest." One instructor explains perspective using railroad tracks, another using cardboard boxes, and another using horizon lines and camera lenses ([[Polyphonic Encoding]]). Because every beginner starts with a different background, no single tutorial works for everyone. Trimming away alternative explanations to save space just ensures that learners whose minds worked like the deleted tutorial will fail to learn. The symptom is: successive iterations become shorter while appearing more coherent. The diagnosis: Redundancy-Masking at the meta-level — the document's transmission fidelity appears to improve (tighter, cleaner) while its actual structural content degrades (fewer independent routes, invisible voids). The mitigation: the Irreducibility Check must explicitly include a length-and-redundancy audit, verifying that compression has not stripped Polyphonic Encoding rather than eliminated genuine repetition. Compression strips independent routes while making a document read more cleanly, reducing its precision and depth. Any reduction in Refinery entry length should be treated as a flag requiring explicit justification.
 
 ---
 
@@ -302,7 +302,7 @@ certainty has been achieved is itself a first-order epistemic condition, not
 merely a practical limitation. The *meta* in metaagnosticism names precisely
 this second clause: not only is certainty unavailable, but the verification of
 whether one has achieved it is also unavailable — making the epistemic limit
-operate at one level above ordinary fallibilism. `[STABLE][RECURSIVE][RESTORED]`
+operate at one level above ordinary fallibilism. `[STABLE][RECURSIVE]`
 
 #### * Semantic Entropy
 The log-measure of structural ambiguity in a transmitted signal, denoted as
@@ -353,10 +353,9 @@ An edge-cluster that routes meaning between large regions of a
 [[Surface Subgraph|Surface Subgraphs]] (§2b). `[STABLE]`
 
 #### * Anchor-Only Subgraph
-A divergence type (formerly Severe Edge Deficit) in which the receiver holds a
-shared surface label with zero internal relational depth attached to it,
-requiring [[Polyphonic Encoding]] to construct internal topology (§2c.1i).
-`[STABLE]`
+A divergence type in which the receiver holds a shared surface label with zero
+internal relational depth attached to it, requiring [[Polyphonic Encoding]] to
+construct internal topology (§2c.1i). `[STABLE]`
 
 #### * Federated Graph
 The distributed, externalized semantic structure of an institution or community,

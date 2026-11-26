@@ -22,7 +22,7 @@ the word means, even if the word itself stays the same.
     that have achieved sufficient internal density to be worth labeling.
     `[STABLE]`
 
-**2a.4 — The Edge-Grounding Resolution** `[STABLE][RESTORED]`
+**2a.4 — The Edge-Grounding Resolution** `[STABLE]`
 
 The topological model raises an immediate regress: if nodes are merely clusters
 of edges, then edges must connect *something* — and that something appears to
@@ -63,7 +63,7 @@ DIVERGENCE: Treating labels as self-subsistent atoms hides structural divergence
 ```
 
 
-**2a.5 — Edge Taxonomy** `[STABLE][RESTORED]`
+**2a.5 — Edge Taxonomy** `[STABLE]`
 
 Not all edges are alike. The GMRTI therefore introduces a working partition of
 relation-types, because transmission failure often occurs specifically when one
@@ -185,7 +185,7 @@ you how to fix it.
 
 **2c.1** The GMRTI identifies three primary divergence types:
 
-- **2c.1i — Anchor-Only Subgraph (formerly Severe Edge Deficit)** — The
+- **2c.1i — Anchor-Only Subgraph** — The
   transmitting covenant attempts to reference an edge-cluster for which the
   receiving covenant has a shared surface label (a word or artifact) but
   possesses zero internal relational depth attached to it. The receiver is not
@@ -230,8 +230,7 @@ TITLE: Divergence Taxonomy & Diagnostic Signatures
 **2c.3 — Edge-Type Misattribution: A Subtype of Edge Divergence** `[STABLE]`
 
 The introduction of the Edge Taxonomy (2a.5) reveals a subtype of Edge
-Divergence that was previously unnamed and therefore systematically
-under-diagnosed: **Edge-Type Misattribution**.
+Divergence that is easily under-diagnosed: **Edge-Type Misattribution**.
 
 Edge-Type Misattribution occurs when both covenants possess the A-to-B relation
 — neither party is missing the connection — but each assigns it to a different
@@ -342,13 +341,13 @@ is solid.
     that will fail when that grease is absent (across cultures, across time,
     under adversarial conditions). `[STABLE]`
 
-**2e.4** The previous iteration's "Isolation Axiom" — that a transmission is
-    only robust if it survives reconstruction by a receiver who lacks all
-    contextual grease — is hereby demoted from architectural principle to useful
-    approximation. Complete context-elimination is not a purified transmission
-    environment; it is a pathological one. The GMRTI's goal is to make
-    dependency on shared context *explicit and navigable*, not to eliminate it.
-    `[STABLE]`
+**2e.4** Complete context-elimination — the "Isolation Axiom" that a
+    transmission is only robust if it survives reconstruction by a receiver who
+    lacks all contextual grease — is a useful approximation, not an
+    architectural principle. Complete context-elimination is not a purified
+    transmission environment; it is a pathological one. The GMRTI's goal is to
+    make dependency on shared context *explicit and navigable*, not to eliminate
+    it. `[STABLE]`
 
 **2e.5 — Minimal Intelligibility Bootstrap** `[STABLE]`
 

@@ -1,5 +1,5 @@
 # GMRTI — General Method for Refinement and Transmission of Ideas
-### A Living Framework Document · Tenth Iteration (v0.9 Candidate)
+### A Living Framework Document · Tenth Iteration (v0.9)
 
 ---
 

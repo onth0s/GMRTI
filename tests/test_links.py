@@ -92,3 +92,19 @@ def test_wikilinks_resolve(base_dir):
                 unresolved.append((os.path.relpath(path, base_dir), target))
 
     assert not unresolved, f"Unresolved wikilinks detected: {unresolved}"
+
+
+def test_no_purged_markers(base_dir):
+    """Purged provenance tags and legacy-alias notes must not reappear in prose."""
+    forbidden = re.compile(r"\[(?:RESTORED|EXCISED)\]|\bformerly\b|\bprior iteration\b", re.I)
+    targets = sorted(glob.glob(os.path.join(base_dir, "src", "*.md"))) + [
+        os.path.join(base_dir, p)
+        for p in ("GLOSSARY.md", "METHODOLOGY.md", "ARCHITECTURE.md", "REFINEMENT.md", "README.md")
+    ]
+    hits = []
+    for path in targets:
+        with open(path, "r", encoding="utf-8") as f:
+            for lineno, line in enumerate(f, 1):
+                if forbidden.search(line):
+                    hits.append((os.path.relpath(path, base_dir), lineno, line.strip()))
+    assert not hits, f"Purged markers or legacy phrasing found: {hits}"

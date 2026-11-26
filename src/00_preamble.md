@@ -20,38 +20,29 @@ completely sure they understood exactly what you meant — and they can't be sur
 either. The GMRTI is a step-by-step method for finding where that gap is, naming
 it, and closing it as tightly as the situation requires.
 
-This tenth formal articulation of the General Method for Refinement and
-Transmission of Ideas (GMRTI) takes the v0.8 Candidate as its base while
-executing structural repairs identified through an adversarial audit. The
-changes aim to reduce overhead without sacrificing diagnostic precision,
-continuing the framework's evolution toward operational viability.
+This document articulates the General Method for Refinement and Transmission of
+Ideas (GMRTI) as a unified, operational framework for diagnosing and repairing
+semantic divergence without sacrificing diagnostic precision.
 
-The following new repairs are incorporated into the v0.9 Candidate:
+Its core structural commitments are:
 
-1. **Strengthening Edge Taxonomy Economy:** Introducing a lightweight tiered
-   approach (coarse cut for Covenant Declaration vs. finer cut via JIT-OM for
+1. **Tiered Edge Taxonomy Economy:** Using a lightweight tiered approach
+   (coarse cut for Covenant Declaration vs. finer cut via JIT-OM for
    misattribution repair) to prevent classification overhead from blocking
    transmission.
-2. **Enhancing Mirror-to-Generative Transition:** Formalizing the Divergence
-   Report with an explicit artifact template to make the transition more
-   operational.
-3. **Prototyping Syntactic Edge-Forcing (§2g):** Adding a minimal prototype
-   requiring explicit primary relational operators.
+2. **Mirror-to-Generative Transition:** Formalizing the Divergence Report with
+   an explicit artifact template to make the transition operational.
+3. **Syntactic Edge-Forcing (§2g):** Requiring explicit primary relational
+   operators in formalized declarations.
 4. **Empirical Validation of Semantic Entropy (§1a, §2f):** Establishing an
    empirical protocol for the Semantic Entropy Metric by counting Polyphonic
    Encoding paths to reach Operational Parking.
 5. **Meta-DRC Alignment (§3c.2, §3e.1v):** Codifying the protocol to handle
    divergence over Domain Risk Coefficient classification itself.
-6. **Integration of the Cognitive Load Distribution System (CLDS):** Adopting
-   CLDS as the meta-framework governing GMRTI's theoretical authoring. This
-   incorporates strict YAML concept specifications (`specs/`), the
-   formalization of Status Markers as non-negotiable invariants
+6. **Cognitive Load Distribution System (CLDS):** Governing GMRTI's authoring
+   through strict YAML concept specifications (`specs/`), formal Status Markers
    (`METHODOLOGY.md`), and the Ratified Execution Protocol (`REFINEMENT.md`) to
-   explicitly manage and prevent structural debt.
-
-The critical restorations made in v0.7 (metaagnosticism definition, exploratory
-depth, Edge Taxonomy grounding) and maintained through v0.8 remain fully intact
-in this iteration.
+   manage and prevent structural debt.
 
 A standalone Lean 4 formal verification package for the mathematical claims
 latent in this framework is maintained in `math/` and is explicitly outside the
@@ -70,7 +61,8 @@ Sections follow the pattern `N`, `Na`, `Na.1`, `Na.1i` for four levels of depth:
 - `Na.1i` — Roman-numeral sub-clause (e.g. `3a.1i`, `2e.5i`)
 
 When pointing to a specific dissonance or claim for critique, cite the shortest
-address that uniquely identifies it.
+address that uniquely identifies it. Addresses identify clauses within the
+current compiled revision only and are not stable across revisions.
 
 ### 0.3 Status Markers
 `[PLAIN]` Every claim in this document carries a small tag showing how settled
@@ -84,9 +76,6 @@ which parts are still under construction.
 - `[PROVISIONAL]` — Held with confidence but open to revision
 - `[OPEN]` — Known gap; active work needed
 - `[RECURSIVE]` — Applies to the framework itself; check for reflexivity
-- `[RESTORED]` — Content recovered after compression loss in prior iterations
-- `[EXCISED]` — Retired from operational inference; preserved for address
-  stability
 - `[ALLEGORY]` — Concrete domain-specific instantiation serving as an
   independent polyphonic-encoding path to an abstract target
 - `[PLAIN]` — Plain-language entry ramp compiled into `PEBBLE.md`; written
@@ -100,8 +89,6 @@ TITLE: Treatise Status Marker Reference
 | `[PROVISIONAL]` | Epistemic | Held with operational confidence; open to revision pending audit |
 | `[OPEN]` | Epistemic | Known unresolved gap; active work needed |
 | `[RECURSIVE]` | Reflexive | Applies to the GMRTI framework itself; check for self-consistency |
-| `[RESTORED]` | Provenance | Recovered after compression loss in prior iterations |
-| `[EXCISED]` | Provenance | Retired from operational inference; preserved for address stability |
 | `[ALLEGORY]` | Structural | Concrete domain-bounded polyphonic path to an abstract target |
 | `[PLAIN]` | Structural | High-school-accessible entry ramp compiled into `PEBBLE.md` |
 ```

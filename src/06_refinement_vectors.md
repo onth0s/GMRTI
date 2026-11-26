@@ -11,18 +11,16 @@ document over time.
     describes. This is not a weakness but a feature: the GMRTI's own development
     is the most natural test case for its methodology.
 
-**6a.2** This means iterations of the GMRTI document — including this one — are
-    Covenant Declarations subject to Generative Reconstruction and Divergence
+**6a.2** This means every articulation of the GMRTI document is a Covenant
+    Declaration subject to Generative Reconstruction and Divergence
     Localization by adversarial readers, including future versions of the
     authors themselves.
 
-**6a.3** The framework's commitment to self-application is partially executed in
-    the current iteration: adversarial audit (`refinery/DISSONANCE.md`)
-    performed
-    Mirror-mode reconstruction and Divergence Localization against declared
-    claims (Stages 2–3), with resulting repairs carried out via the Ratified
-    Execution Protocol (`DECISIONS.md`, `PLAN.md`) under direct authorial
-    oversight rather than the algorithm's own Stage 4 operations. A complete
+**6a.3** The framework's commitment to self-application operates through
+    adversarial audit (`refinery/DISSONANCE.md`) performing Mirror-mode
+    reconstruction and Divergence Localization against declared claims
+    (Stages 2–3), with resulting repairs carried out via the Ratified Execution
+    Protocol (`DECISIONS.md`, `PLAN.md`) under authorial oversight. A complete
     self-audit cycle — running Stage 4 Targeted Repair and, where applicable,
     Stage 5 Irreducibility Declaration as the algorithm itself specifies them,
     on a single section — remains a validation target.
@@ -52,7 +50,7 @@ helpful examples, so you have to check that every cut is genuinely redundant.
    replaced, and whether replacements represent genuine improvements or
    undetected covenant intrusions by the LLM's own priors. This check must
    include: (a) a word-for-word comparison of all vocabulary definitions against
-   the prior iteration, since definitional softening is the most invisible form
+   the preceding pass, since definitional softening is the most invisible form
    of covenant intrusion; and (b) a length-and-redundancy audit of all working
    artifacts in the repository's `refinery/` workspace, since Refinery
    compression is a confirmed failure mode.
@@ -86,9 +84,9 @@ IRRED -->|refined declaration| DECL
 **6b.4 — Compression as Covenant Intrusion and the Burden-of-Proof Rule**
 `[STABLE]` [provisional dependency boundary: §6b.1]
 
-A specific failure mode of the LLM-Manifesto loop, observed empirically across
-this document's iteration history: LLM adversarial readers with trained priors
-favoring brevity will systematically read Polyphonic Encoding as
+A specific failure mode of the LLM-Manifesto loop, observed empirically in
+LLM-assisted editing: LLM adversarial readers with trained priors favoring
+brevity will systematically read Polyphonic Encoding as
 redundancy-in-the-pejorative-sense and compress it out. This is not editorial
 improvement — it is the LLM's aesthetic axiomatic cluster silently replacing the
 author's epistemological one.
@@ -110,9 +108,9 @@ burden-of-proof standard. Within the canonical treatise, a proposed cut or
 compression is legitimate only when at least one of the following holds: (1) the
 removed path is demonstrated under Core Path Minimization (§2f.6) to be both
 *destination-isomorphic* and *non-route-independent* with a path that survives
-the edit (proving true duplicate redundancy); (2) the content is formally
-retired on grounds of falsity, contradiction, or orphanhood and preserved in
-situ with `[EXCISED]`; or (3) the output is explicitly scoped as a declared
+the edit (proving true duplicate redundancy); (2) the content is demonstrated
+false, contradictory, or orphaned (referenced by nothing) and deleted outright;
+or (3) the output is explicitly scoped as a declared lossy derivative (e.g.,
 lossy derivative (e.g., `PEBBLE.md` or a low-DRC summary). Any editorial pruning
 that cannot make this explicit showing is classified as presumptive covenant
 intrusion and rejected.
@@ -136,19 +134,16 @@ mitigation: the Irreducibility Check must explicitly include a
 length-and-redundancy audit, verifying that compression has not stripped
 Polyphonic Encoding rather than eliminated genuine repetition.
 
-This failure mode was confirmed empirically in v0.6: the Refinery entries R2
-through R4 (archived from v0.6–v0.7) lost their elaborated open questions, and
-the metaagnosticism definition lost its second clause. Both losses made the
-document read more cleanly while reducing its precision and depth. The v0.7
-repairs restore both. Future iterations should treat any reduction in Refinery
-entry length as a flag requiring explicit justification. `[STABLE]`
+Compression strips independent routes while making a document read more cleanly,
+reducing its precision and depth. Any reduction in Refinery entry length should
+be treated as a flag requiring explicit justification. `[STABLE]`
 
 ```mirror probe
 TITLE: Compression Asymmetry & Burden of Proof
 TARGET: [[6b — The LLM-Manifesto Iteration Loop]]
 PROBE: Under §6b.4, when is it legitimate to compress or remove an alternative explanation in the canonical treatise?
 [ ] Whenever an LLM reviewer judges the prose to be repetitive or verbose. --> Aesthetic brevity priors are presumptive covenant intrusion (§6b.4).
-[x] Only when shown to be both destination-isomorphic and non-route-independent with a surviving path, or formally marked [EXCISED], or in a lossy derivative like PEBBLE.md. --> Correct: ex-ante uncertainty favors path preservation.
+[x] Only when shown to be both destination-isomorphic and non-route-independent with a surviving path, or demonstrably false, contradictory, or orphaned, or in a lossy derivative like PEBBLE.md. --> Correct: ex-ante uncertainty favors path preservation.
 [ ] Whenever a path is longer than 80 characters. --> Line wrapping formats layout, not semantic paths.
 
 AUTHOR: Cutting a genuinely independent route causes total transmission failure for receivers who rely on that route; keeping an extra path costs only marginal length.

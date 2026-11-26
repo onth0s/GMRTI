@@ -11,6 +11,18 @@
   directory. All other monolithic revisions must be stored in the
   [archive](file:///c:/Users/Leonardo/001/TXT/GMRTI/archive) directory.
 
+- **Monolith Is the Sole Source of Truth; No Backwards Compatibility**: The
+  compiled monolith, and the sources that build it, describe only the *current*
+  state of the framework. Never add or retain tombstones, provenance tags
+  (`[RESTORED]`, `[EXCISED]`, or any equivalent), "formerly" / "previously" /
+  "prior iteration" notes, version-history narrative, deprecated aliases,
+  compatibility shims, legacy-format handling, or address-stability promises —
+  in prose, specs, scripts, or tests. Retired content is deleted outright; git
+  history is the only record. Clause addresses are valid only within the current
+  compiled revision. Do not write tests that pin legacy behavior. The status
+  marker set is exactly `[STABLE]`, `[PROVISIONAL]`, `[OPEN]`, `[RECURSIVE]`,
+  `[ALLEGORY]`, `[PLAIN]`.
+
 - **No CI/CD or External Automation Infrastructure**: Never add CI pipelines,
   GitHub Actions workflows, pre-commit hooks, cloud build configurations, or
   any other external automation infrastructure to this repository. This

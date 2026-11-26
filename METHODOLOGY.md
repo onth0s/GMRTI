@@ -23,12 +23,6 @@ non-negotiable behavioral contracts for authoring and refactoring the treatise.
 - `[RECURSIVE]`: A claim that applies to the framework itself and must be
   checked for self-consistency (e.g., the claim that all language is
   high-entropy applies to the language of GMRTI).
-- `[RESTORED]`: Content recovered after compression loss in prior iterations.
-- `[EXCISED]`: Content formally retired from the operational framework to
-  eliminate ambiguity, avoid regress, or adhere to architectural separation
-  (such as deferring typing under JIT-OM). Retained in situ with an explicit
-  provenance note to preserve address stability and auditability while marking
-  the content as operationally inert.
 - `[ALLEGORY]` (or `[ALLEGORY: <TargetConcept>]`): A concrete domain-specific
   worked instantiation serving as an independent, destination-isomorphic
   polyphonic-encoding path to an abstract target concept.
@@ -45,21 +39,16 @@ Claims may carry compound markers (e.g., `[STABLE][RECURSIVE]`,
 
 - **Primary Epistemic Dimension**: `[OPEN]`, `[PROVISIONAL]`, or `[STABLE]`,
   defining the claim's verification stage and invariant authority.
-- **Secondary Reflexive / Provenance / Structural Dimension**:
+- **Secondary Reflexive / Structural Dimension**:
 - `[RECURSIVE]`: Indicates that the claim reflexively binds the GMRTI's own
     authoring, representation, and transmission processes.
-- `[RESTORED]`: Indicates historical provenance — recovered after
-    compression loss in prior iterations.
-- `[EXCISED]`: Indicates historical retirement — preserved at its original
-    address for citation integrity, but excluded from operational inference.
 - `[ALLEGORY]`: Indicates a concrete polyphonic worked instantiation.
 - `[PLAIN]`: Indicates a high-school-level entry ramp compiled into
     `PEBBLE.md`.
 
 
 In compound forms, the primary epistemic status dictates the claim's invariant
-rigidity; the secondary tag specifies its reflexive scope or historical
-preservation requirement.
+rigidity; the secondary tag specifies its reflexive scope or structural role.
 
 **Ma.3 — Invariant Dependency Constraint** `[STABLE]`
 

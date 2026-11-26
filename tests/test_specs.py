@@ -13,7 +13,7 @@ REQUIRED_FIELDS = [
     "status",
     "last_modified",
 ]
-VALID_STATUSES = {"STABLE", "PROVISIONAL", "OPEN", "RECURSIVE", "RESTORED"}
+VALID_STATUSES = {"STABLE", "PROVISIONAL", "OPEN", "RECURSIVE"}
 
 # Intentional co-definitional cycles between mutually dependent core concepts.
 ALLOWLISTED_CYCLE_SETS = {

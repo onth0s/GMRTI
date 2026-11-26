@@ -1,6 +1,6 @@
 ## SECTION 3 — The GMRTI Algorithm
 
-### 3a — Overview and Termination Conditions `[STABLE][RESTORED]`
+### 3a — Overview and Termination Conditions `[STABLE]`
 
 `[PLAIN]` The GMRTI works as a clear diagnostic cycle: map out the starting
 concepts, test if the receiver can rebuild the map without guessing, locate any
@@ -127,7 +127,7 @@ can see what you are building on.
 - **3b.1iv** Applying Polyphonic Encoding to any claim suspected of operating at
     the Structural or Axiomatic layer — providing multiple independent routes to
     the same semantic destination.
-- **3b.1v** `[RESTORED]` Stage 1 applies only the Tier 1 Coarse Cut
+- **3b.1v** `[STABLE]` Stage 1 applies only the Tier 1 Coarse Cut
   (Inferential / Causal / Other) when DRC ≥ 0.5 for initial Covenant
   Declaration orientation; Tier 2 8-type granularity is strictly deferred to
   Stage 3 JIT-OM divergence resolution.

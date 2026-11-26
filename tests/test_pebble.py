@@ -53,8 +53,6 @@ def test_pebble_excludes_status_markers(base_dir):
         "[PROVISIONAL]",
         "[OPEN]",
         "[RECURSIVE]",
-        "[RESTORED]",
-        "[EXCISED]",
         "[PLAIN]",
         "[->causal]",
         "[->inferential]",

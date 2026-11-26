@@ -71,7 +71,7 @@ _EXPECTED_MONOLITH = (
     '---\n'
     'title: "GMRTI — General Method for Refinement and Transmission of Ideas"\n'
     'kicker: "_There must be a Science of Understanding_"\n'
-    'subtitle: "A Living Framework Document · Tenth Iteration (v0.9 Candidate)"\n'
+    'subtitle: "A Living Framework Document · Tenth Iteration (v0.9)"\n'
     'pills:\n'
     '  - "epistemology"\n'
     '  - "semantic-covenants"\n'
