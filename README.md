@@ -69,12 +69,27 @@ python rewrite.py --check
 python rewrite.py
 ```
 
+**Check / recompile PEBBLE companion:**
+
+```
+python pebble.py --check
+python pebble.py
+```
+
+**Check / patch `index.html` invariants:**
+
+```
+python patch_index.py --check
+python patch_index.py
+```
+
 **Full local build & verification (PowerShell):**
 
 ```powershell
-.\build.ps1               # Builds everything: format, compile, sync check, and run tests
+.\build.ps1               # Builds everything: format, compile, patch, sync check, and run tests
 .\build.ps1 -CheckOnly    # Optional bypass: run checks and tests only (no write)
 .\build.ps1 -SkipTests    # Optional bypass: format, compile, and sync check without pytest
+.\build.ps1 -WithMath     # Also verify Lean 4 formal model (`cd math && lake build`)
 ```
 
 ## Formal Verification (Lean 4)

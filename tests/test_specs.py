@@ -1,38 +1,58 @@
-import re
-import os
 import glob
+import os
+import re
 import yaml
-import pytest
 
-REQUIRED_FIELDS = ["concept_id", "name", "intent", "dependencies", "invariants", "status", "last_modified"]
+REQUIRED_FIELDS = [
+    "concept_id",
+    "name",
+    "intent",
+    "dependencies",
+    "invariants",
+    "status",
+    "last_modified",
+]
 VALID_STATUSES = {"STABLE", "PROVISIONAL", "OPEN", "RECURSIVE", "RESTORED"}
+
+# Intentional co-definitional cycles between mutually dependent core concepts.
+ALLOWLISTED_CYCLE_SETS = {
+    frozenset({"GMRTI-COMOSI", "GMRTI-ENTROPY", "GMRTI-OPERATIONAL-ACTION-THRESHOLD"}),
+    frozenset({"GMRTI-COMOSI", "GMRTI-OPERATIONAL-ACTION-THRESHOLD"}),
+}
 
 
 def get_specs():
     base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     specs_dir = os.path.join(base_dir, "specs")
-    spec_files = glob.glob(os.path.join(specs_dir, "*.yaml")) + glob.glob(os.path.join(specs_dir, "*.yml"))
+    spec_files = glob.glob(os.path.join(specs_dir, "*.yaml")) + glob.glob(
+        os.path.join(specs_dir, "*.yml")
+    )
     specs = {}
     for f in spec_files:
         with open(f, "r", encoding="utf-8") as fp:
-            data = yaml.safe_load(fp)
-            specs[os.path.basename(f)] = data
+            specs[os.path.basename(f)] = yaml.safe_load(fp)
     return specs
+
+
+def validate_spec(filename: str, spec: dict) -> None:
+    assert isinstance(spec, dict), f"{filename} is not a valid YAML mapping"
+    for field in REQUIRED_FIELDS:
+        assert field in spec, f"{filename} missing required field '{field}'"
+    assert spec["status"] in VALID_STATUSES, (
+        f"{filename} has invalid status '{spec['status']}', expected one of {VALID_STATUSES}"
+    )
+    assert isinstance(spec["dependencies"], list), f"{filename} dependencies must be a list"
+    assert isinstance(spec["invariants"], list), f"{filename} invariants must be a list"
+    assert len(spec["invariants"]) > 0, f"{filename} must declare at least one invariant"
+    if "open_issues" in spec:
+        assert isinstance(spec["open_issues"], list), f"{filename} open_issues must be a list"
 
 
 def test_specs_schema():
     specs = get_specs()
     assert len(specs) > 0, "No specification files found in specs/"
     for filename, spec in specs.items():
-        assert isinstance(spec, dict), f"{filename} is not a valid YAML mapping"
-        for field in REQUIRED_FIELDS:
-            assert field in spec, f"{filename} missing required field '{field}'"
-        assert spec["status"] in VALID_STATUSES, (
-            f"{filename} has invalid status '{spec['status']}', expected one of {VALID_STATUSES}"
-        )
-        assert isinstance(spec["dependencies"], list), f"{filename} dependencies must be a list"
-        assert isinstance(spec["invariants"], list), f"{filename} invariants must be a list"
-        assert len(spec["invariants"]) > 0, f"{filename} must declare at least one invariant"
+        validate_spec(filename, spec)
 
 
 def test_spec_dependencies_resolved():
@@ -48,6 +68,38 @@ def test_spec_dependencies_resolved():
     )
 
 
+def test_spec_dependency_cycles_allowlisted():
+    """Only explicitly allowlisted co-definitional cycles may exist in specs/."""
+    specs = get_specs()
+    adj = {
+        spec["concept_id"]: list(spec.get("dependencies", []))
+        for spec in specs.values()
+        if "concept_id" in spec
+    }
+    WHITE, GRAY, BLACK = 0, 1, 2
+    color = {node: WHITE for node in adj}
+    unexpected_cycles = []
+
+    def dfs(u, path):
+        color[u] = GRAY
+        for v in adj.get(u, []):
+            if v not in color:
+                continue
+            if color[v] == GRAY:
+                cycle = path[path.index(v):]
+                if frozenset(cycle) not in ALLOWLISTED_CYCLE_SETS:
+                    unexpected_cycles.append(cycle + [v])
+            elif color[v] == WHITE:
+                dfs(v, path + [v])
+        color[u] = BLACK
+
+    for node in adj:
+        if color[node] == WHITE:
+            dfs(node, [node])
+
+    assert not unexpected_cycles, f"Unexpected spec dependency cycles: {unexpected_cycles}"
+
+
 def test_spec_name_uniqueness():
     """All concept specs must have unique name values."""
     specs = get_specs()
@@ -55,27 +107,6 @@ def test_spec_name_uniqueness():
     assert len(names) == len(set(names)), (
         f"Duplicate spec names detected: {[n for n in names if names.count(n) > 1]}"
     )
-
-
-def test_spec_empty_dependencies_valid():
-    """A spec with an empty dependencies list is valid schema."""
-    spec = {
-        "concept_id": "TEST-EMPTY-DEPS",
-        "name": "Test Empty Deps",
-        "intent": "Verify empty dependencies list is valid.",
-        "dependencies": [],
-        "invariants": ["At least one invariant."],
-        "status": "PROVISIONAL",
-        "last_modified": "2026-09-18",
-    }
-    assert isinstance(spec["dependencies"], list)
-    assert len(spec["dependencies"]) == 0
-
-
-def test_spec_open_and_restored_statuses_valid():
-    """OPEN and RESTORED are valid statuses per the schema."""
-    for status in ("OPEN", "RESTORED"):
-        assert status in VALID_STATUSES, f"{status} missing from VALID_STATUSES"
 
 
 def test_spec_concept_id_naming_convention():

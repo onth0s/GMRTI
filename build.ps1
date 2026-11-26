@@ -7,27 +7,34 @@
     1. Formats all markdown and YAML files (wrap.py)
     2. Recompiles the monolithic document and archives prior revisions (rewrite.py)
     3. Compiles the plain-language companion PEBBLE.md (pebble.py)
-    4. Verifies monolithic sync (rewrite.py --check)
-    5. Verifies PEBBLE.md sync (pebble.py --check)
-    6. Verifies formatting (wrap.py --check)
-    7. Runs the full pytest test suite
+    4. Patches index.html responsive CSS and KaTeX guards (patch_index.py)
+    5. Verifies monolithic sync (rewrite.py --check)
+    6. Verifies PEBBLE.md sync (pebble.py --check)
+    7. Verifies index.html invariants (patch_index.py --check)
+    8. Verifies formatting (wrap.py --check)
+    9. Runs the full pytest test suite
+    10. Optionally builds the Lean 4 formal model (-WithMath)
 
     Flags are optional bypasses.
 
 .PARAMETER CheckOnly
-    Skip formatting and compilation; only verify sync, format, and tests.
+    Skip formatting and compilation; only verify sync, format, HTML, and tests.
 
 .PARAMETER SkipTests
     Skip running pytest.
 
 .PARAMETER SkipFormat
     Skip the in-place formatting step.
+
+.PARAMETER WithMath
+    Also run `lake build` in `math/`.
 #>
 [CmdletBinding()]
 param(
     [switch]$CheckOnly,
     [switch]$SkipTests,
     [switch]$SkipFormat,
+    [switch]$WithMath,
     [switch]$NoPause
 )
 
@@ -37,12 +44,12 @@ if ($CheckOnly -and $SkipFormat) {
     Write-Warning "Both -CheckOnly and -SkipFormat were specified: -CheckOnly already skips formatting. Verification may fail if files are unformatted."
 }
 
-# Calculate dynamic step count based on active flags
 $totalSteps = 0
 if (-not $CheckOnly -and -not $SkipFormat) { $totalSteps++ }
-if (-not $CheckOnly) { $totalSteps += 2 } # rewrite.py and pebble.py compilation
-$totalSteps += 3  # rewrite sync check, pebble sync check, and format check always run
+if (-not $CheckOnly) { $totalSteps += 3 } # rewrite.py, pebble.py, patch_index.py
+$totalSteps += 4  # rewrite --check, pebble --check, patch_index --check, wrap --check
 if (-not $SkipTests) { $totalSteps++ }
+if ($WithMath) { $totalSteps++ }
 
 $step = 0
 
@@ -83,7 +90,18 @@ if (-not $CheckOnly) {
     }
 }
 
-# 4. Verify monolithic sync
+# 4. Patch index.html
+if (-not $CheckOnly) {
+    $step++
+    Write-Host "`n[$step/$totalSteps] Patching index.html invariants (patch_index.py)..." -ForegroundColor Yellow
+    python patch_index.py
+    if ($LASTEXITCODE -ne 0) {
+        Write-Error "patch_index.py failed."
+        exit 1
+    }
+}
+
+# 5. Verify monolithic sync
 $step++
 Write-Host "`n[$step/$totalSteps] Verifying monolithic document sync (rewrite.py --check)..." -ForegroundColor Yellow
 python rewrite.py --check
@@ -92,7 +110,7 @@ if ($LASTEXITCODE -ne 0) {
     exit 1
 }
 
-# 5. Verify PEBBLE sync
+# 6. Verify PEBBLE sync
 $step++
 Write-Host "`n[$step/$totalSteps] Verifying PEBBLE.md sync (pebble.py --check)..." -ForegroundColor Yellow
 python pebble.py --check
@@ -101,7 +119,16 @@ if ($LASTEXITCODE -ne 0) {
     exit 1
 }
 
-# 6. Verify formatting
+# 7. Verify index.html invariants
+$step++
+Write-Host "`n[$step/$totalSteps] Verifying index.html invariants (patch_index.py --check)..." -ForegroundColor Yellow
+python patch_index.py --check
+if ($LASTEXITCODE -ne 0) {
+    Write-Error "patch_index.py --check failed: index.html invariants violated."
+    exit 1
+}
+
+# 8. Verify formatting
 $step++
 Write-Host "`n[$step/$totalSteps] Verifying formatting (wrap.py --check)..." -ForegroundColor Yellow
 python wrap.py --check
@@ -110,7 +137,7 @@ if ($LASTEXITCODE -ne 0) {
     exit 1
 }
 
-# 7. Run test suite
+# 9. Run test suite
 if (-not $SkipTests) {
     $step++
     Write-Host "`n[$step/$totalSteps] Running test suite (pytest)..." -ForegroundColor Yellow
@@ -118,6 +145,22 @@ if (-not $SkipTests) {
     if ($LASTEXITCODE -ne 0) {
         Write-Error "pytest test suite failed."
         exit 1
+    }
+}
+
+# 10. Optional Lean 4 formal model build
+if ($WithMath) {
+    $step++
+    Write-Host "`n[$step/$totalSteps] Building Lean 4 formal model (lake build)..." -ForegroundColor Yellow
+    Push-Location math
+    try {
+        lake build
+        if ($LASTEXITCODE -ne 0) {
+            Write-Error "lake build failed."
+            exit 1
+        }
+    } finally {
+        Pop-Location
     }
 }
 

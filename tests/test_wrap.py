@@ -213,3 +213,49 @@ def test_collect_targets_excludes_agents_md(base_dir):
     target_basenames = [os.path.basename(t) for t in targets]
     assert "AGENTS.md" not in target_basenames
     assert "README.md" in target_basenames
+
+
+def test_wrap_yaml_list_of_mappings_not_corrupted():
+    """List-of-mappings items (- key: long value) preserve mapping structure."""
+    sample = (
+        "entries:\n"
+        "  - summary: This is a very long mapping value inside a YAML list item that exceeds the line width limit.\n"
+    )
+    wrapped = wrap_yaml(sample, width=50)
+    assert "- summary: >-" in wrapped
+    parsed = yaml.safe_load(wrapped)
+    assert isinstance(parsed["entries"][0], dict)
+    assert "very long mapping value" in parsed["entries"][0]["summary"]
+
+
+def test_wrap_yaml_flow_list_item_not_corrupted():
+    """Flow sequences inside a list item (- [A, B, ...]) must not become '- >-'."""
+    sample = "matrix:\n  - [ALPHA, BETA, GAMMA, DELTA, EPSILON, ZETA]\n"
+    wrapped = wrap_yaml(sample, width=25)
+    assert "- >-" not in wrapped
+
+
+def test_wrap_yaml_narrow_width_no_crash():
+    """Very narrow width clamps cleanly instead of raising ValueError."""
+    sample = "long_key: This is a value with deep indentation that would otherwise go negative."
+    wrapped = wrap_yaml(sample, width=5)
+    assert "long_key: >-" in wrapped
+
+
+def test_wrap_yaml_escaped_quotes():
+    """Quoted strings containing escaped quotes convert cleanly to block scalars."""
+    sample = 'note: "A quote with \\"escaped\\" words that exceeds the forty-character wrap limit."'
+    wrapped = wrap_yaml(sample, width=40)
+    parsed = yaml.safe_load(wrapped)
+    assert 'A quote with "escaped" words' in parsed["note"]
+
+
+def test_wrap_markdown_footnote_uniform_continuation():
+    """Footnote continuation lines fill up to width rather than short ragged fragments."""
+    sample = "[^1]: First word and second word and third word and fourth word and fifth word and sixth word."
+    wrapped = wrap_markdown(sample, width=45)
+    lines = wrapped.splitlines()
+    assert lines[0].startswith("[^1]: ")
+    assert all(len(ln) <= 45 for ln in lines)
+    assert all(ln.startswith("    ") for ln in lines[1:])
+

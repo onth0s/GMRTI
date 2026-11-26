@@ -1,8 +1,8 @@
 import os
-import pytest
 from pebble import (
     assemble_pebble_document,
     check_pebble_sync,
+    clean_plain_text,
     create_pebble_document,
 )
 
@@ -15,6 +15,8 @@ def test_assemble_pebble_document_success(base_dir):
     assert "SECTION 2 — Foundational Architecture" in doc
     assert "SECTION 7 — Relation to Downstream Applications" in doc
     assert "The Formal Glossary (Academic Reference)" in doc
+    assert "### Glossary" in doc
+    assert "\n# Glossary\n" not in doc
     assert "SECTION 9 — Coda" in doc
 
 
@@ -43,18 +45,29 @@ def test_pebble_contains_coda(base_dir):
 
 def test_pebble_excludes_status_markers(base_dir):
     doc = assemble_pebble_document(base_dir)
-    # The plain sections before the glossary must not contain formal status markers
-    # Split before the glossary section
     plain_part = doc.split("## The Formal Glossary (Academic Reference)")[0]
-    assert "[STABLE]" not in plain_part
-    assert "[PROVISIONAL]" not in plain_part
-    assert "[OPEN]" not in plain_part
-    assert "[RECURSIVE]" not in plain_part
-    assert "[RESTORED]" not in plain_part
-    assert "[EXCISED]" not in plain_part
-    assert "[PLAIN]" not in plain_part
-    assert "[->causal]" not in plain_part
-    assert "[->inferential]" not in plain_part
+    for marker in (
+        "[STABLE]",
+        "[PROVISIONAL]",
+        "[OPEN]",
+        "[RECURSIVE]",
+        "[RESTORED]",
+        "[EXCISED]",
+        "[PLAIN]",
+        "[->causal]",
+        "[->inferential]",
+    ):
+        assert marker not in plain_part
+
+
+def test_clean_plain_text_preserves_bold_and_code():
+    raw = "This is **very important** `[STABLE]` with `code` [->causal] and ****."
+    cleaned = clean_plain_text(raw)
+    assert "**very important**" in cleaned
+    assert "`code`" in cleaned
+    assert "[STABLE]" not in cleaned
+    assert "[->causal]" not in cleaned
+    assert "****" not in cleaned
 
 
 def test_check_pebble_sync_in_sync(base_dir):
@@ -64,8 +77,26 @@ def test_check_pebble_sync_in_sync(base_dir):
     assert result["error"] is None
 
 
-def test_check_pebble_sync_out_of_sync(tmp_path, base_dir):
+def test_check_pebble_sync_out_of_sync(tmp_path):
     pebble_path = tmp_path / "PEBBLE.md"
     pebble_path.write_text("wrong content", encoding="utf-8")
     result = check_pebble_sync(str(tmp_path))
     assert result["in_sync"] is False
+
+
+def test_check_pebble_sync_missing(tmp_path):
+    result = check_pebble_sync(str(tmp_path))
+    assert result["in_sync"] is False
+    assert "does not exist" in result["error"]
+
+
+def test_create_pebble_document_writes_and_dry_run(tmp_path, base_dir):
+    out_file = tmp_path / "PEBBLE_OUT.md"
+    dry = create_pebble_document(base_dir=base_dir, output_path=str(out_file), dry_run=True)
+    assert dry == str(out_file)
+    assert not out_file.exists()
+
+    written = create_pebble_document(base_dir=base_dir, output_path=str(out_file))
+    assert written == str(out_file)
+    assert out_file.exists()
+    assert out_file.read_text(encoding="utf-8").startswith("# PEBBLE:")

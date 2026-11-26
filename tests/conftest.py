@@ -1,8 +1,7 @@
 import os
-import re
 import pytest
 
-MONOLITHIC_PATTERN = re.compile(r"^GMRTI_\d+\.md$")
+from _gmrti_common import MONOLITHIC_PATTERN
 
 
 @pytest.fixture(scope="session")
