@@ -15,11 +15,11 @@ invariants:
       Redundancy-Masking (where backup routes conceal a local void) is diagnosed
       via Path-Stripping Probing (PSP).
   - >-
-      PSP distinguishes standard polyphonically encoded nodes
-      (destination-isomorphic paths, tested singly with others stripped: any
-      single-path failure confirms a local void) from
-      disjunctive/polysemous hub nodes (independent context-conditional
-      meanings, where all paths must fail before a void is declared).
+      PSP pre-screening flags high-degree nodes for a Disambiguation Pre-Check
+      (testing whether incoming paths license identical or context-disjoint
+      downstream inferences): convergent polyphonic nodes retain the strict
+      any-single-path-fail rule, while confirmed disjunctive/polysemous hub
+      nodes use the all-paths-fail rule.
   - >-
       Core Path Minimization: all redundant paths must maintain
       destination-isomorphism (licensing identical operational inferences) while
@@ -31,4 +31,4 @@ invariants:
       with a surviving path; otherwise compression is presumptively covenant
       intrusion.
 status: STABLE
-last_modified: "2026-10-14"
+last_modified: "2026-11-26"

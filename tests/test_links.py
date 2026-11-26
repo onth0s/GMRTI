@@ -1,6 +1,6 @@
 import os
 import re
-from tests.conftest import MONOLITHIC_PATTERN
+from _gmrti_common import MONOLITHIC_PATTERN
 
 _FENCED_CODE_RE = re.compile(r"```.*?```|````.*?````", re.S)
 

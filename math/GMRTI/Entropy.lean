@@ -29,17 +29,30 @@ instance {V : Type} [DecidableEq V] (C : Covenant V) (S : Signal V) :
 
 /-- Given a finite universe of candidate receiving covenants `U`, the
 set of compatible topologies is the sub-finset satisfying the signal. -/
-def compatibleCovenants {V : Type} [DecidableEq V] [DecidableEq (Covenant V)]
+def compatibleCovenants {V : Type} [DecidableEq V]
     (U : Finset (Covenant V)) (S : Signal V) : Finset (Covenant V) :=
   U.filter (fun C ↦ satisfiesSignal C S)
 
-/-- Hartley Semantic Entropy H_s(S) = log₂ |compatibleCovenants| (§1a.6, §8b.1). -/
-noncomputable def semanticEntropy {V : Type} [DecidableEq V] [DecidableEq (Covenant V)]
+/-- Hartley Semantic Entropy H_s(S) = log₂ |compatibleCovenants| (§1a.6, §8b.1).
+Note: In Mathlib, `Real.log 0 = 0`, so both an inconsistent signal (`card = 0`)
+and a uniquely decoded signal (`card = 1`) map to `0`. -/
+noncomputable def semanticEntropy {V : Type} [DecidableEq V]
     (U : Finset (Covenant V)) (S : Signal V) : ℝ :=
   Real.log ((compatibleCovenants U S).card : ℝ) / Real.log 2
 
+/-- Both `card = 0` (inconsistent signal) and `card = 1` (unique decoding)
+yield zero `semanticEntropy` under Mathlib's `Real.log 0 = 0` convention. -/
+theorem semanticEntropy_eq_zero_of_card_le_one {V : Type} [DecidableEq V]
+    (U : Finset (Covenant V)) (S : Signal V)
+    (h : (compatibleCovenants U S).card ≤ 1) :
+    semanticEntropy U S = 0 := by
+  dsimp [semanticEntropy]
+  rcases Nat.le_one_iff_eq_zero_or_eq_one.mp h with h0 | h1
+  · simp [h0]
+  · simp [h1]
+
 /-- Adding constraints to a signal monotonically restricts the compatible topologies. -/
-theorem compatible_subset {V : Type} [DecidableEq V] [DecidableEq (Covenant V)]
+theorem compatible_subset {V : Type} [DecidableEq V]
     (U : Finset (Covenant V)) (S₁ S₂ : Signal V)
     (h : ∀ e ∈ S₁.constraints, e ∈ S₂.constraints) :
     compatibleCovenants U S₂ ⊆ compatibleCovenants U S₁ := by
@@ -50,7 +63,7 @@ theorem compatible_subset {V : Type} [DecidableEq V] [DecidableEq (Covenant V)]
   exact hC.2 e (h e he)
 
 /-- Monotonicity of candidate count: more constraints yield fewer or equal compatible graphs. -/
-theorem compatible_card_mono {V : Type} [DecidableEq V] [DecidableEq (Covenant V)]
+theorem compatible_card_mono {V : Type} [DecidableEq V]
     (U : Finset (Covenant V)) (S₁ S₂ : Signal V)
     (h : ∀ e ∈ S₁.constraints, e ∈ S₂.constraints) :
     (compatibleCovenants U S₂).card ≤ (compatibleCovenants U S₁).card :=
@@ -58,7 +71,7 @@ theorem compatible_card_mono {V : Type} [DecidableEq V] [DecidableEq (Covenant V
 
 /-- Semantic entropy is monotonically nonincreasing under constraint accumulation
 when the remaining candidate count is positive. -/
-theorem semanticEntropy_mono {V : Type} [DecidableEq V] [DecidableEq (Covenant V)]
+theorem semanticEntropy_mono {V : Type} [DecidableEq V]
     (U : Finset (Covenant V)) (S₁ S₂ : Signal V)
     (h : ∀ e ∈ S₁.constraints, e ∈ S₂.constraints)
     (hpos : 0 < (compatibleCovenants U S₂).card) :

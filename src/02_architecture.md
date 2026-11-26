@@ -23,7 +23,7 @@ the word means, even if the word itself stays the same.
     that have achieved sufficient internal density to be worth labeling.
     `[STABLE]`
 
-**2a.4 — The Edge-Grounding Resolution** `[RESTORED]`
+**2a.4 — The Edge-Grounding Resolution** `[STABLE][RESTORED]`
 
 The topological model raises an immediate regress: if nodes are merely clusters
 of edges, then edges must connect *something* — and that something appears to
@@ -129,9 +129,9 @@ depends on a given edge-cluster remaining stable.
   reconstruction and produces downstream effects on Surface Subgraphs that
   depend on them.
 - **Axiomatic Edge-Clusters (Load-Bearing Regions)** — Edge-clusters with
-  topological dependency approaching infinity: the rest of the covenant is
-  organized around them. Their alteration requires the collapse and rebuilding
-  of the covenant's identity. They are defined entirely by structural
+  maximal structural centrality within the covenant: the rest of the covenant
+  is organized around them. Their alteration requires the collapse and
+  rebuilding of the covenant's identity. They are defined entirely by structural
   inescapability, not by any distinct ontological type. Crucially, they are
   rarely explicit — a covenant's axiomatic regions are usually invisible to its
   holder until extreme divergence pressure surfaces them.
@@ -146,9 +146,11 @@ depends on a given edge-cluster remaining stable.
 
 To locate Axiomatic Edge-Clusters without relying on subjective introspection,
 the GMRTI prescribes the **Dependency-Tracing Scan**: an algorithmic traversal
-calculating the downstream propagation impact of hypothetical edge revisions.
-Any edge-cluster whose alteration forces structural reconfiguration in more than
-a declared threshold of dependent nodes (heuristically set to a 30% node
+calculating the downstream propagation impact of hypothetical edge revisions
+within the **declared domain subgraph** (subject to a minimum subgraph size
+floor so trivial toy graphs do not false-positive). Any edge-cluster whose
+alteration forces structural reconfiguration in more than a declared fraction of
+dependent nodes in that domain subgraph (heuristically set to a 30% node
 threshold, subject to domain-specific calibration) is formally classified as
 *Axiomatically Active*. This converts axiomaticity from an invisible
 metaphysical assumption into a measurable topological dependency.
@@ -334,14 +336,16 @@ layers:
 
 - **2e.5ii — The Primitive Covenant** (GMRTI-specific): The additional shared
   assumptions required for GMRTI-mediated communication specifically. This
-  includes the core primitive relational operators (`[->causal]`,
+  includes the three core primitive relational operators (`[->causal]`,
   `[->inferential]`, `[->identity]`) bootstrapped via CZP, the edge-primacy
   structural commitment (2a.2), and the Tier 1 coarse taxonomy
-  (inferential/causal/other). The remaining relational operators are derived
-  compositionally or negotiated via JIT-OM. The Primitive Covenant is itself a
-  semantic framework subject to transmission error — its establishment between
-  agents is a transmission problem that the MIB does not solve but JIT-OM
-  addresses. `[STABLE]`
+  (inferential/causal/other). The remaining five relational operators
+  (`[->procedural]`, `[->normative]`, `[->referential]`, `[->affective]`,
+  `[->structural]`) are derived compositionally from the three core primitives
+  or negotiated locally via JIT-OM. The Primitive Covenant is itself a semantic
+  framework subject to transmission error — its establishment between agents is
+  a transmission problem that the MIB does not solve but CZP and JIT-OM
+  address. `[STABLE]`
 
 - **2e.5iii — The Covenant Zero Protocol (CZP)**: The procedure for
   bootstrapping the GMRTI-specific Primitive Covenant from the Minimal
@@ -457,29 +461,34 @@ transforming it from a structural limit into a testable boundary.
 polysemous/disjunctive hub nodes — nodes where a single lexical label routes
 structurally independent, context-conditional meanings. To break the diagnostic
 circularity without prematurely requiring Tier 2 edge-typing, the GMRTI defines
-a two-tiered pre-screening criterion:
+a two-tiered disambiguation pre-check (never automatic relaxation, since
+standard polyphonic nodes also exhibit high in- and out-degree):
 - **Tier 1 Structural Pre-screen**: In the default state, any node with
-  in-degree ≥ 2 and out-degree ≥ 2 (regardless of edge-types) is flagged as a
-  candidate disjunctive/polysemous hub node.
+  in-degree ≥ 2 and out-degree ≥ 2 (regardless of edge-types) is flagged for a
+  **Disambiguation Pre-Check**: test whether the incoming paths license the
+  *same* downstream inferences across declared probes (convergent polyphonic
+  node) or *context-disjoint* inferences (candidate disjunctive/polysemous hub).
 - **Tier 2 Refined Pre-screen**: Where Tier 2 JIT-OM is already active,
   flagging requires two or more incoming edges of distinct types and two or more
-  outgoing edges of distinct types.
+  outgoing edges of distinct types, followed by the same inference-disjointness
+  check.
 
-PSP applied to candidate disjunctive/polysemous hub nodes uses a strengthened
+PSP applied to confirmed disjunctive/polysemous hub nodes uses a strengthened
 threshold: *all* paths must fail before a void is declared, rather than any
-single path. On standard polyphonically encoded nodes (convergent,
-destination-isomorphic paths to a single meaning per §2f.6), PSP tests each path
-$p_i$ in isolation with paths $p_{\neq i}$ stripped: if any single path $p_i$
-drops below the Operational Action Threshold [provisional dependency boundary:
-§3c.3] when the others are stripped, a local topological void on $p_i$ is
-confirmed.
+single path. On convergent polyphonically encoded nodes (destination-isomorphic
+paths to a single meaning per §2f.6), PSP tests each path $p_i$ in isolation
+with paths $p_{\neq i}$ stripped: if any single path $p_i$ drops below the
+Operational Action Threshold [provisional dependency boundary: §3c.3] when the
+others are stripped, a local topological void on $p_i$ is confirmed.
 
 **2f.5v — The Latent Comosí Ceiling Resolution** `[STABLE]`
 
 - **Null-Effect Equivalence Axiom**: If a latent topological divergence between
-  two covenants has no behavioral consequence across the entire space of
-  operational paths, it is semantically null under comosí. It carries zero
-  operational risk and is excluded from transmission error metrics.
+  two covenants has no behavioral consequence across all declared boundary
+  conditions of the active domain (revisable whenever boundary conditions
+  expand), it is treated as operationally null under comosí [provisional
+  dependency boundary: §3c.3]. It carries zero operational risk within that
+  domain and is excluded from transmission error metrics.
 - **Proactive Chaotic Probing (PCP)**: To detect latent divergences that *would*
   produce future failures, the GMRTI defines the PCP protocol. PCP proactively
   runs Path-Stripping Probing on random samples of polyphonically encoded

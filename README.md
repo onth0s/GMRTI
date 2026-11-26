@@ -26,6 +26,7 @@
 - [6. The GMRTI in Operation: Refinement Vectors](src/06_refinement_vectors.md)
 - [7. Relation to Downstream Applications](src/07_downstream.md)
 - [8. Known Gaps and Open Challenges](src/08_gaps.md) `[OPEN]`
+- [9. Coda](src/09_coda.md)
 - [Refinery](refinery/)
 
 ## Companion & Governance Artifacts

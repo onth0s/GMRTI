@@ -12,8 +12,15 @@ import os
 import re
 import sys
 
-from _gmrti_common import get_repo_root, read_utf8, write_utf8
-from rewrite import ASSEMBLY_MANIFEST
+from _gmrti_common import (
+    ASSEMBLY_MANIFEST,
+    SyncResult,
+    build_base_parser,
+    exit_for_check,
+    get_repo_root,
+    read_utf8,
+    write_utf8,
+)
 
 # Regex pattern to identify formal status and relational markers to strip
 MARKER_STRIP_PATTERN = re.compile(
@@ -30,7 +37,11 @@ _PLAIN_OPENER_RE = re.compile(
 
 # Section 0.0 ("Why This Exists") has a 3-paragraph plain preamble; all other
 # sections have a single-paragraph [PLAIN] entry ramp.
-_MULTI_PARA_PLAIN_HEADINGS = ("0.0",)
+_MULTI_PARA_PLAIN_PREFIXES = ("0.0 ",)
+_MULTI_PARA_PLAIN_EXACT = ("0.0",)
+
+# Clauses explicitly excluded from PEBBLE allegory extraction (guarded by test).
+_EXCLUDED_ALLEGORY_PREFIXES = ("- **2f.3ii",)
 
 
 def clean_plain_text(text: str) -> str:
@@ -56,6 +67,31 @@ def _is_next_section_or_clause(line: str) -> bool:
     )
 
 
+def _is_allegory_opener(line: str) -> bool:
+    """Return True if *line* starts an extractable allegory clause."""
+    if not (line.startswith("- **") or line.startswith("**")):
+        return False
+    if line.strip().startswith(_EXCLUDED_ALLEGORY_PREFIXES):
+        return False
+    lower = line.lower()
+    return (
+        "allegory" in lower
+        or "worked didactic instantiation" in lower
+        or "[allegory" in lower
+    )
+
+
+def _clean_allegory_title(combined_header: str) -> str:
+    """Extract and normalize the display title from an allegory header."""
+    m_title = re.search(r"\*\*([^*]+)\*\*", combined_header)
+    raw_title = m_title.group(1) if m_title else "Allegory"
+    clean_title = re.sub(r"^[0-9a-z\.]+\s*—\s*", "", raw_title).strip()
+    clean_title = re.sub(
+        r"\s*Allegory\s*$", "", clean_title, flags=re.IGNORECASE
+    ).strip()
+    return clean_title or "Allegory"
+
+
 def extract_allegories_from_raw_text(
     content: str, filename: str = ""
 ) -> list[tuple[str, str]]:
@@ -68,63 +104,54 @@ def extract_allegories_from_raw_text(
     i = 0
     while i < len(lines):
         line = lines[i]
-        # An allegory bullet or heading starts with (- )?**...
-        if (
-            (line.startswith("- **") or line.startswith("**"))
-            and (
-                "allegory" in line.lower()
-                or "worked didactic instantiation" in line.lower()
-                or "[allegory" in line.lower()
-            )
-            and not line.strip().startswith("- **2f.3ii")
+        if not _is_allegory_opener(line):
+            i += 1
+            continue
+
+        combined_header = line
+        while i + 1 < len(lines) and (
+            "**" not in combined_header
+            or "[" not in combined_header
+            or "]" not in combined_header
         ):
-            combined_header = line
-            while i + 1 < len(lines) and (
-                "**" not in combined_header
-                or "[" not in combined_header
-                or "]" not in combined_header
-            ):
-                nxt = lines[i + 1]
-                if nxt.strip() == "" or nxt.startswith("- **") or nxt.startswith("**"):
-                    break
-                i += 1
-                combined_header += " " + lines[i]
+            nxt = lines[i + 1]
+            if nxt.strip() == "" or nxt.startswith("- **") or nxt.startswith("**"):
+                break
+            i += 1
+            combined_header += " " + lines[i]
 
-            if "[ALLEGORY" in combined_header.upper():
-                m_title = re.search(r"\*\*([^*]+)\*\*", combined_header)
-                raw_title = m_title.group(1) if m_title else "Allegory"
-                clean_title = re.sub(r"^[0-9a-z\.]+\s*—\s*", "", raw_title).strip()
-                clean_title = re.sub(
-                    r"\s*Allegory\s*$", "", clean_title, flags=re.IGNORECASE
-                ).strip()
-                if not clean_title:
-                    clean_title = "Allegory"
+        if "[ALLEGORY" not in combined_header.upper():
+            i += 1
+            continue
 
-                parts = re.split(
-                    r"`?\[ALLEGORY(?::\s*[^\]]+)?\]`?",
-                    combined_header,
-                    flags=re.DOTALL | re.IGNORECASE,
-                )
-                remainder = parts[-1].strip(" `*") if len(parts) > 1 else ""
-                remainder = clean_plain_text(remainder)
-                body_lines = [remainder] if remainder else []
-                i += 1
-
-                while i < len(lines):
-                    next_line = lines[i]
-                    if _is_next_section_or_clause(next_line):
-                        break
-                    if next_line.strip() == "":
-                        if i + 1 < len(lines) and _is_next_section_or_clause(lines[i + 1]):
-                            break
-                    body_lines.append(next_line.strip())
-                    i += 1
-
-                body = clean_plain_text(" ".join(ln for ln in body_lines if ln).strip())
-                if body:
-                    allegories.append((clean_title, body))
-                continue
+        clean_title = _clean_allegory_title(combined_header)
+        parts = re.split(
+            r"`?\[ALLEGORY(?::\s*[^\]]+)?\]`?",
+            combined_header,
+            flags=re.DOTALL | re.IGNORECASE,
+        )
+        remainder = clean_plain_text(
+            parts[-1].strip(" `*") if len(parts) > 1 else ""
+        )
+        body_lines = [remainder] if remainder else []
         i += 1
+
+        while i < len(lines):
+            next_line = lines[i]
+            if _is_next_section_or_clause(next_line):
+                break
+            if (
+                next_line.strip() == ""
+                and i + 1 < len(lines)
+                and _is_next_section_or_clause(lines[i + 1])
+            ):
+                break
+            body_lines.append(next_line.strip())
+            i += 1
+
+        body = clean_plain_text(" ".join(ln for ln in body_lines if ln).strip())
+        if body:
+            allegories.append((clean_title, body))
 
     return allegories
 
@@ -142,6 +169,58 @@ def _find_preceding_heading(lines: list[str], idx: int) -> str:
     return ""
 
 
+def _plain_para_limit(heading: str) -> int:
+    """Return how many paragraphs a [PLAIN] block should consume."""
+    if heading in _MULTI_PARA_PLAIN_EXACT or heading.startswith(
+        _MULTI_PARA_PLAIN_PREFIXES
+    ):
+        return 3
+    return 1
+
+
+def _extract_plain_block(lines: list[str], start_idx: int) -> tuple[dict[str, str] | None, int]:
+    """Consume one [PLAIN] block starting at *start_idx*; return (block_or_None, next_idx)."""
+    line = lines[start_idx]
+    m_h = re.search(r"\*\*([^*]+)\*\*", line)
+    if m_h:
+        heading = clean_plain_text(m_h.group(1))
+        remainder = line.split("[PLAIN]", 1)[1].strip(" `*")
+    else:
+        heading = _find_preceding_heading(lines, start_idx)
+        remainder = line.replace("`[PLAIN]`", "").replace("[PLAIN]", "").strip()
+
+    target_paras = _plain_para_limit(heading)
+    paras: list[str] = []
+    cur_para = [remainder] if remainder else []
+    i = start_idx + 1
+
+    while i < len(lines):
+        cur_line = lines[i]
+        stripped = cur_line.strip()
+
+        if cur_line.startswith(("## ", "**", "- **", "1. **", r"\[", "$$")):
+            break
+
+        if stripped == "":
+            if cur_para:
+                paras.append(" ".join(cur_para))
+                cur_para = []
+            if len(paras) >= target_paras:
+                break
+            i += 1
+            continue
+
+        cur_para.append(stripped)
+        i += 1
+
+    if cur_para:
+        paras.append(" ".join(cur_para))
+
+    full_text = clean_plain_text("\n\n".join(paras).strip())
+    block = {"heading": heading, "text": full_text} if full_text else None
+    return block, i
+
+
 def parse_src_file(content: str, filename: str = "") -> dict:
     """Parse a src/ file into major heading and its [PLAIN] and [ALLEGORY] blocks."""
     lines = content.splitlines()
@@ -154,64 +233,17 @@ def parse_src_file(content: str, filename: str = "") -> dict:
     plain_blocks: list[dict[str, str]] = []
     i = 0
     while i < len(lines):
-        line = lines[i]
-        if _PLAIN_OPENER_RE.match(line.strip()):
-            heading = ""
-            m_h = re.search(r"\*\*([^*]+)\*\*", line)
-            if m_h:
-                heading = clean_plain_text(m_h.group(1))
-                remainder = line.split("[PLAIN]", 1)[1].strip(" `*")
-            else:
-                heading = _find_preceding_heading(lines, i)
-                remainder = (
-                    line.replace("`[PLAIN]`", "").replace("[PLAIN]", "").strip()
-                )
-
-            target_paras = (
-                3
-                if any(tag in heading for tag in _MULTI_PARA_PLAIN_HEADINGS)
-                else 1
-            )
-            paras: list[str] = []
-            cur_para = [remainder] if remainder else []
-            i += 1
-
-            while i < len(lines):
-                cur_line = lines[i]
-                stripped = cur_line.strip()
-
-                if cur_line.startswith(
-                    ("## ", "**", "- **", "1. **", r"\[", "$$")
-                ):
-                    break
-
-                if stripped == "":
-                    if cur_para:
-                        paras.append(" ".join(cur_para))
-                        cur_para = []
-                    if len(paras) >= target_paras:
-                        break
-                    i += 1
-                    continue
-
-                cur_para.append(stripped)
-                i += 1
-
-            if cur_para:
-                paras.append(" ".join(cur_para))
-
-            full_text = clean_plain_text("\n\n".join(paras).strip())
-            if full_text:
-                plain_blocks.append({"heading": heading, "text": full_text})
+        if _PLAIN_OPENER_RE.match(lines[i].strip()):
+            block, i = _extract_plain_block(lines, i)
+            if block is not None:
+                plain_blocks.append(block)
             continue
         i += 1
-
-    allegories = extract_allegories_from_raw_text(content, filename)
 
     return {
         "major_heading": major_heading,
         "plain_blocks": plain_blocks,
-        "allegories": allegories,
+        "allegories": extract_allegories_from_raw_text(content, filename),
     }
 
 
@@ -226,15 +258,15 @@ def assemble_pebble_document(base_dir: str | None = None) -> str:
     ]
 
     src_files = [
-        entry["path"]
+        entry.path
         for entry in ASSEMBLY_MANIFEST
-        if entry["path"].startswith("src/") and entry["path"] != "src/09_coda.md"
+        if entry.path.startswith("src/") and entry.path != "src/09_coda.md"
     ]
 
     for rel_path in src_files:
         fpath = os.path.join(base_dir, rel_path)
         if not os.path.exists(fpath):
-            continue
+            raise FileNotFoundError(f"Critical source file missing: {fpath}")
 
         parsed = parse_src_file(read_utf8(fpath), filename=rel_path)
         if not parsed["plain_blocks"] and not parsed["allegories"]:
@@ -265,34 +297,36 @@ def assemble_pebble_document(base_dir: str | None = None) -> str:
 
     # Append GLOSSARY.md with heading demoted from H1 to H3 under H2 wrapper
     glossary_path = os.path.join(base_dir, "GLOSSARY.md")
-    if os.path.exists(glossary_path):
-        glossary_content = read_utf8(glossary_path).strip()
-        glossary_content = re.sub(
-            r"^#\s+Glossary\b",
-            "### Glossary",
-            glossary_content,
-            count=1,
-            flags=re.MULTILINE,
-        )
-        glossary_wrapper = (
-            "## The Formal Glossary (Academic Reference)\n\n"
-            "*The following glossary contains the verbatim formal definitions from\n"
-            "the full GMRTI treatise. It is included here for readers who wish to\n"
-            "explore the precise academic and mathematical definitions of the framework.*\n\n"
-            + glossary_content
-        )
-        doc_parts.append(glossary_wrapper)
+    if not os.path.exists(glossary_path):
+        raise FileNotFoundError(f"Critical source file missing: {glossary_path}")
+    glossary_content = read_utf8(glossary_path).strip()
+    glossary_content = re.sub(
+        r"^#\s+Glossary\b",
+        "### Glossary",
+        glossary_content,
+        count=1,
+        flags=re.MULTILINE,
+    )
+    glossary_wrapper = (
+        "## The Formal Glossary (Academic Reference)\n\n"
+        "*The following glossary contains the verbatim formal definitions from\n"
+        "the full GMRTI treatise. It is included here for readers who wish to\n"
+        "explore the precise academic and mathematical definitions of the framework.*\n\n"
+        + glossary_content
+    )
+    doc_parts.append(glossary_wrapper)
 
     # Append Coda (src/09_coda.md)
     coda_path = os.path.join(base_dir, "src", "09_coda.md")
-    if os.path.exists(coda_path):
-        coda_content = clean_plain_text(read_utf8(coda_path).strip())
-        doc_parts.append(coda_content)
+    if not os.path.exists(coda_path):
+        raise FileNotFoundError(f"Critical source file missing: {coda_path}")
+    coda_content = clean_plain_text(read_utf8(coda_path).strip())
+    doc_parts.append(coda_content)
 
     return "\n\n---\n\n".join(doc_parts) + "\n"
 
 
-def check_pebble_sync(base_dir: str | None = None) -> dict:
+def check_pebble_sync(base_dir: str | None = None) -> SyncResult:
     if base_dir is None:
         base_dir = get_repo_root(__file__)
 
@@ -332,18 +366,10 @@ def create_pebble_document(
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(
-        description="Compile modular GMRTI plain blocks into PEBBLE.md."
-    )
-    parser.add_argument(
-        "--check",
-        action="store_true",
-        help="Check if root PEBBLE.md document is in sync.",
-    )
-    parser.add_argument(
-        "--dry-run",
-        action="store_true",
-        help="Simulate compilation without writing.",
+    parser = build_base_parser(
+        description="Compile modular GMRTI plain blocks into PEBBLE.md.",
+        check_help="Check if root PEBBLE.md document is in sync.",
+        dry_run_help="Simulate compilation without writing.",
     )
     parser.add_argument(
         "--output",
@@ -356,16 +382,18 @@ def main() -> None:
     base_dir = get_repo_root(__file__)
 
     if args.check:
-        result = check_pebble_sync(base_dir)
+        try:
+            result = check_pebble_sync(base_dir)
+        except (FileNotFoundError, OSError, ValueError) as e:
+            print(f"Error during check: {e}")
+            sys.exit(1)
         if result["error"]:
-            print(result["error"])
-            sys.exit(1)
-        elif result["in_sync"]:
-            print("Root PEBBLE.md document is fully in sync.")
-            sys.exit(0)
-        else:
-            print("Root PEBBLE.md document is OUT OF SYNC with source files.")
-            sys.exit(1)
+            exit_for_check(False, "", result["error"])
+        exit_for_check(
+            result["in_sync"],
+            "Root PEBBLE.md document is fully in sync.",
+            "Root PEBBLE.md document is OUT OF SYNC with source files.",
+        )
 
     try:
         create_pebble_document(

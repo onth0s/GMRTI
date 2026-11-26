@@ -1,6 +1,7 @@
 import glob
 import os
 import re
+import pytest
 import yaml
 
 REQUIRED_FIELDS = [
@@ -21,17 +22,18 @@ ALLOWLISTED_CYCLE_SETS = {
 }
 
 
-def get_specs():
+@pytest.fixture(scope="session")
+def specs():
     base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     specs_dir = os.path.join(base_dir, "specs")
     spec_files = glob.glob(os.path.join(specs_dir, "*.yaml")) + glob.glob(
         os.path.join(specs_dir, "*.yml")
     )
-    specs = {}
+    loaded = {}
     for f in spec_files:
         with open(f, "r", encoding="utf-8") as fp:
-            specs[os.path.basename(f)] = yaml.safe_load(fp)
-    return specs
+            loaded[os.path.basename(f)] = yaml.safe_load(fp)
+    return loaded
 
 
 def validate_spec(filename: str, spec: dict) -> None:
@@ -48,15 +50,13 @@ def validate_spec(filename: str, spec: dict) -> None:
         assert isinstance(spec["open_issues"], list), f"{filename} open_issues must be a list"
 
 
-def test_specs_schema():
-    specs = get_specs()
+def test_specs_schema(specs):
     assert len(specs) > 0, "No specification files found in specs/"
     for filename, spec in specs.items():
         validate_spec(filename, spec)
 
 
-def test_spec_dependencies_resolved():
-    specs = get_specs()
+def test_spec_dependencies_resolved(specs):
     declared_ids = {spec["concept_id"] for spec in specs.values() if "concept_id" in spec}
     missing_dependencies = []
     for filename, spec in specs.items():
@@ -68,9 +68,8 @@ def test_spec_dependencies_resolved():
     )
 
 
-def test_spec_dependency_cycles_allowlisted():
+def test_spec_dependency_cycles_allowlisted(specs):
     """Only explicitly allowlisted co-definitional cycles may exist in specs/."""
-    specs = get_specs()
     adj = {
         spec["concept_id"]: list(spec.get("dependencies", []))
         for spec in specs.values()
@@ -100,18 +99,16 @@ def test_spec_dependency_cycles_allowlisted():
     assert not unexpected_cycles, f"Unexpected spec dependency cycles: {unexpected_cycles}"
 
 
-def test_spec_name_uniqueness():
+def test_spec_name_uniqueness(specs):
     """All concept specs must have unique name values."""
-    specs = get_specs()
     names = [spec.get("name") for spec in specs.values() if spec.get("name")]
     assert len(names) == len(set(names)), (
         f"Duplicate spec names detected: {[n for n in names if names.count(n) > 1]}"
     )
 
 
-def test_spec_concept_id_naming_convention():
+def test_spec_concept_id_naming_convention(specs):
     """All concept_ids must follow the GMRTI-* naming convention."""
-    specs = get_specs()
     for filename, spec in specs.items():
         concept_id = spec.get("concept_id", "")
         assert concept_id.startswith("GMRTI-"), (
@@ -122,9 +119,8 @@ def test_spec_concept_id_naming_convention():
         )
 
 
-def test_spec_filename_slug_matches_concept_id():
+def test_spec_filename_slug_matches_concept_id(specs):
     """Each spec's filename (concept_<slug>.yaml) must match GMRTI-<SLUG>."""
-    specs = get_specs()
     for filename, spec in specs.items():
         base = filename
         for ext in (".yaml", ".yml"):
@@ -138,9 +134,8 @@ def test_spec_filename_slug_matches_concept_id():
         )
 
 
-def test_spec_last_modified_date_format():
+def test_spec_last_modified_date_format(specs):
     """All specs must declare last_modified in YYYY-MM-DD ISO format."""
-    specs = get_specs()
     for filename, spec in specs.items():
         last_modified = str(spec.get("last_modified", ""))
         assert re.match(r"^\d{4}-\d{2}-\d{2}$", last_modified), (

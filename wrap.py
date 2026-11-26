@@ -34,6 +34,7 @@ import textwrap
 
 from _gmrti_common import (
     MONOLITHIC_PATTERN,
+    build_base_parser,
     get_repo_root,
     read_utf8,
     write_utf8,
@@ -82,9 +83,13 @@ def wrap_yaml(text: str, width: int = 80) -> str:
             continue
 
         # 2. Key-value unquoted long string: key: value...
-        # Exclude flow mappings/sequences ({...}, [...]) from block-scalar conversion
+        # Exclude flow mappings/sequences ({...}, [...]) and inline comments (" #")
         key_unquoted = re.match(r'^(\s*)([\w-]+):\s+([^\">|#{\[\s].*)$', line)
-        if key_unquoted and not line.strip().startswith("-"):
+        if (
+            key_unquoted
+            and not line.strip().startswith("-")
+            and " #" not in key_unquoted.group(3)
+        ):
             indent, key, val = key_unquoted.groups()
             wrapped_val = _wrap_yaml_scalar(val, width - len(indent) - 2)
             lines.append(f"{indent}{key}: >-")
@@ -105,7 +110,7 @@ def wrap_yaml(text: str, width: int = 80) -> str:
 
         # 4a. List item mapping: - key: value...
         list_mapping = re.match(r'^(\s*-\s+)([\w-]+):\s+([^\">|#{\[\s].*)$', line)
-        if list_mapping:
+        if list_mapping and " #" not in list_mapping.group(3):
             list_prefix, key, val = list_mapping.groups()
             sub_indent = " " * len(list_prefix) + "  "
             wrapped_val = _wrap_yaml_scalar(val, width - len(sub_indent))
@@ -115,9 +120,13 @@ def wrap_yaml(text: str, width: int = 80) -> str:
             continue
 
         # 4b. List item unquoted long string: - value...
-        # Exclude flow collections ({...}, [...]) and list-of-mappings (- key: val)
+        # Exclude flow collections ({...}, [...]), list-of-mappings, and inline comments
         list_unquoted = re.match(r'^(\s*)-\s+([^\">|#{\[\s].*)$', line)
-        if list_unquoted and not re.match(r"^[\w-]+:(?:\s|$)", list_unquoted.group(2)):
+        if (
+            list_unquoted
+            and not re.match(r"^[\w-]+:(?:\s|$)", list_unquoted.group(2))
+            and " #" not in list_unquoted.group(2)
+        ):
             indent, val = list_unquoted.groups()
             wrapped_val = _wrap_yaml_scalar(val, width - len(indent) - 4)
             lines.append(f"{indent}- >-")
@@ -141,7 +150,31 @@ def wrap_yaml(text: str, width: int = 80) -> str:
         for wl in _wrap_yaml_scalar(stripped, width - indent_len):
             lines.append(f"{indent}{wl}")
 
-    return "\n".join(lines)
+    result = "\n".join(lines)
+    if result != text:
+        try:
+            import yaml
+            orig_data = yaml.safe_load(text)
+            new_data = yaml.safe_load(result)
+            if orig_data != new_data:
+                print(
+                    "Warning: wrap_yaml detected semantic drift; keeping original YAML.",
+                    file=sys.stderr,
+                )
+                return text
+        except Exception as exc:
+            # If original was valid YAML and wrapped is not, keep original.
+            try:
+                import yaml
+                yaml.safe_load(text)
+            except Exception:
+                return result
+            print(
+                f"Warning: wrap_yaml produced invalid YAML ({exc}); keeping original.",
+                file=sys.stderr,
+            )
+            return text
+    return result
 
 
 # ── Markdown block flusher ──────────────────────────────────────────────────
@@ -162,19 +195,20 @@ def _flush_block(
         out.extend(para)
 
     elif block_type == _QUOTE:
-        stripped = [re.sub(r"^>\s*", "", ln) for ln in para]
+        quote_prefix = prefix or "> "
+        stripped = [re.sub(r"^(?:>\s*)+", "", ln) for ln in para]
         content = " ".join(stripped)
         wrapped = textwrap.wrap(
             content,
-            width=max(_MIN_WRAP_WIDTH, width - 2),
+            width=max(_MIN_WRAP_WIDTH, width - len(quote_prefix)),
             break_long_words=False,
             break_on_hyphens=False,
         )
         if not wrapped:
-            out.append(">")
+            out.append(quote_prefix.rstrip())
         else:
             for w in wrapped:
-                out.append("> " + w)
+                out.append(quote_prefix + w)
 
     elif block_type == _FOOTNOTE:
         first = para[0]
@@ -245,14 +279,13 @@ def _flush_block(
 
 # ── Line classifier ─────────────────────────────────────────────────────────
 
-def _code_fence_backtick_count(stripped: str) -> int:
-    """Return the backtick count (3 or 4) if the line is a code fence marker,
-    else 0. Checks 4-backtick prefix first to avoid misidentifying ```` as ```.
-    """
-    for count in (4, 3):
-        if stripped.startswith("`" * count):
-            return count
-    return 0
+def _parse_code_fence(stripped: str) -> tuple[str, int] | None:
+    """Return (fence_char, count) if the line starts with 3+ backticks or tildes."""
+    m = re.match(r"^(`{3,}|~{3,})", stripped)
+    if m:
+        seq = m.group(1)
+        return seq[0], len(seq)
+    return None
 
 
 def _is_math_fence(stripped: str) -> bool:
@@ -273,6 +306,14 @@ def _is_heading_or_break(stripped: str) -> bool:
     return stripped.startswith("#") or stripped in ("---", "***")
 
 
+def _is_setext_underline(stripped: str) -> bool:
+    return bool(re.match(r"^(?:=+|-+)$", stripped))
+
+
+def _is_html_block_line(stripped: str) -> bool:
+    return bool(re.match(r"^<[a-zA-Z/!]", stripped))
+
+
 def _is_table_row(stripped: str) -> bool:
     return stripped.startswith("|")
 
@@ -281,8 +322,13 @@ def _is_footnote(line: str) -> bool:
     return bool(re.match(r"^\[\^[^\]]+\]:\s*", line))
 
 
-def _is_blockquote(stripped: str) -> bool:
-    return stripped.startswith(">")
+def _quote_prefix_and_body(stripped: str) -> tuple[str, str] | None:
+    """If *stripped* is a blockquote line, return (normalized_prefix, body)."""
+    m = re.match(r"^((?:>\s*)+)(.*)$", stripped)
+    if not m:
+        return None
+    depth = m.group(1).count(">")
+    return (">" * depth) + " ", m.group(2)
 
 
 def _detect_list_item(line: str) -> tuple[bool, str]:
@@ -308,6 +354,7 @@ def wrap_markdown(text: str, width: int = 80) -> str:
     out: list[str] = []
 
     in_code = False
+    _open_fence_char = ""
     _open_fence_count = 0
     in_math = False
 
@@ -330,19 +377,22 @@ def wrap_markdown(text: str, width: int = 80) -> str:
     for line in lines:
         stripped = line.strip()
 
-        # 1. Code block fence — track opening backtick count so only a
-        #    matching (same or greater) closing fence ends the block.
-        fence_count = _code_fence_backtick_count(stripped)
-        if fence_count:
+        # 1. Code block fence — track opening fence char and count so only a
+        #    matching (same char, same or greater count) closing fence ends it.
+        fence = _parse_code_fence(stripped)
+        if fence:
+            f_char, f_count = fence
             if not in_code:
                 flush()
                 in_code = True
-                _open_fence_count = fence_count
+                _open_fence_char = f_char
+                _open_fence_count = f_count
                 out.append(line)
                 continue
-            is_pure_fence = all(c == "`" for c in stripped)
-            if is_pure_fence and fence_count >= _open_fence_count:
+            is_pure_fence = all(c == _open_fence_char for c in stripped)
+            if is_pure_fence and f_char == _open_fence_char and f_count >= _open_fence_count:
                 in_code = False
+                _open_fence_char = ""
                 _open_fence_count = 0
                 out.append(line)
                 continue
@@ -372,13 +422,21 @@ def wrap_markdown(text: str, width: int = 80) -> str:
             out.append("")
             continue
 
-        # 4. Heading or thematic break
-        if _is_heading_or_break(stripped):
+        # 4. Setext heading underline (must precede thematic break check for '---')
+        if current_type == _PROSE and current_para and _is_setext_underline(stripped):
+            out.extend(current_para)
+            current_para = []
+            current_type = None
+            out.append(line)
+            continue
+
+        # 5. Heading, thematic break, or HTML block line
+        if _is_heading_or_break(stripped) or _is_html_block_line(stripped):
             flush()
             out.append(line)
             continue
 
-        # 5. Table row
+        # 6. Table row
         if _is_table_row(stripped):
             if current_type != _TABLE:
                 flush()
@@ -386,22 +444,29 @@ def wrap_markdown(text: str, width: int = 80) -> str:
             current_para.append(line)
             continue
 
-        # 6. Footnote definition
+        # 7. Footnote definition
         if _is_footnote(line):
             flush()
             current_type = _FOOTNOTE
             current_para.append(line)
             continue
 
-        # 7. Blockquote
-        if _is_blockquote(stripped):
-            if current_type != _QUOTE:
+        # 8. Blockquote (grouped by nesting depth; lists inside quotes pass through)
+        quote_info = _quote_prefix_and_body(stripped)
+        if quote_info is not None:
+            q_prefix, q_body = quote_info
+            if re.match(r"^\s*(?:[-*+]\s+|\d+\.\s+)", q_body):
+                flush()
+                out.append(line)
+                continue
+            if current_type != _QUOTE or current_prefix != q_prefix:
                 flush()
             current_type = _QUOTE
+            current_prefix = q_prefix
             current_para.append(line)
             continue
 
-        # 8. List item start
+        # 9. List item start
         is_list, prefix = _detect_list_item(line)
         if is_list and prefix.strip():
             flush()
@@ -410,7 +475,7 @@ def wrap_markdown(text: str, width: int = 80) -> str:
             current_para.append(line)
             continue
 
-        # 9. Indented continuation inside list
+        # 10. Indented continuation inside list
         if (line.startswith("    ") or line.startswith("  ")) and current_type in (
             _LIST_ITEM,
             _INDENTED,
@@ -422,14 +487,26 @@ def wrap_markdown(text: str, width: int = 80) -> str:
             current_para.append(line)
             continue
 
-        # 10. Continuation of current block
-        if current_type is not None:
-            current_para.append(line)
-            continue
+        # 11. Hard line break (two trailing spaces or trailing backslash)
+        hard_break = ""
+        if line.endswith("  "):
+            hard_break = "  "
+            line_for_para = line.rstrip(" ")
+        elif line.endswith("\\"):
+            hard_break = "\\"
+            line_for_para = line[:-1]
+        else:
+            line_for_para = line
 
-        # 11. Standard prose
-        current_type = _PROSE
-        current_para.append(line)
+        # 12. Continuation of current block or standard prose
+        if current_type is None:
+            current_type = _PROSE
+        current_para.append(line_for_para)
+
+        if hard_break:
+            flush()
+            if out:
+                out[-1] = out[-1] + hard_break
 
     flush()
     return "\n".join(out)
@@ -514,18 +591,10 @@ def process_file(
 # ── CLI ──────────────────────────────────────────────────────────────────────
 
 def main() -> None:
-    parser = argparse.ArgumentParser(
-        description="Wrap Markdown and YAML files to fixed width."
-    )
-    parser.add_argument(
-        "--check",
-        action="store_true",
-        help="Check if files need wrapping without writing.",
-    )
-    parser.add_argument(
-        "--dry-run",
-        action="store_true",
-        help="Show which files would be changed.",
+    parser = build_base_parser(
+        description="Wrap Markdown and YAML files to fixed width.",
+        check_help="Check if files need wrapping without writing.",
+        dry_run_help="Show which files would be changed.",
     )
     parser.add_argument(
         "--width",

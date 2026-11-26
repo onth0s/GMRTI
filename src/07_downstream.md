@@ -18,10 +18,11 @@ words. The GMRTI gives you the tools to tell the difference.
     Axiomatic divergence.
 - **7a.1iii** The GMRTI provides the diagnostic apparatus for making this
     distinction — specifically through Divergence Localization and the
-    Irreducibility Declaration.
+    Irreducibility Declaration [provisional dependency boundary: §3f.2].
 - **7a.1iv** The GMCR therefore presupposes the GMRTI: it can only begin its
     proper work once the GMRTI has established whether the conflict is, at root,
-    a transmission failure or a genuine value conflict.
+    a transmission failure or a genuine value conflict [provisional dependency
+    boundary: §3f.2].
 
 **7a.2** In practice, GMRTI and GMCR operate simultaneously and recursively; the
     GMRTI continuously re-examines its own outputs as the GMCR generates new
@@ -67,6 +68,10 @@ coordination tools needed to solve big problems together and survive.
 
 **7c — The GMRTI's Ambition, Precisely Stated** `[STABLE]`
 
+`[PLAIN]` The goal is not to make everyone think identically. The goal is
+accurate disagreement: knowing for sure whether you are arguing over values or
+just talking past each other.
+
 
 **7c.1** A persistent risk in framing the GMRTI's civilizational stakes is the
     slide toward an impossible goal: the elimination of semantic divergence and
@@ -89,6 +94,10 @@ coordination tools needed to solve big problems together and survive.
     disagreeing about*. `[STABLE]`
 
 **7d — GMRTI to Constructo-Pragmatist Definition (CPD)** `[PROVISIONAL]`
+
+`[PLAIN]` Once two people understand an idea clearly, a Constructo-Pragmatist
+Definition turns that shared idea into a concrete set of rules: who can act,
+what steps happen in order, and when the process ends.
 
 **7d.1 — Transmission versus Operational Architecture** GMRTI governs the
 refinement, reconstruction, and transmission of semantic objects across covenant
@@ -139,8 +148,8 @@ apparatus, CPD requires explicit boundaries to prevent self-perpetuation:
   regress.
   `[PROVISIONAL]`
 
-**7d.4 — Worked Didactic Instantiation: Valid Chess Resignation** `[ALLEGORY:
-CPD][PROVISIONAL]`
+**7d.4 — Worked Didactic Instantiation: Valid Chess Resignation**
+`[PROVISIONAL]`
 
 The distinction between nominal definition and operational specification is
 demonstrated by the abstraction: "A valid chess resignation." Rather than
@@ -182,11 +191,21 @@ Constructo-Pragmatist criterion in miniature: a definition gives distinct
 covenants sufficient structural scaffolding to reconstruct the same operational
 object and coordinate around it.
 
+- **7d.4i — The Referee's Whistle and Rulebook Allegory** `[ALLEGORY:
+  CPD][PROVISIONAL]`
+  Two chess players do not need to agree on the philosophy of defeat or honor
+  for a resignation to work. They only need to share the concrete rulebook
+  setup: a real game is underway, only a player can resign, tipping the king
+  stops the clock, the referee records the score, and the match ends cleanly
+  without ending the game of chess itself. Giving an idea clear steps, rules,
+  and an ending is how people coordinate in practice without having to agree on
+  everything in their heads.
+
 
 **7d.5 — The Operational Replacement Protocol** Disagreements over a CPD are
 governed by a strict replacement rule: an objection to an operational definition
 is valid, but to displace an existing CPD, a challenger must supply a complete
 alternative state-transition architecture $\langle P, \Sigma, T, I, E, Y, \Omega
 \rangle$, demonstrate non-exemption, provide anti-perpetuation constraints, and
-prove greater operational convergence within the declared domain.
-`[PROVISIONAL]`
+demonstrate empirically or structurally greater operational convergence within
+the declared domain. `[PROVISIONAL]`

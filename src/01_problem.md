@@ -35,23 +35,20 @@ quite the same as yours.
     `[STABLE]`
 
 - **1a.5i — The Commercial Purchase Allegory** `[ALLEGORY: COMOSÍ]` A customer
-    purchases a product from a shopkeeper. Without friction, the customer hands
-    over the requested sum of money and receives the merchandise. Both parties
-    coordinate their actions seamlessly. This successful transaction does not
-    imply that their underlying semantic dictionaries or conceptual topologies
-    coincide; rather, they deploy linguistic noises deemed appropriate to the
-    circumstance (*hacer ruidos convenientemente*), producing outputs whose
-    practical repercussions are sufficiently congruent that it is *as if*
-    (comosí) they possessed identical understanding.
+    walks into a corner shop and buys a loaf of bread. She hands over the
+    asked-for bills and walks out with the bread. Everything goes smoothly,
+    even if the two people have completely different ideas about what "money"
+    or "fairness" really means. Because their words and actions fit together
+    well enough for buying bread, it works *as if* (comosí) they shared the
+    exact same inner dictionary.
 - **1a.5ii — The Living Room vs. Art Gallery Allegory**
-    `[ALLEGORY: COMOSÍ-BOUNDARY]` Two people in a home agree without hesitation
-    that items hanging on the walls are "paintings" and items in a display case
-    are "sculptures"; within this familiar domestic domain, their circumstantial
-    covenants are functionally equivalent and they effortlessly como-understand.
-    Later that day, visiting a contemporary art exhibition, the boundary
-    conditions shift: confronted with unconventional installations, their
-    shared comosí collapses, revealing that their underlying definitions were
-    never identical, but merely co-extensional within the domestic baseline.
+    `[ALLEGORY: COMOSÍ-BOUNDARY]` Two friends in a living room easily agree on
+    what is a "painting" (hung on the wall) and what is a "sculpture" (placed
+    on a shelf). At home, their meanings match well enough for everyday
+    conversation. Later that afternoon, they visit a modern art museum where
+    paintings sit on the floor and sculptures hang from the ceiling. Suddenly
+    they argue over which is which — showing that their definitions only
+    seemed identical inside the living room.
 
 **1a.6 — Semantic Entropy as the Adversarial Target** `[STABLE]`
 
@@ -68,24 +65,27 @@ compatible with what was transmitted. The receiver selects one of these
 configurations — typically without awareness that selection is occurring — and
 treats it as the transmitted content.
 
-We formalize Semantic Entropy $H_s(S)$ of a surface signal $S$ relative to a
-receiving covenant as the log of the number of non-isomorphic topological
-edge-configurations $G_R$ that can represent $S$ without contradiction: $$H_s(S)
-= \log_2 |\{G_R : G_R \text{ is compatible with } S\}|$$ Because direct
-measurement of $H_s(S)$ is constrained by metaagnosticism, we operationalize it
-via the **Behavioral Convergence Proxy (Path-Count Metric)**: the number of
-independent Polyphonic Encoding paths that must be successfully reconstructed
-and verified by the receiver before they reach the Operational Action Threshold
-[provisional dependency boundary: §3c.3]. For a single pair of covenants $(C_T,
-C_R)$, this path count measures pairwise reconstruction divergence (analogous to
-cross-entropy), not intrinsic signal entropy directly: each polyphonic path acts
-as a constraint intersection reducing the quotient space multiplicatively, with
-uniform bit-reduction failing when a path hits an Anchor-Only Subgraph and
-yields zero bits, and receiver-specific local voids or lucky comosí confounding
-the count. The metric converges to an estimator of $H_s(S)$ only when evaluated
-under the zero-charity Minimal Substrate posture (DRC → 1.0) along combined
-Path-Stripping Probes (§2f.5iv). Thus, a high path count under those conditions
-indicates high initial semantic entropy.
+We formalize Semantic Entropy $H_s(S)$ of a consistent surface signal $S$
+relative to a receiving covenant as the log of the number of distinct functional
+equivalence classes $[G_R]$ compatible with $S$ without contradiction
+($|\{[G_R]\}| \ge 1$; an empty set $|\{[G_R]\}| = 0$ denotes **Signal
+Contradiction / Unsatisfiability**, not zero entropy): $$H_s(S) = \log_2
+|\{[G_R] : [G_R] \text{ is compatible with } S\}|$$ Because direct measurement
+of $H_s(S)$ is constrained by metaagnosticism, we operationalize it via the
+**Behavioral Convergence Proxy (Path-Count Metric)**: the number of independent
+Polyphonic Encoding paths that must be successfully reconstructed and verified
+by the receiver before they reach the Operational Action Threshold [provisional
+dependency boundary: §3c.3, §8b.1]. For a single pair of covenants $(C_T, C_R)$,
+this path count measures pairwise reconstruction divergence (analogous to
+cross-entropy), not intrinsic signal entropy directly: if each independent
+non-void path contracts the compatible equivalence-class space by a factor
+$k > 1$, the required path count scales as $O(H_s(S) / \log_2 k)$, whereas a
+path hitting an Anchor-Only Subgraph yields zero bits and receiver-specific
+local voids or lucky comosí confound the count. The metric converges to an
+estimator of $H_s(S)$ only when evaluated under the zero-charity Minimal
+Substrate posture (DRC → 1.0) along combined Path-Stripping Probes (§2f.5iv).
+Thus, a high path count under those conditions indicates high initial semantic
+entropy.
 
 The GMRTI's central purpose is the controlled reduction of semantic entropy:
 progressively constraining the space of consistent receiving-covenant
@@ -164,16 +164,17 @@ knowledge, values, or frameworks is transmitted to another community with a
 different collective covenant. This is the problem of ontological translation —
 the target community may lack not just the words but the conceptual
 infrastructure to receive the transmission. The Federated Graph model (Section
-2d) addresses this mode's structural complexity.
+2d) addresses this mode's structural complexity [provisional dependency
+boundary: §2d].
 
 **1c.4 — Developmental Ordering** To prevent over-generalization and manage
 cognitive overhead, the GMRTI mandates a strict developmental ordering:
 Self-Annotation (Self-to-Future-Self) serves as the initial sandbox to generate
 and test conceptual primitives; Community-to-Community (Constitutional Drafting)
-then formalizes these primitives; which are subsequently simplified for
-real-time Self-to-Other dialogue (GMRTI-Mediated Dialogue). The framework's
-operational complexity is scoped accordingly: v0.9 targets Self-Annotation only,
-where the cognitive overhead is borne by a single practitioner with full access
-to their own covenant. Scaling to real-time dialogue requires a simplified
-subset whose specification is deferred until the Self-Annotation validation is
-complete.
+[provisional dependency boundary: §2d] then formalizes these primitives; which
+are subsequently simplified for real-time Self-to-Other dialogue (GMRTI-Mediated
+Dialogue). The framework's operational complexity is scoped accordingly: v0.9
+targets Self-Annotation only, where the cognitive overhead is borne by a single
+practitioner with full access to their own covenant. Scaling to real-time
+dialogue requires a simplified subset whose specification is deferred until the
+Self-Annotation validation is complete.

@@ -70,7 +70,7 @@ Sections follow the pattern `N`, `Na`, `Na.1`, `Na.1i` for four levels of depth:
 - `N` — Major division (e.g. `3`, or Appendices `A`, `M`, `R`)
 - `Na` — Named subsection (e.g. `3a`, `Ma`)
 - `Na.1` — Numbered clause within subsection (e.g. `3a.1`, `Ma.1`)
-- `Na.1i` — Lettered sub-clause (e.g. `3a.1i`, `Ma.1i`)
+- `Na.1i` — Roman-numeral sub-clause (e.g. `3a.1i`, `2e.5i`)
 
 When pointing to a specific dissonance or claim for critique, cite the shortest
 address that uniquely identifies it.

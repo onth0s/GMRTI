@@ -41,11 +41,11 @@ Misunderstanding is not just uncomfortable — it is dangerous at scale. When pe
 
 > **Allegory: The Commercial Purchase**
 >
-> A customer purchases a product from a shopkeeper. Without friction, the customer hands over the requested sum of money and receives the merchandise. Both parties coordinate their actions seamlessly. This successful transaction does not imply that their underlying semantic dictionaries or conceptual topologies coincide; rather, they deploy linguistic noises deemed appropriate to the circumstance (*hacer ruidos convenientemente*), producing outputs whose practical repercussions are sufficiently congruent that it is *as if* (comosí) they possessed identical understanding.
+> A customer walks into a corner shop and buys a loaf of bread. She hands over the asked-for bills and walks out with the bread. Everything goes smoothly, even if the two people have completely different ideas about what "money" or "fairness" really means. Because their words and actions fit together well enough for buying bread, it works *as if* (comosí) they shared the exact same inner dictionary.
 
 > **Allegory: The Living Room vs. Art Gallery**
 >
-> Two people in a home agree without hesitation that items hanging on the walls are "paintings" and items in a display case are "sculptures"; within this familiar domestic domain, their circumstantial covenants are functionally equivalent and they effortlessly como-understand. Later that day, visiting a contemporary art exhibition, the boundary conditions shift: confronted with unconventional installations, their shared comosí collapses, revealing that their underlying definitions were never identical, but merely co-extensional within the domestic baseline.
+> Two friends in a living room easily agree on what is a "painting" (hung on the wall) and what is a "sculpture" (placed on a shelf). At home, their meanings match well enough for everyday conversation. Later that afternoon, they visit a modern art museum where paintings sit on the floor and sculptures hang from the ceiling. Suddenly they argue over which is which — showing that their definitions only seemed identical inside the living room.
 
 ---
 
@@ -123,6 +123,24 @@ The GMRTI works as a clear diagnostic cycle: map out the starting concepts, test
 
 Stage 1 is laying your cards on the table. You list the main ideas you are using and clearly show how they connect to one another, so the other person can see what you are building on.
 
+Stage 2 has two beats: first, read strictly what is written without guessing; second, use what you already know to fill in the gaps and write down every spot where you had to guess.
+
+### 3d — Stage 3: Divergence Localization
+
+Stage 3 is finding the root of the misunderstanding. You fix simple surface mix-ups first, then deeper structural links, before assuming you disagree at the deepest level.
+
+### 3e — Stage 4: Targeted Repair
+
+Stage 4 matches the fix to the break: build new bridges where an idea is missing, draw a boundary around local edits, or agree on what kind of link connects two ideas.
+
+### 3f — Stage 5: Irreducibility Declaration
+
+Stage 5 is an honest stalemate: if you have tested every repair down to bedrock and still disagree, you name it as a real difference in values rather than a wording mix-up.
+
+### 3g — Stopping Principle and Cost Control
+
+Don't polish forever. Stop refining once the extra effort costs more than the remaining risk of misunderstanding.
+
 ---
 
 ## SECTION 4 — Temporal Anchoring
@@ -137,7 +155,7 @@ To stop your guides and notes from drifting away, update them with small, carefu
 
 > **Allegory: The Floating Sea-Anchor**
 >
-> In deep, stormy waters, a ship cannot drop a heavy iron anchor down to the ocean floor: the seabed is too deep and rigid, and the chain will snap. But if the captain drops no anchor at all, every passing wave spins the ship out of control ($\lambda = 1.0$). Instead, the crew deploys a submerged cloth sea-anchor (a drogue with $\lambda = 0.15$): it allows the vessel to glide smoothly with the deep ocean current while dampening out the violent surface chop, keeping the bow pointed in a steady, safe direction.
+> In deep, stormy waters, a ship cannot drop a heavy iron anchor down to the ocean floor: the seabed is too deep and rigid, and the chain will snap. But if the captain drops no anchor at all (full tracking, damping equal to 1), every passing wave spins the ship out of control. Instead, the crew deploys a submerged cloth sea-anchor (a gentle drag, such as 0.15): it allows the vessel to glide smoothly with the deep ocean current while dampening out the violent surface chop, keeping the bow pointed in a steady, safe direction.
 
 ---
 
@@ -165,7 +183,7 @@ A method for clear thinking must be able to test itself. Everything the GMRTI re
 
 > **Allegory: The Art Tutorials**
 >
-> Consider online art tutorials for drawing hands or perspective. Nobody looks at the thousands of drawing tutorials and says "we already have one good explanation, delete the rest." One instructor explains perspective using railroad tracks, another using cardboard boxes, and another using horizon lines and camera lenses. Because every beginner starts with a different background, no single tutorial works for everyone. Trimming away alternative explanations to save space just ensures that learners whose minds worked like the deleted tutorial will fail to learn. The symptom is: successive iterations become shorter while appearing more coherent. The diagnosis: Redundancy-Masking at the meta-level — the document's transmission fidelity appears to improve (tighter, cleaner) while its actual structural content degrades (fewer independent routes, invisible voids). The mitigation: the Irreducibility Check must explicitly include a length-and-redundancy audit, verifying that compression has not stripped Polyphonic Encoding rather than eliminated genuine repetition. This failure mode was confirmed empirically in v0.6: the Refinery entries R2 through R4 lost their elaborated open questions, and the metaagnosticism definition lost its second clause. Both losses made the document read more cleanly while reducing its precision and depth. The v0.7 repairs restore both. Future iterations should treat any reduction in Refinery entry length as a flag requiring explicit justification.
+> Consider online art tutorials for drawing hands or perspective. Nobody looks at the thousands of drawing tutorials and says "we already have one good explanation, delete the rest." One instructor explains perspective using railroad tracks, another using cardboard boxes, and another using horizon lines and camera lenses. Because every beginner starts with a different background, no single tutorial works for everyone. Trimming away alternative explanations to save space just ensures that learners whose minds worked like the deleted tutorial will fail to learn. The symptom is: successive iterations become shorter while appearing more coherent. The diagnosis: Redundancy-Masking at the meta-level — the document's transmission fidelity appears to improve (tighter, cleaner) while its actual structural content degrades (fewer independent routes, invisible voids). The mitigation: the Irreducibility Check must explicitly include a length-and-redundancy audit, verifying that compression has not stripped Polyphonic Encoding rather than eliminated genuine repetition. This failure mode was confirmed empirically in v0.6: the Refinery entries R2 through R4 (archived from v0.6–v0.7) lost their elaborated open questions, and the metaagnosticism definition lost its second clause. Both losses made the document read more cleanly while reducing its precision and depth. The v0.7 repairs restore both. Future iterations should treat any reduction in Refinery entry length as a flag requiring explicit justification.
 
 ---
 
@@ -179,13 +197,21 @@ Before two groups can resolve a conflict, they must know whether they truly disa
 
 Think of the GMRTI as a factory that makes tools for other factories. It doesn't solve one single disagreement — it gives humanity the basic coordination tools needed to solve big problems together and survive.
 
+### 7c — The GMRTI's Ambition, Precisely Stated
+
+The goal is not to make everyone think identically. The goal is accurate disagreement: knowing for sure whether you are arguing over values or just talking past each other.
+
+### 7d — GMRTI to Constructo-Pragmatist Definition (CPD)
+
+Once two people understand an idea clearly, a Constructo-Pragmatist Definition turns that shared idea into a concrete set of rules: who can act, what steps happen in order, and when the process ends.
+
 > **Allegory: The Factory that Makes Factories**
 >
 > Ordinary factories make specific everyday goods: one factory makes shoes, another bakes bread, and another assembles cars. But before any of those ordinary factories can exist, you first need a special kind of factory: **the factory that makes the machine-tools for other factories**. In human society, specific laws, trade treaties, and peace agreements are ordinary factories producing particular coordination results. When deep communication breaks down across different groups, those ordinary factories cannot be built or repaired. The GMRTI is the toolmaking factory that makes factories: it does not settle specific disputes about land, taxes, or politics; it manufactures the basic tools of clear communication so that people can build their own working institutions and agreements.
 
-> **Allegory: Worked Didactic Instantiation: Valid Chess Resignation**
+> **Allegory: The Referee's Whistle and Rulebook**
 >
-> The distinction between nominal definition and operational specification is demonstrated by the abstraction: "A valid chess resignation." Rather than reducing the abstraction to the utterance "I resign", CPD constructs the complete 7-tuple protocol $\langle P, \Sigma, T, I, E, Y, \Omega \rangle$ governing its instantiation within the operational domain of chess: - **Preconditions ($P$)**: A legally constituted chess game, identifiable players, an active game state, a governing ruleset, and a recognized recording mechanism. (Without an active game, resignation cannot instantiate the abstraction). - **State Space ($\Sigma$)**: $\Sigma = \{\text{GameActive}, \text{ResignationDeclared}, \text{ResignationRecorded}, \text{GameTerminated}\}$. - **Transition Function ($T$)**: The irreversible chronological sequence $\text{GameActive} \rightarrow \text{ResignationDeclared} \rightarrow \text{ResignationRecorded} \rightarrow \text{GameTerminated}$. No transition permits $\text{GameTerminated} \rightarrow \text{GameActive}$ within the same instance. - **Invariants ($I$)**: Only an active participant in the game can resign (spectators cannot resign on behalf of a player); resignation is attributable to the player; once validly recorded, it produces the prescribed game result and cannot be converted into an ordinary continuation. - **Enforcement Architecture ($E$)**: Tournament arbiters and the governing FIDE/match ruleset supply operational force. CPD does not assert that the rules of chess are metaphysically true, but that given the domain's governing architecture, this is the mechanism through which resignation becomes binding. - **Yield ($Y$)**: Prescribed game termination and result recorded ($\text{ValidResignation} \Rightarrow \text{GameTermination}$). Board position (winning or losing) does not alter resignation validity. - **Terminal Condition ($\Omega$)**: $\Omega = \text{GameTerminated}$. The instantiated abstraction terminates upon recording the result; this dissolves the specific game instance without requiring the dissolution of the institution of chess. **Allegorical Significance**: Players do not require identical philosophies of surrender, agency, or victory. They converge on the 7-tuple architecture such that when the event occurs, they know what happens next. This is the Constructo-Pragmatist criterion in miniature: a definition gives distinct covenants sufficient structural scaffolding to reconstruct the same operational object and coordinate around it.
+> Two chess players do not need to agree on the philosophy of defeat or honor for a resignation to work. They only need to share the concrete rulebook setup: a real game is underway, only a player can resign, tipping the king stops the clock, the referee records the score, and the match ends cleanly without ending the game of chess itself. Giving an idea clear steps, rules, and an ending is how people coordinate in practice without having to agree on everything in their heads.
 
 ---
 
@@ -249,7 +275,7 @@ redefinition:
     *meta* in metaagnosticism names precisely this second clause: not only is
     certainty unavailable, but the verification of whether one has achieved it
     is also unavailable — making the epistemic limit operate at one level above
-    ordinary fallibilism. `[RECURSIVE][RESTORED]`
+    ordinary fallibilism. `[STABLE][RECURSIVE][RESTORED]`
 - **SEMANTIC ENTROPY** — The log-measure of structural ambiguity in a
   transmitted signal, denoted as $H_s(S)$. Represents the number of
   distinct functional equivalence classes of receiving-covenant
@@ -261,12 +287,15 @@ redefinition:
   before they reach the Operational Action Threshold. `[STABLE]`
   [provisional dependency boundary: §3c.3, §8b.1]
 - **GRAPH-SPACE PARTITIONING AXIOM** — The formal individuation criterion
-  resolving §8b.1: candidate receiving-covenant graph space is discretized into
-  a
-  quotient space under functional congruence across the Operational Action
-  Threshold. Two topologies belong to the same equivalence class if and only if
-  they license indistinguishable downstream operational inferences across all
-  declared boundary conditions. `[PROVISIONAL]`
+  resolving §8b.1: under Audit-Mode exact equivalence ($\varepsilon = 0$ on a
+  declared finite operational probe suite), functional equivalence is
+  transitive and discretizes candidate receiving-covenant graph space into a
+  genuine quotient partition of equivalence classes $\{[G_R]\}$ (two topologies
+  belong to the same class if and only if they license indistinguishable
+  downstream operational inferences across all declared probes). Under
+  tolerance-bounded comosí ($\varepsilon > 0$), functional congruence is
+  reflexive and symmetric but non-transitive, inducing a tolerance covering
+  rather than disjoint equivalence classes. `[PROVISIONAL]`
   [provisional dependency boundary: §3c.3]
 - **TRANSMISSION** — The attempted transfer of semantic content from one
     covenant to another, or from one temporal state of a covenant to a later
@@ -310,6 +339,7 @@ redefinition:
   abstract target concept ($\operatorname{Action}_C(A) \cong
   \operatorname{Action}_C(\operatorname{Allegory}(A))$) under Core Path
   Minimization (§2f.6) to reduce transmission entropy. `[STABLE]`
+  [provisional dependency boundary: §7d.1]
 - **REDUNDANCY-MASKING** — The failure mode in which successful Polyphonic
   Encoding conceals a local topological void that would produce transmission
   failure under single-path conditions. `[STABLE]`
@@ -352,10 +382,13 @@ redefinition:
   interface-edge context change is a known structural limitation (see 2h.3).
   `[STABLE]`
 - **PRIMITIVE COVENANT** — The GMRTI-specific shared substrate consisting of the
-  eight primitive relational operators, the edge-primacy structural commitment,
-  and the Tier 1 coarse taxonomy. Required for GMRTI-mediated communication
-  specifically; sits above the framework-independent Minimal Substrate (2e.5i).
-  Its establishment between agents is itself a transmission problem. `[STABLE]`
+  three core primitive relational operators (`[->causal]`, `[->inferential]`,
+  `[->identity]`) bootstrapped via CZP, with the remaining five operators
+  derived or negotiated via JIT-OM (see §2e.5ii), together with the
+  edge-primacy structural commitment and the Tier 1 coarse taxonomy. Required
+  for GMRTI-mediated communication specifically; sits above the
+  framework-independent Minimal Substrate (2e.5i). Its establishment between
+  agents is itself a transmission problem. `[STABLE]`
 - **MINIMAL SUBSTRATE** — The weakest framework-independent assumption for
   structured communication: agents can distinguish signals from non-signals,
   detect structural similarity, and individuate their own conceptual regions.

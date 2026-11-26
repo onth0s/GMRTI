@@ -16,12 +16,14 @@ invariants:
       under the zero-charity Minimal Substrate posture (DRC 1.0) along
       combined Path-Stripping Probes (§2f.5iv).
   - >-
-      Graph-Space Partitioning Axiom: candidate topologies are individuated as
-      quotient equivalence classes under functional congruence across the
-      Operational Action Threshold (§8b.1).
+      Graph-Space Partitioning Axiom: under Audit-Mode exact equivalence
+      (epsilon = 0 on a declared finite operational probe suite), candidate
+      topologies form a transitive quotient partition of equivalence classes;
+      under tolerance-bounded comosi (epsilon > 0), functional congruence
+      induces a non-transitive tolerance covering (§8b.1).
   - >-
       Perfect entropy elimination (zero entropy) is structurally impossible
       under metaagnosticism.
   - "Targeted reduction prioritizes high-DRC structural/axiomatic subgraphs."
 status: STABLE
-last_modified: "2026-10-14"
+last_modified: "2026-11-26"

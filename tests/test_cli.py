@@ -2,6 +2,8 @@ import os
 import subprocess
 import sys
 
+import pytest
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PYTHON = sys.executable
 
@@ -15,24 +17,28 @@ def run(script, *args):
     )
 
 
+@pytest.mark.repo_state
 def test_wrap_check_exits_zero():
     """wrap.py --check exits 0 on a clean, fully-wrapped repository."""
     result = run("wrap.py", "--check")
     assert result.returncode == 0, f"wrap.py --check failed:\n{result.stdout}\n{result.stderr}"
 
 
+@pytest.mark.repo_state
 def test_rewrite_check_exits_zero():
     """rewrite.py --check exits 0 when root monolithic doc is in sync."""
     result = run("rewrite.py", "--check")
     assert result.returncode == 0, f"rewrite.py --check failed:\n{result.stdout}\n{result.stderr}"
 
 
+@pytest.mark.repo_state
 def test_pebble_check_exits_zero():
     """pebble.py --check exits 0 when root PEBBLE.md is in sync."""
     result = run("pebble.py", "--check")
     assert result.returncode == 0, f"pebble.py --check failed:\n{result.stdout}\n{result.stderr}"
 
 
+@pytest.mark.repo_state
 def test_patch_index_check_exits_zero():
     """patch_index.py --check exits 0 when index.html invariants are satisfied."""
     result = run("patch_index.py", "--check")
@@ -98,9 +104,9 @@ def test_pebble_output_error_exits_nonzero(tmp_path):
     assert res.returncode == 1
 
 
-def test_inprocess_cli_mains(monkeypatch):
-    """Verify in-process CLI main() entrypoints for --check and --dry-run."""
-    import pytest
+@pytest.mark.repo_state
+def test_inprocess_cli_check_mains(monkeypatch):
+    """Verify in-process CLI main() entrypoints for --check against live repo."""
     import patch_index
     import pebble
     import rewrite
@@ -116,6 +122,14 @@ def test_inprocess_cli_mains(monkeypatch):
         with pytest.raises(SystemExit) as exc:
             mod.main()
         assert exc.value.code == 0
+
+
+def test_inprocess_cli_dry_run_mains(monkeypatch):
+    """Verify in-process CLI main() entrypoints for --dry-run."""
+    import patch_index
+    import pebble
+    import rewrite
+    import wrap
 
     for mod, argv in [
         (wrap, ["wrap.py", "--dry-run"]),

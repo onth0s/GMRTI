@@ -40,7 +40,7 @@ redefinition:
     *meta* in metaagnosticism names precisely this second clause: not only is
     certainty unavailable, but the verification of whether one has achieved it
     is also unavailable — making the epistemic limit operate at one level above
-    ordinary fallibilism. `[RECURSIVE][RESTORED]`
+    ordinary fallibilism. `[STABLE][RECURSIVE][RESTORED]`
 - **SEMANTIC ENTROPY** — The log-measure of structural ambiguity in a
   transmitted signal, denoted as $H_s(S)$. Represents the number of
   distinct functional equivalence classes of receiving-covenant
@@ -52,12 +52,15 @@ redefinition:
   before they reach the Operational Action Threshold. `[STABLE]`
   [provisional dependency boundary: §3c.3, §8b.1]
 - **GRAPH-SPACE PARTITIONING AXIOM** — The formal individuation criterion
-  resolving §8b.1: candidate receiving-covenant graph space is discretized into
-  a
-  quotient space under functional congruence across the Operational Action
-  Threshold. Two topologies belong to the same equivalence class if and only if
-  they license indistinguishable downstream operational inferences across all
-  declared boundary conditions. `[PROVISIONAL]`
+  resolving §8b.1: under Audit-Mode exact equivalence ($\varepsilon = 0$ on a
+  declared finite operational probe suite), functional equivalence is
+  transitive and discretizes candidate receiving-covenant graph space into a
+  genuine quotient partition of equivalence classes $\{[G_R]\}$ (two topologies
+  belong to the same class if and only if they license indistinguishable
+  downstream operational inferences across all declared probes). Under
+  tolerance-bounded comosí ($\varepsilon > 0$), functional congruence is
+  reflexive and symmetric but non-transitive, inducing a tolerance covering
+  rather than disjoint equivalence classes. `[PROVISIONAL]`
   [provisional dependency boundary: §3c.3]
 - **TRANSMISSION** — The attempted transfer of semantic content from one
     covenant to another, or from one temporal state of a covenant to a later
@@ -101,6 +104,7 @@ redefinition:
   abstract target concept ($\operatorname{Action}_C(A) \cong
   \operatorname{Action}_C(\operatorname{Allegory}(A))$) under Core Path
   Minimization (§2f.6) to reduce transmission entropy. `[STABLE]`
+  [provisional dependency boundary: §7d.1]
 - **REDUNDANCY-MASKING** — The failure mode in which successful Polyphonic
   Encoding conceals a local topological void that would produce transmission
   failure under single-path conditions. `[STABLE]`
@@ -143,10 +147,13 @@ redefinition:
   interface-edge context change is a known structural limitation (see 2h.3).
   `[STABLE]`
 - **PRIMITIVE COVENANT** — The GMRTI-specific shared substrate consisting of the
-  eight primitive relational operators, the edge-primacy structural commitment,
-  and the Tier 1 coarse taxonomy. Required for GMRTI-mediated communication
-  specifically; sits above the framework-independent Minimal Substrate (2e.5i).
-  Its establishment between agents is itself a transmission problem. `[STABLE]`
+  three core primitive relational operators (`[->causal]`, `[->inferential]`,
+  `[->identity]`) bootstrapped via CZP, with the remaining five operators
+  derived or negotiated via JIT-OM (see §2e.5ii), together with the
+  edge-primacy structural commitment and the Tier 1 coarse taxonomy. Required
+  for GMRTI-mediated communication specifically; sits above the
+  framework-independent Minimal Substrate (2e.5i). Its establishment between
+  agents is itself a transmission problem. `[STABLE]`
 - **MINIMAL SUBSTRATE** — The weakest framework-independent assumption for
   structured communication: agents can distinguish signals from non-signals,
   detect structural similarity, and individuate their own conceptual regions.

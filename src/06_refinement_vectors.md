@@ -88,12 +88,16 @@ preservation.
 
 **The Compression Burden-of-Proof Rule**: To distinguish legitimate editorial
 tightening from destructive compression, GMRTI establishes a strict
-burden-of-proof standard. A proposed cut or compression is legitimate *if and
-only if* the removed path is demonstrated under Core Path Minimization (§2f.6)
-to be both *destination-isomorphic* and *non-route-independent* with a path that
-survives the edit — proving it to be true duplicate redundancy rather than an
-alternative entry ramp. Any editorial pruning that cannot make this explicit
-showing is classified as presumptive covenant intrusion and rejected.
+burden-of-proof standard. Within the canonical treatise, a proposed cut or
+compression is legitimate only when at least one of the following holds: (1) the
+removed path is demonstrated under Core Path Minimization (§2f.6) to be both
+*destination-isomorphic* and *non-route-independent* with a path that survives
+the edit (proving true duplicate redundancy); (2) the content is formally
+retired on grounds of falsity, contradiction, or orphanhood and preserved in
+situ with `[EXCISED]`; or (3) the output is explicitly scoped as a declared
+lossy derivative (e.g., `PEBBLE.md` or a low-DRC summary). Any editorial pruning
+that cannot make this explicit showing is classified as presumptive covenant
+intrusion and rejected.
 
 - **6b.4i — The Art Tutorials Allegory** `[ALLEGORY: COMPRESSION-ASYMMETRY]`
   Consider online art tutorials for drawing hands or perspective. Nobody looks
@@ -114,11 +118,11 @@ length-and-redundancy audit, verifying that compression has not stripped
 Polyphonic Encoding rather than eliminated genuine repetition.
 
 This failure mode was confirmed empirically in v0.6: the Refinery entries R2
-through R4 lost their elaborated open questions, and the metaagnosticism
-definition lost its second clause. Both losses made the document read more
-cleanly while reducing its precision and depth. The v0.7 repairs restore both.
-Future iterations should treat any reduction in Refinery entry length as a flag
-requiring explicit justification. `[STABLE]`
+through R4 (archived from v0.6–v0.7) lost their elaborated open questions, and
+the metaagnosticism definition lost its second clause. Both losses made the
+document read more cleanly while reducing its precision and depth. The v0.7
+repairs restore both. Future iterations should treat any reduction in Refinery
+entry length as a flag requiring explicit justification. `[STABLE]`
 
 **6c — The Temporal Stranger Protocol** `[STABLE]`
 

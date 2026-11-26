@@ -22,8 +22,9 @@
   satellite verification artifact. It must never be imported by, referenced
   from, or compiled into the GMRTI treatise sources (`src/`, `GLOSSARY.md`,
   monolith). The treatise acknowledges its existence in exactly one sentence
-  in `src/00_preamble.md` and nowhere else. No LaTeX, no theorem statements,
-  no Lean 4 syntax of any kind may appear in any treatise source file.
+  in `src/00_preamble.md` and nowhere else. No Lean 4 theorem statements or
+  Lean 4 syntax of any kind may appear in any treatise source file (treatise-
+  native KaTeX/LaTeX mathematical notation `$...$` / `$$...$$` is permitted).
 
 - **`wrap.py` Scope Exclusion**: The `.lean` source files in `math/` are
   formatted by `lake fmt`, not by `wrap.py`. Never add `math/` to the

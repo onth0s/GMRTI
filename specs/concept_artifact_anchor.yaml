@@ -22,7 +22,7 @@ invariants:
   - >-
       Under continuous linear drift rate delta, the post-update anchor tracking
       lag |A[t+1] - A_decl[t]| is strictly bounded by delta * (1 - lambda) /
-      lambda (Lag-Bounded Tracking Principle); the update acts on a continuous
-      vector embedding of the anchor graph.
+      lambda (Lag-Bounded Tracking Principle); the update is a continuous-space
+      heuristic modeling revision inertia on discrete textual anchors.
 status: PROVISIONAL
-last_modified: "2026-10-14"
+last_modified: "2026-11-26"

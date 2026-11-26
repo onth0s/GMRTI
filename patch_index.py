@@ -11,10 +11,17 @@ Invocation
     python patch_index.py --dry-run   # report whether index.html would change
     python patch_index.py --path FILE # target a specific HTML file
 """
-import argparse
 import os
 import re
 import sys
+
+from _gmrti_common import (
+    build_base_parser,
+    exit_for_check,
+    get_repo_root,
+    read_utf8,
+    write_utf8,
+)
 
 KATEX_OVERFLOW_CSS = (
     ".katex--overflow{display:block;max-width:100%;overflow-x:auto;"
@@ -111,8 +118,7 @@ def process_index_file(
     filepath: str, check_only: bool = False, dry_run: bool = False
 ) -> bool:
     """Inspect or patch *filepath*. Returns True if changes were needed."""
-    with open(filepath, "r", encoding="utf-8") as f:
-        original = f.read()
+    original = read_utf8(filepath)
 
     patched = patch_html(original)
     needs_change = original != patched
@@ -123,26 +129,17 @@ def process_index_file(
         return needs_change
 
     if needs_change:
-        with open(filepath, "w", encoding="utf-8", newline="\n") as f:
-            f.write(patched)
+        write_utf8(filepath, patched)
         print(f"Patched: {filepath}")
 
     return needs_change
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(
-        description="Idempotently patch index.html responsive CSS and KaTeX guards."
-    )
-    parser.add_argument(
-        "--check",
-        action="store_true",
-        help="Check if index.html requires patching without writing.",
-    )
-    parser.add_argument(
-        "--dry-run",
-        action="store_true",
-        help="Report whether index.html would be modified.",
+    parser = build_base_parser(
+        description="Idempotently patch index.html responsive CSS and KaTeX guards.",
+        check_help="Check if index.html requires patching without writing.",
+        dry_run_help="Report whether index.html would be modified.",
     )
     parser.add_argument(
         "--path",
@@ -152,7 +149,7 @@ def main() -> None:
     )
     args = parser.parse_args()
 
-    base_dir = os.path.dirname(os.path.abspath(__file__))
+    base_dir = get_repo_root(__file__)
     target = (
         os.path.abspath(args.path)
         if args.path
@@ -172,11 +169,11 @@ def main() -> None:
         sys.exit(1)
 
     if args.check:
-        if needs_change:
-            print(f"Unpatched HTML: {target}")
-            sys.exit(1)
-        print(f"HTML invariants verified: {target}")
-        sys.exit(0)
+        exit_for_check(
+            not needs_change,
+            f"HTML invariants verified: {target}",
+            f"Unpatched HTML: {target}",
+        )
 
 
 if __name__ == "__main__":

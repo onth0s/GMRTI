@@ -105,15 +105,20 @@ can see what you are building on.
 **3c — Stage 2: Generative Reconstruction and Interpretive Charity Calibration**
 `[STABLE]`
 
+`[PLAIN]` Stage 2 has two beats: first, read strictly what is written without
+guessing; second, use what you already know to fill in the gaps and write down
+every spot where you had to guess.
+
 **3c.1** Stage 2 is temporally divided to resolve the tension between pure
     reception and active interpretation:
-- **3c.1i (Mirror Mode):** The receiving party operates strictly as a Rationally
-  Agnostic Mirror, suspending interpretive charity to passively map the
-  transmitting party's declared edges exactly as stated, identifying structural
-  gaps.
-- **3c.1ii (Generative Mode):** Interpretive charity is explicitly re-engaged.
-  The receiver uses their own covenant's topology to build active bridges and
-  scaffolds across the gaps identified during Mirror Mode. `[STABLE]`
+- **3c.1i (Mirror Mapping Phase):** The receiving party operates strictly as a
+  Rationally Agnostic Mirror, suspending interpretive charity to passively map
+  the transmitting party's declared edges exactly as stated, identifying
+  structural gaps.
+- **3c.1ii (Generative Bridging Phase):** Interpretive charity is calibrated to
+  the active DRC and re-engaged. The receiver uses their own covenant's
+  topology to build active bridges and scaffolds across the gaps identified
+  during the Mirror Mapping Phase. `[STABLE]`
 
 **3c.2 — The Domain Risk Coefficient (DRC)** `[STABLE]`
 
@@ -175,6 +180,10 @@ interfaces yield compatible outcomes.
 
 **3d — Stage 3: Divergence Localization** `[STABLE]`
 
+`[PLAIN]` Stage 3 is finding the root of the misunderstanding. You fix simple
+surface mix-ups first, then deeper structural links, before assuming you
+disagree at the deepest level.
+
 **3d.1** Using the divergence report from Stage 2, both parties collaboratively
     identify where specifically in the topological depth structure the
     transmission failed.
@@ -198,6 +207,10 @@ interfaces yield compatible outcomes.
     `[STABLE]`
 
 **3e — Stage 4: Targeted Repair** `[STABLE]`
+
+`[PLAIN]` Stage 4 matches the fix to the break: build new bridges where an idea
+is missing, draw a boundary around local edits, or agree on what kind of link
+connects two ideas.
 
 **3e.1** Each divergence type calls for a distinct topological operation:
 
@@ -241,31 +254,37 @@ interfaces yield compatible outcomes.
 - **3e.1vi** *Relational Operator Regress Terminus*: To prevent the infinite
   regress of tagging metadata, the relational operators defined in 2g.4 are
   structurally non-markable at the content level (preventing meta-tagging of
-  tags). Divergence over primitive relational operators cannot be repaired via
-  local JIT-OM, but triggers execution of the Covenant Zero Protocol (§2e.5iii)
-  to re-establish operator grounding from the Minimal Substrate. Cost-Bounded
-  Termination (§3a.1iii) is invoked only if CZP itself fails to converge.
+  tags). Divergence over any of the three core CZP-bootstrapped primitives
+  (`[->causal]`, `[->inferential]`, `[->identity]`) triggers re-execution of the
+  Covenant Zero Protocol (§2e.5iii) to re-establish operator grounding from the
+  Minimal Substrate; divergence over the five derived operators is resolved by
+  compositional decomposition into those primitives or local JIT-OM negotiation.
+  Cost-Bounded Termination (§3a.1iii) is invoked only if CZP itself fails to
+  converge.
 
 **Content–Protocol Stratification**: The eight operators govern *content-level*
 semantic relations within concept-graphs. To coordinate transmission repair
 without triggering an infinite metalanguage regress, the GMRTI algorithm
 stratifies protocol actions into a closed set of six *performative protocol
-acts* (propose, accept, reject, pause, resume, default). Unlike content
-concepts, these operations are non-descriptive: their semantic value is strictly
-operational and exhausted by their state transitions within a finite state
-machine:
-- `propose(target, edge_type)`: Transitions transmission from Active to
-  Under-Review.
-- `accept(proposal)`: Ratifies candidate edge typing; returns to Active
-  transmission.
-- `reject(proposal)`: Declines candidate repair; triggers alternative routing.
-- `pause(scope)`: Halts primary traversal; initiates localized diagnostic probe.
-- `resume()`: Restores traversal following diagnostic or repair ratification.
-- `default(drc_level)`: Enforces highest demanded DRC upon unresolved
-  meta-dispute.
+acts* operating over the declared state set `{Active, Under-Review, Paused,
+Terminated, Irreducible}` with a bounded rejection retry limit $k_{\max}$:
+- `propose(target, edge_type)`: `Active -> Under-Review` (submits candidate
+  repair or edge typing).
+- `accept(proposal)`: `Under-Review -> Active` (ratifies candidate edge typing
+  and resets rejection count).
+- `reject(proposal)`: `Under-Review -> Active` if `reject_count < k_max`
+  (triggers alternative routing); otherwise transitions to `Terminated`
+  (§3a.1iii) or `Irreducible` (§3f.1) to prevent infinite retry loops.
+- `pause(scope)`: `Active -> Paused` (halts primary traversal; initiates
+  localized diagnostic probe).
+- `resume()`: `Paused -> Active` (restores traversal following diagnostic or
+  repair ratification).
+- `default(drc_level)`: `Under-Review | Paused -> Active` (enforces highest
+  demanded DRC upon unresolved meta-dispute).
 
 Because protocol commands perform state-transitions rather than asserting
-truth-claims about semantic edges, they admit no meta-level edge divergence,
+truth-claims about semantic edges, they reduce meta-level ambiguity to
+verifiable state-transition preconditions grounded in the Minimal Substrate,
 halting the regress without resort to dogmatic fiat. `[STABLE]`
 
 
@@ -277,6 +296,10 @@ halting the regress without resort to dogmatic fiat. `[STABLE]`
 
 
 **3f — Stage 5: Irreducibility Declaration** `[STABLE]`
+
+`[PLAIN]` Stage 5 is an honest stalemate: if you have tested every repair down
+to bedrock and still disagree, you name it as a real difference in values rather
+than a wording mix-up.
 
 **3f.1** If localization reaches the Axiomatic layer and the divergence survives
     all repair attempts — including mandatory Polyphonic Encoding of the
@@ -304,6 +327,9 @@ halting the regress without resort to dogmatic fiat. `[STABLE]`
 
 **3g — Stopping Principle and Cost Control** `[STABLE]`
 
+`[PLAIN]` Don't polish forever. Stop refining once the extra effort costs more
+than the remaining risk of misunderstanding.
+
 **3g.1** Recursive refinement is not meant to continue indefinitely. A GMRTI
     process should stop when the expected epistemic gain from one more cycle
     falls below the DRC-adjusted cost of continuing.
@@ -327,9 +353,12 @@ exploit interpretive charity by declaring internally contradictory edge
 subgraphs, manufacturing spurious irreducibility to block coordination, or
 persistently rejecting valid isomorphic repairs. To bound adversarial
 exploitation, the GMRTI deploys the **Topological Consistency Audit (TCA)**:
-- **TCA Verification**: An automated check testing declared subgraphs for
-  internal logical contradictions and verifying whether candidate repairs
-  satisfy declared interface invariants.
+- **TCA Verification**: A structural graph-consistency check (respecting §3a.3:
+  GMRTI is not a compiler for natural language) that tests declared subgraphs
+  for conflicting edge-types on the same directed pair under declared mutual
+  exclusion, Boundary-Tracing Encapsulation (2h) interface invariant
+  violations, and documented refusal of candidate repairs that pass the actor's
+  own declared operational probes.
 - **Enforcement**: If a participant maintains contradictory edge declarations or
   repeatedly rejects isomorphic repairs verified by TCA, they are classified as
   a Bad Actor. The protocol terminates cooperative exchange immediately under

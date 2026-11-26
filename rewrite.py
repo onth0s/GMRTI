@@ -16,58 +16,15 @@ import sys
 import time
 
 from _gmrti_common import (
+    ASSEMBLY_MANIFEST,
     MONOLITHIC_PATTERN,
+    SyncResult,
+    build_base_parser,
+    exit_for_check,
     get_repo_root,
     list_monolithic_files as _list_monolithic_files,
     read_utf8,
     write_utf8,
-)
-
-# ── Assembly Manifest Constant ──────────────────────────────────────────────
-# Canonical immutable assembly sequence. Each entry specifies:
-#   - path: relative path from repository root
-#   - merge_mode: 'separator' (join with '\n\n---\n\n') or 'append' (stitch directly)
-#   - heading_transform: optional tuple of (pattern, replacement)
-ASSEMBLY_MANIFEST = (
-    {"path": "src/00_preamble.md",           "merge_mode": "separator"},
-    {
-        "path": "GLOSSARY.md",
-        "merge_mode": "append",
-        "heading_transform": (r"^#\s+Glossary\b", "**0.4 Vocabulary**"),
-    },
-    {"path": "src/01_problem.md",            "merge_mode": "separator"},
-    {"path": "src/02_architecture.md",       "merge_mode": "separator"},
-    {"path": "src/03_algorithm.md",          "merge_mode": "separator"},
-    {"path": "src/04_temporal_anchoring.md", "merge_mode": "separator"},
-    {"path": "src/05_metalanguage.md",       "merge_mode": "separator"},
-    {"path": "src/06_refinement_vectors.md", "merge_mode": "separator"},
-    {"path": "src/07_downstream.md",         "merge_mode": "separator"},
-    {"path": "src/08_gaps.md",               "merge_mode": "separator"},
-    {"path": "src/09_coda.md",               "merge_mode": "separator"},
-    {
-        "path": "ARCHITECTURE.md",
-        "merge_mode": "separator",
-        "heading_transform": (
-            r"^#\s+GMRTI Architectural Model\b",
-            "## APPENDIX A — Architectural Model",
-        ),
-    },
-    {
-        "path": "METHODOLOGY.md",
-        "merge_mode": "separator",
-        "heading_transform": (
-            r"^#\s+GMRTI Methodology & Status Markers\b",
-            "## APPENDIX M — Methodology & Status Markers",
-        ),
-    },
-    {
-        "path": "REFINEMENT.md",
-        "merge_mode": "separator",
-        "heading_transform": (
-            r"^#\s+The Refinement Cycle\b",
-            "## APPENDIX R — The Refinement Cycle",
-        ),
-    },
 )
 
 
@@ -89,13 +46,17 @@ def assemble_monolithic_document(base_dir: str) -> str:
     header_match = re.search(
         r"^(.*?)(?=\n## Table of Contents)", readme_content, re.DOTALL
     )
-    header = header_match.group(1).strip() if header_match else ""
+    if not header_match:
+        raise ValueError(
+            "README.md is missing '## Table of Contents' anchor."
+        )
+    header = header_match.group(1).strip()
 
     body_parts: list[str] = []
 
     for entry in ASSEMBLY_MANIFEST:
-        rel_path = entry["path"]
-        mode = entry.get("merge_mode", "separator")
+        rel_path = entry.path
+        mode = entry.merge_mode
         filepath = os.path.join(base_dir, rel_path)
 
         if not os.path.exists(filepath):
@@ -103,7 +64,7 @@ def assemble_monolithic_document(base_dir: str) -> str:
 
         content = read_utf8(filepath).strip()
 
-        transform = entry.get("heading_transform")
+        transform = entry.heading_transform
         if transform:
             pattern, replacement = transform
             content, n = re.subn(
@@ -156,6 +117,10 @@ def archive_prior_monolithic_files(
             print(f"Removed duplicate monolithic revision: {f} (already in archive/)")
         else:
             dest_path = os.path.join(archive_dir, f)
+            if os.path.exists(dest_path) and _file_sha256(dest_path) != file_hash:
+                raise FileExistsError(
+                    f"Archive collision: {dest_path} already exists with different content."
+                )
             shutil.move(full_path, dest_path)
             archived_hashes.add(file_hash)
             archived_files.append(f)
@@ -164,7 +129,7 @@ def archive_prior_monolithic_files(
     return archived_files
 
 
-def check_monolithic_sync(base_dir: str) -> dict:
+def check_monolithic_sync(base_dir: str) -> SyncResult:
     """Check whether the root monolithic document matches the current sources.
 
     Returns a dict with keys: in_sync (bool), mono_file (str|None),
@@ -219,6 +184,11 @@ def create_monolithic_document(
                 )
                 return existing_path
 
+    is_root_monolith = output_path is None or (
+        os.path.dirname(os.path.abspath(output_path)) == os.path.abspath(base_dir)
+        and bool(MONOLITHIC_PATTERN.match(os.path.basename(output_path)))
+    )
+
     epoch_time = int(time.time())
     if output_path is None:
         output_path = os.path.join(base_dir, f"GMRTI_{epoch_time}.md")
@@ -228,13 +198,14 @@ def create_monolithic_document(
             f"[DRY RUN] Would compile monolithic document to: "
             f"{output_path} ({len(assembled)} bytes)"
         )
-        prior = _list_monolithic_files(base_dir)
-        if prior:
-            print(f"[DRY RUN] Would archive prior revisions: {prior}")
+        if archive and is_root_monolith:
+            prior = _list_monolithic_files(base_dir)
+            if prior:
+                print(f"[DRY RUN] Would archive prior revisions: {prior}")
         return output_path
 
     write_utf8(output_path, assembled)
-    if archive:
+    if archive and is_root_monolith:
         archive_prior_monolithic_files(
             base_dir, current_output_path=output_path
         )
@@ -243,18 +214,10 @@ def create_monolithic_document(
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(
-        description="Compile modular GMRTI treatise into monolithic document."
-    )
-    parser.add_argument(
-        "--check",
-        action="store_true",
-        help="Check if root monolithic document is in sync.",
-    )
-    parser.add_argument(
-        "--dry-run",
-        action="store_true",
-        help="Simulate compilation and archival without writing.",
+    parser = build_base_parser(
+        description="Compile modular GMRTI treatise into monolithic document.",
+        check_help="Check if root monolithic document is in sync.",
+        dry_run_help="Simulate compilation and archival without writing.",
     )
     parser.add_argument(
         "--output",
@@ -272,20 +235,18 @@ def main() -> None:
     base_dir = get_repo_root(__file__)
 
     if args.check:
-        result = check_monolithic_sync(base_dir)
+        try:
+            result = check_monolithic_sync(base_dir)
+        except (FileNotFoundError, OSError, ValueError) as e:
+            print(f"Error during check: {e}")
+            sys.exit(1)
         if result["error"]:
-            print(result["error"])
-        elif result["in_sync"]:
-            print(
-                f"Root monolithic document {result['mono_file']} "
-                "is fully in sync."
-            )
-        else:
-            print(
-                f"Root monolithic document {result['mono_file']} "
-                "is OUT OF SYNC with source files."
-            )
-        sys.exit(0 if result["in_sync"] else 1)
+            exit_for_check(False, "", result["error"])
+        exit_for_check(
+            result["in_sync"],
+            f"Root monolithic document {result['mono_file']} is fully in sync.",
+            f"Root monolithic document {result['mono_file']} is OUT OF SYNC with source files.",
+        )
 
     try:
         create_monolithic_document(

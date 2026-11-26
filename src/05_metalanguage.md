@@ -47,24 +47,25 @@ them.
 
 The concept-type taxonomy of 5a.1 has a direct prescriptive implication for the
 deployment of Syntactic Edge-Forcing (Section 2g). Edge-forcing is most
-effective for types 5a.1i through 5a.1v — material entities, abstract
-universals, formal relations, and process distinctions — where the primary
-relational structure is logical or structural and can be captured in
-compositional form. It is least effective for types 5a.1iv and 5a.1vi — qualia
-and normative concepts — where the most consequential edges are experiential
-associations or axiomatic commitments that syntactic compulsion cannot transmit.
-For these high-entropy concept types, Polyphonic Encoding and JIT-OM remain the
-primary tools; Syntactic Edge-Forcing, if applied at all, should be understood
-as partial entropy reduction rather than entropy solution.
+effective for types 5a.1i, 5a.1ii, 5a.1v, and 5a.1vii — material entities,
+abstract universals, relational concepts, and process-versus-state distinctions
+— where the primary relational structure is logical or structural and can be
+captured in compositional form. It is least effective for types 5a.1iii, 5a.1iv,
+and 5a.1vi — social constructs, qualia, and normative concepts — where the most
+consequential edges are cultural agreements, experiential associations, or
+axiomatic commitments that syntactic compulsion cannot transmit. For these
+high-entropy concept types, Polyphonic Encoding and JIT-OM remain the primary
+tools; Syntactic Edge-Forcing, if applied at all, should be understood as
+partial entropy reduction rather than entropy solution.
 
-**5a.4 — Carved, Constructed, and Boundary Concepts** `[STABLE]`
+**5a.4 — Carved, Constructed, Boundary, and Experiential Concepts** `[STABLE]`
 
 For the purpose of JIT-OM markers, we partition the concept-type taxonomy of
-5a.1 into three operational classes that govern their targeted repair
-strategies:
+5a.1 into four operational classes that govern their targeted repair strategies:
 - **Carved Concepts**: Includes material entities (5a.1i), abstract universals
   (5a.1ii), relational concepts (5a.1v), and process distinctions (5a.1vii).
-  These concepts reflect structures independent of human covenants. Repair is
+  These concepts are anchored in covenant-independent empirical constraints or
+  formal deductive closure within a shared axiomatic system. Repair is
   accomplished by pointing to the world, logical proofs, or empirical reference.
 - **Constructed Concepts**: Includes social constructs (5a.1iii), normative
   concepts (5a.1vi), and gradient-to-binary mappings (5a.1viii). These concepts
@@ -76,6 +77,10 @@ strategies:
   within trained communities). These are treated as
   constructed-but-operationally-carved, utilizing formal syntactic constraints
   to establish apodictic comosí.
+- **Experiential / Phenomenological Concepts**: Includes qualia (5a.1iv). These
+  are irreducibly private experiential states; repair cannot proceed by direct
+  empirical pointing or covenant renegotiation and is strictly limited to
+  behavioral or functional proxies.
 
 **5b — Just-In-Time Ontological Marking** `[STABLE]`
 

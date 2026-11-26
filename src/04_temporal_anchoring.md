@@ -67,20 +67,22 @@ $A_{decl,t}$.
   steady-state tracking lag of the smoothed anchor, measured post-update
   relative to the current reference declaration, is bounded by:
   $$\limsup_{t \to \infty} \|A_{t+1} - A_{decl,t}\| \le \delta \frac{1 - \lambda}{\lambda}$$
-The update acts on a continuous vector embedding of the anchor graph
-(equivalently, a fractional geodesic step under Graph Edit Distance); $A_t$ as a
-discrete directed graph is not directly averaged. At $\lambda = 1.0$ the lag is
-$0$ (no anchor, full tracking), consistent with §4b.3i. This frames the choice
-of $\lambda$ as a formal tradeoff: smaller $\lambda$ suppresses local variance
-and prevents oscillation, while larger $\lambda$ minimizes steady-state tracking
-lag behind authentic covenant evolution.
+The update is a continuous-space heuristic modeling revision inertia (on
+discrete textual anchors, it is operationalized by admitting a bounded fraction
+of proposed deltas per maintenance epoch); $A_t$ as a discrete directed graph is
+not directly averaged, and any transient initial offset decays geometrically as
+$(1 - \lambda)^t$. At $\lambda = 1.0$ the lag is $0$ (no anchor, full tracking),
+consistent with §4b.3i. This frames the choice of $\lambda$ as a formal
+tradeoff: smaller $\lambda$ suppresses local variance and prevents oscillation,
+while larger $\lambda$ minimizes steady-state tracking lag behind authentic
+covenant evolution.
 
 - **4b.3i — The Floating Sea-Anchor Allegory**
     `[ALLEGORY: DYNAMIC-REANCHORING]`
     In deep, stormy waters, a ship cannot drop a heavy iron anchor down to the
     ocean floor: the seabed is too deep and rigid, and the chain will snap. But
-    if the captain drops no anchor at all, every passing wave spins the ship out
-    of control ($\lambda = 1.0$). Instead, the crew deploys a submerged cloth
-    sea-anchor (a drogue with $\lambda = 0.15$): it allows the vessel to glide
-    smoothly with the deep ocean current while dampening out the violent surface
-    chop, keeping the bow pointed in a steady, safe direction.
+    if the captain drops no anchor at all (full tracking, damping equal to 1),
+    every passing wave spins the ship out of control. Instead, the crew deploys
+    a submerged cloth sea-anchor (a gentle drag, such as 0.15): it allows the
+    vessel to glide smoothly with the deep ocean current while dampening out the
+    violent surface chop, keeping the bow pointed in a steady, safe direction.

@@ -20,6 +20,7 @@ namespace GMRTI
 alternative inferential route between concepts. -/
 structure PolyphonicPath (V : Type) where
   edges : List (DirectedEdge V)
+  nonempty : edges ≠ []
 
 /-- Augment a signal with an additional polyphonic path. -/
 def addPolyphonicPath {V : Type} (S : Signal V) (path : PolyphonicPath V) : Signal V where
@@ -34,7 +35,7 @@ theorem addPolyphonicPath_contains {V : Type} (S : Signal V) (path : PolyphonicP
 
 /-- Weak Polyphony Monotonicity Theorem (Candidate Count):
 Adding a polyphonic path never increases the number of compatible receiving topologies. -/
-theorem polyphony_candidates_monotone {V : Type} [DecidableEq V] [DecidableEq (Covenant V)]
+theorem polyphony_candidates_monotone {V : Type} [DecidableEq V]
     (U : Finset (Covenant V)) (S : Signal V) (path : PolyphonicPath V) :
     (compatibleCovenants U (addPolyphonicPath S path)).card ≤ (compatibleCovenants U S).card :=
   compatible_card_mono U S (addPolyphonicPath S path) (addPolyphonicPath_contains S path)
@@ -42,7 +43,7 @@ theorem polyphony_candidates_monotone {V : Type} [DecidableEq V] [DecidableEq (C
 /-- Weak Polyphony Monotonicity Theorem (Semantic Entropy):
 Adding a polyphonic path weakly decreases or preserves Hartley Semantic Entropy
 whenever candidate count remains positive. -/
-theorem polyphony_entropy_weak_monotone {V : Type} [DecidableEq V] [DecidableEq (Covenant V)]
+theorem polyphony_entropy_weak_monotone {V : Type} [DecidableEq V]
     (U : Finset (Covenant V)) (S : Signal V) (path : PolyphonicPath V)
     (hpos : 0 < (compatibleCovenants U (addPolyphonicPath S path)).card) :
     semanticEntropy U (addPolyphonicPath S path) ≤ semanticEntropy U S :=

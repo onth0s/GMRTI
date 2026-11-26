@@ -1,4 +1,5 @@
 import os
+import pytest
 from pebble import (
     assemble_pebble_document,
     check_pebble_sync,
@@ -70,6 +71,7 @@ def test_clean_plain_text_preserves_bold_and_code():
     assert "****" not in cleaned
 
 
+@pytest.mark.repo_state
 def test_check_pebble_sync_in_sync(base_dir):
     result = check_pebble_sync(base_dir)
     assert isinstance(result, dict)
@@ -77,7 +79,11 @@ def test_check_pebble_sync_in_sync(base_dir):
     assert result["error"] is None
 
 
-def test_check_pebble_sync_out_of_sync(tmp_path):
+def test_check_pebble_sync_out_of_sync(tmp_path, base_dir):
+    import shutil
+
+    shutil.copytree(os.path.join(base_dir, "src"), str(tmp_path / "src"))
+    shutil.copy2(os.path.join(base_dir, "GLOSSARY.md"), str(tmp_path / "GLOSSARY.md"))
     pebble_path = tmp_path / "PEBBLE.md"
     pebble_path.write_text("wrong content", encoding="utf-8")
     result = check_pebble_sync(str(tmp_path))
@@ -100,3 +106,34 @@ def test_create_pebble_document_writes_and_dry_run(tmp_path, base_dir):
     assert written == str(out_file)
     assert out_file.exists()
     assert out_file.read_text(encoding="utf-8").startswith("# PEBBLE:")
+
+
+def test_parse_src_file_10_0_only_takes_one_paragraph():
+    """B5: Heading '10.0 ...' must not match '0.0' multi-paragraph preamble rule."""
+    from pebble import parse_src_file
+
+    sample = (
+        "## SECTION 10 — Test\n\n"
+        "**10.0 Not Preamble** `[STABLE]`\n\n"
+        "`[PLAIN]` First paragraph only.\n\n"
+        "Second paragraph is academic prose, not plain.\n"
+    )
+    parsed = parse_src_file(sample, filename="src/10_test.md")
+    assert len(parsed["plain_blocks"]) == 1
+    assert parsed["plain_blocks"][0]["text"] == "First paragraph only."
+
+
+def test_assemble_pebble_missing_source_raises(tmp_path):
+    """B6: Missing manifest source files raise FileNotFoundError."""
+    import pytest
+
+    with pytest.raises(FileNotFoundError, match="Critical source file missing"):
+        assemble_pebble_document(str(tmp_path))
+
+
+def test_excluded_allegory_anchor_still_exists(base_dir):
+    """B7: Guard that excluded clause 2f.3ii still exists in src/02_architecture.md."""
+    arch_path = os.path.join(base_dir, "src", "02_architecture.md")
+    with open(arch_path, "r", encoding="utf-8") as f:
+        content = f.read()
+    assert "- **2f.3ii" in content

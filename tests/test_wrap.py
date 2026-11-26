@@ -259,3 +259,51 @@ def test_wrap_markdown_footnote_uniform_continuation():
     assert all(len(ln) <= 45 for ln in lines)
     assert all(ln.startswith("    ") for ln in lines[1:])
 
+
+def test_wrap_yaml_preserves_inline_comment_semantics():
+    """B8: Unquoted YAML values with inline ' #' comments must not absorb the comment."""
+    sample = "status: STABLE # this inline comment is long enough to exceed the target width\n"
+    wrapped = wrap_yaml(sample, width=40)
+    assert yaml.safe_load(wrapped) == yaml.safe_load(sample)
+    assert yaml.safe_load(wrapped)["status"] == "STABLE"
+
+
+def test_wrap_markdown_preserves_hard_line_breaks():
+    """B9: Trailing two spaces or backslash hard breaks are not merged into one line."""
+    sample = "First line with break  \nSecond line with slash\\\nThird line."
+    wrapped = wrap_markdown(sample, width=80)
+    lines = wrapped.splitlines()
+    assert lines[0].endswith("  ")
+    assert lines[1].endswith("\\")
+    assert lines[2] == "Third line."
+
+
+def test_wrap_markdown_preserves_setext_html_and_tilde_fence():
+    """B9/B10: Setext headings, HTML blocks, and ~~~ / 5-backtick fences pass through."""
+    sample = (
+        "Setext Title\n"
+        "============\n\n"
+        "<div class=\"note\">Very long raw HTML line that must not be wrapped by markdown</div>\n\n"
+        "~~~python\n"
+        "x = 'very long line inside tilde fence that must stay intact'\n"
+        "~~~\n\n"
+        "`````markdown\n"
+        "````\n"
+        "nested inside 5-backtick fence\n"
+        "`````"
+    )
+    wrapped = wrap_markdown(sample, width=30)
+    assert "Setext Title\n============" in wrapped
+    assert '<div class="note">Very long raw HTML line' in wrapped
+    assert "x = 'very long line inside tilde fence that must stay intact'" in wrapped
+    assert "nested inside 5-backtick fence" in wrapped
+
+
+def test_wrap_markdown_nested_blockquotes():
+    """B9: Nested >> blockquotes keep their depth and do not merge with > lines."""
+    sample = "> Outer quote\n>> Inner nested quote that is long enough to wrap"
+    wrapped = wrap_markdown(sample, width=35)
+    lines = wrapped.splitlines()
+    assert lines[0] == "> Outer quote"
+    assert all(ln.startswith(">> ") for ln in lines[1:])
+

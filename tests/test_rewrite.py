@@ -8,7 +8,7 @@ from rewrite import (
     check_monolithic_sync,
     create_monolithic_document,
 )
-from tests.conftest import MONOLITHIC_PATTERN
+from _gmrti_common import MONOLITHIC_PATTERN
 
 _COPY_IGNORE = shutil.ignore_patterns(
     "math", "archive", "index.html", ".git", ".pytest_cache", "__pycache__"
@@ -71,6 +71,7 @@ def test_archive_prior_monolithic_files_deduplicates(tmp_path):
     assert not (archive_dir / "GMRTI_1000000002.md").exists()
 
 
+@pytest.mark.repo_state
 def test_check_monolithic_sync_in_sync(base_dir):
     """check_monolithic_sync returns in_sync=True when root monolithic file matches sources."""
     result = check_monolithic_sync(base_dir)
@@ -151,3 +152,61 @@ def test_assemble_monolithic_heading_transform_failure(tmp_path, base_dir):
     )
     with pytest.raises(ValueError, match="Heading transform failed"):
         assemble_monolithic_document(str(workspace))
+
+
+def test_custom_output_does_not_archive_root_monolith(tmp_path, base_dir):
+    """B1: Writing to --output outside root monolith pattern must not archive root monolith."""
+    workspace = tmp_path / "workspace"
+    shutil.copytree(base_dir, str(workspace), dirs_exist_ok=True, ignore=_COPY_IGNORE)
+    root_monos_before = _list_monolithic_files(str(workspace))
+    assert len(root_monos_before) == 1
+
+    custom_out = tmp_path / "custom_build.md"
+    create_monolithic_document(
+        base_dir=str(workspace), output_path=str(custom_out), force=True
+    )
+    assert custom_out.exists()
+    assert _list_monolithic_files(str(workspace)) == root_monos_before
+    assert check_monolithic_sync(str(workspace))["in_sync"] is True
+
+
+def test_archive_collision_different_content_raises(tmp_path):
+    """B2: Colliding archive filename with different content raises FileExistsError."""
+    workspace = tmp_path / "workspace"
+    archive_dir = workspace / "archive"
+    archive_dir.mkdir(parents=True)
+    (archive_dir / "GMRTI_100.md").write_text("old archived", encoding="utf-8")
+    (workspace / "GMRTI_100.md").write_text("different root", encoding="utf-8")
+
+    with pytest.raises(FileExistsError, match="Archive collision"):
+        archive_prior_monolithic_files(str(workspace))
+
+
+def test_missing_readme_toc_anchor_raises(tmp_path, base_dir):
+    """B3: Missing '## Table of Contents' anchor in README raises ValueError."""
+    workspace = tmp_path / "workspace"
+    shutil.copytree(base_dir, str(workspace), dirs_exist_ok=True, ignore=_COPY_IGNORE)
+    (workspace / "README.md").write_text("# GMRTI\n\nNo TOC here.\n", encoding="utf-8")
+
+    with pytest.raises(ValueError, match="Table of Contents"):
+        assemble_monolithic_document(str(workspace))
+
+
+def test_rewrite_check_handles_missing_source_cleanly(tmp_path):
+    """B4: rewrite.py --check exits 1 cleanly instead of crashing with traceback."""
+    import subprocess
+    import sys
+
+    # Point a copy of rewrite.py? Easier: call main() in-process with monkeypatched get_repo_root
+    # or test check_monolithic_sync + CLI error path via a small runner.
+    code = (
+        "import sys, rewrite; "
+        f"rewrite.get_repo_root = lambda _=None: {str(tmp_path)!r}; "
+        "sys.argv = ['rewrite.py', '--check']; "
+        "rewrite.main()"
+    )
+    (tmp_path / "GMRTI_1.md").write_text("stale", encoding="utf-8")
+    res = subprocess.run([sys.executable, "-c", code], capture_output=True, text=True)
+    assert res.returncode == 1
+    assert "Error during check:" in res.stdout
+    assert "Traceback" not in res.stderr

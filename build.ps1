@@ -28,6 +28,9 @@
 
 .PARAMETER WithMath
     Also run `lake build` in `math/`.
+
+.PARAMETER Python
+    Path to the Python executable (defaults to `.venv\Scripts\python.exe` if present, else `python`).
 #>
 [CmdletBinding()]
 param(
@@ -35,10 +38,16 @@ param(
     [switch]$SkipTests,
     [switch]$SkipFormat,
     [switch]$WithMath,
-    [switch]$NoPause
+    [switch]$NoPause,
+    [string]$Python = ""
 )
 
 $ErrorActionPreference = "Stop"
+
+if (-not $Python) {
+    $venvPython = Join-Path $PSScriptRoot ".venv\Scripts\python.exe"
+    $Python = if (Test-Path $venvPython) { $venvPython } else { "python" }
+}
 
 if ($CheckOnly -and $SkipFormat) {
     Write-Warning "Both -CheckOnly and -SkipFormat were specified: -CheckOnly already skips formatting. Verification may fail if files are unformatted."
@@ -46,121 +55,77 @@ if ($CheckOnly -and $SkipFormat) {
 
 $totalSteps = 0
 if (-not $CheckOnly -and -not $SkipFormat) { $totalSteps++ }
-if (-not $CheckOnly) { $totalSteps += 3 } # rewrite.py, pebble.py, patch_index.py
-$totalSteps += 4  # rewrite --check, pebble --check, patch_index --check, wrap --check
+if (-not $CheckOnly) { $totalSteps += 3 }
+$totalSteps += 4
 if (-not $SkipTests) { $totalSteps++ }
 if ($WithMath) { $totalSteps++ }
 
-$step = 0
+$script:step = 0
+
+function Invoke-Step {
+    param(
+        [string]$Label,
+        [string]$ErrorMessage,
+        [scriptblock]$Action
+    )
+    $script:step++
+    Write-Host "`n[$script:step/$totalSteps] $Label" -ForegroundColor Yellow
+    & $Action
+    if ($LASTEXITCODE -ne 0) {
+        Write-Host "ERROR: $ErrorMessage" -ForegroundColor Red
+        exit 1
+    }
+}
 
 Write-Host "==================================================" -ForegroundColor Cyan
-Write-Host " GMRTI Build Pipeline" -ForegroundColor Cyan
+Write-Host " GMRTI Build Pipeline (Python: $Python)" -ForegroundColor Cyan
 Write-Host "==================================================" -ForegroundColor Cyan
 
-# 1. Format
 if (-not $CheckOnly -and -not $SkipFormat) {
-    $step++
-    Write-Host "`n[$step/$totalSteps] Formatting files (wrap.py)..." -ForegroundColor Yellow
-    python wrap.py
-    if ($LASTEXITCODE -ne 0) {
-        Write-Error "wrap.py formatting failed."
-        exit 1
+    Invoke-Step "Formatting files (wrap.py)..." "wrap.py formatting failed." {
+        & $Python wrap.py
     }
 }
 
-# 2. Compile monolithic treatise
 if (-not $CheckOnly) {
-    $step++
-    Write-Host "`n[$step/$totalSteps] Compiling monolithic treatise (rewrite.py)..." -ForegroundColor Yellow
-    python rewrite.py
-    if ($LASTEXITCODE -ne 0) {
-        Write-Error "rewrite.py compilation failed."
-        exit 1
+    Invoke-Step "Compiling monolithic treatise (rewrite.py)..." "rewrite.py compilation failed." {
+        & $Python rewrite.py
+    }
+    Invoke-Step "Compiling plain-language companion (pebble.py)..." "pebble.py compilation failed." {
+        & $Python pebble.py
+    }
+    Invoke-Step "Patching index.html invariants (patch_index.py)..." "patch_index.py failed." {
+        & $Python patch_index.py
     }
 }
 
-# 3. Compile PEBBLE companion
-if (-not $CheckOnly) {
-    $step++
-    Write-Host "`n[$step/$totalSteps] Compiling plain-language companion (pebble.py)..." -ForegroundColor Yellow
-    python pebble.py
-    if ($LASTEXITCODE -ne 0) {
-        Write-Error "pebble.py compilation failed."
-        exit 1
-    }
+Invoke-Step "Verifying monolithic document sync (rewrite.py --check)..." "rewrite.py --check failed: monolithic document is out of sync." {
+    & $Python rewrite.py --check
+}
+Invoke-Step "Verifying PEBBLE.md sync (pebble.py --check)..." "pebble.py --check failed: PEBBLE.md is out of sync." {
+    & $Python pebble.py --check
+}
+Invoke-Step "Verifying index.html invariants (patch_index.py --check)..." "patch_index.py --check failed: index.html invariants violated." {
+    & $Python patch_index.py --check
+}
+Invoke-Step "Verifying formatting (wrap.py --check)..." "wrap.py --check failed: unformatted files detected." {
+    & $Python wrap.py --check
 }
 
-# 4. Patch index.html
-if (-not $CheckOnly) {
-    $step++
-    Write-Host "`n[$step/$totalSteps] Patching index.html invariants (patch_index.py)..." -ForegroundColor Yellow
-    python patch_index.py
-    if ($LASTEXITCODE -ne 0) {
-        Write-Error "patch_index.py failed."
-        exit 1
-    }
-}
-
-# 5. Verify monolithic sync
-$step++
-Write-Host "`n[$step/$totalSteps] Verifying monolithic document sync (rewrite.py --check)..." -ForegroundColor Yellow
-python rewrite.py --check
-if ($LASTEXITCODE -ne 0) {
-    Write-Error "rewrite.py --check failed: monolithic document is out of sync."
-    exit 1
-}
-
-# 6. Verify PEBBLE sync
-$step++
-Write-Host "`n[$step/$totalSteps] Verifying PEBBLE.md sync (pebble.py --check)..." -ForegroundColor Yellow
-python pebble.py --check
-if ($LASTEXITCODE -ne 0) {
-    Write-Error "pebble.py --check failed: PEBBLE.md is out of sync."
-    exit 1
-}
-
-# 7. Verify index.html invariants
-$step++
-Write-Host "`n[$step/$totalSteps] Verifying index.html invariants (patch_index.py --check)..." -ForegroundColor Yellow
-python patch_index.py --check
-if ($LASTEXITCODE -ne 0) {
-    Write-Error "patch_index.py --check failed: index.html invariants violated."
-    exit 1
-}
-
-# 8. Verify formatting
-$step++
-Write-Host "`n[$step/$totalSteps] Verifying formatting (wrap.py --check)..." -ForegroundColor Yellow
-python wrap.py --check
-if ($LASTEXITCODE -ne 0) {
-    Write-Error "wrap.py --check failed: unformatted files detected."
-    exit 1
-}
-
-# 9. Run test suite
 if (-not $SkipTests) {
-    $step++
-    Write-Host "`n[$step/$totalSteps] Running test suite (pytest)..." -ForegroundColor Yellow
-    python -m pytest tests/ -v
-    if ($LASTEXITCODE -ne 0) {
-        Write-Error "pytest test suite failed."
-        exit 1
+    Invoke-Step "Running test suite (pytest)..." "pytest test suite failed." {
+        & $Python -m pytest tests/ -v
     }
 }
 
-# 10. Optional Lean 4 formal model build
 if ($WithMath) {
-    $step++
-    Write-Host "`n[$step/$totalSteps] Building Lean 4 formal model (lake build)..." -ForegroundColor Yellow
-    Push-Location math
-    try {
-        lake build
-        if ($LASTEXITCODE -ne 0) {
-            Write-Error "lake build failed."
-            exit 1
+    Invoke-Step "Building Lean 4 formal model (lake build)..." "lake build failed." {
+        Push-Location math
+        try {
+            lake build
+        } finally {
+            Pop-Location
         }
-    } finally {
-        Pop-Location
     }
 }
 
