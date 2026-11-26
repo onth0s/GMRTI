@@ -97,11 +97,11 @@ In an interconnected web of ideas, fixing one broken piece can accidentally shak
 
 > **Allegory: The Empty Wrapper vs. Mismatched Currencies**
 >
-> An *Anchor-Only Subgraph* is like an empty golden chocolate wrapper with no chocolate inside: a person can repeat the word "sovereignty", but has zero working operational connections attached to it. An *[[Divergence|Edge Divergence]]* is like two people both using the word "dollar", where one person means US Dollars and the other means Australian Australian Dollars: both hold real value and real rules, but their expectations clash the instant they try to make a trade.
+> An *Anchor-Only Subgraph* is like an empty golden chocolate wrapper with no chocolate inside: a person can repeat the word "sovereignty", but has zero working operational connections attached to it. An *[[Divergence|Edge Divergence]]* is like two people both using the word "dollar", where one person means US Dollars and the other means Australian Dollars: both hold real value and real rules, but their expectations clash the instant they try to make a trade.
 
 > **Allegory: The Vault Kilogram and Measurement Scientists**
 >
-> A country agrees on what a "kilogram" means by keeping a polished cylinder of platinum in a sealed vault (the [[Artifact Anchor]]). But over the decades, dust gathers and tiny flecks of metal wear away. Without a dedicated team of scientists regularly cleaning, checking, and re-calibrating it (the Maintenance Covenant running [[Periodic Re-Mirroring Protocol|Periodic Re-Mirroring]]), every scale across across the nation will slowly drift apart without anyone realizing it.
+> A country agrees on what a "kilogram" means by keeping a polished cylinder of platinum in a sealed vault (the [[Artifact Anchor]]). But over the decades, dust gathers and tiny flecks of metal wear away. Without a dedicated team of scientists regularly cleaning, checking, and re-calibrating it (the Maintenance Covenant running [[Periodic Re-Mirroring Protocol|Periodic Re-Mirroring]]), every scale across the nation will slowly drift apart without anyone realizing it.
 
 > **Allegory: The Literal Robot Stress-Test**
 >

@@ -1,6 +1,5 @@
 import os
 import yaml
-import pytest
 from wrap import wrap_yaml, wrap_markdown, process_file
 
 

@@ -7,7 +7,6 @@ into the unified monolithic treatise ``GMRTI_<timestamp>.md``.
 Manages monolithic revision archival in ``archive/`` per AGENTS.md rules
 and verifies synchronization between modular sources and root monolithic document.
 """
-import argparse
 import hashlib
 import os
 import re

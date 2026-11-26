@@ -215,8 +215,8 @@ you how to fix it.
   working operational connections attached to it. An
   *[[Divergence|Edge Divergence]]* is like two people both using the word
   "dollar", where one person means US Dollars and the other means Australian
-  Australian Dollars: both hold real value and real rules, but their
-  expectations clash the instant they try to make a trade.
+  Dollars: both hold real value and real rules, but their expectations clash the
+  instant they try to make a trade.
 
 
 **2c.2** These three types are not always cleanly separable in practice; real
@@ -293,7 +293,6 @@ updated.
     dedicated team of scientists regularly cleaning, checking, and
     re-calibrating it (the Maintenance Covenant running
     [[Periodic Re-Mirroring Protocol|Periodic Re-Mirroring]]), every scale
-    across
     across the nation will slowly drift apart without anyone realizing it.
 
 **2d.3** The Federated Graph model has a critical implication: institutional
