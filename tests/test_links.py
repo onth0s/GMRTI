@@ -1,13 +1,23 @@
+import glob
 import os
 import re
-from _gmrti_common import MONOLITHIC_PATTERN
+from _gmrti_common import MONOLITHIC_PATTERN, CodeFenceTracker, extract_wikilinks
 
-_FENCED_CODE_RE = re.compile(r"```.*?```|````.*?````", re.S)
+
+def _strip_fenced_code(content: str) -> str:
+    """Return *content* with fenced code blocks removed."""
+    tracker = CodeFenceTracker()
+    kept: list[str] = []
+    for line in content.splitlines():
+        is_fence_line, inside_fence = tracker.step(line)
+        if not is_fence_line and not inside_fence:
+            kept.append(line)
+    return "\n".join(kept)
 
 
 def find_markdown_links(content):
     """Extract [text](target) markdown links outside fenced code blocks."""
-    stripped = _FENCED_CODE_RE.sub("", content)
+    stripped = _strip_fenced_code(content)
     return re.findall(r"(?<!!)\[([^\]]+)\]\(([^)]+)\)", stripped)
 
 
@@ -57,3 +67,28 @@ def test_markdown_links(base_dir):
                 ))
 
     assert not broken_links, f"Broken markdown links detected: {broken_links}"
+
+
+def test_wikilinks_resolve(base_dir):
+    """Every [[wikilink]] in src/ and GLOSSARY.md resolves to a glossary term or heading."""
+    glossary_path = os.path.join(base_dir, "GLOSSARY.md")
+    with open(glossary_path, "r", encoding="utf-8") as f:
+        glossary_text = f.read()
+
+    known_targets = set(re.findall(r"^#### \* (.+)$", glossary_text, flags=re.M))
+    src_files = sorted(glob.glob(os.path.join(base_dir, "src", "*.md")))
+    for path in src_files:
+        with open(path, "r", encoding="utf-8") as f:
+            txt = _strip_fenced_code(f.read())
+        for heading in re.findall(r"^#{2,3}\s+(.+)$", txt, flags=re.M):
+            known_targets.add(heading.strip())
+
+    unresolved = []
+    for path in src_files + [glossary_path]:
+        with open(path, "r", encoding="utf-8") as f:
+            txt = _strip_fenced_code(f.read())
+        for target in extract_wikilinks(txt):
+            if target not in known_targets:
+                unresolved.append((os.path.relpath(path, base_dir), target))
+
+    assert not unresolved, f"Unresolved wikilinks detected: {unresolved}"

@@ -322,3 +322,35 @@ def test_wrap_markdown_preserves_frontmatter_and_callouts():
     assert 'title: "Very long title that must not be wrapped at forty characters"' in wrapped
     assert "> [!NOTE]\n> This callout body" in wrapped
 
+
+def test_wrap_markdown_preserves_multiword_wikilinks():
+    """Multi-word [[wikilinks]] are never split across lines during wrapping."""
+    sample = (
+        "This sentence references [[Just-In-Time Ontological Marking (JIT-OM)]] "
+        "and [[Core Path Minimization]] inside prose."
+    )
+    wrapped = wrap_markdown(sample, width=45)
+    assert "[[Just-In-Time Ontological Marking (JIT-OM)]]" in wrapped
+    assert "[[Core Path Minimization]]" in wrapped
+
+
+def test_wrap_cli_path_subdirectory(tmp_path):
+    """wrap.py --path <subdir> formats files inside that subdirectory directly."""
+    import subprocess
+    import sys
+
+    sub = tmp_path / "custom_dir"
+    sub.mkdir()
+    target = sub / "note.md"
+    target.write_text(
+        "This is a very long line inside a subdirectory that must be wrapped.\n",
+        encoding="utf-8",
+    )
+    res = subprocess.run(
+        [sys.executable, "wrap.py", "--path", str(sub), "--width", "40"],
+        capture_output=True,
+        text=True,
+    )
+    assert res.returncode == 0
+    assert all(len(ln) <= 40 for ln in target.read_text(encoding="utf-8").splitlines())
+

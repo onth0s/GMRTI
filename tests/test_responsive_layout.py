@@ -26,6 +26,8 @@ import os
 
 import pytest
 
+pytestmark = pytest.mark.browser
+
 # Either side of every media-query breakpoint, plus common device widths.
 BREAKPOINT_WIDTHS = [
     320,  # smallest supported phone

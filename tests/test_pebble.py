@@ -35,7 +35,7 @@ def test_pebble_contains_glossary(base_dir):
     assert "#### * GMRTI" in doc
     assert "#### * Comosí" in doc
     assert "#### * Metaagnosticism" in doc
-    assert "#### * Surface Subgraph" not in doc
+    assert "#### * Proactive Chaotic Probing (PCP)" not in doc
 
 
 def test_pebble_contains_coda(base_dir):
@@ -156,3 +156,26 @@ def test_parse_src_file_supports_h3_headings_and_skips_fences():
     assert len(parsed["plain_blocks"]) == 1
     assert parsed["plain_blocks"][0]["heading"] == "1a — First Subsection"
     assert parsed["plain_blocks"][0]["text"] == "Plain summary here."
+
+
+def test_filter_glossary_resolves_wrapped_and_table_escaped_wikilinks():
+    """Wrapped and table-escaped (\\|) wikilinks still resolve in _filter_glossary_for_pebble."""
+    from pebble import _filter_glossary_for_pebble
+
+    glossary = (
+        "# Glossary\n\n"
+        "#### * Core Path Minimization\n"
+        "Def 1.\n\n"
+        "#### * Just-In-Time Ontological Marking (JIT-OM)\n"
+        "Def 2.\n\n"
+        "#### * Unused Term\n"
+        "Def 3.\n"
+    )
+    body = (
+        "See [[Core Path\nMinimization]] and "
+        "| col | [[Just-In-Time Ontological Marking (JIT-OM)\\|JIT-OM]] |"
+    )
+    filtered = _filter_glossary_for_pebble(glossary, body)
+    assert "#### * Core Path Minimization" in filtered
+    assert "#### * Just-In-Time Ontological Marking (JIT-OM)" in filtered
+    assert "#### * Unused Term" not in filtered

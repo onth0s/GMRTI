@@ -316,9 +316,10 @@ operationalized via the [[Behavioral Convergence Proxy]] (Path-Count Metric).
 #### * Behavioral Convergence Proxy
 The operational path-count metric for [[Semantic Entropy]]: the number of
 independent [[Polyphonic Encoding]] paths that must be successfully
-reconstructed and verified by the receiver under Audit-Mode [[Domain Risk
-Coefficient (DRC)|DRC]] before reaching the [[Operational Action Threshold]].
-`[STABLE]` [provisional dependency boundary: §3c.3, §8b.1]
+reconstructed and verified by the receiver under Audit-Mode
+[[Domain Risk Coefficient (DRC)|DRC]] before reaching the
+[[Operational Action Threshold]]. `[STABLE]` [provisional dependency boundary:
+§3c.3, §8b.1]
 
 #### * Graph-Space Partitioning Axiom
 The formal individuation criterion resolving §8b.1: under Audit-Mode exact
@@ -333,13 +334,23 @@ tolerance covering rather than disjoint equivalence classes. `[PROVISIONAL]`
 [provisional dependency boundary: §3c.3]
 
 #### * Transmission
-The attempted transfer of semantic content from one [[Semantic
-Covenant|covenant]] to another, or from one temporal state of a covenant to a
-later state of the same covenant. `[STABLE]`
+The attempted transfer of semantic content from one
+[[Semantic Covenant|covenant]] to another, or from one temporal state of a
+covenant to a later state of the same covenant. `[STABLE]`
 
 #### * Divergence
 Any detectable mismatch between two [[Semantic Covenant|covenants']] handling of
 the same conceptual region. `[STABLE]`
+
+#### * Surface Subgraph
+An edge-cluster in a [[Semantic Covenant]] that is highly context-dependent,
+easily renegotiated, and minimally load-bearing; repairable through single-path
+clarification (§2b). `[STABLE]`
+
+#### * Structural Subgraph
+An edge-cluster that routes meaning between large regions of a
+[[Semantic Covenant]]; revision produces downstream effects on dependent
+[[Surface Subgraph|Surface Subgraphs]] (§2b). `[STABLE]`
 
 #### * Anchor-Only Subgraph
 A divergence type (formerly Severe Edge Deficit) in which the receiver holds a
@@ -354,9 +365,20 @@ consciousness. `[PROVISIONAL]`
 
 #### * Artifact Anchor
 An external, relatively immutable scaffold (written law, canonical text,
-standardized protocol) that forces constituent individual [[Semantic
-Covenant|covenants]] to continuously realign their [[Structural
-Subgraph|Structural Subgraphs]] to a shared artificial topology. `[PROVISIONAL]`
+standardized protocol) that forces constituent individual
+[[Semantic Covenant|covenants]] to continuously realign their
+[[Structural Subgraph|Structural Subgraphs]] to a shared artificial topology.
+`[PROVISIONAL]`
+
+#### * Domain Risk Coefficient (DRC)
+A context-sensitive parameter defined on the bounded interval $[0.0, 1.0]$
+governing the required precision of reconstruction; inversely proportional to
+interpretive charity. Calibrating DRC toward $0.0$ maximizes interpretive
+charity (Generative Mode); calibrating DRC toward $1.0$ drives charity toward
+zero and enforces strict verification (Audit Mode via [[The Mirror]]). The
+assignment of numerical DRC values to specific domains is deliberately
+un-prescribed by [[GMRTI]], as risk ranking requires normative value judgments
+that belong exclusively to the participating covenants. `[STABLE]`
 
 #### * Rational Agnosticism
 The operational posture of deliberate suspension in which a receiver treats
@@ -394,8 +416,9 @@ v0.9 prototype, this is implemented by mandating canonical relational operators
 #### * Edge Taxonomy
 The partitioned classification of relation-types. Operates as a two-tiered
 system: Tier 1 (Causal/Inferential/Other) for initial [[Covenant Declaration]],
-and Tier 2 (8-type taxonomy) deployed locally via [[Just-In-Time Ontological
-Marking (JIT-OM)|JIT-OM]] for [[Edge-Type Misattribution]] repair. `[STABLE]`
+and Tier 2 (8-type taxonomy) deployed locally via
+[[Just-In-Time Ontological Marking (JIT-OM)|JIT-OM]] for
+[[Edge-Type Misattribution]] repair. `[STABLE]`
 
 #### * Edge-Type Misattribution
 A subtype of [[Divergence|Edge Divergence]] in which both covenants possess the
@@ -433,9 +456,9 @@ tracking lag against textual drift (§4b.3). `[PROVISIONAL]`
 #### * The Mirror
 Any [[Rational Agnosticism|Rationally Agnostic]] receiver (human, LLM, or
 future-self) operationalized to reconstruct a transmission using strictly
-declared edges, with interpretive charity calibrated to the [[Domain Risk
-Coefficient (DRC)]]. A tool within the [[GMRTI]] protocol, not the protocol
-itself. `[STABLE]`
+declared edges, with interpretive charity calibrated to the
+[[Domain Risk Coefficient (DRC)]]. A tool within the [[GMRTI]] protocol, not the
+protocol itself. `[STABLE]`
 
 #### * Temporal Stranger
 The past self treated as a Foreign Mind: the primary operationalization of

@@ -26,14 +26,16 @@ Invocation
     python wrap.py --path <file|dir>  # target a specific file or directory
     python wrap.py --width N          # use a custom line width (default 80)
 """
-import argparse
 import os
 import re
 import sys
 import textwrap
 
+import yaml
+
 from _gmrti_common import (
     MONOLITHIC_PATTERN,
+    CodeFenceTracker,
     build_base_parser,
     get_repo_root,
     read_utf8,
@@ -64,120 +66,148 @@ def _wrap_yaml_scalar(text: str, target_width: int) -> list[str]:
     )
 
 
+def _wrap_yaml_line(line: str, width: int) -> list[str]:
+    """Wrap a single YAML line that exceeds *width*."""
+    # 1. Key-value string with quotes: key: "value..."
+    key_match = re.match(r'^(\s*)([\w-]+):\s*"((?:[^"\\]|\\.)*)"$', line)
+    if key_match:
+        indent, key, raw_val = key_match.groups()
+        val = raw_val.replace('\\"', '"')
+        wrapped = _wrap_yaml_scalar(val, width - len(indent) - 2)
+        return [f"{indent}{key}: >-"] + [f"{indent}  {wl}" for wl in wrapped]
+
+    # 2. Key-value unquoted long string (excluding flow collections and inline comments)
+    key_unquoted = re.match(r'^(\s*)([\w-]+):\s+([^\">|#{\[\s].*)$', line)
+    if key_unquoted and not line.strip().startswith("-") and " #" not in key_unquoted.group(3):
+        indent, key, val = key_unquoted.groups()
+        wrapped = _wrap_yaml_scalar(val, width - len(indent) - 2)
+        return [f"{indent}{key}: >-"] + [f"{indent}  {wl}" for wl in wrapped]
+
+    # 3. List item string with quotes: - "value..."
+    list_match = re.match(r'^(\s*)-\s*"((?:[^"\\]|\\.)*)"$', line)
+    if list_match:
+        indent, raw_val = list_match.groups()
+        val = raw_val.replace('\\"', '"')
+        wrapped = _wrap_yaml_scalar(val, width - len(indent) - 4)
+        return [f"{indent}- >-"] + [f"{indent}    {wl}" for wl in wrapped]
+
+    # 4a. List item mapping: - key: value...
+    list_mapping = re.match(r'^(\s*-\s+)([\w-]+):\s+([^\">|#{\[\s].*)$', line)
+    if list_mapping and " #" not in list_mapping.group(3):
+        list_prefix, key, val = list_mapping.groups()
+        sub_indent = " " * len(list_prefix) + "  "
+        wrapped = _wrap_yaml_scalar(val, width - len(sub_indent))
+        return [f"{list_prefix}{key}: >-"] + [f"{sub_indent}{wl}" for wl in wrapped]
+
+    # 4b. List item unquoted long string (excluding flow collections, mappings, comments)
+    list_unquoted = re.match(r'^(\s*)-\s+([^\">|#{\[\s].*)$', line)
+    if (
+        list_unquoted
+        and not re.match(r"^[\w-]+:(?:\s|$)", list_unquoted.group(2))
+        and " #" not in list_unquoted.group(2)
+    ):
+        indent, val = list_unquoted.groups()
+        wrapped = _wrap_yaml_scalar(val, width - len(indent) - 4)
+        return [f"{indent}- >-"] + [f"{indent}    {wl}" for wl in wrapped]
+
+    # 5. Comment line
+    comment_match = re.match(r"^(\s*)#\s*(.*)$", line)
+    if comment_match:
+        indent, val = comment_match.groups()
+        wrapped = _wrap_yaml_scalar(val, width - len(indent) - 2)
+        return [f"{indent}# {wl}" for wl in wrapped]
+
+    # 6. Fallback preserving existing indentation (crucial for block scalars)
+    indent_len = len(line) - len(line.lstrip())
+    indent = line[:indent_len]
+    return [f"{indent}{wl}" for wl in _wrap_yaml_scalar(line.strip(), width - indent_len)]
+
+
+def _validate_yaml_wrap(original: str, wrapped: str) -> str:
+    """Return *wrapped* if it preserves parsed YAML semantics, else *original*."""
+    if wrapped == original:
+        return wrapped
+    try:
+        orig_data = yaml.safe_load(original)
+        new_data = yaml.safe_load(wrapped)
+        if orig_data != new_data:
+            print(
+                "Warning: wrap_yaml detected semantic drift; keeping original YAML.",
+                file=sys.stderr,
+            )
+            return original
+    except Exception as exc:
+        try:
+            yaml.safe_load(original)
+        except Exception:
+            return wrapped
+        print(
+            f"Warning: wrap_yaml produced invalid YAML ({exc}); keeping original.",
+            file=sys.stderr,
+        )
+        return original
+    return wrapped
+
+
 def wrap_yaml(text: str, width: int = 80) -> str:
+    """Wrap YAML lines exceeding *width* while preserving parsed semantics."""
     lines: list[str] = []
     for line in text.splitlines():
         if len(line) <= width:
             lines.append(line)
-            continue
-
-        # 1. Key-value string replacement with quotes: key: "value..."
-        key_match = re.match(r'^(\s*)([\w-]+):\s*"((?:[^"\\]|\\.)*)"$', line)
-        if key_match:
-            indent, key, raw_val = key_match.groups()
-            val = raw_val.replace('\\"', '"')
-            wrapped_val = _wrap_yaml_scalar(val, width - len(indent) - 2)
-            lines.append(f"{indent}{key}: >-")
-            for wl in wrapped_val:
-                lines.append(f"{indent}  {wl}")
-            continue
-
-        # 2. Key-value unquoted long string: key: value...
-        # Exclude flow mappings/sequences ({...}, [...]) and inline comments (" #")
-        key_unquoted = re.match(r'^(\s*)([\w-]+):\s+([^\">|#{\[\s].*)$', line)
-        if (
-            key_unquoted
-            and not line.strip().startswith("-")
-            and " #" not in key_unquoted.group(3)
-        ):
-            indent, key, val = key_unquoted.groups()
-            wrapped_val = _wrap_yaml_scalar(val, width - len(indent) - 2)
-            lines.append(f"{indent}{key}: >-")
-            for wl in wrapped_val:
-                lines.append(f"{indent}  {wl}")
-            continue
-
-        # 3. List item string replacement with quotes: - "value..."
-        list_match = re.match(r'^(\s*)-\s*"((?:[^"\\]|\\.)*)"$', line)
-        if list_match:
-            indent, raw_val = list_match.groups()
-            val = raw_val.replace('\\"', '"')
-            wrapped_val = _wrap_yaml_scalar(val, width - len(indent) - 4)
-            lines.append(f"{indent}- >-")
-            for wl in wrapped_val:
-                lines.append(f"{indent}    {wl}")
-            continue
-
-        # 4a. List item mapping: - key: value...
-        list_mapping = re.match(r'^(\s*-\s+)([\w-]+):\s+([^\">|#{\[\s].*)$', line)
-        if list_mapping and " #" not in list_mapping.group(3):
-            list_prefix, key, val = list_mapping.groups()
-            sub_indent = " " * len(list_prefix) + "  "
-            wrapped_val = _wrap_yaml_scalar(val, width - len(sub_indent))
-            lines.append(f"{list_prefix}{key}: >-")
-            for wl in wrapped_val:
-                lines.append(f"{sub_indent}{wl}")
-            continue
-
-        # 4b. List item unquoted long string: - value...
-        # Exclude flow collections ({...}, [...]), list-of-mappings, and inline comments
-        list_unquoted = re.match(r'^(\s*)-\s+([^\">|#{\[\s].*)$', line)
-        if (
-            list_unquoted
-            and not re.match(r"^[\w-]+:(?:\s|$)", list_unquoted.group(2))
-            and " #" not in list_unquoted.group(2)
-        ):
-            indent, val = list_unquoted.groups()
-            wrapped_val = _wrap_yaml_scalar(val, width - len(indent) - 4)
-            lines.append(f"{indent}- >-")
-            for wl in wrapped_val:
-                lines.append(f"{indent}    {wl}")
-            continue
-
-        # 5. Comment replacement
-        comment_match = re.match(r"^(\s*)#\s*(.*)$", line)
-        if comment_match:
-            indent, val = comment_match.groups()
-            wrapped_val = _wrap_yaml_scalar(val, width - len(indent) - 2)
-            for wl in wrapped_val:
-                lines.append(f"{indent}# {wl}")
-            continue
-
-        # 6. Fallback preserving existing indentation (crucial for block scalars)
-        indent_len = len(line) - len(line.lstrip())
-        indent = line[:indent_len]
-        stripped = line.strip()
-        for wl in _wrap_yaml_scalar(stripped, width - indent_len):
-            lines.append(f"{indent}{wl}")
-
-    result = "\n".join(lines)
-    if result != text:
-        try:
-            import yaml
-            orig_data = yaml.safe_load(text)
-            new_data = yaml.safe_load(result)
-            if orig_data != new_data:
-                print(
-                    "Warning: wrap_yaml detected semantic drift; keeping original YAML.",
-                    file=sys.stderr,
-                )
-                return text
-        except Exception as exc:
-            # If original was valid YAML and wrapped is not, keep original.
-            try:
-                import yaml
-                yaml.safe_load(text)
-            except Exception:
-                return result
-            print(
-                f"Warning: wrap_yaml produced invalid YAML ({exc}); keeping original.",
-                file=sys.stderr,
-            )
-            return text
-    return result
+        else:
+            lines.extend(_wrap_yaml_line(line, width))
+    return _validate_yaml_wrap(text, "\n".join(lines))
 
 
 # ── Markdown block flusher ──────────────────────────────────────────────────
+
+_WIKILINK_SPAN_RE = re.compile(r"\[\[[^\]]+\]\]")
+_WIKILINK_SPACE_SENTINEL = "\x00"
+
+
+def _wrap_prose(
+    content: str,
+    width: int,
+    initial_indent: str = "",
+    subsequent_indent: str = "",
+) -> list[str]:
+    """Wrap *content* to *width* without splitting ``[[wikilinks]]`` across lines."""
+    protected = _WIKILINK_SPAN_RE.sub(
+        lambda m: m.group(0).replace(" ", _WIKILINK_SPACE_SENTINEL),
+        content,
+    )
+    wrapped = textwrap.wrap(
+        protected,
+        width=max(_MIN_WRAP_WIDTH, width),
+        initial_indent=initial_indent,
+        subsequent_indent=subsequent_indent,
+        break_long_words=False,
+        break_on_hyphens=False,
+    )
+    return [ln.replace(_WIKILINK_SPACE_SENTINEL, " ") for ln in wrapped]
+
+
+def _flush_quote(para: list[str], prefix: str, width: int) -> list[str]:
+    quote_prefix = prefix or "> "
+    stripped = [re.sub(r"^(?:>\s*)+", "", ln) for ln in para]
+    wrapped = _wrap_prose(" ".join(stripped), width - len(quote_prefix))
+    if not wrapped:
+        return [quote_prefix.rstrip()]
+    return [quote_prefix + w for w in wrapped]
+
+
+def _flush_footnote(para: list[str], width: int) -> list[str]:
+    m = re.match(r"^(\[\^[^\]]+\]:\s*)(.*)", para[0])
+    if not m:
+        return list(para)
+    fn_prefix = m.group(1)
+    body_parts = [m.group(2)] + [ln.strip() for ln in para[1:]]
+    content = " ".join(part for part in body_parts if part)
+    if not content:
+        return [fn_prefix.rstrip()]
+    return _wrap_prose(content, width, initial_indent=fn_prefix, subsequent_indent="    ")
+
 
 def _flush_block(
     block_type: str | None,
@@ -187,105 +217,29 @@ def _flush_block(
     width: int,
 ) -> list[str]:
     """Return a list of output lines for one accumulated markdown block."""
-    out: list[str] = []
     if not para:
-        return out
-
+        return []
     if block_type == _TABLE:
-        out.extend(para)
-
-    elif block_type == _QUOTE:
-        quote_prefix = prefix or "> "
-        stripped = [re.sub(r"^(?:>\s*)+", "", ln) for ln in para]
-        content = " ".join(stripped)
-        wrapped = textwrap.wrap(
-            content,
-            width=max(_MIN_WRAP_WIDTH, width - len(quote_prefix)),
-            break_long_words=False,
-            break_on_hyphens=False,
-        )
-        if not wrapped:
-            out.append(quote_prefix.rstrip())
-        else:
-            for w in wrapped:
-                out.append(quote_prefix + w)
-
-    elif block_type == _FOOTNOTE:
-        first = para[0]
-        m = re.match(r"^(\[\^[^\]]+\]:\s*)(.*)", first)
-        if m:
-            fn_prefix = m.group(1)
-            body_parts = [m.group(2)] + [ln.strip() for ln in para[1:]]
-            content = " ".join(part for part in body_parts if part)
-            if content:
-                wrapped = textwrap.wrap(
-                    content,
-                    width=max(_MIN_WRAP_WIDTH, width),
-                    initial_indent=fn_prefix,
-                    subsequent_indent="    ",
-                    break_long_words=False,
-                    break_on_hyphens=False,
-                )
-                out.extend(wrapped)
-            else:
-                out.append(fn_prefix.rstrip())
-        else:
-            out.extend(para)
-
-    elif block_type == _LIST_ITEM:
-        content = " ".join(ln.strip() for ln in para)
+        return list(para)
+    if block_type == _QUOTE:
+        return _flush_quote(para, prefix, width)
+    if block_type == _FOOTNOTE:
+        return _flush_footnote(para, width)
+    if block_type == _LIST_ITEM:
         sub_indent = " " * len(prefix)
         if len(sub_indent) > 8:
             sub_indent = "    "
-        wrapped = textwrap.wrap(
-            content,
-            width=max(_MIN_WRAP_WIDTH, width),
-            initial_indent="",
-            subsequent_indent=sub_indent,
-            break_long_words=False,
-            break_on_hyphens=False,
+        return _wrap_prose(" ".join(ln.strip() for ln in para), width, subsequent_indent=sub_indent)
+    if block_type == _INDENTED:
+        return _wrap_prose(
+            " ".join(ln.strip() for ln in para), width, initial_indent=indent, subsequent_indent=indent
         )
-        out.extend(wrapped)
-
-    elif block_type == _INDENTED:
-        content = " ".join(ln.strip() for ln in para)
-        wrapped = textwrap.wrap(
-            content,
-            width=max(_MIN_WRAP_WIDTH, width),
-            initial_indent=indent,
-            subsequent_indent=indent,
-            break_long_words=False,
-            break_on_hyphens=False,
-        )
-        out.extend(wrapped)
-
-    elif block_type == _PROSE:
-        content = " ".join(ln.strip() for ln in para)
-        wrapped = textwrap.wrap(
-            content,
-            width=max(_MIN_WRAP_WIDTH, width),
-            break_long_words=False,
-            break_on_hyphens=False,
-        )
-        out.extend(wrapped)
-
-    else:
-        raise AssertionError(
-            f"_flush_block: unhandled block_type {block_type!r}"
-        )
-
-    return out
+    if block_type == _PROSE:
+        return _wrap_prose(" ".join(ln.strip() for ln in para), width)
+    raise AssertionError(f"_flush_block: unhandled block_type {block_type!r}")
 
 
 # ── Line classifier ─────────────────────────────────────────────────────────
-
-def _parse_code_fence(stripped: str) -> tuple[str, int] | None:
-    """Return (fence_char, count) if the line starts with 3+ backticks or tildes."""
-    m = re.match(r"^(`{3,}|~{3,})", stripped)
-    if m:
-        seq = m.group(1)
-        return seq[0], len(seq)
-    return None
 
 
 def _is_math_fence(stripped: str) -> bool:
@@ -349,23 +303,24 @@ def _detect_list_item(line: str) -> tuple[bool, str]:
 
 # ── Markdown wrapper ────────────────────────────────────────────────────────
 
-def wrap_markdown(text: str, width: int = 80) -> str:
-    lines = text.splitlines()
-    out: list[str] = []
-
-    idx = 0
+def _consume_frontmatter(lines: list[str], out: list[str]) -> int:
+    """Emit leading YAML frontmatter verbatim and return the starting body index."""
     if lines and lines[0].strip() == "---":
         for fm_end in range(1, len(lines)):
             if lines[fm_end].strip() == "---":
                 out.extend(lines[: fm_end + 1])
-                idx = fm_end + 1
-                break
+                return fm_end + 1
+    return 0
 
-    in_code = False
-    _open_fence_char = ""
-    _open_fence_count = 0
+
+def wrap_markdown(text: str, width: int = 80) -> str:
+    """Reflow Markdown prose, quotes, footnotes, and lists to *width*."""
+    lines = text.splitlines()
+    out: list[str] = []
+    idx = _consume_frontmatter(lines, out)
+
+    fence_tracker = CodeFenceTracker()
     in_math = False
-
     current_para: list[str] = []
     current_type: str | None = None
     current_prefix = ""
@@ -373,10 +328,9 @@ def wrap_markdown(text: str, width: int = 80) -> str:
 
     def flush() -> None:
         nonlocal current_para, current_type, current_prefix, current_indent
-        result = _flush_block(
-            current_type, current_para, current_prefix, current_indent, width
+        out.extend(
+            _flush_block(current_type, current_para, current_prefix, current_indent, width)
         )
-        out.extend(result)
         current_para = []
         current_type = None
         current_prefix = ""
@@ -385,26 +339,14 @@ def wrap_markdown(text: str, width: int = 80) -> str:
     for line in lines[idx:]:
         stripped = line.strip()
 
-        # 1. Code block fence — track opening fence char and count so only a
-        #    matching (same char, same or greater count) closing fence ends it.
-        fence = _parse_code_fence(stripped)
-        if fence:
-            f_char, f_count = fence
-            if not in_code:
+        # 1. Code block fence
+        is_fence_line, inside_fence = fence_tracker.step(line)
+        if is_fence_line:
+            if fence_tracker.in_fence:
                 flush()
-                in_code = True
-                _open_fence_char = f_char
-                _open_fence_count = f_count
-                out.append(line)
-                continue
-            is_pure_fence = all(c == _open_fence_char for c in stripped)
-            if is_pure_fence and f_char == _open_fence_char and f_count >= _open_fence_count:
-                in_code = False
-                _open_fence_char = ""
-                _open_fence_count = 0
-                out.append(line)
-                continue
-        if in_code:
+            out.append(line)
+            continue
+        if inside_fence:
             out.append(line)
             continue
 
@@ -602,6 +544,36 @@ def process_file(
 
 # ── CLI ──────────────────────────────────────────────────────────────────────
 
+def _collect_targets_in_dir(directory: str) -> list[str]:
+    """Collect wrappable ``.md`` and ``.yaml``/``.yml`` files directly inside *directory*."""
+    excluded = {"AGENTS.md", "PEBBLE.md"}
+    targets: list[str] = []
+    for f in sorted(os.listdir(directory)):
+        full = os.path.join(directory, f)
+        if not os.path.isfile(full):
+            continue
+        if f.endswith((".yaml", ".yml")):
+            targets.append(full)
+        elif f.endswith(".md") and f not in excluded and not MONOLITHIC_PATTERN.match(f):
+            targets.append(full)
+    return targets
+
+
+def _resolve_targets(base_dir: str, path_arg: str | None) -> list[str]:
+    """Resolve CLI ``--path`` argument or default repository targets."""
+    if not path_arg:
+        return collect_targets(base_dir)
+    target_path = os.path.abspath(path_arg)
+    if os.path.isfile(target_path):
+        return [target_path]
+    if os.path.isdir(target_path):
+        if os.path.abspath(base_dir) == target_path:
+            return collect_targets(target_path)
+        return _collect_targets_in_dir(target_path)
+    print(f"Error: path not found: {path_arg}")
+    sys.exit(1)
+
+
 def main() -> None:
     parser = build_base_parser(
         description="Wrap Markdown and YAML files to fixed width.",
@@ -623,18 +595,7 @@ def main() -> None:
 
     args = parser.parse_args()
     base_dir = get_repo_root(__file__)
-
-    if args.path:
-        target_path = os.path.abspath(args.path)
-        if os.path.isfile(target_path):
-            targets = [target_path]
-        elif os.path.isdir(target_path):
-            targets = collect_targets(target_path)
-        else:
-            print(f"Error: path not found: {args.path}")
-            sys.exit(1)
-    else:
-        targets = collect_targets(base_dir)
+    targets = _resolve_targets(base_dir, args.path)
 
     changed_count = 0
     try:

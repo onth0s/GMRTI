@@ -8,6 +8,60 @@ import tempfile
 from typing import NoReturn, TypedDict
 
 MONOLITHIC_PATTERN = re.compile(r"^GMRTI_\d+\.md$")
+_FENCE_RE = re.compile(r"^(`{3,}|~{3,})")
+_WIKILINK_RE = re.compile(r"\[\[([^\]|]+)(?:\|[^\]]+)?\]\]")
+
+
+def parse_code_fence(stripped: str) -> tuple[str, int] | None:
+    """Return (fence_char, count) if *stripped* starts with 3+ backticks or tildes."""
+    m = _FENCE_RE.match(stripped)
+    if m:
+        seq = m.group(1)
+        return seq[0], len(seq)
+    return None
+
+
+@dataclass
+class CodeFenceTracker:
+    """Stateful tracker for fenced code blocks (backticks or tildes, >=3 chars)."""
+
+    in_fence: bool = False
+    fence_char: str = ""
+    fence_len: int = 0
+
+    def step(self, line: str) -> tuple[bool, bool]:
+        """Advance state by *line*.
+
+        Returns ``(is_fence_line, inside_fence_body)`` where *is_fence_line* is
+        True on the opening or closing fence line itself, and *inside_fence_body*
+        is True for lines inside an open fence (excluding the fence lines).
+        """
+        stripped = line.strip()
+        fence = parse_code_fence(stripped)
+        if fence:
+            f_char, f_count = fence
+            if not self.in_fence:
+                self.in_fence = True
+                self.fence_char = f_char
+                self.fence_len = f_count
+                return True, False
+            is_pure_fence = all(c == self.fence_char for c in stripped)
+            if is_pure_fence and f_char == self.fence_char and f_count >= self.fence_len:
+                self.in_fence = False
+                self.fence_char = ""
+                self.fence_len = 0
+                return True, False
+        return False, self.in_fence
+
+
+def extract_wikilinks(text: str) -> list[str]:
+    """Extract normalized ``[[target]]`` / ``[[target|display]]`` targets from *text*."""
+    targets: list[str] = []
+    for raw_target in _WIKILINK_RE.findall(text):
+        normalized = re.sub(r"\s+", " ", raw_target).strip().rstrip("\\").strip()
+        if normalized:
+            targets.append(normalized)
+    return targets
 
 
 @dataclass(frozen=True)

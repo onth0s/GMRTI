@@ -32,10 +32,10 @@ we haven't solved yet is how we make progress.
 
 ### 8b — Active Theoretical Contentions `[PROVISIONAL]`
 `[PLAIN]` Three hard puzzles are still being refined: how to group equivalent
-mental maps without peeking inside people's heads ([[Graph-Space Partitioning
-Axiom|Graph-Space Partitioning]]), how to keep an AI reviewer from sharing your
-own blind spots, and how to stop isolated edits from quietly leaking into
-neighboring ideas.
+mental maps without peeking inside people's heads
+([[Graph-Space Partitioning Axiom|Graph-Space Partitioning]]), how to keep an AI
+reviewer from sharing your own blind spots, and how to stop isolated edits from
+quietly leaking into neighboring ideas.
 
 **8b.1 — Contention 1: Graph-Space Partitioning and Individuation in Semantic
 Entropy** `[PROVISIONAL]`

@@ -185,9 +185,9 @@ will stop the plan from falling apart at the worst possible moment.
 
 `[PLAIN]` Misunderstanding happens across three scales: talking to your own
 future self through old notes ([[Temporal Stranger]]), talking to another person
-right now, and translating ideas between whole communities ([[Federated
-Graph]]). The GMRTI starts with notes to yourself first because it is the safest
-place to practice before scaling up.
+right now, and translating ideas between whole communities
+([[Federated Graph]]). The GMRTI starts with notes to yourself first because it
+is the safest place to practice before scaling up.
 
 The GMRTI must address transmission across three structurally distinct modes
 with a single unified algorithmic skeleton:

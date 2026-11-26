@@ -98,8 +98,7 @@ def assemble_monolithic_document(base_dir: str) -> str:
             body_parts.append(content)
 
     body_text = "\n\n---\n\n".join(body_parts)
-    output = _MONOLITH_FRONTMATTER + "\n\n" + header + "\n\n" + body_text + "\n"
-    return re.sub(r"\]\(\.\./GLOSSARY\.md(#[^)]+)\)", r"](\1)", output)
+    return _MONOLITH_FRONTMATTER + "\n\n" + header + "\n\n" + body_text + "\n"
 
 
 def archive_prior_monolithic_files(

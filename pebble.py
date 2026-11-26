@@ -7,16 +7,17 @@ companion ``PEBBLE.md``.
 
 Enforces subset parity between the full academic treatise and PEBBLE.md.
 """
-import argparse
 import os
 import re
 import sys
 
 from _gmrti_common import (
     ASSEMBLY_MANIFEST,
+    CodeFenceTracker,
     SyncResult,
     build_base_parser,
     exit_for_check,
+    extract_wikilinks,
     get_repo_root,
     read_utf8,
     write_utf8,
@@ -92,6 +93,41 @@ def _clean_allegory_title(combined_header: str) -> str:
     return clean_title or "Allegory"
 
 
+def _collect_allegory_header(lines: list[str], start_idx: int) -> tuple[str, int]:
+    """Combine multi-line allegory header starting at *start_idx*; return (header, next_idx)."""
+    combined = lines[start_idx]
+    i = start_idx
+    while i + 1 < len(lines) and (
+        "**" not in combined or "[" not in combined or "]" not in combined
+    ):
+        nxt = lines[i + 1]
+        if nxt.strip() == "" or nxt.startswith("- **") or nxt.startswith("**"):
+            break
+        i += 1
+        combined += " " + lines[i]
+    return combined, i + 1
+
+
+def _collect_allegory_body(lines: list[str], start_idx: int, remainder: str) -> tuple[str, int]:
+    """Collect allegory body lines from *start_idx* until next clause/section."""
+    body_lines = [remainder] if remainder else []
+    i = start_idx
+    while i < len(lines):
+        next_line = lines[i]
+        if _is_next_section_or_clause(next_line):
+            break
+        if (
+            next_line.strip() == ""
+            and i + 1 < len(lines)
+            and _is_next_section_or_clause(lines[i + 1])
+        ):
+            break
+        body_lines.append(next_line.strip())
+        i += 1
+    body = clean_plain_text(" ".join(ln for ln in body_lines if ln).strip())
+    return body, i
+
+
 def extract_allegories_from_raw_text(
     content: str, filename: str = ""
 ) -> list[tuple[str, str]]:
@@ -101,46 +137,18 @@ def extract_allegories_from_raw_text(
 
     allegories: list[tuple[str, str]] = []
     lines = content.splitlines()
-    in_fence = False
-    fence_char = ""
-    fence_len = 0
+    fence_tracker = CodeFenceTracker()
     i = 0
     while i < len(lines):
         line = lines[i]
-        stripped = line.strip()
-        m_fence = re.match(r"^(`{3,}|~{3,})", stripped)
-        if m_fence:
-            seq = m_fence.group(1)
-            if not in_fence:
-                in_fence = True
-                fence_char, fence_len = seq[0], len(seq)
-                i += 1
-                continue
-            if all(c == fence_char for c in stripped) and len(seq) >= fence_len:
-                in_fence = False
-                i += 1
-                continue
-        if in_fence:
-            i += 1
-            continue
-        if not _is_allegory_opener(line):
+        is_fence_line, inside_fence = fence_tracker.step(line)
+        if is_fence_line or inside_fence or not _is_allegory_opener(line):
             i += 1
             continue
 
-        combined_header = line
-        while i + 1 < len(lines) and (
-            "**" not in combined_header
-            or "[" not in combined_header
-            or "]" not in combined_header
-        ):
-            nxt = lines[i + 1]
-            if nxt.strip() == "" or nxt.startswith("- **") or nxt.startswith("**"):
-                break
-            i += 1
-            combined_header += " " + lines[i]
-
+        combined_header, next_i = _collect_allegory_header(lines, i)
         if "[ALLEGORY" not in combined_header.upper():
-            i += 1
+            i = next_i
             continue
 
         clean_title = _clean_allegory_title(combined_header)
@@ -152,23 +160,7 @@ def extract_allegories_from_raw_text(
         remainder = clean_plain_text(
             parts[-1].strip(" `*") if len(parts) > 1 else ""
         )
-        body_lines = [remainder] if remainder else []
-        i += 1
-
-        while i < len(lines):
-            next_line = lines[i]
-            if _is_next_section_or_clause(next_line):
-                break
-            if (
-                next_line.strip() == ""
-                and i + 1 < len(lines)
-                and _is_next_section_or_clause(lines[i + 1])
-            ):
-                break
-            body_lines.append(next_line.strip())
-            i += 1
-
-        body = clean_plain_text(" ".join(ln for ln in body_lines if ln).strip())
+        body, i = _collect_allegory_body(lines, next_i, remainder)
         if body:
             allegories.append((clean_title, body))
 
@@ -253,28 +245,15 @@ def parse_src_file(content: str, filename: str = "") -> dict:
             break
 
     plain_blocks: list[dict[str, str]] = []
-    in_fence = False
-    fence_char = ""
-    fence_len = 0
+    fence_tracker = CodeFenceTracker()
     i = 0
     while i < len(lines):
-        stripped = lines[i].strip()
-        m_fence = re.match(r"^(`{3,}|~{3,})", stripped)
-        if m_fence:
-            seq = m_fence.group(1)
-            if not in_fence:
-                in_fence = True
-                fence_char, fence_len = seq[0], len(seq)
-                i += 1
-                continue
-            if all(c == fence_char for c in stripped) and len(seq) >= fence_len:
-                in_fence = False
-                i += 1
-                continue
-        if in_fence:
+        line = lines[i]
+        is_fence_line, inside_fence = fence_tracker.step(line)
+        if is_fence_line or inside_fence:
             i += 1
             continue
-        if _PLAIN_OPENER_RE.match(stripped):
+        if _PLAIN_OPENER_RE.match(line.strip()):
             block, i = _extract_plain_block(lines, i)
             if block is not None:
                 plain_blocks.append(block)
@@ -303,7 +282,7 @@ def _filter_glossary_for_pebble(glossary_content: str, body_text: str) -> str:
         entries.append((term, block.strip()))
         entry_map[term] = block.strip()
 
-    needed = set(re.findall(r"\[\[([^\]|]+)(?:\|[^\]]+)?\]\]", body_text))
+    needed = set(extract_wikilinks(body_text))
     needed.update({"GMRTI", "Metaagnosticism"})
 
     # Transitive closure over wikilinks inside selected glossary entries
@@ -311,7 +290,7 @@ def _filter_glossary_for_pebble(glossary_content: str, body_text: str) -> str:
     visited = set(queue)
     while queue:
         cur = queue.pop()
-        for dep in re.findall(r"\[\[([^\]|]+)(?:\|[^\]]+)?\]\]", entry_map[cur]):
+        for dep in extract_wikilinks(entry_map[cur]):
             if dep in entry_map and dep not in visited:
                 visited.add(dep)
                 queue.append(dep)
@@ -320,6 +299,52 @@ def _filter_glossary_for_pebble(glossary_content: str, body_text: str) -> str:
     if not kept:
         return glossary_content
     return header + "\n\n" + "\n\n".join(kept)
+
+
+def _render_section_pebble(parsed: dict) -> str:
+    """Render one parsed ``src/`` section into PEBBLE markdown."""
+    file_parts: list[str] = []
+    if parsed["major_heading"]:
+        file_parts.append(f"## {parsed['major_heading']}")
+
+    for block in parsed["plain_blocks"]:
+        h = block["heading"]
+        t = block["text"]
+        if h and h != parsed["major_heading"]:
+            file_parts.append(f"### {h}\n\n{t}")
+        else:
+            file_parts.append(t)
+
+    for title, a_text in parsed["allegories"]:
+        allegory_block = (
+            f"> **Allegory: {title}**\n>\n"
+            + "\n".join(f"> {ln}" for ln in a_text.splitlines() if ln.strip())
+        )
+        file_parts.append(allegory_block)
+
+    return "\n\n".join(file_parts)
+
+
+def _build_pebble_glossary(base_dir: str, body_text: str) -> str:
+    """Load, demote, and filter ``GLOSSARY.md`` for PEBBLE."""
+    glossary_path = os.path.join(base_dir, "GLOSSARY.md")
+    if not os.path.exists(glossary_path):
+        raise FileNotFoundError(f"Critical source file missing: {glossary_path}")
+    glossary_content = read_utf8(glossary_path).strip()
+    glossary_content = re.sub(
+        r"^#\s+Glossary\b",
+        "### Glossary",
+        glossary_content,
+        count=1,
+        flags=re.MULTILINE,
+    )
+    glossary_content = _filter_glossary_for_pebble(glossary_content, body_text)
+    return (
+        "## The Formal Glossary (Minimum Sufficient Reference)\n\n"
+        "*The following glossary contains the formal definitions from the full\n"
+        "GMRTI treatise that are directly referenced in this guide.*\n\n"
+        + glossary_content
+    )
 
 
 def assemble_pebble_document(base_dir: str | None = None) -> str:
@@ -344,64 +369,17 @@ def assemble_pebble_document(base_dir: str | None = None) -> str:
             raise FileNotFoundError(f"Critical source file missing: {fpath}")
 
         parsed = parse_src_file(read_utf8(fpath), filename=rel_path)
-        if not parsed["plain_blocks"] and not parsed["allegories"]:
-            continue
+        if parsed["plain_blocks"] or parsed["allegories"]:
+            doc_parts.append(_render_section_pebble(parsed))
 
-        file_parts: list[str] = []
-        if parsed["major_heading"]:
-            file_parts.append(f"## {parsed['major_heading']}")
+    doc_parts.append(_build_pebble_glossary(base_dir, "\n\n".join(doc_parts)))
 
-        for block in parsed["plain_blocks"]:
-            h = block["heading"]
-            t = block["text"]
-            if h and h != parsed["major_heading"]:
-                file_parts.append(f"### {h}\n\n{t}")
-            else:
-                file_parts.append(t)
-
-        for title, a_text in parsed["allegories"]:
-            allegory_block = (
-                f"> **Allegory: {title}**\n>\n"
-                + "\n".join(
-                    f"> {ln}" for ln in a_text.splitlines() if ln.strip()
-                )
-            )
-            file_parts.append(allegory_block)
-
-        doc_parts.append("\n\n".join(file_parts))
-
-    # Append minimum sufficient GLOSSARY.md with heading demoted from H1 to H3
-    glossary_path = os.path.join(base_dir, "GLOSSARY.md")
-    if not os.path.exists(glossary_path):
-        raise FileNotFoundError(f"Critical source file missing: {glossary_path}")
-    glossary_content = read_utf8(glossary_path).strip()
-    glossary_content = re.sub(
-        r"^#\s+Glossary\b",
-        "### Glossary",
-        glossary_content,
-        count=1,
-        flags=re.MULTILINE,
-    )
-    glossary_content = _filter_glossary_for_pebble(
-        glossary_content, "\n\n".join(doc_parts)
-    )
-    glossary_wrapper = (
-        "## The Formal Glossary (Minimum Sufficient Reference)\n\n"
-        "*The following glossary contains the formal definitions from the full\n"
-        "GMRTI treatise that are directly referenced in this guide.*\n\n"
-        + glossary_content
-    )
-    doc_parts.append(glossary_wrapper)
-
-    # Append Coda (src/09_coda.md)
     coda_path = os.path.join(base_dir, "src", "09_coda.md")
     if not os.path.exists(coda_path):
         raise FileNotFoundError(f"Critical source file missing: {coda_path}")
-    coda_content = clean_plain_text(read_utf8(coda_path).strip())
-    doc_parts.append(coda_content)
+    doc_parts.append(clean_plain_text(read_utf8(coda_path).strip()))
 
-    output = "\n\n---\n\n".join(doc_parts) + "\n"
-    return re.sub(r"\]\(\.\./GLOSSARY\.md(#[^)]+)\)", r"](\1)", output)
+    return "\n\n---\n\n".join(doc_parts) + "\n"
 
 
 def check_pebble_sync(base_dir: str | None = None) -> SyncResult:

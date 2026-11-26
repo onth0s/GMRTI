@@ -13,4 +13,5 @@ testpaths = ["tests"]
 pythonpath = ["."]
 markers = [
     "repo_state: tests that assert against live repository working-tree files",
+    "browser: Playwright rendered-layout tests for index.html",
 ]
