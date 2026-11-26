@@ -142,7 +142,9 @@ Meta-DRC Divergence during Stage 2. When detected, the standard transmission is
 paused, and the algorithm redirects to Stage 3 Localization and Stage 4 Repair
 of the Meta-DRC. Until a consensus DRC is negotiated, the protocol default is to
 enforce the highest demanded DRC of any participating party to prevent
-catastrophic coordination failures under asymmetric risk.
+catastrophic coordination failures under asymmetric risk, provided the demanding
+party declares a commensurate failure-cost or boundary-condition stake
+(preventing unbounded `DRC = 1.0` stalling; see §3e.1v).
 
 
 **3c.3 — The Operational Action Threshold** `[PROVISIONAL]`
@@ -246,11 +248,15 @@ connects two ideas.
 - **3e.1v** *Meta-DRC Divergence Repair (DRC Negotiation & Defaulting)*: The
     parties pause the primary transmission and explicitly negotiate the DRC for
     the domain. If consensus cannot be reached, the protocol mandates defaulting
-    to the highest demanded DRC of any participating covenant. This prevents
-    asymmetric risk failure (where one party treats an operation as low-risk
-    while it carries catastrophic failure risk for another). Once the DRC is
-    established, the transmission resumes from Stage 2 under the new joint
-    coefficient.
+    to the highest demanded DRC of any participating covenant, provided the
+    demanding party declares a commensurate failure-cost or boundary-condition
+    stake. This prevents asymmetric risk failure (where one party treats an
+    operation as low-risk while it carries catastrophic failure risk for
+    another);
+    if a party demands `DRC = 1.0` without declaring a commensurate stake, the
+    counterparty may invoke Cost-Bounded Termination (§3a.1iii) or TCA (§3g.4).
+    Once the DRC is established, the transmission resumes from Stage 2 under the
+    new joint coefficient.
 - **3e.1vi** *Relational Operator Regress Terminus*: To prevent the infinite
   regress of tagging metadata, the relational operators defined in 2g.4 are
   structurally non-markable at the content level (preventing meta-tagging of
@@ -345,7 +351,7 @@ than the remaining risk of misunderstanding.
     sufficient reconstruction with minimal friction. `[PROVISIONAL]`
 
 **3g.4 — Adversarial Threat Model: Bad Actors and Topological Consistency
-Audit** `[STABLE]`
+Audit** `[STABLE]` [provisional dependency boundary: §8b.1]
 
 The stopping principle assumes cooperative participants. In adversarial or
 asymmetric settings, the protocol encounters **Bad Actors**: participants who
@@ -358,9 +364,10 @@ exploitation, the GMRTI deploys the **Topological Consistency Audit (TCA)**:
   for conflicting edge-types on the same directed pair under declared mutual
   exclusion, Boundary-Tracing Encapsulation (2h) interface invariant
   violations, and documented refusal of candidate repairs that pass the actor's
-  own declared operational probes.
+  own declared operational probes when the actor also refuses to declare a new
+  distinguishing probe or boundary condition where the repair fails.
 - **Enforcement**: If a participant maintains contradictory edge declarations or
-  repeatedly rejects isomorphic repairs verified by TCA, they are classified as
-  a Bad Actor. The protocol terminates cooperative exchange immediately under
-  Cost-Bounded Termination (§3a.1iii), preventing bad-faith epistemic
-  exhaustion.
+  repeatedly rejects isomorphic repairs verified by TCA without supplying a
+  distinguishing boundary condition, they are classified as a Bad Actor. The
+  protocol terminates cooperative exchange immediately under Cost-Bounded
+  Termination (§3a.1iii), preventing bad-faith epistemic exhaustion.

@@ -61,7 +61,7 @@ Some concepts are deeply buried — many steps away from anything you can point 
 
 ### 2c — Divergence Taxonomy
 
-There are two very different ways a map can be wrong: it can be completely empty where it should have something, or it can have the wrong thing. Knowing which kind of error you are dealing with tells you how to fix it.
+A map can go wrong in two main ways right now — it can be empty where it should have something, or have the wrong thing — plus a third way when your notes go stale over time. Knowing which kind of error you are dealing with tells you how to fix it.
 
 ### 2d — Institutional Meta-Covenants: Federated Graphs
 
@@ -91,7 +91,7 @@ In an interconnected web of ideas, fixing one broken piece can accidentally shak
 >
 > An *Anchor-Only Subgraph* is like an empty golden chocolate wrapper with no chocolate inside: a person can repeat the word "sovereignty", but has zero working operational connections attached to it. An *Edge Divergence* is like two people both using the word "dollar", where one person means US Dollars and the other means Australian Dollars: both hold real value and real rules, but their expectations clash the instant they try to make a trade.
 
-> **Allegory: The Vault Kilogram and Metrologists**
+> **Allegory: The Vault Kilogram and Measurement Scientists**
 >
 > A country agrees on what a "kilogram" means by keeping a polished cylinder of platinum in a sealed vault (the Artifact Anchor). But over the decades, dust gathers and tiny flecks of metal wear away. Without a dedicated team of scientists regularly cleaning, checking, and re-calibrating it (the Maintenance Covenant), every scale across the nation will slowly drift apart without anyone realizing it.
 
@@ -101,7 +101,7 @@ In an interconnected web of ideas, fixing one broken piece can accidentally shak
 
 > **Allegory: The Four-Engine Airplane Ground Test**
 >
-> A four-engine airplane can fly smoothly even if Engine #3 has a broken fuel pipe, because the other three engines supply enough lift to hide the problem during cruising flight. Path-Stripping Probing is the ground stress test where mechanics shut off Engines 1, 2, and 4 one by one. When Engine #3 is tested all by itself, it immediately sputters and stalls, revealing the broken pipe before the plane takes off into a storm.
+> A four-engine airplane can fly smoothly even if Engine #3 has a broken fuel pipe, because the other three engines supply enough lift to hide the problem during cruising flight. Path-Stripping Probing is the ground stress test where mechanics shut off all other engines so each engine is tested by itself. When Engine #3 is tested all by itself, it immediately sputters and stalls, revealing the broken pipe before the plane takes off into a storm.
 
 > **Allegory: The Jigsaw Puzzle Joint**
 >
@@ -109,7 +109,7 @@ In an interconnected web of ideas, fixing one broken piece can accidentally shak
 
 > **Allegory: The Submarine Watertight Bulkhead**
 >
-> If a pipe bursts in one compartment of a submarine, the crew does not let seawater flood the entire vessel. They immediately dog down the heavy watertight doors on that specific room (the boundary wrapper). They repair the broken valve inside the sealed room, ensuring only safe, controlled cables pass through the bulkhead to the rest of the ship.
+> If a pipe bursts in one compartment of a submarine, the crew does not let seawater flood the entire vessel. They immediately lock shut the heavy watertight doors on that specific room (the boundary wrapper). They repair the broken valve inside the sealed room, ensuring only safe, controlled cables pass through the bulkhead to the rest of the ship.
 
 ---
 

@@ -69,7 +69,9 @@ We formalize Semantic Entropy $H_s(S)$ of a consistent surface signal $S$
 relative to a receiving covenant as the log of the number of distinct functional
 equivalence classes $[G_R]$ compatible with $S$ without contradiction
 ($|\{[G_R]\}| \ge 1$; an empty set $|\{[G_R]\}| = 0$ denotes **Signal
-Contradiction / Unsatisfiability**, not zero entropy): $$H_s(S) = \log_2
+Contradiction / Unsatisfiability**, not zero entropy; under the §8b.1 quotient,
+a class $[G_R]$ is compatible with $S$ iff at least one representative $G \in
+[G_R]$ satisfies $S$): $$H_s(S) = \log_2
 |\{[G_R] : [G_R] \text{ is compatible with } S\}|$$ Because direct measurement
 of $H_s(S)$ is constrained by metaagnosticism, we operationalize it via the
 **Behavioral Convergence Proxy (Path-Count Metric)**: the number of independent
@@ -78,10 +80,13 @@ by the receiver before they reach the Operational Action Threshold [provisional
 dependency boundary: §3c.3, §8b.1]. For a single pair of covenants $(C_T, C_R)$,
 this path count measures pairwise reconstruction divergence (analogous to
 cross-entropy), not intrinsic signal entropy directly: if each independent
-non-void path contracts the compatible equivalence-class space by a factor
-$k > 1$, the required path count scales as $O(H_s(S) / \log_2 k)$, whereas a
-path hitting an Anchor-Only Subgraph yields zero bits and receiver-specific
-local voids or lucky comosí confound the count. The metric converges to an
+non-void path also exhibits *filtering independence* over rival equivalence
+classes (contracting the compatible class space by a factor $k > 1$, which
+topological route-independence alone does not guarantee), the required path
+count scales as $O(H_s(S) / \log_2 k)$, whereas correlated paths or a path
+hitting an Anchor-Only Subgraph yield fewer bits and receiver-specific local
+voids or lucky comosí confound the count (making the metric an upper-bound
+proxy). The metric converges to an
 estimator of $H_s(S)$ only when evaluated under the zero-charity Minimal
 Substrate posture (DRC → 1.0) along combined Path-Stripping Probes (§2f.5iv).
 Thus, a high path count under those conditions indicates high initial semantic

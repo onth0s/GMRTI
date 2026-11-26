@@ -56,7 +56,9 @@ consequential edges are cultural agreements, experiential associations, or
 axiomatic commitments that syntactic compulsion cannot transmit. For these
 high-entropy concept types, Polyphonic Encoding and JIT-OM remain the primary
 tools; Syntactic Edge-Forcing, if applied at all, should be understood as
-partial entropy reduction rather than entropy solution.
+partial entropy reduction rather than entropy solution. Type 5a.1viii (gradient
+vs. binary) similarly exhibits low compatibility unless an explicit threshold
+boundary is declared.
 
 **5a.4 — Carved, Constructed, Boundary, and Experiential Concepts** `[STABLE]`
 
@@ -72,9 +74,10 @@ For the purpose of JIT-OM markers, we partition the concept-type taxonomy of
   exist solely by virtue of cooperative agreement or axiomatic commitment.
   Repair requires explicit renegotiation or adjustment of the semantic covenant
   itself.
-- **Boundary Concepts**: Concepts that straddle classes (e.g., mathematical
-  concepts, which are formally constructed via axioms but operationally carved
-  within trained communities). These are treated as
+- **Boundary Concepts**: Concepts that straddle classes (e.g., formal
+  mathematical structures, which are constructed via axioms yet operationally
+  carved within trained communities — contrasting with unformalized abstract
+  universals in 5a.1ii). These are treated as
   constructed-but-operationally-carved, utilizing formal syntactic constraints
   to establish apodictic comosí.
 - **Experiential / Phenomenological Concepts**: Includes qualia (5a.1iv). These

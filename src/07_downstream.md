@@ -109,9 +109,9 @@ declared operational domain:
     $$\text{Covenant} \rightarrow \text{Transmission} \rightarrow \text{Reconstruction} \rightarrow \text{Specification (CPD)} \rightarrow \text{Runtime / Yield} \rightarrow \text{Termination}$$
 CPD does not equate operational consequences with metaphysical truth. Rather, it
 evaluates an abstraction's specification by its capacity to produce semantic
-covenant convergence and operational congruence ($\operatorname{Action}_{C_1}(A)
-\cong \operatorname{Action}_{C_2}(A)$) among participating covenants.
-`[PROVISIONAL]`
+covenant convergence and DRC-bounded operational congruence per §3c.3
+($\operatorname{Action}_{C_1}(A) \cong \operatorname{Action}_{C_2}(A)$) among
+participating covenants. `[PROVISIONAL]`
 
 **7d.2 — The 7-Tuple Specification Architecture** A complete CPD operationalizes
 an abstraction through seven irreducible structural components:
@@ -121,8 +121,9 @@ an abstraction through seven irreducible structural components:
 - **State Space ($\Sigma$)**: The differentiated set of operational states
   through which the instantiated abstraction passes.
 - **Transition Function ($T$)**: The permitted input-driven state transitions
-  ($T : \Sigma \times \text{Inputs} \rightarrow \Sigma$), constitutive of
-  operational chronology.
+  ($T : \Sigma \times \text{Inputs} \rightarrow \Sigma$, where $\text{Inputs}$
+  is the domain-declared action/event set), constitutive of operational
+  chronology.
 - **Invariants ($I$)**: Conditions that mechanically hold throughout execution,
   not dependent on agent goodwill.
 - **Enforcement Architecture ($E$)**: The domain mechanism that gives the

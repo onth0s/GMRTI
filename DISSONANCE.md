@@ -32,7 +32,7 @@ Candidate Audit, Mirror Mode per §3c.1i).
 | D-16 | Heading collision and missing addresses for governance artifacts | Minor | Compilation / Hygiene | Resolved |
 | D-17 | Governance material precedes the problem statement in monolith order | Minor | Monolith Ordering | Resolved |
 | D-18 | specs/ announced in §0.1, absent from README TOC | Minor | Spec Synchronization | Resolved |
-| D-19 | §3b.1v excision marker occupies a live address | Minor | Address Hygiene | Resolved |
+| D-19 | §3b.1v excision marker occupies a live address (subsequently restored for Tier 1 Coarse Cut) | Minor | Address Hygiene | Resolved |
 
 ---
 

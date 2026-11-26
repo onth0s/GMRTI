@@ -150,7 +150,7 @@ calculating the downstream propagation impact of hypothetical edge revisions
 within the **declared domain subgraph** (subject to a minimum subgraph size
 floor so trivial toy graphs do not false-positive). Any edge-cluster whose
 alteration forces structural reconfiguration in more than a declared fraction of
-dependent nodes in that domain subgraph (heuristically set to a 30% node
+dependent nodes in that domain subgraph (provisionally calibrated to a 30% node
 threshold, subject to domain-specific calibration) is formally classified as
 *Axiomatically Active*. This converts axiomaticity from an invisible
 metaphysical assumption into a measurable topological dependency.
@@ -158,25 +158,26 @@ metaphysical assumption into a measurable topological dependency.
 
 **2c — Divergence Taxonomy** `[STABLE]`
 
-`[PLAIN]` There are two very different ways a map can be wrong: it can be
-completely empty where it should have something, or it can have the wrong thing.
-Knowing which kind of error you are dealing with tells you how to fix it.
+`[PLAIN]` A map can go wrong in two main ways right now — it can be empty where
+it should have something, or have the wrong thing — plus a third way when your
+notes go stale over time. Knowing which kind of error you are dealing with tells
+you how to fix it.
 
 **2c.1** The GMRTI identifies three primary divergence types:
 
-- **Anchor-Only Subgraph (formerly Severe Edge Deficit)** — The transmitting
-  covenant attempts to reference an edge-cluster for which the receiving
-  covenant has a shared surface label (a word or artifact) but possesses zero
-  internal relational depth attached to it. The receiver is not pointing at a
-  void, but at a hollow shell. This is the deepest and most dangerous divergence
-  type, requiring Polyphonic Encoding to construct internal topology behind the
-  shared label.
-- **Edge Divergence** — Both covenants possess an edge-cluster associated with
-  the same surface label, but the internal topology of those clusters conflicts.
-  The covenants appear to share a concept but operate with it differently. This
-  is the most common source of arguments that feel unresolvable while being, in
-  principle, repairable.
-- **Temporal Drift Divergence** — Divergence arising not from covenant
+- **2c.1i — Anchor-Only Subgraph (formerly Severe Edge Deficit)** — The
+  transmitting covenant attempts to reference an edge-cluster for which the
+  receiving covenant has a shared surface label (a word or artifact) but
+  possesses zero internal relational depth attached to it. The receiver is not
+  pointing at a void, but at a hollow shell. This is the deepest and most
+  dangerous divergence type, requiring Polyphonic Encoding to construct internal
+  topology behind the shared label.
+- **2c.1ii — Edge Divergence** — Both covenants possess an edge-cluster
+  associated with the same surface label, but the internal topology of those
+  clusters conflicts. The covenants appear to share a concept but operate with
+  it differently. This is the most common source of arguments that feel
+  unresolvable while being, in principle, repairable.
+- **2c.1iii — Temporal Drift Divergence** — Divergence arising not from covenant
   difference but from covenant change over time. The transmitting state of a
   covenant at *t₁* and the receiving state at *t₂* have drifted, producing
   mismatch between encoded and decoded edge-structure within what appears to be
@@ -246,7 +247,7 @@ updated.
     drift using GMRTI principles. The anchor slows drift; the Maintenance
     Covenant manages the residual. `[PROVISIONAL]`
 
-- **2d.2i — The Vault Kilogram and Metrologists Allegory**
+- **2d.2i — The Vault Kilogram and Measurement Scientists Allegory**
     `[ALLEGORY: ARTIFACT-ANCHORS]`
     A country agrees on what a "kilogram" means by keeping a polished cylinder
     of platinum in a sealed vault (the Artifact Anchor). But over the decades,
@@ -339,13 +340,14 @@ layers:
   includes the three core primitive relational operators (`[->causal]`,
   `[->inferential]`, `[->identity]`) bootstrapped via CZP, the edge-primacy
   structural commitment (2a.2), and the Tier 1 coarse taxonomy
-  (inferential/causal/other). The remaining five relational operators
-  (`[->procedural]`, `[->normative]`, `[->referential]`, `[->affective]`,
-  `[->structural]`) are derived compositionally from the three core primitives
-  or negotiated locally via JIT-OM. The Primitive Covenant is itself a semantic
-  framework subject to transmission error — its establishment between agents is
-  a transmission problem that the MIB does not solve but CZP and JIT-OM
-  address. `[STABLE]`
+  (inferential/causal/other). Of the remaining five relational operators,
+  `[->procedural]`, `[->referential]`, and `[->structural]` may be derived
+  compositionally from the three core primitives, whereas `[->normative]` and
+  `[->affective]` cannot be reduced to non-normative or non-experiential
+  primitives and are negotiated locally via JIT-OM. The Primitive Covenant is
+  itself a semantic framework subject to transmission error — its establishment
+  between agents is a transmission problem that the MIB does not solve but CZP
+  and JIT-OM address. `[STABLE]`
 
 - **2e.5iii — The Covenant Zero Protocol (CZP)**: The procedure for
   bootstrapping the GMRTI-specific Primitive Covenant from the Minimal
@@ -502,8 +504,9 @@ others are stripped, a local topological void on $p_i$ is confirmed.
   A four-engine airplane can fly smoothly even if Engine #3 has a broken fuel
   pipe, because the other three engines supply enough lift to hide the problem
   during cruising flight. Path-Stripping Probing is the ground stress test
-  where mechanics shut off Engines 1, 2, and 4 one by one. When Engine #3 is
-  tested all by itself, it immediately sputters and stalls, revealing the
+  where mechanics shut off all other engines so each engine is tested by itself.
+  When Engine #3 is tested all by itself, it immediately sputters and stalls,
+  revealing the
   broken pipe before the plane takes off into a storm.
 
 **2f.6 — Core Path Minimization** `[STABLE]`
@@ -554,7 +557,8 @@ declaration. The receiver, in order to decode `A + B`, must traverse the
 relational edge between A and B. This traversal is enforced by the expression's
 syntax; it cannot be bypassed.
 
-We prescribe a formal set of primitive relational operators:
+We prescribe a formal set of canonical relational operators (the 3 CZP
+primitives plus 5 derived/JIT-OM operators):
 - `[->inferential]` (logical consequence)
 - `[->causal]` (physical/worldly production)
 - `[->procedural]` (methodological sequence)
@@ -659,7 +663,7 @@ boundary around your fix so the ripples don't spread.
 - **2h.2i — The Submarine Watertight Bulkhead Allegory**
     `[ALLEGORY: ENCAPSULATION]`
     If a pipe bursts in one compartment of a submarine, the crew does not let
-    seawater flood the entire vessel. They immediately dog down the heavy
+    seawater flood the entire vessel. They immediately lock shut the heavy
     watertight doors on that specific room (the boundary wrapper). They repair
     the broken valve inside the sealed room, ensuring only safe, controlled
     cables pass through the bulkhead to the rest of the ship.

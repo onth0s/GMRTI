@@ -59,8 +59,8 @@ but as a damped moving average updated via successive declaration states
 $A_{decl,t}$.
 - **The Damping Factor Axiom**: To prevent anchor oscillation and maintain
   stability under noisy or local fluctuations, updates are scaled by a damping
-  factor $\lambda \in (0, 1)$ (with $\lambda = 0.15$ as an operational
-  default, subject to empirical calibration):
+  factor $\lambda \in (0, 1]$ (with $\lambda = 0.15$ as an operational
+  default, and $\lambda = 1.0$ as the degenerate no-anchor limit):
   $$A_{t+1} = (1 - \lambda)A_t + \lambda A_{decl,t} = A_t + \lambda (A_{decl,t} - A_t)$$
 - **Lag-Bounded Tracking Principle**: Under an incoming sequence of declarations
   with bounded drift rate $\delta = \sup_t \|A_{decl,t+1} - A_{decl,t}\|$, the

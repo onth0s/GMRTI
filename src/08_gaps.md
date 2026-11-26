@@ -36,22 +36,25 @@ we haven't solved yet is how we make progress.
 **8b.1 — Contention 1: Graph-Space Partitioning and Individuation in Semantic
 Entropy** `[PROVISIONAL]`
 
-The mathematical formulation of Semantic Entropy in Section 1a ($H_s(S) = \log_2
-|\{G_R : G_R \text{ compatible with } S\}|$) defines entropy as a Hartley-style
-log-count over compatible reconstructed graph topologies. The open contention
-was that this formulation presupposed an individuation criterion for distinct,
-non-isomorphic edge-configurations without engaging the metaagnostic boundary.
+The pre-resolution formulation of Semantic Entropy in Section 1a ($H_s(S) =
+\log_2 |\{G_R : G_R \text{ compatible with } S\}|$) defined entropy as a
+Hartley-style log-count over raw compatible reconstructed graph topologies. The
+open contention was that this formulation presupposed an individuation criterion
+for distinct, non-isomorphic edge-configurations without engaging the
+metaagnostic boundary.
 - *Resolution (The Partition-Structure Axiom)*: Under Audit-Mode exact
   equivalence ($\varepsilon = 0$ on a declared finite operational probe suite),
   functional equivalence is transitive and discretizes candidate receiving
   covenant graph space into a genuine quotient partition of equivalence classes
   $\{[G_R]\}$: two topologies $G_1, G_2$ belong to the same class ($[G_1] =
   [G_2]$) if and only if they license indistinguishable downstream operational
-  inferences across all declared probes. Under tolerance-bounded comosí
-  ($\varepsilon > 0$), functional congruence is reflexive and symmetric but
-  non-transitive, inducing a tolerance covering of overlapping neighborhoods
-  rather than disjoint equivalence classes. The set $\{[G_R]\}$ in $H_s(S)$ is
-  strictly defined at the $\varepsilon = 0$ Audit-Mode quotient level.
+  inferences across all declared probes. A class $[G_R]$ is compatible with $S$
+  iff at least one representative $G \in [G_R]$ satisfies $S$. Under
+  tolerance-bounded comosí ($\varepsilon > 0$), functional congruence is
+  reflexive and symmetric but non-transitive, inducing a tolerance covering of
+  overlapping neighborhoods rather than disjoint equivalence classes. The set
+  $\{[G_R]\}$ in $H_s(S)$ is strictly defined at the $\varepsilon = 0$
+  Audit-Mode quotient level.
 - *Operational Alignment*: This quotient partition grounds the Behavioral
   Convergence Proxy (Path-Count Metric) directly in the topology, bounding
   Hartley entropy to finite, operationally distinguishable classes without

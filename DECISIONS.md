@@ -108,7 +108,8 @@ addressed.
 
 ### [DEC-18] Formalize `[EXCISED]` Status Marker (D-19)
 - Define `[EXCISED]` marker in `METHODOLOGY.md` and `src/00_preamble.md`.
-- Mark §3b.1v with `[EXCISED]`.
+- Note: §3b.1v was initially marked `[EXCISED]` and subsequently `[RESTORED]` to
+  carry the Tier 1 Coarse Cut rule (inferential / causal / other) in Stage 1.
 
 ### [DEC-19] Ground Compression Asymmetry & Presumptive Intrusion Rule (D-01.1, D-01.2)
 - Ground the asymmetry of §6b.4 in Polyphonic Encoding's core justification: ex

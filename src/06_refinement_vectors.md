@@ -66,7 +66,7 @@ document over time.
     The Irreducibility Check in step 5 is the primary mitigation. `[STABLE]`
 
 **6b.4 — Compression as Covenant Intrusion and the Burden-of-Proof Rule**
-`[STABLE]`
+`[STABLE]` [provisional dependency boundary: §6b.1]
 
 A specific failure mode of the LLM-Manifesto loop, observed empirically across
 this document's iteration history: LLM adversarial readers with trained priors

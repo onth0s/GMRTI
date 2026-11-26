@@ -23,9 +23,10 @@ resides in the edge, not the atom.
 **Aa.4 Topological Depth**: The dependency hierarchy of the network, divided
 into Surface Subgraphs, Structural Subgraphs, and Axiomatic Edge-Clusters.
 
-**Aa.5 Semantic Entropy**: The measure of structural ambiguity in a transmitted
-signal; the number of consistent but non-identical edge-configurations available
-to the receiving covenant.
+**Aa.5 Semantic Entropy**: The log-measure of structural ambiguity in a
+transmitted signal ($H_s(S) = \log_2 |\{[G_R]\}|$); the log-count of distinct
+functional equivalence classes of receiving-covenant edge-configurations
+compatible with the signal under the §8b.1 quotient.
 
 **Aa.6 Divergence**: A topological or temporal failure in transmission between
 covenants. Primary types include Anchor-Only Subgraph, Edge Divergence (and
@@ -42,8 +43,9 @@ entropy and redundancy-masking.
 interpretation by building mandatory edge-traversals directly into the
 grammatical or compositional structure of the expression.
 
-**Aa.10 Just-In-Time Ontological Marking (JIT-OM)**: The retroactive labeling of
-edge-types deployed specifically when Edge-Type Misattribution is detected.
+**Aa.10 Just-In-Time Ontological Marking (JIT-OM)**: The retroactive, local
+labeling of concept-types (§5a.4) and Tier 2 edge-types (§2a.5) deployed
+specifically when Edge Divergence or Edge-Type Misattribution is detected.
 
 **Aa.11 The Refinement Cycle (The Algorithm)**: The recursive
 diagnostic-and-reconstruction sequence (Covenant Declaration -> Generative
