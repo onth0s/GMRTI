@@ -11,5 +11,5 @@ invariants:
   - "Attenuates edge-change propagation beyond the immediate concept region."
 open_issues:
   - "Holistic leakage: outer context shifts propagate via interface edges."
-status: STABLE
-last_modified: "2026-09-18"
+status: PROVISIONAL
+last_modified: "2026-11-26"
