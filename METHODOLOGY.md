@@ -13,13 +13,13 @@ non-negotiable behavioral contracts for authoring and refactoring the treatise.
   expected.
 - `[PROVISIONAL]`: A claim held with operational confidence but still open to
   fundamental revision. It has not yet survived a full adversarial audit.
-- `[STABLE]`: A formal invariant. It is considered load-bearing, and changes
-  here propagate broadly. Any refactor that breaks a `[STABLE]` claim without
-  deliberately invoking the Refinement Cycle to downgrade it is an error.
-  *Epistemic boundary*: `[STABLE]` marks authorial closure — a claim not
-  currently undergoing revision in order to prevent infinite regress and
-  self-consuming refinement (see §3g.2) — not an assertion of metaphysical
-  truth or objective proof.
+- `[STABLE]`: Authorial closure — a formal structural commitment not currently
+  undergoing revision in order to prevent infinite regress and self-consuming
+  refinement (see §3g.2). Changes here propagate broadly, so any refactor that
+  alters a `[STABLE]` claim must deliberately invoke the Refinement Cycle.
+  *Epistemic boundary*: `[STABLE]` marks authorial closure and dependency-clean
+  integration (Ma.3), not an assertion of metaphysical truth, final proof, or
+  permanent immunity from revision.
 - `[RECURSIVE]`: A claim that applies to the framework itself and must be
   checked for self-consistency (e.g., the claim that all language is
   high-entropy applies to the language of GMRTI).
@@ -63,31 +63,28 @@ depend on validated invariants.
 
 **Ma.4 — Graduation Criteria** `[STABLE]`
 
-A claim graduates from `[PROVISIONAL]` to `[STABLE]` only when it satisfies both
-of the following non-negotiable conditions:
+A claim graduates from `[PROVISIONAL]` to `[STABLE]` (authorial closure) when it
+satisfies **Invariant Dependency (Ma.3)**: all concepts, mechanisms, and
+definitions upon which the claim rests must themselves be `[STABLE]`, or carry
+an explicit provisional dependency boundary declaration. A claim whose
+load-bearing dependencies remain un-graduated without a declared boundary is
+structurally blocked from `[STABLE]` status.
 
-1. **Survival of Adversarial Audit**: The claim's content has been subjected to
-   a
-   formal `DISSONANCE.md` critique by an external or context-free agent and has
-   survived without requiring fundamental structural alteration (i.e., it
-   required at most Surface or minor Structural repair).
-2. **Satisfaction of Invariant Dependency (Ma.3)**: All concepts, mechanisms,
-   and
-   definitions upon which the claim rests must themselves be established
-   `[STABLE]` invariants, or carry an explicit provisional dependency boundary
-   declaration. A claim whose load-bearing dependencies remain un-graduated is
-   structurally blocked from `[STABLE]` graduation.
-
-When a claim satisfies both conditions, it graduates to `[STABLE]` and becomes
-an architectural invariant.
+> [!NOTE]
+> **Agentic Context vs. Provenance Tradeoff:** Extended audit logs and
+> changelogs are valuable during philosophical development, and in an ideal
+> world every claim would retain an explicit provenance and audit track record
+> alongside it. In practice, carrying full audit history inside the treatise
+> pollutes agentic context windows and degrades signal-to-noise. Because `git`
+> already preserves the complete commit-level history implicitly, this
+> repository deliberately trades in-document audit trails for a clean current
+> monolith and periodically purges resolved logs via `nuke.ps1`.
 
 ```diagram LR
-TITLE: Invariant Graduation Gate (Ma.3 + Ma.4)
+TITLE: Authorial Closure Gate (Ma.3 + Ma.4)
 PROV["PROVISIONAL Claim — Held with operational confidence"]
-AUD{"Adversarial Audit — Survived DISSONANCE.md?"}
-DEP{"Invariant Dependency — All dependencies STABLE or bounded?"}
-STAB("STABLE Invariant — Authorial closure (§3g.2)")
-PROV --> AUD
-AUD -->|Yes| DEP
+DEP{"Invariant Dependency (Ma.3) — All dependencies STABLE or bounded?"}
+STAB("STABLE — Authorial closure (§3g.2)")
+PROV --> DEP
 DEP -->|Yes| STAB
 ```

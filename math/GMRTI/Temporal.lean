@@ -69,4 +69,16 @@ theorem lag_bounded_tracking_principle (lambda δ : ℝ) (hlambda_le : lambda �
   have h_div : (1 - lambda) * (δ / lambda) = δ * (1 - lambda) / lambda := by ring
   rwa [h_div] at h_ineq
 
+/-- Geometric decay of initial transient offset (§4b.3): for `0 ≤ lambda ≤ 1`,
+`(1 - lambda)^t` is bounded in `[0, 1]` and nonincreasing in `t`. -/
+theorem ema_transient_decay_nonincreasing (lambda : ℝ)
+    (hlambda_nonneg : 0 ≤ lambda) (hlambda_le : lambda ≤ 1) (t : ℕ) :
+    (1 - lambda) ^ (t + 1) ≤ (1 - lambda) ^ t := by
+  have h1_nonneg : 0 ≤ 1 - lambda := sub_nonneg.mpr hlambda_le
+  have h1_le : 1 - lambda ≤ 1 := sub_le_self 1 hlambda_nonneg
+  calc (1 - lambda) ^ (t + 1)
+    _ = (1 - lambda) ^ t * (1 - lambda) := pow_succ (1 - lambda) t
+    _ ≤ (1 - lambda) ^ t * 1 := mul_le_mul_of_nonneg_left h1_le (pow_nonneg h1_nonneg t)
+    _ = (1 - lambda) ^ t := mul_one ((1 - lambda) ^ t)
+
 end GMRTI

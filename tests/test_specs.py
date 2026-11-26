@@ -48,6 +48,10 @@ def validate_spec(filename: str, spec: dict) -> None:
     assert len(spec["invariants"]) > 0, f"{filename} must declare at least one invariant"
     if "open_issues" in spec:
         assert isinstance(spec["open_issues"], list), f"{filename} open_issues must be a list"
+    if "dependency_boundary" in spec:
+        assert isinstance(spec["dependency_boundary"], list), (
+            f"{filename} dependency_boundary must be a list"
+        )
 
 
 def test_specs_schema(specs):

@@ -350,3 +350,24 @@ Stage 5 of the GMRTI algorithm: provisional formal acknowledgment that a
 divergence at the [[Axiomatic Edge-Cluster|Axiomatic]] layer reflects a genuine
 difference in foundational commitments rather than transmission failure, handing
 off to [[GMCR]] (§3f). `[STABLE]`
+
+#### * Epistemic Termination
+Termination of the GMRTI cycle via an [[Irreducibility Declaration]] at Stage 5
+(§3a.1ii, §3f). `[STABLE]`
+
+#### * Self-Annotation
+Applying GMRTI's Covenant Declaration, edge-typing, and temporal-anchoring
+checks to one's own notes and artifacts as a single practitioner — the baseline
+sandbox for Self-to-Future-Self transmission (§1c.1). `[STABLE]`
+
+#### * Maintenance Covenant
+A prescriptive interpretive body paired with an [[Artifact Anchor]] to
+continuously audit, negotiate, and counteract semantic drift via
+[[Periodic Re-Mirroring Protocol|Periodic Re-Mirroring]] (§2d.2).
+`[PROVISIONAL]`
+
+#### * Null-Effect Equivalence Axiom
+The provisional rule that latent topological divergence with no behavioral
+consequence across all declared boundary conditions of the active domain is
+treated as operationally null under [[Comosí|comosí]] until boundary conditions
+expand (§2f.5v). `[STABLE]` [provisional dependency boundary: §3c.3]

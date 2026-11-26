@@ -38,11 +38,7 @@ _PLAIN_OPENER_RE = re.compile(
 
 # Section 0.0 ("Why This Exists") has a 3-paragraph plain preamble; all other
 # sections have a single-paragraph [PLAIN] entry ramp.
-_MULTI_PARA_PLAIN_PREFIXES = ("0.0 ",)
-_MULTI_PARA_PLAIN_EXACT = ("0.0",)
-
-# Clauses explicitly excluded from PEBBLE allegory extraction (guarded by test).
-_EXCLUDED_ALLEGORY_PREFIXES = ("- **2f.3ii",)
+_MULTI_PARA_PLAIN_TITLES = ("Why This Exists",)
 
 
 def clean_plain_text(text: str) -> str:
@@ -72,13 +68,8 @@ def _is_allegory_opener(line: str) -> bool:
     """Return True if *line* starts an extractable allegory clause."""
     if not (line.startswith("- **") or line.startswith("**")):
         return False
-    if line.strip().startswith(_EXCLUDED_ALLEGORY_PREFIXES):
-        return False
-    lower = line.lower()
-    return (
-        "allegory" in lower
-        or "worked didactic instantiation" in lower
-        or "[allegory" in lower
+    return bool(re.search(r"(?:^|\s)`?\[ALLEGORY(?::\s*[^\]]+)?\]`?(?:\s|$)", line, re.I)) or (
+        "allegory" in line.lower() and "**" in line and not line.strip().endswith(")")
     )
 
 
@@ -185,9 +176,7 @@ def _find_preceding_heading(lines: list[str], idx: int) -> str:
 
 def _plain_para_limit(heading: str) -> int:
     """Return how many paragraphs a [PLAIN] block should consume."""
-    if heading in _MULTI_PARA_PLAIN_EXACT or heading.startswith(
-        _MULTI_PARA_PLAIN_PREFIXES
-    ):
+    if any(title in heading for title in _MULTI_PARA_PLAIN_TITLES):
         return 3
     return 1
 

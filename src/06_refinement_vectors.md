@@ -103,17 +103,20 @@ epistemic uncertainty, the default presumption strictly favors path
 preservation.
 
 **The Compression Burden-of-Proof Rule**: To distinguish legitimate editorial
-tightening from destructive compression, GMRTI establishes a strict
-burden-of-proof standard. Within the canonical treatise, a proposed cut or
-compression is legitimate only when at least one of the following holds: (1) the
-removed path is demonstrated under Core Path Minimization (§2f.6) to be both
-*destination-isomorphic* and *non-route-independent* with a path that survives
-the edit (proving true duplicate redundancy); (2) the content is demonstrated
-false, contradictory, or orphaned (referenced by nothing) and deleted outright;
-or (3) the output is explicitly scoped as a declared lossy derivative (e.g.,
-lossy derivative (e.g., `PEBBLE.md` or a low-DRC summary). Any editorial pruning
-that cannot make this explicit showing is classified as presumptive covenant
-intrusion and rejected.
+tightening from destructive compression, GMRTI establishes a symmetric
+burden-of-proof standard. Within the canonical treatise, an alternative path is
+protected only when it carries an explicit route-independence annotation or
+structural tag (`[ALLEGORY]`, `[PLAIN]`, or distinct intermediate structure);
+untagged duplicate restatements may be pruned. Conversely, cutting an annotated
+or demonstrably route-independent path is legitimate only when at least one of
+the following holds: (1) the removed path is demonstrated under Core Path
+Minimization (§2f.6) to be both *destination-isomorphic* and
+*non-route-independent* with a surviving path (proving true duplicate
+redundancy); (2) the content is demonstrated false, contradictory, or orphaned
+(referenced by nothing) and deleted outright; or (3) the output is explicitly
+scoped as a declared lossy derivative (e.g., `PEBBLE.md` or a low-DRC summary).
+Any editorial pruning of a protected path that cannot make this explicit showing
+is classified as presumptive covenant intrusion and rejected.
 
 - **6b.4i — The Art Tutorials Allegory** `[ALLEGORY: COMPRESSION-ASYMMETRY]`
   Consider online art tutorials for drawing hands or perspective. Nobody looks

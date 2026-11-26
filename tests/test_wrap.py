@@ -354,3 +354,13 @@ def test_wrap_cli_path_subdirectory(tmp_path):
     assert res.returncode == 0
     assert all(len(ln) <= 40 for ln in target.read_text(encoding="utf-8").splitlines())
 
+
+def test_wrap_markdown_preserves_tokens_on_src(base_dir):
+    """wrap_markdown preserves all non-whitespace tokens across src/*.md."""
+    import glob
+
+    for path in sorted(glob.glob(os.path.join(base_dir, "src", "*.md"))):
+        orig = open(path, encoding="utf-8").read()
+        wrapped = wrap_markdown(orig, width=80)
+        assert orig.split() == wrapped.split(), f"Token drift after wrapping {path}"
+

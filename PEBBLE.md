@@ -165,7 +165,7 @@ To stop your guides and notes from drifting away, update them with small, carefu
 
 > **Allegory: The Floating Sea-Anchor**
 >
-> In deep, stormy waters, a ship cannot drop a heavy iron anchor down to the ocean floor: the seabed is too deep and rigid, and the chain will snap. But if the captain drops no anchor at all (full tracking, damping equal to 1), every passing wave spins the ship out of control. Instead, the crew deploys a submerged cloth sea-anchor ([[Dynamic Re-Anchoring]] with a gentle drag, such as 0.15): it allows the vessel to glide smoothly with the deep ocean current while dampening out the violent surface chop, keeping the bow pointed in a steady, safe direction.
+> In deep, stormy waters, a ship cannot drop a heavy iron anchor down to the ocean floor: the seabed is too deep and rigid, and the chain will snap. But if the captain drops no anchor at all (full tracking, gain equal to 1), every passing wave spins the ship out of control. Instead, the crew deploys a submerged cloth sea-anchor ([[Dynamic Re-Anchoring]] with a small gain, such as 0.15, giving 0.85 drag): it allows the vessel to glide smoothly with the deep ocean current while dampening out the violent surface chop, keeping the bow pointed in a steady, safe direction.
 
 ---
 

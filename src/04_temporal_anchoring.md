@@ -57,10 +57,11 @@ To stabilize Artifact Anchors against continuous Temporal Drift, GMRTI defines
 **Dynamic Re-Anchoring**: treating the anchor not as an immutable coordinate,
 but as a damped moving average updated via successive declaration states
 $A_{decl,t}$.
-- **The Damping Factor Axiom**: To prevent anchor oscillation and maintain
-  stability under noisy or local fluctuations, updates are scaled by a damping
-  factor $\lambda \in (0, 1]$ (with $\lambda = 0.15$ as an operational
-  default, and $\lambda = 1.0$ as the degenerate no-anchor limit):
+- **The Smoothing Gain Axiom**: To prevent anchor oscillation and maintain
+  stability under noisy or local fluctuations, updates are scaled by a smoothing
+  gain $\lambda \in (0, 1]$ (with inertia/damping weight $1 - \lambda$,
+  $\lambda = 0.15$ as an operational default, and $\lambda = 1.0$ as the
+  degenerate no-anchor limit):
   $$A_{t+1} = (1 - \lambda)A_t + \lambda A_{decl,t} = A_t + \lambda (A_{decl,t} - A_t)$$
 - **Lag-Bounded Tracking Principle**: Under an incoming sequence of declarations
   with bounded drift rate $\delta = \sup_t \|A_{decl,t+1} - A_{decl,t}\|$, the
@@ -98,9 +99,9 @@ A: An immutable anchor snaps under authentic covenant evolution, while immediate
     `[ALLEGORY: DYNAMIC-REANCHORING]`
     In deep, stormy waters, a ship cannot drop a heavy iron anchor down to the
     ocean floor: the seabed is too deep and rigid, and the chain will snap. But
-    if the captain drops no anchor at all (full tracking, damping equal to 1),
+    if the captain drops no anchor at all (full tracking, gain equal to 1),
     every passing wave spins the ship out of control. Instead, the crew deploys
     a submerged cloth sea-anchor ([[Dynamic Re-Anchoring]]
-    with a gentle drag, such as 0.15): it allows the vessel to glide smoothly
-    with the deep ocean current while dampening out the violent surface chop,
-    keeping the bow pointed in a steady, safe direction.
+    with a small gain, such as 0.15, giving 0.85 drag): it allows the vessel to
+    glide smoothly with the deep ocean current while dampening out the violent
+    surface chop, keeping the bow pointed in a steady, safe direction.

@@ -91,29 +91,30 @@ configurations — typically without awareness that selection is occurring — a
 treats it as the transmitted content.
 
 We formalize Semantic Entropy $H_s(S)$ of a consistent surface signal $S$
-relative to a receiving covenant as the log of the number of distinct functional
-equivalence classes $[G_R]$ compatible with $S$ without contradiction
-($|\{[G_R]\}| \ge 1$; an empty set $|\{[G_R]\}| = 0$ denotes **Signal
-Contradiction / Unsatisfiability**, not zero entropy; under the §8b.1 quotient,
-a class $[G_R]$ is compatible with $S$ iff at least one representative $G \in
-[G_R]$ satisfies $S$): $$H_s(S) = \log_2
-|\{[G_R] : [G_R] \text{ is compatible with } S\}|$$ Because direct measurement
-of $H_s(S)$ is constrained by metaagnosticism, we operationalize it via the
-**Behavioral Convergence Proxy (Path-Count Metric)**: the number of independent
-Polyphonic Encoding paths that must be successfully reconstructed and verified
-by the receiver before they reach the Operational Action Threshold [provisional
-dependency boundary: §3c.3, §8b.1]. For a single pair of covenants $(C_T, C_R)$,
-this path count measures pairwise reconstruction divergence (analogous to
-cross-entropy), not intrinsic signal entropy directly: if each independent
-non-void path also exhibits *filtering independence* over rival equivalence
-classes (contracting the compatible class space by a factor $k > 1$, which
-topological route-independence alone does not guarantee), the required path
-count scales as $O(H_s(S) / \log_2 k)$, whereas correlated paths or a path
-hitting an Anchor-Only Subgraph yield fewer bits and receiver-specific local
-voids or lucky comosí confound the count (making the metric an upper-bound
-proxy). The metric converges to an
-estimator of $H_s(S)$ only when evaluated under the zero-charity Minimal
-Substrate posture (DRC → 1.0) along combined Path-Stripping Probes (§2f.5iv).
+relative to a receiving covenant and a **frozen, add-only operational probe
+suite** as the log of the number of distinct functional equivalence classes
+$[G_R]$ compatible with $S$ without contradiction ($|\{[G_R]\}| \ge 1$; an empty
+set $|\{[G_R]\}| = 0$ denotes **Signal Contradiction / Unsatisfiability**, not
+zero entropy; under the §8b.1 quotient, a class $[G_R]$ is compatible with $S$
+iff at least one representative $G \in [G_R]$ satisfies $S$; dropping or
+weakening probes mid-cycle is invalid, whereas expanding the suite can only
+refine or increase $H_s(S)$): $$H_s(S) = \log_2 |\{[G_R] : [G_R] \text{ is
+compatible with } S\}|$$ Because direct measurement of $H_s(S)$ is constrained
+by metaagnosticism, we operationalize it via the **Behavioral Convergence Proxy
+(Path-Count Metric)**: the number of independent Polyphonic Encoding paths that
+must be successfully reconstructed and verified by the receiver before they
+reach the Operational Action Threshold [provisional dependency boundary: §3c.3,
+§8b.1]. For a single pair of covenants $(C_T, C_R)$, this path count measures
+pairwise reconstruction divergence (analogous to cross-entropy), not intrinsic
+signal entropy directly: if each independent non-void path also exhibits
+*filtering independence* over rival equivalence classes (contracting the
+compatible class space by a factor $k > 1$, which topological route-independence
+alone does not guarantee), the required path count scales as $O(H_s(S) / \log_2
+k)$. Because correlated paths and Anchor-Only Subgraphs inflate the count while
+lucky comosí deflates it, the metric is a **two-sided (confounded) estimator**
+rather than a strict bound; it converges to a reliable estimator of $H_s(S)$
+only when evaluated under minimal interpretive charity (Audit Mode, DRC → 1.0)
+along combined Path-Stripping Probes (§2f.5iv) against the declared probe suite.
 Thus, a high path count under those conditions indicates high initial semantic
 entropy.
 
@@ -198,8 +199,10 @@ mode is Temporal Drift Divergence: the author's covenant has changed between
 encoding and decoding such that the originally intended edge-structure is no
 longer recoverable from the encoded signal. The Temporal Stranger
 operationalization (Section 6c) directly addresses this mode. This mode is
-established as the canonical baseline sandbox for the first implementation
-(v0.9) under the practice of **Self-Annotation**.
+established as the canonical baseline sandbox for v0.9 under the practice of
+**Self-Annotation**: applying GMRTI's Covenant Declaration, edge-typing, and
+temporal-anchoring checks to one's own notes and artifacts as a single
+practitioner.
 
 **1c.2 — Self-to-Other Transmission** A thinker attempts to transmit an idea to
 a contemporaneous other. This is the classical communication problem, understood

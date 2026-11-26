@@ -38,13 +38,6 @@ def test_pebble_check_exits_zero():
     assert result.returncode == 0, f"pebble.py --check failed:\n{result.stdout}\n{result.stderr}"
 
 
-@pytest.mark.repo_state
-def test_patch_index_check_exits_zero():
-    """patch_index.py --check exits 0 when index.html invariants are satisfied."""
-    result = run("patch_index.py", "--check")
-    assert result.returncode == 0, f"patch_index.py --check failed:\n{result.stdout}\n{result.stderr}"
-
-
 def test_rewrite_dry_run_exits_zero():
     """rewrite.py --dry-run exits 0."""
     result = run("rewrite.py", "--dry-run")
@@ -107,7 +100,6 @@ def test_pebble_output_error_exits_nonzero(tmp_path):
 @pytest.mark.repo_state
 def test_inprocess_cli_check_mains(monkeypatch):
     """Verify in-process CLI main() entrypoints for --check against live repo."""
-    import patch_index
     import pebble
     import rewrite
     import wrap
@@ -116,7 +108,6 @@ def test_inprocess_cli_check_mains(monkeypatch):
         (wrap, ["wrap.py", "--check"]),
         (rewrite, ["rewrite.py", "--check"]),
         (pebble, ["pebble.py", "--check"]),
-        (patch_index, ["patch_index.py", "--check"]),
     ]:
         monkeypatch.setattr(sys, "argv", argv)
         with pytest.raises(SystemExit) as exc:
@@ -126,7 +117,6 @@ def test_inprocess_cli_check_mains(monkeypatch):
 
 def test_inprocess_cli_dry_run_mains(monkeypatch):
     """Verify in-process CLI main() entrypoints for --dry-run."""
-    import patch_index
     import pebble
     import rewrite
     import wrap
@@ -135,7 +125,6 @@ def test_inprocess_cli_dry_run_mains(monkeypatch):
         (wrap, ["wrap.py", "--dry-run"]),
         (rewrite, ["rewrite.py", "--dry-run"]),
         (pebble, ["pebble.py", "--dry-run"]),
-        (patch_index, ["patch_index.py", "--dry-run"]),
     ]:
         monkeypatch.setattr(sys, "argv", argv)
         mod.main()

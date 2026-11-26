@@ -6,6 +6,8 @@ intent: >-
 dependencies:
   - GMRTI-COVENANT
   - GMRTI-OPERATIONAL-ACTION-THRESHOLD
+dependency_boundary:
+  - GMRTI-OPERATIONAL-ACTION-THRESHOLD
 invariants:
   - >-
       Measured quantitatively using the Behavioral Convergence Proxy (Path-Count

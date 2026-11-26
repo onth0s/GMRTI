@@ -9,7 +9,9 @@
 - **Monolithic Revision Archival**: Only keep the latest compiled monolithic
   revision (`GMRTI_<timestamp>.md`) in the workspace root / current working
   directory. All other monolithic revisions must be stored in the
-  [archive](file:///c:/Users/Leonardo/001/TXT/GMRTI/archive) directory.
+  [archive](file:///c:/Users/Leonardo/001/TXT/GMRTI/archive) directory, capped
+  at the 10 most recent unique revisions (duplicates and older revisions are
+  pruned automatically on build).
 
 - **Monolith Is the Sole Source of Truth; No Backwards Compatibility**: The
   compiled monolith, and the sources that build it, describe only the *current*
@@ -47,8 +49,9 @@
   monotonicity form (adding a polyphonic path does not *increase* semantic
   entropy). The **strong** form — that a destination-isomorphic, topologically
   disjoint path *strictly reduces* entropy — requires a partition-structure
-  axiom pending resolution of §8b.1 (`src/08_gaps.md`). When the weak proof
-  is sorry-free and §8b.1 is resolved, begin the strong proof immediately.
+  axiom pending resolution of §8b.1 (`src/08_gaps.md`, i.e., graduation of
+  §8b.1 from `[PROVISIONAL]` to `[STABLE]`). When the weak proof is sorry-free
+  and §8b.1 graduates to `[STABLE]`, begin the strong proof immediately.
   The strong theorem stub is already present in `Polyphony.lean` as a
   `-- TODO (strong)` comment.
 

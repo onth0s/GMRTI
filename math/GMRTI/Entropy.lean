@@ -86,4 +86,47 @@ theorem semanticEntropy_mono {V : Type} [DecidableEq V]
   have hlog2_pos : 0 < Real.log 2 := Real.log_pos (by norm_num)
   exact div_le_div_of_nonneg_right hlog (le_of_lt hlog2_pos)
 
+/-- Quotient-level compatibility (§1a.6, §8b.1): an equivalence class `[G_R]`
+is compatible with signal `S` iff at least one representative `G ∈ [G_R]` satisfies `S`. -/
+def classSatisfiesSignal {V : Type} [DecidableEq V]
+    (cls : Finset (Covenant V)) (S : Signal V) : Prop :=
+  ∃ C ∈ cls, satisfiesSignal C S
+
+instance {V : Type} [DecidableEq V] (cls : Finset (Covenant V)) (S : Signal V) :
+    Decidable (classSatisfiesSignal cls S) := by
+  dsimp [classSatisfiesSignal]
+  infer_instance
+
+/-- Compatible equivalence classes under the §8b.1 quotient partition. -/
+def compatibleClasses {V : Type} [DecidableEq V]
+    (Q : Finset (Finset (Covenant V))) (S : Signal V) : Finset (Finset (Covenant V)) :=
+  Q.filter (fun cls ↦ classSatisfiesSignal cls S)
+
+/-- Quotient-level Hartley Semantic Entropy `H_s(S) = log₂ |{[G_R]}|` (§1a.6, §8b.1). -/
+noncomputable def quotientSemanticEntropy {V : Type} [DecidableEq V]
+    (Q : Finset (Finset (Covenant V))) (S : Signal V) : ℝ :=
+  Real.log ((compatibleClasses Q S).card : ℝ) / Real.log 2
+
+/-- Quotient-level semantic entropy is monotonically nonincreasing under constraint accumulation. -/
+theorem quotientSemanticEntropy_mono {V : Type} [DecidableEq V]
+    (Q : Finset (Finset (Covenant V))) (S₁ S₂ : Signal V)
+    (h : ∀ e ∈ S₁.constraints, e ∈ S₂.constraints)
+    (hpos : 0 < (compatibleClasses Q S₂).card) :
+    quotientSemanticEntropy Q S₂ ≤ quotientSemanticEntropy Q S₁ := by
+  dsimp [quotientSemanticEntropy]
+  have hsub : compatibleClasses Q S₂ ⊆ compatibleClasses Q S₁ := by
+    intro cls hcls
+    rw [compatibleClasses, Finset.mem_filter] at hcls ⊢
+    refine ⟨hcls.1, ?_⟩
+    rcases hcls.2 with ⟨C, hC_mem, hC_sat⟩
+    exact ⟨C, hC_mem, fun e he ↦ hC_sat e (h e he)⟩
+  have hcard := Finset.card_le_card hsub
+  have hpos_real : (0 : ℝ) < ((compatibleClasses Q S₂).card : ℝ) := Nat.cast_pos.mpr hpos
+  have hle_real : ((compatibleClasses Q S₂).card : ℝ) ≤ ((compatibleClasses Q S₁).card : ℝ) :=
+    Nat.cast_le.mpr hcard
+  have hlog : Real.log ((compatibleClasses Q S₂).card : ℝ) ≤ Real.log ((compatibleClasses Q S₁).card : ℝ) :=
+    Real.log_le_log hpos_real hle_real
+  have hlog2_pos : 0 < Real.log 2 := Real.log_pos (by norm_num)
+  exact div_le_div_of_nonneg_right hlog (le_of_lt hlog2_pos)
+
 end GMRTI

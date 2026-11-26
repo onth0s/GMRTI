@@ -23,9 +23,11 @@ words. The GMRTI gives you the tools to tell the difference.
     a transmission failure or a genuine value conflict [provisional dependency
     boundary: §3f.2].
 
-**7a.2** In practice, GMRTI and GMCR operate simultaneously and recursively; the
-    GMRTI continuously re-examines its own outputs as the GMCR generates new
-    information about the covenants in contact. `[PROVISIONAL]`
+**7a.2** In its logical dependency, the GMCR presupposes the GMRTI's diagnostic
+    separation (§7a.1iv); in live operation, the two run in an interleaved
+    feedback loop, with the GMRTI continuously re-examining its own outputs as
+    the GMCR generates new information about the covenants in contact.
+    `[PROVISIONAL]`
 
 ### 7b — GMCR to Civilizational Coordination `[PROVISIONAL]`
 `[PLAIN]` Think of the GMRTI as a factory that makes tools for other factories.

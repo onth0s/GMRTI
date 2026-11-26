@@ -101,22 +101,29 @@ def assemble_monolithic_document(base_dir: str) -> str:
     return _MONOLITH_FRONTMATTER + "\n\n" + header + "\n\n" + body_text + "\n"
 
 
+_ARCHIVE_RETENTION = 10
+
+
 def archive_prior_monolithic_files(
     base_dir: str, current_output_path: str | None = None
 ) -> list[str]:
     """Enforce AGENTS.md rule: keep only the latest monolith in root.
 
-    Moves prior root revisions to ``archive/``, removing any root revision that
-    is already byte-identical to an existing file in ``archive/`` so duplicate
-    snapshots do not accumulate.
+    Moves prior root revisions to ``archive/``, deduplicating byte-identical
+    files and retaining at most ``_ARCHIVE_RETENTION`` unique revisions.
     """
     archive_dir = os.path.join(base_dir, "archive")
     os.makedirs(archive_dir, exist_ok=True)
 
-    archived_hashes = {
-        _file_sha256(os.path.join(archive_dir, af))
-        for af in list_monolithic_files(archive_dir)
-    }
+    archived_hashes: dict[str, str] = {}
+    for af in list_monolithic_files(archive_dir):
+        af_path = os.path.join(archive_dir, af)
+        h = _file_sha256(af_path)
+        if h in archived_hashes:
+            os.remove(af_path)
+            print(f"Removed duplicate archive revision: {af}")
+        else:
+            archived_hashes[h] = af
 
     archived_files: list[str] = []
     for f in list_monolithic_files(base_dir):
@@ -138,9 +145,15 @@ def archive_prior_monolithic_files(
                     f"Archive collision: {dest_path} already exists with different content."
                 )
             shutil.move(full_path, dest_path)
-            archived_hashes.add(file_hash)
+            archived_hashes[file_hash] = f
             archived_files.append(f)
             print(f"Archived prior monolithic revision: {f} -> archive/{f}")
+
+    all_archived = list_monolithic_files(archive_dir)
+    if len(all_archived) > _ARCHIVE_RETENTION:
+        for old_f in all_archived[:-_ARCHIVE_RETENTION]:
+            os.remove(os.path.join(archive_dir, old_f))
+            print(f"Pruned expired archive revision: {old_f}")
 
     return archived_files
 

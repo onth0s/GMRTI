@@ -68,7 +68,7 @@ DIVERGENCE: Treating labels as self-subsistent atoms hides structural divergence
 Not all edges are alike. The GMRTI therefore introduces a working partition of
 relation-types, because transmission failure often occurs specifically when one
 party silently treats an edge of one type as though it were another — a failure
-mode now named Edge-Type Misattribution (see 2c.3).
+mode termed Edge-Type Misattribution (see 2c.3).
 
 This taxonomy is itself a conceptual carving subject to the framework's own
 metaagnostic commitments. The boundaries between types are contested — the line
@@ -105,16 +105,20 @@ Stage 3:
   purposes of reasoning or action.
 - **Referential edges** — what expression points to what object, event, region,
   or other expression.
-- **Structural edges** — load-bearing relations that organize a covenant's
-  topology without collapsing into any of the categories above; the connective
-  tissue of the semantic network itself.
+- **Structural edges** — non-reductive connective relations that organize a
+  covenant's topology without collapsing into any of the diagnostic categories
+  above; at the operational-role level (§2e.5ii), structural routing is
+  composed from the three core primitives (`[->causal]`, `[->inferential]`,
+  `[->identity]`).
 
 **Taxonomy Switching Rule**: The GMRTI operates under the Tier 1 coarse cut by
-default during initial Covenant Declaration. If a divergence is detected in
-Stage 2 and localized in Stage 3 as an Edge-Type Misattribution, the JIT-OM
-protocol triggers the activation of the Tier 2 full taxonomy locally for that
-subgraph, transitioning the classification from 'Other' or correcting the
-initial coarse cut to resolve the mismatch.
+default during initial Covenant Declaration (note: `[->identity]` is a core
+primitive bootstrapped by CZP in §2e.5ii, whose fine-grained disambiguation from
+`Structural` and `Referential` edges is deferred to Tier 2 unless flagged). If a
+divergence is detected in Stage 2 and localized in Stage 3 as an Edge-Type
+Misattribution, the JIT-OM protocol triggers the activation of the Tier 2 full
+taxonomy locally for that subgraph, transitioning the classification from
+'Other' or correcting the initial coarse cut to resolve the mismatch.
 
 ```table
 TITLE: Two-Tier Edge Taxonomy
@@ -163,18 +167,20 @@ depends on a given edge-cluster remaining stable.
     efficiently from detected surface divergence inward to the layer where
     divergence actually originates. `[STABLE]`
 
-**2b.2 — Detection via Dependency-Tracing Scan** `[STABLE]`
+**2b.2 — Detection via Dependency-Tracing Scan** `[PROVISIONAL]`
 
-To locate Axiomatic Edge-Clusters without relying on subjective introspection,
-the GMRTI prescribes the **Dependency-Tracing Scan**: an algorithmic traversal
-calculating the downstream propagation impact of hypothetical edge revisions
-within the **declared domain subgraph** (subject to a minimum subgraph size
-floor so trivial toy graphs do not false-positive). Any edge-cluster whose
-alteration forces structural reconfiguration in more than a declared fraction of
-dependent nodes in that domain subgraph (provisionally calibrated to a 30% node
-threshold, subject to domain-specific calibration) is formally classified as
-*Axiomatically Active*. This converts axiomaticity from an invisible
-metaphysical assumption into a measurable topological dependency.
+To locate Axiomatic Edge-Clusters without relying purely on subjective
+introspection, the GMRTI prescribes the **Dependency-Tracing Scan**: an
+algorithmic traversal calculating the downstream propagation impact of
+hypothetical edge revisions within the **declared domain subgraph** (subject to
+a domain-calibrated minimum subgraph size floor so trivial toy graphs do not
+false-positive). Any declared edge-cluster whose alteration forces structural
+reconfiguration in more than a declared fraction of dependent nodes in that
+domain subgraph (provisionally calibrated to a 30% node threshold, subject to
+domain-specific calibration) is classified as *Axiomatically Active*. Because
+this scan operates strictly over *declared* edges, it cannot detect undeclared
+axiomatic clusters; undeclared axioms must be surfaced via probe-driven
+Path-Stripping Probing and PCP (§2f.5iv–v).
 
 
 ### 2c — Divergence Taxonomy `[STABLE]`
@@ -254,7 +260,10 @@ of incompatibility is invisible without explicit edge-type declaration.
 The repair strategy for Edge-Type Misattribution is therefore distinct from
 standard Edge Divergence repair: rather than Local Alignment of topological
 structure, it requires explicit declaration and negotiation of edge-type — which
-is precisely the kind of JIT-OM operation the framework prescribes.
+is precisely the kind of JIT-OM operation the framework prescribes. Note the
+Tier 1 detection ceiling: because Tier 1 lumps Normative and Procedural edges
+into `Other`, misattribution between them surfaces only when downstream
+operational probes diverge (§5b.3).
 
 ### 2d — Institutional Meta-Covenants: Federated Graphs `[PROVISIONAL]`
 `[PLAIN]` A group or an organization doesn't have a single shared brain.
@@ -341,13 +350,12 @@ is solid.
     that will fail when that grease is absent (across cultures, across time,
     under adversarial conditions). `[STABLE]`
 
-**2e.4** Complete context-elimination — the "Isolation Axiom" that a
-    transmission is only robust if it survives reconstruction by a receiver who
-    lacks all contextual grease — is a useful approximation, not an
-    architectural principle. Complete context-elimination is not a purified
-    transmission environment; it is a pathological one. The GMRTI's goal is to
-    make dependency on shared context *explicit and navigable*, not to eliminate
-    it. `[STABLE]`
+**2e.4** Complete context-elimination — assuming that a transmission is only
+    robust if it survives reconstruction by a receiver who lacks all contextual
+    grease — is a useful approximation, not an architectural principle. Complete
+    context-elimination is not a purified transmission environment; it is a
+    pathological one. The GMRTI's goal is to make dependency on shared context
+    *explicit and navigable*, not to eliminate it. `[STABLE]`
 
 **2e.5 — Minimal Intelligibility Bootstrap** `[STABLE]`
 
@@ -441,10 +449,9 @@ one route is blocked, the others still carry the meaning.
     excludes — three independent routes to the same operational boundary.
 - **2f.3iv** *This document*: key concepts are stated abstractly in Appendix G
     (Glossary), instantiated concretely via allegories where applicable (e.g.,
-    §1a.5i,
-    §1a.5ii, §7d.4), and contextualized within examples. The length of this
-    document relative to a compressed summary is itself an instance of
-    Polyphonic Encoding.
+    §1a.5i, §1a.5ii, §7d.4), and contextualized within examples. Each
+    independent instantiation (`[ALLEGORY]`, `[PLAIN]`, formal definition)
+    serves as a distinct route to the same destination.
 
 **2f.4** The relationship between Polyphonic Encoding and transmission depth
     layers is asymmetric and critical: `[STABLE]`
@@ -551,10 +558,10 @@ DIVERGENCE: Assuming multi-path success proves single-path health leaves the tra
 
 - **Null-Effect Equivalence Axiom**: If a latent topological divergence between
   two covenants has no behavioral consequence across all declared boundary
-  conditions of the active domain (revisable whenever boundary conditions
-  expand), it is treated as operationally null under comosí [provisional
-  dependency boundary: §3c.3]. It carries zero operational risk within that
-  domain and is excluded from transmission error metrics.
+  conditions of the active domain, it is treated as operationally null under
+  comosí [provisional dependency boundary: §3c.3]. This null-effect status is
+  strictly provisional and is invalidated whenever boundary conditions expand;
+  it carries zero operational risk only within the currently declared domain.
 - **Proactive Chaotic Probing (PCP)**: To detect latent divergences that *would*
   produce future failures, the GMRTI defines the PCP protocol. PCP proactively
   runs Path-Stripping Probing on random samples of polyphonically encoded
@@ -636,9 +643,9 @@ primitives plus 5 derived/JIT-OM operators):
 A compositional expression that specifies not only *that* A connects to B but
 *what kind* of connection it is — e.g., `A [->causal] B` versus `A
 [->inferential] B` — achieves a stronger entropy reduction by preemptively
-preventing Edge-Type Misattribution (2c.3). To prototype this in the v0.9
-Candidate, we mandate that key stable claims in this treatise be annotated with
-these operators (see 2g.7).
+preventing Edge-Type Misattribution (2c.3). As an operational prototype, we
+mandate that key stable claims in this treatise be annotated with Tier 2
+edge-forcing operators as exemplars (see 2g.7).
 
 - **2g.4i — The Jigsaw Puzzle Joint Allegory** `[ALLEGORY: EDGE-FORCING]`
   If you lay two flat, square wooden blocks side-by-side, someone could stack
@@ -694,8 +701,10 @@ bounded by two structural conditions:
     where concept-type and shared primitive vocabulary permit it, as a
     complement to Polyphonic Encoding and JIT-OM — not as a replacement for
     either. Its deployment should be calibrated to the concept-type taxonomy of
-    Section 5a. As an operational prototype, key stable claims in this treatise
-    are formally edge-forced in situ:
+    Section 5a. As Tier 2 Syntactic Edge-Forcing exemplars (distinct from Stage
+    1
+    Tier 1 coarse declarations), key stable claims in this treatise are formally
+    edge-forced in situ:
 - **§1a.1 (In Situ):** `Every idea [->structural] exists... as a configuration
   of
   relations [->structural] within a semantic covenant.`

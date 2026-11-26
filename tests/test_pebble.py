@@ -130,14 +130,6 @@ def test_assemble_pebble_missing_source_raises(tmp_path):
         assemble_pebble_document(str(tmp_path))
 
 
-def test_excluded_allegory_anchor_still_exists(base_dir):
-    """B7: Guard that excluded clause 2f.3ii still exists in src/02_architecture.md."""
-    arch_path = os.path.join(base_dir, "src", "02_architecture.md")
-    with open(arch_path, "r", encoding="utf-8") as f:
-        content = f.read()
-    assert "- **2f.3ii" in content
-
-
 def test_parse_src_file_supports_h3_headings_and_skips_fences():
     """MD++ ### headings are captured and [PLAIN]/[ALLEGORY] inside fences are ignored."""
     from pebble import parse_src_file

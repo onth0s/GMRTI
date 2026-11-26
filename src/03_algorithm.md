@@ -15,10 +15,11 @@ practical work.
     by the Operational Action Threshold [provisional dependency boundary: §3c.3]
     as producing functionally congruent downstream actions or operational
     definitions within the specific bounded domain.
-- **3a.1ii** *Epistemic Termination*: the divergence has been localized to the
-    Axiomatic layer and confirmed as irreducible — meaning the parties genuinely
-    differ in foundational commitments rather than in their understanding of
-    each other.
+- **3a.1ii** *Epistemic Termination (Irreducibility Declaration)*: the
+    divergence
+    has been localized to the Axiomatic layer and confirmed as irreducible —
+    meaning the parties genuinely differ in foundational commitments rather than
+    in their understanding of each other (§3f).
 - **3a.1iii** *Cost-Bounded Termination*: further refinement would exceed the
     DRC-adjusted benefit threshold. In low-risk domains, a weaker comosí may be
     rationally sufficient even when deeper repair remains theoretically
@@ -61,6 +62,8 @@ S3 -->|repairable| S4
 S3 -->|axiomatic impasse| S5
 S4 -->|re-verify| S2
 S2 -->|cost > benefit| COST
+S4 -->|cost > benefit| COST
+S5 -->|new bridge (§3f.3)| S2
 ```
 
 **3a.4 — Tiered DRC and Opportunistic Agnosticism** `[STABLE]`
@@ -128,9 +131,10 @@ can see what you are building on.
     the Structural or Axiomatic layer — providing multiple independent routes to
     the same semantic destination.
 - **3b.1v** `[STABLE]` Stage 1 applies only the Tier 1 Coarse Cut
-  (Inferential / Causal / Other) when DRC ≥ 0.5 for initial Covenant
-  Declaration orientation; Tier 2 8-type granularity is strictly deferred to
-  Stage 3 JIT-OM divergence resolution.
+  (Inferential / Causal / Other) in Refinement and Audit modes (moderate-to-high
+  DRC) for initial Covenant Declaration orientation; in Generative Mode (low
+  DRC), taxonomy tagging at declaration is optional. Tier 2 8-type granularity
+  is strictly deferred to Stage 3 JIT-OM divergence resolution.
 
 
 **3b.2** Covenant Declaration is not a demand for agreement. It is a demand for
@@ -263,16 +267,16 @@ connects two ideas.
     scaffold path is likely to fail; multiple independent scaffold paths
     increase the probability that at least one takes hold in the receiving
     covenant.
-- **3e.1ii** *Edge Divergence Repair (Local Alignment &
-  Encapsulation)*: the parties make explicit the different
-  edge-structures each covenant associates with the shared label,
-  identify which differences are operationally significant for the
-  current transmission, negotiate a local edge-alignment, and
-  **mandatorily apply Boundary-Tracing Encapsulation** (2h) around
-  the repaired subgraph. This wrapper attenuates the localized
-  meaning-shift's propagation, reducing (though not eliminating)
-  its destabilizing impact on the rest of the network (see 2h.3
-  for holistic leakage bounds).
+- **3e.1ii** *Edge Divergence Repair (Local Alignment & Encapsulation)*: the
+  parties make explicit the different edge-structures each covenant associates
+  with the shared label, identify which differences are operationally
+  significant for the current transmission, negotiate a local edge-alignment,
+  and apply **Boundary-Tracing Encapsulation** (2h) around the repaired subgraph
+  (mandatory for Structural and Axiomatic repairs; optional for Surface repairs
+  in low-DRC domains under §3g.3). This wrapper attenuates the localized
+  meaning-shift's propagation, reducing (though not eliminating) its
+  destabilizing impact on the rest of the network (see 2h.3 for holistic
+  leakage bounds).
 - **3e.1iii** *Edge-Type Misattribution Repair (Type Declaration)*: the parties
     explicitly name the edge-type each is operating with, identify where the
     types diverge, and negotiate a working type-assignment sufficient for the
@@ -283,18 +287,18 @@ connects two ideas.
     Stranger protocol (Section 6c), must be consulted to re-establish the
     original *t₁* edge-structure. The receiver must then distinguish between
     what has drifted and what was originally transmitted.
-- **3e.1v** *Meta-DRC Divergence Repair (DRC Negotiation & Defaulting)*: The
-    parties pause the primary transmission and explicitly negotiate the DRC for
-    the domain. If consensus cannot be reached, the protocol mandates defaulting
-    to the highest demanded DRC of any participating covenant, provided the
-    demanding party declares a commensurate failure-cost or boundary-condition
-    stake. This prevents asymmetric risk failure (where one party treats an
-    operation as low-risk while it carries catastrophic failure risk for
-    another);
-    if a party demands `DRC = 1.0` without declaring a commensurate stake, the
-    counterparty may invoke Cost-Bounded Termination (§3a.1iii) or TCA (§3g.4).
-    Once the DRC is established, the transmission resumes from Stage 2 under the
-    new joint coefficient.
+- **3e.1v** *Meta-DRC Divergence Repair (DRC Negotiation & Defaulting)*
+    `[PROVISIONAL]`: The parties pause the primary transmission and explicitly
+    negotiate the DRC for the domain (multi-party protocol, deferred beyond the
+    Self-Annotation baseline). If consensus cannot be reached, the protocol
+    mandates defaulting to the highest demanded DRC of any participating
+    covenant, provided the demanding party declares a commensurate failure-cost
+    or boundary-condition stake. This prevents asymmetric risk failure (where
+    one party treats an operation as low-risk while it carries catastrophic
+    failure risk for another); if a party demands `DRC = 1.0` without declaring
+    a commensurate stake, the counterparty may invoke Cost-Bounded Termination
+    (§3a.1iii) or TCA (§3g.4). Once the DRC is established, the transmission
+    resumes from Stage 2 under the new joint coefficient.
 - **3e.1vi** *Relational Operator Regress Terminus*: To prevent the infinite
   regress of tagging metadata, the relational operators defined in 2g.4 are
   structurally non-markable at the content level (preventing meta-tagging of
@@ -309,22 +313,25 @@ connects two ideas.
 **Content–Protocol Stratification**: The eight operators govern *content-level*
 semantic relations within concept-graphs. To coordinate transmission repair
 without triggering an infinite metalanguage regress, the GMRTI algorithm
-stratifies protocol actions into a closed set of six *performative protocol
-acts* operating over the declared state set `{Active, Under-Review, Paused,
-Terminated, Irreducible}` with a bounded rejection retry limit $k_{\max}$:
+stratifies protocol actions into a closed set of *performative protocol acts*
+operating over the state set `{Active, Under-Review, Paused, Operational-Park,
+Terminated, Irreducible}` with a domain-declared retry budget $k_{\max} \ge 1$:
 - `propose(target, edge_type)`: `Active -> Under-Review` (submits candidate
   repair or edge typing).
 - `accept(proposal)`: `Under-Review -> Active` (ratifies candidate edge typing
   and resets rejection count).
 - `reject(proposal)`: `Under-Review -> Active` if `reject_count < k_max`
-  (triggers alternative routing); otherwise transitions to `Terminated`
-  (§3a.1iii) or `Irreducible` (§3f.1) to prevent infinite retry loops.
+  (triggers alternative routing); when `reject_count == k_max`, transitions to
+  `Irreducible` (§3f.1) if localized to the Axiomatic layer with evidence
+  complete, or `Terminated` (§3a.1iii) otherwise.
 - `pause(scope)`: `Active -> Paused` (halts primary traversal; initiates
   localized diagnostic probe).
 - `resume()`: `Paused -> Active` (restores traversal following diagnostic or
   repair ratification).
 - `default(drc_level)`: `Under-Review | Paused -> Active` (enforces highest
-  demanded DRC upon unresolved meta-dispute).
+  staked DRC upon unresolved meta-dispute).
+- `reopen()`: `Irreducible | Terminated -> Active` (re-enters repair when new
+  bridge-concepts or revised domain conditions arise per §3f.3).
 
 Because protocol commands perform state-transitions rather than asserting
 truth-claims about semantic edges, they reduce meta-level ambiguity to
@@ -334,13 +341,13 @@ halting the regress without resort to dogmatic fiat. `[STABLE]`
 ```table
 TITLE: Content–Protocol Stratification State Machine
 | Performative Act | Transition | Condition / Guard |
-|---|---|---|
 | `propose(target, edge_type)` | Active -> Under-Review | Submits candidate repair or edge typing |
 | `accept(proposal)` | Under-Review -> Active | Ratifies typing; resets rejection count |
-| `reject(proposal)` | Under-Review -> Active / Terminated | Retries if `reject_count < k_max`; else exits |
+| `reject(proposal)` | Under-Review -> Active / Terminated / Irreducible | Retries if `reject_count < k_max`; else `Irreducible` (Axiomatic) or `Terminated` |
 | `pause(scope)` | Active -> Paused | Halts primary traversal for localized probe |
 | `resume()` | Paused -> Active | Restores traversal after repair ratification |
 | `default(drc_level)` | Under-Review / Paused -> Active | Enforces highest staked DRC on meta-dispute |
+| `reopen()` | Irreducible / Terminated -> Active | New bridge-concepts or revised domain conditions (§3f.3) |
 ```
 
 
@@ -360,7 +367,10 @@ than a wording mix-up.
     all repair attempts — including mandatory Polyphonic Encoding of the
     axiomatic claims in question — an Irreducibility Declaration is issued: a
     formal acknowledgment that the divergence is not a transmission failure but
-    a genuine difference in foundational commitments.
+    a genuine difference in foundational commitments. A valid declaration
+    requires an explicit **evidence package**: Surface/Structural repairs
+    attempted, polyphonic paths tested, Path-Stripping Probe results, and
+    exhaustion of the $k_{\max}$ retry budget.
 
 **3f.2** The Irreducibility Declaration has significant practical consequences:
     `[PROVISIONAL]`
@@ -411,14 +421,16 @@ than the remaining risk of misunderstanding.
     sufficient reconstruction with minimal friction. `[PROVISIONAL]`
 
 **3g.4 — Adversarial Threat Model: Bad Actors and Topological Consistency
-Audit** `[STABLE]` [provisional dependency boundary: §8b.1]
+Audit** `[PROVISIONAL]` [provisional dependency boundary: §8b.1]
 
 The stopping principle assumes cooperative participants. In adversarial or
-asymmetric settings, the protocol encounters **Bad Actors**: participants who
-exploit interpretive charity by declaring internally contradictory edge
-subgraphs, manufacturing spurious irreducibility to block coordination, or
-persistently rejecting valid isomorphic repairs. To bound adversarial
-exploitation, the GMRTI deploys the **Topological Consistency Audit (TCA)**:
+asymmetric multi-party settings (deferred beyond the Self-Annotation baseline),
+the protocol encounters **Bad Actors**: participants who exploit interpretive
+charity by declaring internally contradictory edge subgraphs, manufacturing
+spurious irreducibility to block coordination, or persistently rejecting valid
+isomorphic repairs. To bound adversarial exploitation, the GMRTI deploys the
+**Topological Consistency Audit (TCA)**, executed by either participating party
+or a designated neutral auditor:
 - **TCA Verification**: A structural graph-consistency check (respecting §3a.3:
   GMRTI is not a compiler for natural language) that tests declared subgraphs
   for conflicting edge-types on the same directed pair under declared mutual
@@ -426,8 +438,10 @@ exploitation, the GMRTI deploys the **Topological Consistency Audit (TCA)**:
   violations, and documented refusal of candidate repairs that pass the actor's
   own declared operational probes when the actor also refuses to declare a new
   distinguishing probe or boundary condition where the repair fails.
-- **Enforcement**: If a participant maintains contradictory edge declarations or
-  repeatedly rejects isomorphic repairs verified by TCA without supplying a
-  distinguishing boundary condition, they are classified as a Bad Actor. The
-  protocol terminates cooperative exchange immediately under Cost-Bounded
-  Termination (§3a.1iii), preventing bad-faith epistemic exhaustion.
+- **Enforcement & Appeal**: If a participant maintains contradictory edge
+  declarations or repeatedly rejects isomorphic repairs verified by TCA
+  without supplying a distinguishing boundary condition, they receive one
+  appeal opportunity to supply a distinguishing probe; if none is supplied,
+  they are classified as a Bad Actor and the protocol terminates cooperative
+  exchange under Cost-Bounded Termination (§3a.1iii), preventing bad-faith
+  epistemic exhaustion.

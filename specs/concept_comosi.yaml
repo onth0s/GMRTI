@@ -7,6 +7,8 @@ dependencies:
   - GMRTI-COVENANT
   - GMRTI-ENTROPY
   - GMRTI-OPERATIONAL-ACTION-THRESHOLD
+dependency_boundary:
+  - GMRTI-OPERATIONAL-ACTION-THRESHOLD
 invariants:
   - >-
       Comosí represents functional overlap sufficient for bounded coordination,
