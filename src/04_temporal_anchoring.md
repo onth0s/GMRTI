@@ -83,6 +83,8 @@ covenant evolution.
     ocean floor: the seabed is too deep and rigid, and the chain will snap. But
     if the captain drops no anchor at all (full tracking, damping equal to 1),
     every passing wave spins the ship out of control. Instead, the crew deploys
-    a submerged cloth sea-anchor (a gentle drag, such as 0.15): it allows the
-    vessel to glide smoothly with the deep ocean current while dampening out the
-    violent surface chop, keeping the bow pointed in a steady, safe direction.
+    a submerged cloth sea-anchor ([Dynamic
+    Re-Anchoring](../GLOSSARY.md#dynamic-re-anchoring)
+    with a gentle drag, such as 0.15): it allows the vessel to glide smoothly
+    with the deep ocean current while dampening out the violent surface chop,
+    keeping the bow pointed in a steady, safe direction.

@@ -33,6 +33,12 @@ we haven't solved yet is how we make progress.
 
 **8b — Active Theoretical Contentions** `[PROVISIONAL]`
 
+`[PLAIN]` Three hard puzzles are still being refined: how to group equivalent
+mental maps without peeking inside people's heads ([Graph-Space
+Partitioning](../GLOSSARY.md#graph-space-partitioning-axiom)), how to keep an AI
+reviewer from sharing your own blind spots, and how to stop isolated edits from
+quietly leaking into neighboring ideas.
+
 **8b.1 — Contention 1: Graph-Space Partitioning and Individuation in Semantic
 Entropy** `[PROVISIONAL]`
 
@@ -68,8 +74,9 @@ metaagnostic boundary.
   another person's private thoughts). But whenever anyone flips the switch on
   either box, the bulb turns on with the exact same brightness and timing. For
   all practical work in the world, both boxes belong to the exact same
-  functional
-  class.
+  functional class ([Graph-Space
+  Partitioning](../GLOSSARY.md#graph-space-partitioning-axiom)
+  used to measure [Semantic Entropy](../GLOSSARY.md#semantic-entropy)).
 
 
 **8b.2 — Contention 2: Mirror-Prior Synchronization in Adversarial Loops**
@@ -96,6 +103,10 @@ clusters without any interface violation having been triggered.
   4b.3) and periodic Path-Stripping Probes across encapsulated boundaries.
 
 **8c — Refinement Agenda** `[STABLE]`
+
+`[PLAIN]` Having open puzzles does not break the method. Labeling unfinished
+parts honestly keeps anyone from mistaking a work-in-progress for settled
+bedrock, and shows exactly where the next round of testing belongs.
 
 **8c.1** The presence of open contentions does not invalidate the framework's
     operational utility. In accordance with the Methodology (METHODOLOGY.md),

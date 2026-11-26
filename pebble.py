@@ -159,7 +159,8 @@ def extract_allegories_from_raw_text(
 def _find_preceding_heading(lines: list[str], idx: int) -> str:
     """Scan backward from *idx* for the nearest bold section heading."""
     for j in range(idx - 1, max(idx - 6, -1), -1):
-        if lines[j].strip() == "":
+        stripped = lines[j].strip()
+        if stripped == "" or clean_plain_text(stripped) == "":
             continue
         if lines[j].startswith("**"):
             m_prev = re.search(r"\*\*([^*]+)\*\*", lines[j])
@@ -323,7 +324,8 @@ def assemble_pebble_document(base_dir: str | None = None) -> str:
     coda_content = clean_plain_text(read_utf8(coda_path).strip())
     doc_parts.append(coda_content)
 
-    return "\n\n---\n\n".join(doc_parts) + "\n"
+    output = "\n\n---\n\n".join(doc_parts) + "\n"
+    return re.sub(r"\]\(\.\./GLOSSARY\.md(#[^)]+)\)", r"](\1)", output)
 
 
 def check_pebble_sync(base_dir: str | None = None) -> SyncResult:

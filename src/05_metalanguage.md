@@ -115,9 +115,9 @@ misunderstanding pops up.
     You do not walk around your house all day wearing a heavy fire suit and
     carrying a pressurized hose just in case a spark appears (the heavy
     burden of an upfront metalanguage). Instead, you go about your everyday
-    life in normal clothes, and only reach for the fire extinguisher mounted
-    on the wall at the exact moment and location where smoke actually breaks
-    out.
+    life in normal clothes, and only reach for the fire extinguisher
+    ([JIT-OM](../GLOSSARY.md#jit-om)) mounted on the wall at the exact moment
+    and location where smoke actually breaks out.
 
 
 **5b.3 — The JIT-OM Ceiling** `[STABLE]`

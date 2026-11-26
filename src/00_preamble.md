@@ -77,6 +77,11 @@ address that uniquely identifies it.
 
 **0.3 Status Markers**
 
+`[PLAIN]` Every claim in this document carries a small tag showing how settled
+it is — whether it is load-bearing, still being tested, an open puzzle, or a
+plain-language example. That way you always know which parts are bedrock and
+which parts are still under construction.
+
 - `[STABLE]` — Considered load-bearing; changes here propagate broadly. Marks
   authorial closure (claims not currently being revised to avoid infinite
   regress per §3g.2), not an assertion of metaphysical truth or final proof

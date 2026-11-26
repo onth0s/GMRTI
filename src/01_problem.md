@@ -39,16 +39,20 @@ quite the same as yours.
     asked-for bills and walks out with the bread. Everything goes smoothly,
     even if the two people have completely different ideas about what "money"
     or "fairness" really means. Because their words and actions fit together
-    well enough for buying bread, it works *as if* (comosí) they shared the
-    exact same inner dictionary.
+    well enough for buying bread, it works *as if*
+    ([comosí](../GLOSSARY.md#comosi))
+    they shared the exact same [inner
+    dictionary](../GLOSSARY.md#semantic-covenant).
 - **1a.5ii — The Living Room vs. Art Gallery Allegory**
     `[ALLEGORY: COMOSÍ-BOUNDARY]` Two friends in a living room easily agree on
     what is a "painting" (hung on the wall) and what is a "sculpture" (placed
     on a shelf). At home, their meanings match well enough for everyday
-    conversation. Later that afternoon, they visit a modern art museum where
-    paintings sit on the floor and sculptures hang from the ceiling. Suddenly
-    they argue over which is which — showing that their definitions only
-    seemed identical inside the living room.
+    conversation ([comosí](../GLOSSARY.md#comosi)). Later that afternoon, they
+    visit a modern art museum where paintings sit on the floor and sculptures
+    hang from the ceiling. Suddenly they argue over which is which — showing
+    that their definitions only seemed identical inside the living room, until
+    conditions changed and exposed the hidden
+    [divergence](../GLOSSARY.md#divergence).
 
 **1a.6 — Semantic Entropy as the Adversarial Target** `[STABLE]`
 
@@ -146,6 +150,13 @@ will stop the plan from falling apart at the worst possible moment.
     `[STABLE]`
 
 **1c — The Three Transmission Modes** `[STABLE][RESTORED]`
+
+`[PLAIN]` Misunderstanding happens across three scales: talking to your own
+future self through old notes ([Temporal
+Stranger](../GLOSSARY.md#temporal-stranger)), talking to another person right
+now, and translating ideas between whole communities ([Federated
+Graph](../GLOSSARY.md#federated-graph)). The GMRTI starts with notes to yourself
+first because it is the safest place to practice before scaling up.
 
 The GMRTI must address transmission across three structurally distinct modes
 with a single unified algorithmic skeleton:

@@ -4,35 +4,44 @@ The following terms carry precise technical meaning throughout this document and
 must not be substituted with natural-language synonyms without explicit
 redefinition:
 
-- **GMRTI** — General Method for Refinement and Transmission of Ideas `[STABLE]`
-- **GMCR** — General Method for Conflict Resolution (downstream application of
+- <a id="gmrti"></a>**GMRTI** — General Method for Refinement and Transmission
+  of Ideas `[STABLE]`
+- <a id="gmcr"></a>**GMCR** — General Method for Conflict Resolution (downstream
+  application of
     GMRTI) `[STABLE]`
-- **CONSTRUCTO-PRAGMATIST DEFINITION (CPD)** — The downstream architectural
+- <a id="cpd"></a>**CONSTRUCTO-PRAGMATIST DEFINITION (CPD)** — The downstream
+  architectural
   specification framework that converts a refined semantic abstraction into a
   bounded, executable operational protocol within a declared domain, evaluated
   by its capacity to produce operational congruence among participating
   covenants. `[PROVISIONAL]`
-- **CPD 7-TUPLE** — The formal anatomy of a Constructo-Pragmatist Definition:
+- <a id="cpd-7-tuple"></a>**CPD 7-TUPLE** — The formal anatomy of a
+  Constructo-Pragmatist Definition:
   preconditions P, state space Σ, transition function T, invariants I,
   enforcement architecture E, yield Y, and terminal condition Ω.
   `[PROVISIONAL]`
-- **SELF-CONSUMING CLAUSE** — An architectural constraint within a CPD
+- <a id="self-consuming-clause"></a>**SELF-CONSUMING CLAUSE** — An architectural
+  constraint within a CPD
   specifying that the concentrated power or authority required to instantiate an
   abstraction is exhausted or transferred upon execution, preventing the
   initiating apparatus from becoming a permanent independent object.
   `[PROVISIONAL]`
-- **INSTITUTIONAL DISSOLUTION** — The anti-perpetuation constraint within a CPD
+- <a id="institutional-dissolution"></a>**INSTITUTIONAL DISSOLUTION** — The
+  anti-perpetuation constraint within a CPD
   mandating that when the context justifying an operational apparatus expires,
   the apparatus itself is dissolved rather than persisting indefinitely.
   `[PROVISIONAL]`
-- **SEMANTIC COVENANT** (*convenio semántico*) — The totality of
+- <a id="semantic-covenant"></a>**SEMANTIC COVENANT** (*convenio semántico*) —
+  The totality of
   meaning-relations held by a rational entity at a given moment; a personal,
   circumstantial, and mutable directed graph. Not a fixed dictionary but a
   living topology. `[STABLE]`
-- **COMOSÍ** — The functional overlap between two semantic covenants sufficient
+- <a id="comosi"></a>**COMOSÍ** — The functional overlap between two semantic
+  covenants sufficient
   to produce apparent understanding within a bounded domain, without
   guaranteeing identity of underlying edge-structure. `[STABLE]`
-- **METAAGNOSTICISM** — The epistemological position that: (a) precise
+- <a id="metaagnosticism"></a>**METAAGNOSTICISM** — The epistemological position
+  that: (a) precise
     definitions are structurally unavailable due to the circular,
     self-referential nature of language-as-symbol-system; and (b) the
     impossibility of verifying whether certainty has been achieved is itself a
@@ -41,17 +50,20 @@ redefinition:
     certainty unavailable, but the verification of whether one has achieved it
     is also unavailable — making the epistemic limit operate at one level above
     ordinary fallibilism. `[STABLE][RECURSIVE][RESTORED]`
-- **SEMANTIC ENTROPY** — The log-measure of structural ambiguity in a
-  transmitted signal, denoted as $H_s(S)$. Represents the number of
+- <a id="semantic-entropy"></a>**SEMANTIC ENTROPY** — The log-measure of
+  structural ambiguity in a
+  transmitted signal, denoted as $H_s(S)$. Represents the log-count of
   distinct functional equivalence classes of receiving-covenant
   edge-configurations compatible with the signal under the Graph-Space
-  Partitioning Axiom. In practice, it is operationalized via the **Behavioral
-  Convergence Proxy (Path-Count Metric)**: the number of independent Polyphonic
-  Encoding paths that must be successfully traversed and verified by the
-  receiver
-  before they reach the Operational Action Threshold. `[STABLE]`
+  Partitioning Axiom (a class $[G_R]$ is compatible with $S$ iff at least one
+  representative $G \in [G_R]$ satisfies $S$). In practice, it is
+  operationalized via the **Behavioral Convergence Proxy (Path-Count Metric)**:
+  the number of independent Polyphonic Encoding paths that must be successfully
+  traversed and verified by the receiver before they reach the Operational
+  Action Threshold. `[STABLE]`
   [provisional dependency boundary: §3c.3, §8b.1]
-- **GRAPH-SPACE PARTITIONING AXIOM** — The formal individuation criterion
+- <a id="graph-space-partitioning-axiom"></a>**GRAPH-SPACE PARTITIONING AXIOM**
+  — The formal individuation criterion
   resolving §8b.1: under Audit-Mode exact equivalence ($\varepsilon = 0$ on a
   declared finite operational probe suite), functional equivalence is
   transitive and discretizes candidate receiving-covenant graph space into a
@@ -62,22 +74,28 @@ redefinition:
   reflexive and symmetric but non-transitive, inducing a tolerance covering
   rather than disjoint equivalence classes. `[PROVISIONAL]`
   [provisional dependency boundary: §3c.3]
-- **TRANSMISSION** — The attempted transfer of semantic content from one
+- <a id="transmission"></a>**TRANSMISSION** — The attempted transfer of semantic
+  content from one
     covenant to another, or from one temporal state of a covenant to a later
     state of the same covenant. `[STABLE]`
-- **REFINEMENT** — The iterative process of improving the internal coherence and
+- <a id="refinement"></a>**REFINEMENT** — The iterative process of improving the
+  internal coherence and
     transmissibility of a framework within and across semantic covenants.
     `[STABLE]`
-- **DIVERGENCE** — Any detectable mismatch between two covenants' handling of
+- <a id="divergence"></a>**DIVERGENCE** — Any detectable mismatch between two
+  covenants' handling of
     the same conceptual region. `[STABLE]`
-- **FEDERATED GRAPH** — The distributed, externalized semantic structure of an
+- <a id="federated-graph"></a>**FEDERATED GRAPH** — The distributed,
+  externalized semantic structure of an
   institution or community, stabilized via Artifact Anchors rather than
   collective consciousness. `[PROVISIONAL]`
-- **ARTIFACT ANCHOR** — An external, relatively immutable scaffold (written law,
+- <a id="artifact-anchor"></a>**ARTIFACT ANCHOR** — An external, relatively
+  immutable scaffold (written law,
   canonical text, standardized protocol) that forces constituent individual
   covenants to continuously realign their Structural Subgraphs to a shared
   artificial topology. `[PROVISIONAL]`
-- **DOMAIN RISK COEFFICIENT (DRC)** — A context-sensitive parameter defined on
+- <a id="drc"></a>**DOMAIN RISK COEFFICIENT (DRC)** — A context-sensitive
+  parameter defined on
   the bounded interval [0.0, 1.0] governing the required precision of
   reconstruction; inversely proportional to interpretive charity. Calibrating
   DRC toward 0.0 maximizes interpretive charity (Generative Mode); calibrating
@@ -85,101 +103,125 @@ redefinition:
   (Audit Mode). The assignment of numerical DRC values to specific domains is
   deliberately un-prescribed by GMRTI, as risk ranking requires normative value
   judgments that belong exclusively to the participating covenants. `[STABLE]`
-- **META-DRC DIVERGENCE** — A disagreement between communicating covenants
+- <a id="meta-drc-divergence"></a>**META-DRC DIVERGENCE** — A disagreement
+  between communicating covenants
   regarding the DRC classification of a domain, which pauses primary
   transmission and defaults to the highest demanded DRC of any participating
-  party until resolved. `[STABLE]`
+  party (given a declared commensurate stake) until resolved. `[STABLE]`
 
-- **JUST-IN-TIME ONTOLOGICAL MARKING (JIT-OM)** — The practice of deploying
+- <a id="jit-om"></a>**JUST-IN-TIME ONTOLOGICAL MARKING (JIT-OM)** — The
+  practice of deploying
   ontological type distinctions retroactively and locally, only at the precise
   site of a detected Edge Divergence, rather than as upfront metalanguage.
   `[STABLE]`
-- **POLYPHONIC ENCODING** — The deliberate provision of multiple structurally
+- <a id="polyphonic-encoding"></a>**POLYPHONIC ENCODING** — The deliberate
+  provision of multiple structurally
   independent edge-paths to the same semantic destination within a single
   transmission act. The primary proactive transmission fidelity strategy.
   `[STABLE]`
-- **ALLEGORY (WORKED INSTANTIATION)** — A concrete, domain-bounded
+- <a id="allegory"></a>**ALLEGORY (WORKED INSTANTIATION)** — A concrete,
+  domain-bounded
   polyphonic-encoding path whose intermediate nodes and edges reside in an
   accessible operational domain, preserving destination-isomorphism with an
   abstract target concept ($\operatorname{Action}_C(A) \cong
   \operatorname{Action}_C(\operatorname{Allegory}(A))$) under Core Path
   Minimization (§2f.6) to reduce transmission entropy. `[STABLE]`
   [provisional dependency boundary: §7d.1]
-- **REDUNDANCY-MASKING** — The failure mode in which successful Polyphonic
+- <a id="redundancy-masking"></a>**REDUNDANCY-MASKING** — The failure mode in
+  which successful Polyphonic
   Encoding conceals a local topological void that would produce transmission
   failure under single-path conditions. `[STABLE]`
-- **PATH-STRIPPING PROBING** — The diagnostic protocol for detecting
+- <a id="path-stripping-probing"></a>**PATH-STRIPPING PROBING** — The diagnostic
+  protocol for detecting
   Redundancy-Masking by temporarily disabling all but one encoding path to check
   if the receiver's reconstruction still satisfies the Operational Action
   Threshold. `[STABLE]`
   [provisional dependency boundary: §3c.3]
-- **SYNTACTIC EDGE-FORCING** — A transmission fidelity mechanism in which the
+- <a id="syntactic-edge-forcing"></a>**SYNTACTIC EDGE-FORCING** — A transmission
+  fidelity mechanism in which the
   grammatical or compositional structure of an expression compels the receiver
   to traverse a specific relational path through semantic space in order to
   decode the expression. In the v0.9 prototype, this is implemented by mandating
-  primary relational operators (e.g. `[->causal]`, `[->inferential]`) in key
+  canonical relational operators (e.g. `[->causal]`, `[->inferential]`) in key
   structural claims. `[STABLE]`
-- **EDGE TAXONOMY** — The partitioned classification of relation-types. Operates
+- <a id="edge-taxonomy"></a>**EDGE TAXONOMY** — The partitioned classification
+  of relation-types. Operates
   as a two-tiered system: Tier 1 (Causal/Inferential/Other) for initial Covenant
   Declaration, and Tier 2 (8-type taxonomy) deployed locally via JIT-OM for
   misattribution repair. `[STABLE]`
-- **EDGE-TYPE MISATTRIBUTION** — A subtype of Edge Divergence in which both
+- <a id="edge-type-misattribution"></a>**EDGE-TYPE MISATTRIBUTION** — A subtype
+  of Edge Divergence in which both
   covenants possess the A-to-B relation but assign it to different edge-types —
   one treating it as inferential, the other as causal; one as normative, the
   other as affective. Distinct from topological divergence within a shared
   edge-type, and requiring a different repair strategy. `[STABLE]`
-- **TOPOLOGICAL CONSISTENCY AUDIT** — A diagnostic protocol to detect Bad Actors
+- <a id="topological-consistency-audit"></a>**TOPOLOGICAL CONSISTENCY AUDIT** —
+  A diagnostic protocol to detect Bad Actors
   by auditing the logical consistency of their declared edge subgraphs and
-  flagging contradictions or rejection of isomorphic repairs. `[STABLE]`
-- **PERIODIC RE-MIRRORING PROTOCOL** — A methodological check to combat Artifact
+  flagging contradictions or bad-faith rejection of isomorphic repairs.
+  `[STABLE]`
+- <a id="periodic-re-mirroring"></a>**PERIODIC RE-MIRRORING PROTOCOL** — A
+  methodological check to combat Artifact
   Anchor decay by periodically evaluating the Federated Graph against the Anchor
   under the Mirror posture to produce a desynchronization Delta Graph.
   `[PROVISIONAL]`
-- **DEPENDENCY-TRACING SCAN** — A scan of the topological network that
+- <a id="dependency-tracing-scan"></a>**DEPENDENCY-TRACING SCAN** — A scan of
+  the topological network that
   calculates the downstream propagation impact of altering specific
   edge-clusters, flagging those above a configurable node threshold (default
   30%, subject to empirical calibration) as Axiomatically Active. `[STABLE]`
-- **BOUNDARY-TRACING ENCAPSULATION** — A formal containment wrapper drawn around
+- <a id="boundary-tracing-encapsulation"></a>**BOUNDARY-TRACING ENCAPSULATION**
+  — A formal containment wrapper drawn around
   a repaired subgraph that treats it as a black-box node with declared
   interfaces, attenuating (not eliminating) localized meaning-shifts from
   propagating holistically across the network. Provides practical isolation
   bounded by interface edge count; residual holistic leakage through
   interface-edge context change is a known structural limitation (see 2h.3).
   `[STABLE]`
-- **PRIMITIVE COVENANT** — The GMRTI-specific shared substrate consisting of the
+- <a id="primitive-covenant"></a>**PRIMITIVE COVENANT** — The GMRTI-specific
+  shared substrate consisting of the
   three core primitive relational operators (`[->causal]`, `[->inferential]`,
-  `[->identity]`) bootstrapped via CZP, with the remaining five operators
-  derived or negotiated via JIT-OM (see §2e.5ii), together with the
+  `[->identity]`) bootstrapped via CZP, with `[->procedural]`,
+  `[->referential]`,
+  and `[->structural]` derived compositionally and `[->normative]` and
+  `[->affective]` negotiated via JIT-OM (see §2e.5ii), together with the
   edge-primacy structural commitment and the Tier 1 coarse taxonomy. Required
   for GMRTI-mediated communication specifically; sits above the
   framework-independent Minimal Substrate (2e.5i). Its establishment between
   agents is itself a transmission problem. `[STABLE]`
-- **MINIMAL SUBSTRATE** — The weakest framework-independent assumption for
+- <a id="minimal-substrate"></a>**MINIMAL SUBSTRATE** — The weakest
+  framework-independent assumption for
   structured communication: agents can distinguish signals from non-signals,
   detect structural similarity, and individuate their own conceptual regions.
   Carries no GMRTI-specific content. `[STABLE]`
-- **MINIMAL INTELLIGIBILITY BOOTSTRAP** — The stratified decoding substrate: the
+- <a id="mib"></a>**MINIMAL INTELLIGIBILITY BOOTSTRAP** — The stratified
+  decoding substrate: the
   Minimal Substrate (framework-independent) guarantees basic signal decoding;
   the Primitive Covenant (GMRTI-specific) enables GMRTI-mediated repair.
   Calibrating DRC to maximum (1.0) reduces charity to the Minimal Substrate
   baseline. `[STABLE]`
-- **OPERATIONAL ACTION THRESHOLD** — The domain-specific threshold of
+- <a id="operational-action-threshold"></a>**OPERATIONAL ACTION THRESHOLD** —
+  The domain-specific threshold of
   reconstruction fidelity at which a receiver's reconstructed semantic
   clustering produces downstream operational choices, inferences, or behaviors
   that are functionally congruent with the transmission across all declared
   boundary conditions. Serves as the termination criterion for Operational
   Parking (§3a.1i) and Path-Stripping Probing (§2f.5iv). `[PROVISIONAL]`
-- **CORE PATH MINIMIZATION** — The complexity governor requiring that redundant
+- <a id="core-path-minimization"></a>**CORE PATH MINIMIZATION** — The complexity
+  governor requiring that redundant
   paths in Polyphonic Encoding maintain destination-isomorphism (terminating at
   the identical semantic destination and licensing the same downstream
   inferences) while preserving route-independence across disjoint intermediate
   topological structures. `[STABLE]`
-- **DYNAMIC RE-ANCHORING** — The process of treating Artifact Anchors as an
+- <a id="dynamic-re-anchoring"></a>**DYNAMIC RE-ANCHORING** — The process of
+  treating Artifact Anchors as an
   exponentially smoothed moving average, updated via continuous correction
   vectors to bound tracking lag against textual drift (§4b.3). `[PROVISIONAL]`
-- **THE MIRROR** — Any Rationally Agnostic receiver (human, LLM, or future-self)
+- <a id="the-mirror"></a>**THE MIRROR** — Any Rationally Agnostic receiver
+  (human, LLM, or future-self)
   operationalized to reconstruct a transmission using strictly declared edges,
   with interpretive charity calibrated to the Domain Risk Coefficient. A tool
   within the GMRTI protocol, not the protocol itself. `[STABLE]`
-- **TEMPORAL STRANGER** — The past self treated as a Foreign Mind: the primary
+- <a id="temporal-stranger"></a>**TEMPORAL STRANGER** — The past self treated as
+  a Foreign Mind: the primary
   operationalization of Self-to-Future-Self transmission repair. `[STABLE]`

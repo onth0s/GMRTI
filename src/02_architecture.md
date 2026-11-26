@@ -46,9 +46,10 @@ reintroduce the node under a different name. This is resolved as follows:
     which then causes the water to rotate. It is simply what happens when
     rushing water forces meet, push against each other, and spin. The swirl (the
     noun, or node) is created entirely by the moving currents (the relations,
-    or edges). Naming the whirlpool gives us a convenient word to point at, but
-    treating it as a solid object independent of the river's moving forces is a
-    mistake.
+    or [edges](../GLOSSARY.md#edge-taxonomy) inside a
+    [semantic covenant](../GLOSSARY.md#semantic-covenant)). Naming the whirlpool
+    gives us a convenient word to point at, but treating it as a solid object
+    independent of the river's moving forces is a mistake.
 
 
 **2a.5 — Edge Taxonomy** `[STABLE][RESTORED]`
@@ -186,10 +187,11 @@ you how to fix it.
   `[ALLEGORY: DIVERGENCE-TYPES]`
   An *Anchor-Only Subgraph* is like an empty golden chocolate wrapper with no
   chocolate inside: a person can repeat the word "sovereignty", but has zero
-  working operational connections attached to it. An *Edge Divergence* is like
-  two people both using the word "dollar", where one person means US Dollars and
-  the other means Australian Dollars: both hold real value and real rules, but
-  their expectations clash the instant they try to make a trade.
+  working operational connections attached to it. An
+  [*Edge Divergence*](../GLOSSARY.md#divergence) is like two people both using
+  the word "dollar", where one person means US Dollars and the other means
+  Australian Dollars: both hold real value and real rules, but their
+  expectations clash the instant they try to make a trade.
 
 
 **2c.2** These three types are not always cleanly separable in practice; real
@@ -250,11 +252,13 @@ updated.
 - **2d.2i — The Vault Kilogram and Measurement Scientists Allegory**
     `[ALLEGORY: ARTIFACT-ANCHORS]`
     A country agrees on what a "kilogram" means by keeping a polished cylinder
-    of platinum in a sealed vault (the Artifact Anchor). But over the decades,
+    of platinum in a sealed vault (the
+    [Artifact Anchor](../GLOSSARY.md#artifact-anchor)). But over the decades,
     dust gathers and tiny flecks of metal wear away. Without a dedicated team of
     scientists regularly cleaning, checking, and re-calibrating it (the
-    Maintenance Covenant), every scale across the nation will slowly drift
-    apart without anyone realizing it.
+    Maintenance Covenant running
+    [Periodic Re-Mirroring](../GLOSSARY.md#periodic-re-mirroring)), every scale
+    across the nation will slowly drift apart without anyone realizing it.
 
 **2d.3** The Federated Graph model has a critical implication: institutional
     transmission failures are not the same as individual transmission failures.
@@ -293,10 +297,11 @@ is solid.
     `[ALLEGORY: RATIONAL-AGNOSTICISM]`
     When a friend says *"Hand me that thing by the door"*, you guess correctly
     because you know your friend and notice their eyes glance at the umbrella.
-    That is natural human charity. Rational Agnosticism is testing your sentence
-    with a literal-minded robot that knows only the words actually spoken: the
-    robot halts and asks *"Which object? What door?"* Deliberately refusing to
-    fill in the blanks with friendly guesses is how you find the gaps in your
+    That is natural human charity. Rational Agnosticism (acting as
+    [The Mirror](../GLOSSARY.md#the-mirror)) is testing your sentence with a
+    literal-minded robot that knows only the words actually spoken: the robot
+    halts and asks *"Which object? What door?"* Deliberately refusing to fill in
+    the blanks with friendly guesses is how you find the gaps in your
     instructions before sending them to a stranger.
 
 
@@ -503,11 +508,13 @@ others are stripped, a local topological void on $p_i$ is confirmed.
   `[ALLEGORY: PATH-STRIPPING]`
   A four-engine airplane can fly smoothly even if Engine #3 has a broken fuel
   pipe, because the other three engines supply enough lift to hide the problem
-  during cruising flight. Path-Stripping Probing is the ground stress test
-  where mechanics shut off all other engines so each engine is tested by itself.
-  When Engine #3 is tested all by itself, it immediately sputters and stalls,
-  revealing the
-  broken pipe before the plane takes off into a storm.
+  during cruising flight
+  ([Redundancy-Masking](../GLOSSARY.md#redundancy-masking)).
+  [Path-Stripping Probing](../GLOSSARY.md#path-stripping-probing) is the ground
+  stress test where mechanics shut off all other engines so each engine is
+  tested by itself. When Engine #3 is tested all by itself, it immediately
+  sputters and stalls, revealing the broken pipe before the plane takes off into
+  a storm.
 
 **2f.6 — Core Path Minimization** `[STABLE]`
 
@@ -577,10 +584,12 @@ these operators (see 2g.7).
 
 - **2g.4i — The Jigsaw Puzzle Joint Allegory** `[ALLEGORY: EDGE-FORCING]`
   If you lay two flat, square wooden blocks side-by-side, someone could stack
-  them, push them apart, or glue them backwards. Syntactic Edge-Forcing is
-  cutting a specific tongue-and-groove puzzle joint into the wood: the blocks
-  can only slide together in one exact alignment. The shape of the joint itself
-  forces the connection.
+  them, push them apart, or glue them backwards.
+  [Syntactic Edge-Forcing](../GLOSSARY.md#syntactic-edge-forcing) is cutting a
+  specific tongue-and-groove puzzle joint into the wood: the blocks can only
+  slide together in one exact alignment. The shape of the joint itself forces
+  the connection, preventing
+  [Edge-Type Misattribution](../GLOSSARY.md#edge-type-misattribution).
 
 **2g.5 — The Apodictic Comosí: Mathematical Language as Model** `[STABLE]`
 
@@ -664,9 +673,11 @@ boundary around your fix so the ripples don't spread.
     `[ALLEGORY: ENCAPSULATION]`
     If a pipe bursts in one compartment of a submarine, the crew does not let
     seawater flood the entire vessel. They immediately lock shut the heavy
-    watertight doors on that specific room (the boundary wrapper). They repair
-    the broken valve inside the sealed room, ensuring only safe, controlled
-    cables pass through the bulkhead to the rest of the ship.
+    watertight doors on that specific room (the
+    [Boundary-Tracing
+    Encapsulation](../GLOSSARY.md#boundary-tracing-encapsulation)
+    wrapper). They repair the broken valve inside the sealed room, ensuring only
+    safe, controlled cables pass through the bulkhead to the rest of the ship.
 
 
 **2h.3** BTE provides *practical* isolation, not *theoretical* isolation. Under

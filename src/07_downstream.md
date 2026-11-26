@@ -61,10 +61,11 @@ coordination tools needed to solve big problems together and survive.
     human society, specific laws, trade treaties, and peace agreements are
     ordinary factories producing particular coordination results. When deep
     communication breaks down across different groups, those ordinary
-    factories cannot be built or repaired. The GMRTI is the toolmaking factory
-    that makes factories: it does not settle specific disputes about land,
-    taxes, or politics; it manufactures the basic tools of clear communication
-    so that people can build their own working institutions and agreements.
+    factories cannot be built or repaired. The [GMRTI](../GLOSSARY.md#gmrti) is
+    the toolmaking factory that makes factories: it does not settle specific
+    disputes about land, taxes, or politics; it manufactures the basic tools of
+    clear communication so that people can build their own working institutions
+    and agreements (and feed into [GMCR](../GLOSSARY.md#gmcr)).
 
 **7c — The GMRTI's Ambition, Precisely Stated** `[STABLE]`
 
@@ -199,8 +200,8 @@ object and coordinate around it.
   setup: a real game is underway, only a player can resign, tipping the king
   stops the clock, the referee records the score, and the match ends cleanly
   without ending the game of chess itself. Giving an idea clear steps, rules,
-  and an ending is how people coordinate in practice without having to agree on
-  everything in their heads.
+  and an ending ([CPD](../GLOSSARY.md#cpd)) is how people coordinate in practice
+  without having to agree on everything in their heads.
 
 
 **7d.5 — The Operational Replacement Protocol** Disagreements over a CPD are

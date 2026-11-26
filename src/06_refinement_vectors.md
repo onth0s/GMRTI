@@ -30,6 +30,12 @@ document over time.
 
 **6b — The LLM-Manifesto Iteration Loop** `[PROVISIONAL]`
 
+`[PLAIN]` One practical way to test a written framework is to hand it to an AI
+acting as a strict, literal reader ([The Mirror](../GLOSSARY.md#the-mirror)) so
+it flags gaps and hidden assumptions. The catch is that AI editors love brevity
+and may quietly delete helpful examples, so you have to check that every cut is
+genuinely redundant.
+
 **6b.1** One operationalization of the GMRTI's Refinement front is the following
     cycle:
 
@@ -104,10 +110,12 @@ intrusion and rejected.
   at the thousands of drawing tutorials and says "we already have one good
   explanation, delete the rest." One instructor explains perspective using
   railroad tracks, another using cardboard boxes, and another using horizon
-  lines and camera lenses. Because every beginner starts with a different
-  background, no single tutorial works for everyone. Trimming away alternative
-  explanations to save space just ensures that learners whose minds worked like
-  the deleted tutorial will fail to learn.
+  lines and camera lenses ([Polyphonic
+  Encoding](../GLOSSARY.md#polyphonic-encoding)).
+  Because every beginner starts with a different background, no single tutorial
+  works for everyone. Trimming away alternative explanations to save space just
+  ensures that learners whose minds worked like the deleted tutorial will fail
+  to learn.
 
 The symptom is: successive iterations become shorter while appearing more
 coherent. The diagnosis: Redundancy-Masking at the meta-level — the document's
@@ -125,6 +133,11 @@ repairs restore both. Future iterations should treat any reduction in Refinery
 entry length as a flag requiring explicit justification. `[STABLE]`
 
 **6c — The Temporal Stranger Protocol** `[STABLE]`
+
+`[PLAIN]` When you re-read your own old notes, pretend a stranger wrote them
+([Temporal Stranger](../GLOSSARY.md#temporal-stranger)). Instead of assuming
+your old words mean what they mean to you today, rebuild what your past self
+meant and map where your thinking has drifted.
 
 **6c.1** The Self-to-Future-Self transmission mode (1c.1) has a specific
     operationalization: the *Temporal Stranger Protocol*. The practitioner

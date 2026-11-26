@@ -31,8 +31,9 @@ def test_pebble_contains_science_preamble(base_dir):
 
 def test_pebble_contains_glossary(base_dir):
     doc = assemble_pebble_document(base_dir)
+    flat = " ".join(doc.split())
     assert "The Formal Glossary (Academic Reference)" in doc
-    assert "**GMRTI** — General Method for Refinement and Transmission of Ideas" in doc
+    assert "**GMRTI** — General Method for Refinement and Transmission of Ideas" in flat
     assert "**COMOSÍ**" in doc
     assert "**METAAGNOSTICISM**" in doc
 
