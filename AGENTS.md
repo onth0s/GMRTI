@@ -60,6 +60,8 @@
   `mdd --spec` invariants:
   - Raw HTML tags and HTML comments (`<!-- ... -->`) are **forbidden**
     (`html: false` escapes them as literal text).
+  - **NEVER inject HTML** into any compiled MD++ output (post-processing or
+    hand-injecting HTML defeats the purpose of MD++).
   - Glossary entries use MD++ Item Headings (`#### * Term`) so they resolve via
     native `[[Term]]` / `[[Term|display]]` wikilinks.
   - Visual flows, structured reference tables, callouts, and semantic audit

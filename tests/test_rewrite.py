@@ -18,15 +18,15 @@ _COPY_IGNORE = shutil.ignore_patterns(
 def test_assemble_monolithic_document_success(base_dir):
     doc = assemble_monolithic_document(base_dir)
     assert doc.startswith('---\ntitle: "GMRTI')
-    assert 'kicker: "There must be a Science of Understanding"' in doc
+    assert 'kicker: "_There must be a Science of Understanding_"' in doc
     assert "# GMRTI \u2014 General Method for Refinement and Transmission of Ideas" in doc
-    assert "**0.4 Vocabulary**" in doc
     assert "SECTION 1 \u2014 The Problem the GMRTI Addresses" in doc
     assert "SECTION 7 \u2014 Relation to Downstream Applications" in doc
     assert "SECTION 8 \u2014 Known Gaps and Open Challenges" in doc
     assert "## APPENDIX A \u2014 Architectural Model" in doc
     assert "## APPENDIX M \u2014 Methodology & Status Markers" in doc
     assert "## APPENDIX R \u2014 The Refinement Cycle" in doc
+    assert "## APPENDIX G \u2014 Glossary" in doc
 
 
 def test_assemble_monolithic_missing_file_fails(tmp_path):

@@ -15,7 +15,6 @@
 
 ## Table of Contents
 
-- [Glossary](GLOSSARY.md)
 - [0. Preamble and Document Conventions](src/00_preamble.md)
 - [1. The Problem the GMRTI Addresses](src/01_problem.md)
 - [2. Foundational Architecture: The Topological Network
@@ -28,6 +27,7 @@
 - [7. Relation to Downstream Applications](src/07_downstream.md)
 - [8. Known Gaps and Open Challenges](src/08_gaps.md) `[OPEN]`
 - [9. Coda](src/09_coda.md)
+- [Glossary](GLOSSARY.md)
 - [Refinery](refinery/)
 
 ## Companion & Governance Artifacts

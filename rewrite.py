@@ -39,7 +39,7 @@ def _file_sha256(filepath: str) -> str:
 
 _MONOLITH_FRONTMATTER = """---
 title: "GMRTI — General Method for Refinement and Transmission of Ideas"
-kicker: "There must be a Science of Understanding"
+kicker: "_There must be a Science of Understanding_"
 subtitle: "A Living Framework Document · Tenth Iteration (v0.9 Candidate)"
 pills:
   - "epistemology"

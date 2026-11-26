@@ -440,8 +440,9 @@ one route is blocked, the others still carry the meaning.
 - **2f.3iii** *Legal drafting*: a law defines a term, then provides an
     exhaustive list of cases it covers, then specifies cases it explicitly
     excludes — three independent routes to the same operational boundary.
-- **2f.3iv** *This document*: key concepts are stated abstractly in Section 0.4,
-    instantiated concretely via allegories where applicable (e.g., §1a.5i,
+- **2f.3iv** *This document*: key concepts are stated abstractly in Appendix G
+    (Glossary), instantiated concretely via allegories where applicable (e.g.,
+    §1a.5i,
     §1a.5ii, §7d.4), and contextualized within examples. The length of this
     document relative to a compressed summary is itself an instance of
     Polyphonic Encoding.

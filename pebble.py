@@ -288,6 +288,40 @@ def parse_src_file(content: str, filename: str = "") -> dict:
     }
 
 
+def _filter_glossary_for_pebble(glossary_content: str, body_text: str) -> str:
+    """Keep only glossary entries referenced by [[wikilinks]] in PEBBLE (plus transitive deps)."""
+    parts = re.split(r"(?=^#### \* )", glossary_content, flags=re.M)
+    if len(parts) <= 1:
+        return glossary_content
+
+    header = parts[0].rstrip()
+    entries: list[tuple[str, str]] = []
+    entry_map: dict[str, str] = {}
+    for block in parts[1:]:
+        first_line = block.splitlines()[0]
+        term = first_line[len("#### * "):].strip()
+        entries.append((term, block.strip()))
+        entry_map[term] = block.strip()
+
+    needed = set(re.findall(r"\[\[([^\]|]+)(?:\|[^\]]+)?\]\]", body_text))
+    needed.update({"GMRTI", "Metaagnosticism"})
+
+    # Transitive closure over wikilinks inside selected glossary entries
+    queue = [t for t in needed if t in entry_map]
+    visited = set(queue)
+    while queue:
+        cur = queue.pop()
+        for dep in re.findall(r"\[\[([^\]|]+)(?:\|[^\]]+)?\]\]", entry_map[cur]):
+            if dep in entry_map and dep not in visited:
+                visited.add(dep)
+                queue.append(dep)
+
+    kept = [block for term, block in entries if term in visited]
+    if not kept:
+        return glossary_content
+    return header + "\n\n" + "\n\n".join(kept)
+
+
 def assemble_pebble_document(base_dir: str | None = None) -> str:
     if base_dir is None:
         base_dir = get_repo_root(__file__)
@@ -336,7 +370,7 @@ def assemble_pebble_document(base_dir: str | None = None) -> str:
 
         doc_parts.append("\n\n".join(file_parts))
 
-    # Append GLOSSARY.md with heading demoted from H1 to H3 under H2 wrapper
+    # Append minimum sufficient GLOSSARY.md with heading demoted from H1 to H3
     glossary_path = os.path.join(base_dir, "GLOSSARY.md")
     if not os.path.exists(glossary_path):
         raise FileNotFoundError(f"Critical source file missing: {glossary_path}")
@@ -348,11 +382,13 @@ def assemble_pebble_document(base_dir: str | None = None) -> str:
         count=1,
         flags=re.MULTILINE,
     )
+    glossary_content = _filter_glossary_for_pebble(
+        glossary_content, "\n\n".join(doc_parts)
+    )
     glossary_wrapper = (
-        "## The Formal Glossary (Academic Reference)\n\n"
-        "*The following glossary contains the verbatim formal definitions from\n"
-        "the full GMRTI treatise. It is included here for readers who wish to\n"
-        "explore the precise academic and mathematical definitions of the framework.*\n\n"
+        "## The Formal Glossary (Minimum Sufficient Reference)\n\n"
+        "*The following glossary contains the formal definitions from the full\n"
+        "GMRTI treatise that are directly referenced in this guide.*\n\n"
         + glossary_content
     )
     doc_parts.append(glossary_wrapper)

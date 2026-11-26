@@ -15,7 +15,7 @@ def test_assemble_pebble_document_success(base_dir):
     assert "SECTION 1 — The Problem the GMRTI Addresses" in doc
     assert "SECTION 2 — Foundational Architecture" in doc
     assert "SECTION 7 — Relation to Downstream Applications" in doc
-    assert "The Formal Glossary (Academic Reference)" in doc
+    assert "The Formal Glossary (Minimum Sufficient Reference)" in doc
     assert "### Glossary" in doc
     assert "\n# Glossary\n" not in doc
     assert "SECTION 9 — Coda" in doc
@@ -31,10 +31,11 @@ def test_pebble_contains_science_preamble(base_dir):
 
 def test_pebble_contains_glossary(base_dir):
     doc = assemble_pebble_document(base_dir)
-    assert "The Formal Glossary (Academic Reference)" in doc
+    assert "The Formal Glossary (Minimum Sufficient Reference)" in doc
     assert "#### * GMRTI" in doc
     assert "#### * Comosí" in doc
     assert "#### * Metaagnosticism" in doc
+    assert "#### * Surface Subgraph" not in doc
 
 
 def test_pebble_contains_coda(base_dir):
@@ -46,7 +47,7 @@ def test_pebble_contains_coda(base_dir):
 
 def test_pebble_excludes_status_markers(base_dir):
     doc = assemble_pebble_document(base_dir)
-    plain_part = doc.split("## The Formal Glossary (Academic Reference)")[0]
+    plain_part = doc.split("## The Formal Glossary (Minimum Sufficient Reference)")[0]
     for marker in (
         "[STABLE]",
         "[PROVISIONAL]",

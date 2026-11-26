@@ -29,11 +29,6 @@ class SyncResult(TypedDict, total=False):
 
 ASSEMBLY_MANIFEST: tuple[ManifestEntry, ...] = (
     ManifestEntry(path="src/00_preamble.md"),
-    ManifestEntry(
-        path="GLOSSARY.md",
-        merge_mode="append",
-        heading_transform=(r"^#\s+Glossary\b", "**0.4 Vocabulary**"),
-    ),
     ManifestEntry(path="src/01_problem.md"),
     ManifestEntry(path="src/02_architecture.md"),
     ManifestEntry(path="src/03_algorithm.md"),
@@ -62,6 +57,13 @@ ASSEMBLY_MANIFEST: tuple[ManifestEntry, ...] = (
         heading_transform=(
             r"^#\s+The Refinement Cycle\b",
             "## APPENDIX R — The Refinement Cycle",
+        ),
+    ),
+    ManifestEntry(
+        path="GLOSSARY.md",
+        heading_transform=(
+            r"^#\s+Glossary\b",
+            "## APPENDIX G — Glossary",
         ),
     ),
 )

@@ -70,7 +70,7 @@ def _build_golden_repo(root):
 _EXPECTED_MONOLITH = (
     '---\n'
     'title: "GMRTI — General Method for Refinement and Transmission of Ideas"\n'
-    'kicker: "There must be a Science of Understanding"\n'
+    'kicker: "_There must be a Science of Understanding_"\n'
     'subtitle: "A Living Framework Document · Tenth Iteration (v0.9 Candidate)"\n'
     'pills:\n'
     '  - "epistemology"\n'
@@ -91,8 +91,6 @@ _EXPECTED_MONOLITH = (
     "Second plain paragraph.\n\n"
     "Third plain paragraph.\n\n"
     "Fourth paragraph not in plain.\n\n"
-    "**0.4 Vocabulary**\n\n"
-    "- **Term** — Definition.\n\n"
     "---\n\n"
     "## SECTION 1 — Problem\n\n"
     "**1.1 Core Gap** `[STABLE]` `[->causal]`\n\n"
@@ -120,7 +118,10 @@ _EXPECTED_MONOLITH = (
     "---\n\n"
     "## APPENDIX M — Methodology & Status Markers\n\nMethod body.\n\n"
     "---\n\n"
-    "## APPENDIX R — The Refinement Cycle\n\nRefine body.\n"
+    "## APPENDIX R — The Refinement Cycle\n\nRefine body.\n\n"
+    "---\n\n"
+    "## APPENDIX G — Glossary\n\n"
+    "- **Term** — Definition.\n"
 )
 
 _EXPECTED_PEBBLE = (
@@ -141,10 +142,9 @@ _EXPECTED_PEBBLE = (
     ">\n"
     "> A simple stone bridge.\n\n"
     "---\n\n"
-    "## The Formal Glossary (Academic Reference)\n\n"
-    "*The following glossary contains the verbatim formal definitions from\n"
-    "the full GMRTI treatise. It is included here for readers who wish to\n"
-    "explore the precise academic and mathematical definitions of the framework.*\n\n"
+    "## The Formal Glossary (Minimum Sufficient Reference)\n\n"
+    "*The following glossary contains the formal definitions from the full\n"
+    "GMRTI treatise that are directly referenced in this guide.*\n\n"
     "### Glossary\n\n"
     "- **Term** — Definition.\n\n"
     "---\n\n"
